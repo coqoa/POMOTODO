@@ -1,7 +1,14 @@
 # PoMoToDo(가제) 기획서
 
-[예시이미지]
-
+![스크린샷 2021-08-29 오후 7 59 18](https://user-images.githubusercontent.com/81023768/131248279-785abf9c-1497-40fb-817e-1239ae25868a.png)  
+메인화면(예시)  
+<br/>
+![스크린샷 2021-08-29 오후 7 59 46](https://user-images.githubusercontent.com/81023768/131248280-d8782418-6203-4b3d-b6ac-f588ec11aa2d.png)  
+과거기록(예시)  
+<br/>
+![스크린샷 2021-08-29 오후 8 00 00](https://user-images.githubusercontent.com/81023768/131248282-bf753386-a41b-46dc-8b33-2aaa79da774d.png)  
+사이드화면(예시)  
+<br/>
 
 ---
   
