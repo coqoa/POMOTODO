@@ -1,3 +1,30 @@
+---
+# 21910 진행상황
+
+![스크린샷 2021-09-10 오후 6 45 28](https://user-images.githubusercontent.com/81023768/132835562-c9417fcc-102f-4e21-a354-fb51103b1213.png)  
+![스크린샷 2021-09-10 오후 6 45 20](https://user-images.githubusercontent.com/81023768/132835578-66f1876b-fbcb-4516-9b3f-bb3ca06ea3bd.png)  
+- 컬러뽑고 직접 대입해서 어울리는 컬러 선정
+<br/><br/>
+![스크린샷 2021-09-10 오후 6 54 59](https://user-images.githubusercontent.com/81023768/132836423-e6ba1daa-b341-4f31-a51a-c923aac1bdb3.png)
+- 모달창 색 조절, 폰트 정해서 적용시킴
+
+
+<br/><br/>
+![스크린샷 2021-09-10 오후 6 45 05](https://user-images.githubusercontent.com/81023768/132835717-79f7f3d5-1fd3-4b13-a265-97a84e04eec2.png)
+![스크린샷 2021-09-10 오후 6 44 25](https://user-images.githubusercontent.com/81023768/132835724-b0ce936e-601c-40b1-b453-80bb4ab6a566.png)
+- 달력 컬러 뽑았음
+- 박스 테두리 선 크기 조절 
+
+<br/><br/>
+![스크린샷 2021-09-10 오후 6 47 31](https://user-images.githubusercontent.com/81023768/132836852-e2cb274c-119e-4075-a71a-240169f0caa5.png)  
+![스크린샷 2021-09-10 오후 6 48 52](https://user-images.githubusercontent.com/81023768/132836845-b7e7f5f5-6f1d-4929-a7bb-807c00216f71.png)  
+
+- 사이드페이지도 동일하게 뉴모피즘디자인 + 머티리얼디자인 사용
+
+<br/><br/>
+
+---
+
 # 210909 진행상황
 
 ![스크린샷 2021-09-09 오후 6 47 07](https://user-images.githubusercontent.com/81023768/132664173-3137dd75-abb1-44a2-ad7c-fb2f027cb2fb.png)  
@@ -67,7 +94,7 @@
      
       
     
-
+---
 # 210903 진행상황
 ![스크린샷 2021-09-04 오후 7 09 52](https://user-images.githubusercontent.com/81023768/132090909-e7673479-dbdf-4d2d-aec2-f2a6cdd6a432.png)  
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 그라데이션 메인 페이지  
