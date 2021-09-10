@@ -1,3 +1,24 @@
+# 21911 진행상황
+![스크린샷 2021-09-10 오후 7 36 54](https://user-images.githubusercontent.com/81023768/132888371-11c69d42-b24d-404b-9a6d-d41a4e889e2c.png)  
+![스크린샷 2021-09-10 오후 7 34 34](https://user-images.githubusercontent.com/81023768/132888384-85bbe2eb-8e60-460b-a2c3-2009e77bf020.png)  
+- 초록색 시계창, 모달창 구현
+
+<br/><br/>
+![스크린샷 2021-09-10 오후 7 42 29](https://user-images.githubusercontent.com/81023768/132888478-4120d1f7-3d6f-471e-b524-0beeb8a52772.png)  
+![스크린샷 2021-09-10 오후 7 42 38](https://user-images.githubusercontent.com/81023768/132888482-b945b516-2f15-4930-bcb1-974390d4ba6c.png)  
+![스크린샷 2021-09-10 오후 7 37 20](https://user-images.githubusercontent.com/81023768/132888487-3202e698-62ae-46c0-b845-b72fd248c5b6.png)  
+- 사이드페이지도 초록색시계창 / 모달창 구현
+
+<br/><br/>
+![스크린샷 2021-09-11 오전 1 12 19](https://user-images.githubusercontent.com/81023768/132888540-54fe78ef-83a7-4e55-9350-19afc6816ce3.png)  
+- 버튼아이콘 사이즈조절
+
+<br/><br/>
+![스크린샷 2021-09-11 오전 1 21 59](https://user-images.githubusercontent.com/81023768/132888601-38f76f16-039a-4a13-999e-0621a8675872.png)  
+![스크린샷 2021-09-11 오전 1 21 37](https://user-images.githubusercontent.com/81023768/132888611-149fce52-8a9d-4572-8deb-105278966737.png)  
+- 컬러 변경 및 적용
+
+<br/><br/>
 
 
 # 21910 진행상황
