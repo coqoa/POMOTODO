@@ -1,4 +1,44 @@
-# 21911 진행상황
+# 210912 진행상황
+
+![스크린샷 2021-09-12 오후 3 39 10](https://user-images.githubusercontent.com/81023768/132976532-0d55e1a5-d5de-4c9d-b52f-6b8bb43cdd12.png)  
+![스크린샷 2021-09-12 오후 3 29 52](https://user-images.githubusercontent.com/81023768/132976530-9d82dc56-6d1a-465f-bf18-cfcac8f15f7d.png)  
+- 음향효과 아이콘으로 구현  
+
+![스크린샷 2021-09-12 오후 3 39 39](https://user-images.githubusercontent.com/81023768/132976526-fe199e2c-4e2c-4405-9a1b-9f5c21e993e8.png) 
+- 음향효과와 x버튼을 눌렀을 때 새로운 모달창 생성  
+
+<br/><br/>
+
+![스크린샷 2021-09-12 오후 3 31 02](https://user-images.githubusercontent.com/81023768/132976603-6f4cc7b7-a4be-490b-a5be-a4c7e5b438a5.png)  
+- 기본시계  
+
+![스크린샷 2021-09-12 오후 3 31 09](https://user-images.githubusercontent.com/81023768/132976602-a7e05ffb-df3b-42bf-9291-a95dcfc97af6.png)   
+- 마우스 올리면 테두리 표시    
+
+![스크린샷 2021-09-12 오후 3 31 26](https://user-images.githubusercontent.com/81023768/132976601-f5b78268-fa2a-4362-bfb0-8df0a799fcc6.png)  
+- 클릭시 그라데이션효과 추가  
+
+
+<br/><br/>
+![스크린샷 2021-09-12 오후 3 32 38](https://user-images.githubusercontent.com/81023768/132976641-1ab91045-0a0b-445c-9089-b2f1cf397d3c.png)  
+- 정보를 표시하는 아랫부분 (뽀모도로, 투두, 낫투두리스트)에 마우스를 올리면 스크롤을 표시하고 스크롤에 마우스를 올리면 더 진하게 표시  
+
+
+<br/><br/>
+
+![스크린샷 2021-09-12 오후 3 33 56](https://user-images.githubusercontent.com/81023768/132976695-82e3c87c-550b-4423-892f-adca8f677e3a.png)
+![스크린샷 2021-09-12 오후 3 34 05](https://user-images.githubusercontent.com/81023768/132976697-c9e83057-9cd6-4e5e-b165-bcd9b8bb45a5.png)  
+- 투두리스트, 낫투두리스트에 +버튼 추가,컬러바구현, 이동/확인/제거 할 수 있는 버튼, 스크롤 구현 
+
+![스크린샷 2021-09-12 오후 3 34 40](https://user-images.githubusercontent.com/81023768/132976699-7072f9b5-4e6e-45be-91a9-09ba1c2395de.png)  
+- 버튼들을 누르면 나오는 모달창 화면예시  
+
+<br/><br/>
+
+
+---
+
+# 210911 진행상황
 ![스크린샷 2021-09-10 오후 7 36 54](https://user-images.githubusercontent.com/81023768/132888371-11c69d42-b24d-404b-9a6d-d41a4e889e2c.png)  
 ![스크린샷 2021-09-10 오후 7 34 34](https://user-images.githubusercontent.com/81023768/132888384-85bbe2eb-8e60-460b-a2c3-2009e77bf020.png)  
 - 초록색 시계창, 모달창 구현
@@ -21,7 +61,7 @@
 <br/><br/>
 
 
-# 21910 진행상황
+# 210910 진행상황
 
 ![스크린샷 2021-09-10 오후 6 45 28](https://user-images.githubusercontent.com/81023768/132835562-c9417fcc-102f-4e21-a354-fb51103b1213.png)  
 ![스크린샷 2021-09-10 오후 6 45 20](https://user-images.githubusercontent.com/81023768/132835578-66f1876b-fbcb-4516-9b3f-bb3ca06ea3bd.png)  
