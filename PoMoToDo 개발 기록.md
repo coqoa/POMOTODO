@@ -1,3 +1,36 @@
+# 210915 진행상황
+![스크린샷 2021-09-15 오전 12 38 25](https://user-images.githubusercontent.com/81023768/133290062-244d49b1-5da7-43b8-86b4-795c157ba15d.png)  
+![스크린샷 2021-09-15 오전 12 38 36](https://user-images.githubusercontent.com/81023768/133290054-51e5d6b1-715c-42de-a471-9ac63d42fabf.png)  
+![스크린샷 2021-09-15 오전 12 38 44](https://user-images.githubusercontent.com/81023768/133290042-9dbd6dcf-4283-4fef-a5ef-ad598d460a3e.png)  
+- 디자인 중간 완성
+- 변경사항 : 뮤직플레이어 버튼은 플랫하게 디자인, hover/click 상호작용 구현예정 (이유: 레이아웃제외하고 뉴모피즘디자인의 중첩을 피했음
+- 모달창 머티리얼 디자인 적용
+- 투두 / 낫투두 리스트 입력창 크기조절
+
+<br/><br/>
+
+![스크린샷 2021-09-15 오전 12 38 52](https://user-images.githubusercontent.com/81023768/133290421-a736990d-baca-4384-8d04-3199196ce303.png)  
+![스크린샷 2021-09-15 오전 12 39 00](https://user-images.githubusercontent.com/81023768/133290434-45b5c327-7efe-4f8e-818d-d032deb2a35e.png)  
+- 시계부분 마우스 hover, click시 상호작용 구현  
+
+<br/><br/>
+
+![스크린샷 2021-09-15 오전 12 39 20](https://user-images.githubusercontent.com/81023768/133290642-a95d3096-0504-4037-8745-2f086d1903a4.png)  
+![스크린샷 2021-09-15 오전 12 39 34](https://user-images.githubusercontent.com/81023768/133290651-63b72dee-6047-4b23-aeda-591529a59311.png)  
+- 스크롤바 표시, 컬러/투명도 변경, 위치고정, 모달창 정리, 
+
+<br/><br/>
+
+![스크린샷 2021-09-15 오전 12 39 54](https://user-images.githubusercontent.com/81023768/133290777-6f2be70d-78b4-4e89-9898-0c4e772e5601.png)  
+![스크린샷 2021-09-15 오전 12 40 08](https://user-images.githubusercontent.com/81023768/133290792-7eca75a6-824b-40ba-a7e8-18dc8f86b340.png)  
+![스크린샷 2021-09-15 오전 12 40 18](https://user-images.githubusercontent.com/81023768/133290803-652da0d2-e8a2-4c4a-af86-6549eaee1bc6.png)  
+- 상단 뮤직플레이어 버튼 플랫한 디자인 적용
+- 스크롤바 정리
+
+
+<br/><br/>
+
+
 # 210914 진행상황
 
 ![스크린샷 2021-09-14 오후 8 08 00](https://user-images.githubusercontent.com/81023768/133247156-79830835-ec3c-4423-ad84-3c86d77adad6.png)  
