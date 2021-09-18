@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoMoToDo</title>
+</head>
+<body>
+    <header>
+        <!--  -->
+    </header>
+<fieldset>
+    <h1>Pomodoro & Music</h1>
+    <section>
+        <article> <!--Pomodoro-->
+            <h2>Date</h2> <!--date-->
+            <div><!--clock, record-->
+                <div ><!--clock-option-->
+                    <form action="index.html">
+                        <h2>Clock</h2>
+                        <input type = "button" value = "clock"> 
+                        <h4>Clock-option</h4>
+                        <input type = "button" value = "stop"> 
+                        <input type = "button" value = "change-time"> 
+                        <input type = "button" value = "chang-type"> 
+                    </form>
+                </div>
+            
+                <div><!--record-->
+                    <h2>Record</h2>
+                    <form action="index.html">
+                        <ul>
+                            <li>time-record1 <input type="text" value="detail-record1"></li>
+                            <li>time-record2 <input type="text" value="detail-record2"></li>
+                            <li>time-record3 <input type="text" value="detail-record3"></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+
+            <div><!--music-->
+                <h2>Music</h2>
+                <form action="index.html">
+                    <h4>select music</h4><!--select-music-->
+                        <select name="music" id="select-music">
+                            <option value="music1">music1</option>
+                            <option value="music2">music2</option>
+                            <option value="music3">music3</option>
+                            <option value="music4">music4</option>
+                            <option value="music5">music5</option>
+                        </select>
+                    <h4>music-button</h4><!--music-button-->
+                        <input type="button" value = "previous">
+                        <input type="button" value = "start-music">
+                        <input type="button" value = "next">
+                </form>
+            </div>
+        </article>
+    </section>
+</fieldset>
+<fieldset>
+    <section>
+        <article><!-- todolist-->
+            <nav><!--page-nav-->
+                <h2>Navigation</h2>
+                <ul>
+                    <li><a href="/PoMoToDo_project/PoMoToDo-side.html">side-nav</a></li>
+                    <li><a href="/PoMoToDo_project/PoMoToDo-record.html">record-nav</a></li>
+                </ul>
+            </nav>
+            <div><!--title-->
+                <h2>ToDoList</h2>
+            </div>
+            <div><!--write-->
+                <h4>write</h4><!--write-todo-->
+                <form action="index.html"><!-- index.html 임시로 지정-->
+                    <fieldset>
+                        <select name="color" id="select-color"><!-- change-color-window -->
+                            <option value="gray">gray</option>
+                            <option value="blue">blue</option>
+                            <option value="green">green</option>
+                            <option value="black">black</option>
+                        </select>
+                        <input type="text">
+                        <input type="submit" value = "enter">
+                    </fieldset>
+                </form>
+            </div>
+            <div><!--list-->
+                <h4>List</h4>
+                <form action="index.html">
+                    <fieldset>
+                        <legend>투두리스트</legend>
+                        <label>
+                            <input type="button" value="list-drag">
+                            <input type="button" value="list-article">
+                        </label>
+                        <input type="button" value="list-check">
+                        <input type="button" value="list-delete">
+                    </fieldset>
+                </form>
+            </div>
+        </article>
+    </section>
+</fieldset>
+
+<fieldset>
+    <section>
+        <article><!--Not-ToDoList-->
+            <div><!--title-->
+                <h2>Not-ToDoList</h2>
+            </div>
+            <h4>write</h4><!--write-todo-->
+                <form action="index.html"><!-- index.html 임시로 지정-->
+                    <fieldset>
+                        <select name="color" id="select-color"><!-- change-color-window -->
+                            <option value="red">red</option>
+                            <option value="green">green</option>
+                        </select>
+                        <input type="text">
+                        <input type="submit" value = "선택">
+                    </fieldset>
+                </form>
+            </div>
+            <div><!--list-->
+                <h4>List</h4>
+                <form action="index.html">
+                    <fieldset>
+                        <legend>낫투두리스트</legend>
+                        <label>
+                            <input type="button" value="list-drag">
+                            <input type="button" value="list-article">
+                        </label>
+                        <input type="button" value="list-check">
+                        <input type="button" value="list-delete">
+                    </fieldset>
+                </form>
+            </div>
+        </article>
+    </section>
+</fieldset>
+
+    <footer>
+        <!--  -->
+    </footer>
+</body>
+</html>
