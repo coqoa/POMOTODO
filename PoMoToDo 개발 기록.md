@@ -1,3 +1,14 @@
+
+# 210919 진행상황
+![스크린샷 2021-09-19 오전 12 30 12](https://user-images.githubusercontent.com/81023768/133894137-aeef0ebb-a108-4b72-a7cc-df48f8bf642a.png)  
+<br/><br/>
+![스크린샷 2021-09-19 오전 12 30 20](https://user-images.githubusercontent.com/81023768/133894147-b65309ce-1c5f-4bd4-85c5-d6723bb86a5d.png)  
+<br/><br/>
+![스크린샷 2021-09-19 오전 12 30 28](https://user-images.githubusercontent.com/81023768/133894152-015e5af9-d1c3-41e9-be1b-c0742735b9a4.png)  
+<br/><br/>
+- HTML 기본구조를 짜기 위해 섹션을 나누고 태그명을 정함
+<br/><br/>
+
 # 210915 진행상황
 ![스크린샷 2021-09-15 오전 12 38 25](https://user-images.githubusercontent.com/81023768/133290062-244d49b1-5da7-43b8-86b4-795c157ba15d.png)  
 ![스크린샷 2021-09-15 오전 12 38 36](https://user-images.githubusercontent.com/81023768/133290054-51e5d6b1-715c-42de-a471-9ac63d42fabf.png)  
