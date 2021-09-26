@@ -1,51 +1,60 @@
 body {
   display: flex;
-  width: 1920px;
-  height: 965px;
-  margin: 0;
-  padding: 0;
+  width: 1905px;
+  height: 940px;
+  margin: 0px;
   background-color: #e9f0fa;
 }
 
+h2 {
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 7px;
+}
+
 section.Pomodoro {
-  height: 850px;
-  padding: 20px;
-  margin-top: 40px;
+  height: 87%;
+  width: 35%;
+  padding: 10px;
+  margin-top: 50px;
   margin-bottom: 40px;
-  margin-left: 200px;
-  margin-right: 50px;
-  width: 660px;
-  border-radius: 20px;
+  margin-left: 240px;
+  margin-right: 45px;
+  border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 11px 11px 22px #c8ced7, -11px -11px 22px #ffffff;
 }
 
 section.todonottodo {
   margin-left: 50px;
-  margin-right: 210px;
-  width: 700px;
+  margin-right: 240px;
+  width: 35%;
 }
 
 article.todolist {
-  height: 540px;
-  margin-top: 40px;
-  margin-bottom: 30px;
-  padding: 20px;
-  border-radius: 20px;
+  height: 58%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 11px 11px 22px #c8ced7, -11px -11px 22px #ffffff;
 }
 
 article.nottodolist {
-  margin-bottom: 40px;
-  height: 240px;
-  padding: 20px;
-  border-radius: 20px;
+  margin-bottom: 50px;
+  height: 25%;
+  padding: 10px;
+  border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 11px 11px 22px #c8ced7, -11px -11px 22px #ffffff;
 }
 
 #stop {
+  position: absolute;
+  left: 515px;
+  top: 380px;
   border: 0;
   outline: 0;
   padding: 3px;
@@ -57,6 +66,9 @@ article.nottodolist {
 }
 
 #change-time {
+  position: absolute;
+  left: 565px;
+  top: 380px;
   border: 0;
   outline: 0;
   padding: 5px;
@@ -68,6 +80,9 @@ article.nottodolist {
 }
 
 #change-type {
+  position: absolute;
+  left: 615px;
+  top: 380px;
   border: 0;
   outline: 0;
   padding: 8px;
@@ -78,93 +93,103 @@ article.nottodolist {
   box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
 
+/* div.clock {
+  position: relative;
+  border:1px solid gray
+  top: 100px;
+  left: 100px;
+  height: 240px;
+  width: 530px;
+  padding: 10px;
+} */
+
 div.record {
   position: relative;
-  top: 150px;
-  height: 250px;
+  top: 290px;
+  left: 55px;
+  height: 260px;
+  width: 530px;
   padding: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
+
   border-radius: 20px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
 
+div.record ul {
+  list-style: none;
+  border: 0;
+  outline: 0;
+  position: relative;
+  left: 20px;
+}
+
 div.music {
   position: relative;
-  top: 175px;
+  top: 310px;
+  left: 55px;
   height: 150px;
-  padding: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
-  border-radius: 20px;
+  width: 550px;
+  border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
 
 #select-music {
   color: #00ff0000; /*투명*/
-  width: 50px;
-  height: 50px;
+  position: relative;
+  left: 245px;
+  top: 10px;
+  width: 60px;
+  height: 60px;
   border: 0;
   outline: 0;
-  margin-top: 20px;
-  margin-left: 235px;
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
 
 #previous {
-  margin-top: 30px;
-  margin-left: 20px;
-  padding: 5px;
-
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
+  position: absolute;
+  left: 200px;
+  top: 96px;
+  width: 30px;
+  height: 30px;
 }
 #start-music {
-  margin-left: 10px;
-  padding: 3px;
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
+  position: absolute;
+  left: 250px;
+  top: 85px;
+  width: 50px;
+  height: 50px;
 }
 #next {
-  margin-left: 10px;
-  padding: 5px;
+  position: absolute;
+  left: 320px;
+  top: 96px;
+  width: 30px;
+  height: 30px;
+}
+
+#side-nav {
+  position: absolute;
+  left: 1570px;
+  top: 75px;
   width: 20px;
   height: 20px;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
-}
-
-ul.navigation {
-  display: flex;
-  list-style: none;
-  margin-left: 520px;
-}
-
-li#side-nav {
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  margin-right: 10px;
+  padding: 5px;
   border-radius: 5px;
   background: #e9f0fa;
   box-shadow: 4px 4px 8px #cdd3dc, -4px -4px 8px #ffffff;
 }
 
-li#record-nav {
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
+#record-nav {
+  position: absolute;
+  left: 1610px;
+  top: 75px;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
   border-radius: 5px;
   background: #e9f0fa;
   box-shadow: 4px 4px 8px #cdd3dc, -4px -4px 8px #ffffff;
@@ -174,39 +199,85 @@ li#record-nav {
 #nottodo-write {
   margin-left: 30px;
   margin-right: 50px;
+  margin-bottom: 20px;
   border-radius: 5px;
-  height: 35px;
+  height: 34px;
   background: #e9f0fa;
   box-shadow: 3px 3px 10px #cdd3dc, -3px -3px 10px #ffffff;
 }
 
 #select-color {
+  position: relative;
+  left: 3px;
+  top: 3px;
   border: 0;
   outline: 0;
   border-radius: 5px;
   height: 28px;
   padding: 2px;
-  margin-top: 2px;
-  margin-left: 2px;
 }
 
 #text {
+  position: relative;
+  left: 3px;
+  top: 3px;
   border: 0;
   outline: 0;
   border-radius: 5px;
-  width: 450px;
+  width: 440px;
   height: 25px;
   padding: 1px;
-  margin-top: 4px;
 }
 
 #submit {
+  position: relative;
+  left: 3px;
+  top: 3px;
   border: 0;
   outline: 0;
   border-radius: 5px;
   height: 28px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
+}
+
+#list-drag {
+  position: relative;
+  top: 10px;
+  left: 0px;
+
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+
+#list-article {
+  border: 0;
+  outline: 0;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  width: 530px;
+  height: 25px;
+  border-radius: 5px;
+  height: 34px;
+  background: #e9f0fa;
+  box-shadow: 3px 3px 10px #cdd3dc, -3px -3px 10px #ffffff;
+}
+
+#list-check {
+  position: relative;
+  top: 5px;
+  left: 20px;
+
+  width: 20px;
+  height: 20px;
+  opacity: 0.2;
+}
+#list-delete {
+  position: relative;
+  top: 5px;
+  left: 20px;
+
+  width: 20px;
+  height: 20px;
+  opacity: 0.2;
 }

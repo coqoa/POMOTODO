@@ -10,30 +10,35 @@
 </head>
 <body>
     <header>
-        <!--  -->
+        <!------>
     </header>
 
     <section class = "Pomodoro">
         <article> <!--Pomodoro-->
             <h2>Date</h2> <!--date-->
+            <div class="clock">
+                <form action="index.html">
+                    <input type = "button" value = "clock">
+                </form>
+            </div>
             <div><!--clock, record-->
-                <div ><!--clock-option-->
+                <div><!--clock-option-->
                     <form action="index.html">
-                        <h2>Clock</h2>
-                        <input type = "button" value = "clock"> 
-                        <h4>Clock-option</h4>
+                        
                         <input id="stop" type = "image" alt="stop" src="/POMOTODO icon/button-stop.png"> 
                         <input id="change-time" type = "image" alt="change-time" src="/POMOTODO icon/button-changetime.png"> 
                         <input id="change-type" type = "image" alt="change-type" src="/POMOTODO icon/button-changetype.png" > 
                     </form>
                 </div>
+                
             
                 <div class ="record"><!--record-->
                     <form action="index.html">
                         <ul>
-                            <li>time-record1 <input type="text" value="detail-record1"></li>
-                            <li>time-record2 <input type="text" value="detail-record2"></li>
-                            <li>time-record3 <input type="text" value="detail-record3"></li>
+                            <!--입력값 출력하는건 JS의 영역-->
+                            <li>time-record1 <input type="text"></li>
+                            <li>time-record2 <input type="text"></li>
+                            <li>time-record3 <input type="text"></li>
                         </ul>
                     </form>
                 </div>
@@ -60,15 +65,18 @@
 
     <section class="todonottodo">
         <article class="todolist"><!-- todolist-->
-            <nav class="page-nav"><!--page-nav-->
-                <ul class="navigation">
-                    <li id="side-nav"><a href="/PoMoToDo_project/PoMoToDo-side.html"><img src="/POMOTODO icon/nav-side.png" alt="side-nav" width="20px" height="20px"></a></li>
-                    <li id="record-nav"><a href="/PoMoToDo_project/PoMoToDo-record.html"><img src="/POMOTODO icon/nav-record.png" alt="record-nav" width="20px" height="20px"> </a></li>
-                </ul>
-            </nav>
             <div><!--title-->
                 <h2>ToDoList</h2>
             </div>
+            <nav class="page-nav"><!--page-nav-->
+                <form action="/PoMoToDo-side.html">
+                    <input id="side-nav" type="image" alt="side-nav" src="POMOTODO icon/nav-side.png">
+                </form>
+                <form action="/PoMoToDo-record.html">
+                    <input id="record-nav" type="image" alt="record-nav" src="POMOTODO icon/nav-record.png">
+                </form>
+            </nav>
+            
             <div id="todo-write"><!--write--><!--write-todo-->
                 <form action="index.html"><!-- index.html 임시로 지정-->
                         <select name="color" id="select-color"><!-- change-color-window -->
@@ -81,24 +89,20 @@
                         <input id="submit" type="submit" value = "enter">
                 </form>
             </div>
-            <div><!--list-->
+            <div class="list"><!--list-->
                 <form action="index.html">
-                    <fieldset>
-                        <legend>투두리스트</legend>
-                        <label>
-                            <input type="button" value="list-drag">
-                            <input type="button" value="list-article">
-                        </label>
-                        <input type="button" value="list-check">
-                        <input type="button" value="list-delete">
-                    </fieldset>
+                        <input id="list-drag" type="image" alt="list-drag" src="POMOTODO icon/button-movelist.png">
+                        <input id="list-article" type="text" alt="list-article">
+                        <input id="list-check" type="image" alt="list-check" src="POMOTODO icon/button-check.png" >
+                        <input id="list-delete" type="image" alt="list-delete" src="POMOTODO icon/button-delete.png">
+
                 </form>
             </div>
         </article>
 
         <article class="nottodolist"><!--Not-ToDoList-->
             <div>
-                <h2>Not-ToDoList</h2>
+                <h2>NotToDoList</h2>
             </div>
             <div id="nottodo-write"><!--title-->
                 <form action="index.html"><!-- index.html 임시로 지정-->
@@ -110,17 +114,13 @@
                         <input id="submit" type="submit" value = "enter">
                 </form>
             </div>
-            <div><!--list-->
+            <div class="list"><!--list-->
                 <form action="index.html">
-                    <fieldset>
-                        <legend>낫투두리스트</legend>
-                        <label>
-                            <input type="button" value="list-drag">
-                            <input type="button" value="list-article">
-                        </label>
-                        <input type="button" value="list-check">
-                        <input type="button" value="list-delete">
-                    </fieldset>
+                        <input id="list-drag" type="image" alt="list-drag" src="POMOTODO icon/button-movelist.png">
+                        <input id="list-article" type="text" alt="list-article">
+                        <input id="list-check" type="image" alt="list-check" src="POMOTODO icon/button-check.png" >
+                        <input id="list-delete" type="image" alt="list-delete" src="POMOTODO icon/button-delete.png">
+
                 </form>
             </div>
         </article>
