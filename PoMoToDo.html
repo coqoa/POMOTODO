@@ -34,12 +34,12 @@
             
                 <div class ="record"><!--record-->
                     <form action="index.html">
-                        <ul>
+                        <ul > 
                             <!--입력값 출력하는건 JS의 영역-->
-                            <li>time-record1 <input type="text"></li>
-                            <li>time-record2 <input type="text"></li>
-                            <li>time-record3 <input type="text"></li>
+                            <li class="record-list" id="record-time" >time-record </li>
+                            <input class="record-list" id="record-text"  type="text">
                         </ul>
+                        
                     </form>
                 </div>
             </div>
@@ -47,11 +47,11 @@
             <div class="music"><!--music-->
                 <form action="index.html">
                         <select name="music" id="select-music">
-                            <option id="music1" value="music1">1</option>
-                            <option id="music2" value="music2">2</option>
-                            <option id="music3" value="music3">3</option>
-                            <option id="music4" value="music4">4</option>
-                            <option id="music5" value="music5">5</option>
+                            <option id="music1" value="music1"></option>
+                            <option id="music2" value="music2"></option>
+                            <option id="music3" value="music3"></option>
+                            <option id="music4" value="music4"></option>
+                            <option id="music5" value="music5"></option>
                         </select>
                         <br>
                         <input id="previous" type="image" alt="previous" src="/POMOTODO icon/button-previouse.png">
@@ -86,7 +86,8 @@
                             <option value="black">black</option>
                         </select>
                         <input id="text" type="text">
-                        <input id="submit" type="submit" value = "enter">
+                        <input id="submit" type="submit" src="/POMOTODO icon/button-enter.png" value = "         ">
+                        <!-- <input id="submit" type="image" value = "enter" src="POMOTODO icon/button-enter.png"> -->
                 </form>
             </div>
             <div class="list"><!--list-->
@@ -94,6 +95,15 @@
                         <input id="list-drag" type="image" alt="list-drag" src="POMOTODO icon/button-movelist.png">
                         <input id="list-article" type="text" alt="list-article">
                         <input id="list-check" type="image" alt="list-check" src="POMOTODO icon/button-check.png" >
+                        <input id="list-delete" type="image" alt="list-delete" src="POMOTODO icon/button-delete.png">
+
+                </form>
+            </div>
+            <div class="checked-list"><!--list-->
+                <form action="index.html">
+                        <input id="list-drag" type="image" alt="list-drag" src="POMOTODO icon/button-movelist.png">
+                        <input id="checked-list-article" type="text" alt="list-article">
+                        <input id="list-checked" type="image" alt="list-check" src="POMOTODO icon/button-check.png" >
                         <input id="list-delete" type="image" alt="list-delete" src="POMOTODO icon/button-delete.png">
 
                 </form>
@@ -111,7 +121,7 @@
                             <option value="green">green</option>
                         </select>
                         <input id="text" type="text">
-                        <input id="submit" type="submit" value = "enter">
+                        <input id="submit" type="submit" value = "         ">
                 </form>
             </div>
             <div class="list"><!--list-->
@@ -123,6 +133,7 @@
 
                 </form>
             </div>
+        
         </article>
     </section>
 

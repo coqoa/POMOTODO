@@ -54,7 +54,7 @@ article.nottodolist {
 #stop {
   position: absolute;
   left: 515px;
-  top: 380px;
+  top: 385px;
   border: 0;
   outline: 0;
   padding: 3px;
@@ -68,7 +68,7 @@ article.nottodolist {
 #change-time {
   position: absolute;
   left: 565px;
-  top: 380px;
+  top: 385px;
   border: 0;
   outline: 0;
   padding: 5px;
@@ -82,7 +82,7 @@ article.nottodolist {
 #change-type {
   position: absolute;
   left: 615px;
-  top: 380px;
+  top: 385px;
   border: 0;
   outline: 0;
   padding: 8px;
@@ -105,10 +105,10 @@ article.nottodolist {
 
 div.record {
   position: relative;
-  top: 290px;
-  left: 55px;
-  height: 260px;
-  width: 530px;
+  top: 295px;
+  left: 80px;
+  height: 240px;
+  width: 480px;
   padding: 10px;
 
   border-radius: 20px;
@@ -116,20 +116,29 @@ div.record {
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
 
-div.record ul {
-  list-style: none;
-  border: 0;
-  outline: 0;
+.record-list {
   position: relative;
-  left: 20px;
+  left: 30px;
+  margin-right: 50px;
+  width: 220px;
+  display: inline;
+  list-style: none;
+  border-radius: 5px;
+}
+#record-time {
+  color: #e96977;
+}
+
+#record-text {
+  border: 1px solid rgb(255, 255, 255);
 }
 
 div.music {
   position: relative;
-  top: 310px;
-  left: 55px;
+  top: 320px;
+  left: 80px;
   height: 150px;
-  width: 550px;
+  width: 500px;
   border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
@@ -138,7 +147,7 @@ div.music {
 #select-music {
   color: #00ff0000; /*투명*/
   position: relative;
-  left: 245px;
+  left: 215px;
   top: 10px;
   width: 60px;
   height: 60px;
@@ -149,23 +158,27 @@ div.music {
   box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
 
+#music1 {
+  background: url("Pomotodo icon/button-enter.png");
+}
+
 #previous {
   position: absolute;
-  left: 200px;
+  left: 150px;
   top: 96px;
   width: 30px;
   height: 30px;
 }
 #start-music {
   position: absolute;
-  left: 250px;
+  left: 220px;
   top: 85px;
   width: 50px;
   height: 50px;
 }
 #next {
   position: absolute;
-  left: 320px;
+  left: 310px;
   top: 96px;
   width: 30px;
   height: 30px;
@@ -174,36 +187,42 @@ div.music {
 #side-nav {
   position: absolute;
   left: 1570px;
-  top: 75px;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
+  top: 65px;
+  width: 19px;
+  height: 19px;
+  padding: 6px;
+  opacity: 0.5;
   border-radius: 5px;
   background: #e9f0fa;
-  box-shadow: 4px 4px 8px #cdd3dc, -4px -4px 8px #ffffff;
+  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
 
 #record-nav {
   position: absolute;
   left: 1610px;
-  top: 75px;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
+  top: 65px;
+  width: 19px;
+  height: 19px;
+  padding: 6px;
+  opacity: 0.5;
   border-radius: 5px;
   background: #e9f0fa;
-  box-shadow: 4px 4px 8px #cdd3dc, -4px -4px 8px #ffffff;
+  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
 
 #todo-write,
 #nottodo-write {
   margin-left: 30px;
-  margin-right: 50px;
-  margin-bottom: 20px;
+  margin-right: 60px;
+  margin-bottom: 10px;
   border-radius: 5px;
-  height: 34px;
+  height: 36px;
   background: #e9f0fa;
-  box-shadow: 3px 3px 10px #cdd3dc, -3px -3px 10px #ffffff;
+  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
+}
+
+div.list {
+  margin-bottom: 5px;
 }
 
 #select-color {
@@ -224,7 +243,7 @@ div.music {
   border: 0;
   outline: 0;
   border-radius: 5px;
-  width: 440px;
+  width: 430px;
   height: 25px;
   padding: 1px;
 }
@@ -236,7 +255,12 @@ div.music {
   border: 0;
   outline: 0;
   border-radius: 5px;
-  height: 28px;
+  background: url("Pomotodo icon/button-enter.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: -1px;
+  opacity: 0.5;
 }
 
 #list-drag {
@@ -254,19 +278,19 @@ div.music {
   outline: 0;
   position: relative;
   top: 0px;
-  left: 10px;
-  width: 530px;
+  left: 2px;
+  width: 540px;
   height: 25px;
   border-radius: 5px;
   height: 34px;
   background: #e9f0fa;
-  box-shadow: 3px 3px 10px #cdd3dc, -3px -3px 10px #ffffff;
+  box-shadow: 1px 1px 1px #949da6, -1px -1px 1px #ffffff;
 }
 
 #list-check {
   position: relative;
   top: 5px;
-  left: 20px;
+  left: 8px;
 
   width: 20px;
   height: 20px;
@@ -275,9 +299,33 @@ div.music {
 #list-delete {
   position: relative;
   top: 5px;
-  left: 20px;
+  left: 6px;
 
   width: 20px;
   height: 20px;
   opacity: 0.2;
+}
+
+#checked-list-article {
+  border: 0;
+  outline: 0;
+  position: relative;
+  top: 0px;
+  left: 2px;
+  width: 540px;
+  height: 25px;
+  border-radius: 5px;
+  height: 34px;
+  background: #e9f0fa;
+  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
+}
+
+#list-checked {
+  position: relative;
+  top: 5px;
+  left: 8px;
+
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
 }
