@@ -1,5 +1,25 @@
 # 210927 진행상황
 
+### html구조를 짜기위한 레이아웃, 이름 설정 / 상호작용 설명
+<br/><br/>
+- main page
+![스크린샷 2021-09-27 오후 6 35 15](https://user-images.githubusercontent.com/81023768/134884749-837e6b02-fa59-4cd2-b069-16eccddf1b5c.png)  
+![스크린샷 2021-09-27 오후 6 35 35](https://user-images.githubusercontent.com/81023768/134884762-e1d01593-3b11-4d51-b791-1c676519b1e7.png)  
+![스크린샷 2021-09-27 오후 6 36 12](https://user-images.githubusercontent.com/81023768/134884765-2e66f55b-1a7e-4e5a-aca6-194ed20c9cef.png)  
+<br/><br/>
+<br/><br/>
+- record page
+![스크린샷 2021-09-27 오후 6 35 22](https://user-images.githubusercontent.com/81023768/134884830-39889fa4-5b2d-4050-a839-721176a6b620.png)  
+![스크린샷 2021-09-27 오후 6 36 21](https://user-images.githubusercontent.com/81023768/134884839-f3d200e2-bb3b-4d5a-9628-3b2d5a36d118.png)  
+<br/><br/>
+<br/><br/>
+- side page
+![스크린샷 2021-09-27 오후 6 35 28](https://user-images.githubusercontent.com/81023768/134884876-b9f8461f-7e37-4fbc-97f5-e32bc668cd16.png)  
+![스크린샷 2021-09-27 오후 6 35 46](https://user-images.githubusercontent.com/81023768/134884888-d3468248-22a7-4c0a-9cec-4fae22200b69.png)   
+![스크린샷 2021-09-27 오후 6 36 41](https://user-images.githubusercontent.com/81023768/134884895-5da53628-9b90-4e65-b33a-d0e22d31ef51.png)  
+
+---
+
 전체적인 통일감을 위한 디자인 변경
 
 ![스크린샷 2021-09-27 오전 1 14 02](https://user-images.githubusercontent.com/81023768/134815680-797be835-6f43-4353-a6e9-4e8b5a6fcbcc.png)  
