@@ -34,11 +34,11 @@
             
                 <div class ="record"><!--record-->
                     <form action="index.html">
-                        <ul > 
+                        <ol > 
                             <!--입력값 출력하는건 JS의 영역-->
                             <li class="record-list" id="record-time" >time-record </li>
-                            <input class="record-list" id="record-text"  type="text">
-                        </ul>
+                            <input class="record-list" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off>
+                        </ol>
                         
                     </form>
                 </div>
@@ -79,11 +79,11 @@
             
             <div id="todo-write"><!--write--><!--write-todo-->
                 <form action="index.html"><!-- index.html 임시로 지정-->
-                        <select name="color" id="select-color"><!-- change-color-window -->
-                            <option value="gray">gray</option>
-                            <option value="blue">blue</option>
-                            <option value="green">green</option>
-                            <option value="black">black</option>
+                        <select name="color" class="select-color"><!-- change-color-window -->
+                            <option id="list-color-gray" value="gray">gray</option>
+                            <option id="list-color-blue" value="blue">blue</option>
+                            <option id="list-color-green" value="green">green</option>
+                            <option id="list-color-black" value="black">black</option>
                         </select>
                         <input id="text" type="text">
                         <input id="submit" type="submit" src="/POMOTODO icon/button-enter.png" value = "         ">
@@ -116,7 +116,7 @@
             </div>
             <div id="nottodo-write"><!--title-->
                 <form action="index.html"><!-- index.html 임시로 지정-->
-                        <select name="color" id="select-color"><!-- change-color-window -->
+                        <select name="color" class="select-color"><!-- change-color-window -->
                             <option value="red">red</option>
                             <option value="green">green</option>
                         </select>
