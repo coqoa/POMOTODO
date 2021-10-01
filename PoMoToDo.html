@@ -7,6 +7,7 @@
     <title>PoMoToDo</title>
     <link rel="stylesheet" href="style.css"">
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
+    <script defer src="main.js"></script>
 </head>
 <body>
     <header>
@@ -31,12 +32,39 @@
     <section class = "Pomodoro">
         <article> <!--Pomodoro-->
             <h2>Date</h2> <!--date-->
-            <div class="clock">
-                <form action="index.html">
-                    <input type = "button" value = "clock">
-                </form>
-            </div>
             <div><!--clock, record-->
+                <!--  -->
+                <div class="timer-container">
+
+                    <div id="timer" class="timer">
+                        <div class="cover1"></div>
+            
+                        <div id="lines">
+            
+                        </div>
+            
+                        <div id="fins">
+            
+                        </div>
+            
+                        <div id="num-container">
+            
+                        </div>
+            
+                        <div class="cover2"></div>
+                    </div>
+                </div>
+            
+                <div class="time-container">
+                    <div id="remain-time" class="remain-time"></div>
+                    <div id="total-time" class="total-time"></div>
+                </div>
+            
+                <div class="button-container">
+                    <button id="control" class="control" value="일시정지"></button>
+                </div>
+
+                <!--  -->
                 <div><!--clock-option-->
                     <form action="index.html">
                         

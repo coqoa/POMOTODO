@@ -123,11 +123,128 @@ article.nottodolist {
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
 }
+/*  */
+.timer-container {
+  color: rgb(50, 50, 50);
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+  padding: 40px;
+  border-radius: 20%;
+  border: 15px solid rgb(55, 55, 55);
+  box-shadow: inset 0 0 3px 3px rgba(50, 50, 50, 0.3), inset 0 0 1px 2px rgba(50, 50, 50, 0.2);
+}
 
+.timer { 
+  position: relative;
+  font-size: 20px;
+
+  width: 15em;
+  height: 15em;
+}
+
+.timer .line {
+  width: 100%;
+  height: 1px;
+  top: calc(50% - 1px / 2);
+
+  background: #000;
+  position: absolute;
+}
+
+.timer .line.thick {
+  width: calc(100% + .4em);
+  left: calc(-.4em / 2);
+
+  height: 3px;
+  top: calc(50% - 3px / 2);
+}
+
+.timer .cover1{
+  position: absolute;
+  width: calc(100% - 4%);
+  height: calc(100% - 4%);
+  left: calc(4% / 2);
+  top: calc(4% / 2);
+  border-radius: 50%;
+  background: #fff;
+  z-index: 1;
+}
+
+.fin {
+  position: absolute;
+  width: 1px;
+  left: calc(50% - 1px / 2);
+
+  height: calc(50% - .3em);
+  top: .3em;
+
+  background: rgb(255, 57, 50);
+  z-index: 2;
+  transform-origin: bottom;
+}
+
+.timer .cover2 {
+  position: absolute;
+  width: 18%;
+  height: 18%;
+  left: calc(50% - 18% / 2);
+  top: calc(50% - 18% / 2);
+  
+  border-radius: 50%;
+  background: #fff;
+  z-index: 3;
+  box-shadow: 0 0 3px 3px rgba(50, 50, 50, 0.4), 0 0 1px 2px rgba(50, 50, 50, 0.3);
+}
+
+.num-box {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: calc(100% + 18%);
+  left: calc(-18% / 2);
+  height: 40px;
+  top: calc(50% - 40px/2);
+  font-weight: 600;
+}
+
+.button-container {
+  margin-top: 60px;
+}
+
+.control {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: rgb(255, 57, 50);
+}
+.control:active {
+  transform: scale(.96);
+}
+
+.time-container {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+.time-container .total-time {
+  font-size: 13px;
+  margin-top: 5px;
+}
+/*  */
 #stop {
   position: relative;
   left: 265px;
-  top: 30px;
+  top: 15px;
   border: 0;
   outline: 0;
   padding: 3px;
@@ -141,8 +258,8 @@ article.nottodolist {
 
 #change-time {
   position: relative;
-  left: 275px;
-  top: 30px;
+  left: 280px;
+  top: 15px;
   border: 0;
   outline: 0;
   padding: 5px;
@@ -156,16 +273,16 @@ article.nottodolist {
 
 #change-type {
   position: relative;
-  left: 285px;
-  top: 30px;
+  left: 295px;
+  top: 15px;
   border: 0;
   outline: 0;
-  padding: 8px;
-  width: 14px;
-  height: 14px;
+  padding: 6px;
+  width: 18px;
+  height: 18px;
   border-radius: 5px;
   background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
+  box-shadow: 1px 1px 3px #949da6, -1px -1px 2px #ffffff;
 }
 
 div.clock {
@@ -181,7 +298,7 @@ div.clock {
 
 div.record {
   position: relative;
-  top: 40px;
+  top: 30px;
   left: 75px;
   height: 240px;
   width: 480px;
@@ -214,7 +331,7 @@ div.record {
 
 div.music {
   position: relative;
-  top: 58px;
+  top: 45px;
   left: 75px;
   height: 150px;
   width: 500px;
