@@ -22,22 +22,24 @@ a {
   list-style: none;
   padding: 5px;
   font-size: 14px;
-
+  font-weight: bold;
 }
 .POMOTODO__logo a:hover {
   background-color: #edeeee;
   opacity: 1;
-
   border-radius: 15px;
 }
 .POMOTODO__logo i {
   position:relative;
-  bottom: 1px;
+  /* bottom: px; */
   padding-right: 5px;
   color: #ff8585;
 }
 
+
 .POMOTODO__menu {
+  position: relative;
+  left: 60px;
   display: flex;
   list-style: none;
   padding-right: 30px;
@@ -54,6 +56,13 @@ a {
   border-radius: 8px;
 }
 
+#POMOTODO__clock{
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #5E5E5E;
+}
 .POMOTODO__contact-me {
   display: flex;
   list-style: none;
@@ -62,7 +71,7 @@ a {
   margin: 0px;
 }
 .POMOTODO__contact-me li {
-  margin-top: 5px;
+  margin-top: 2px;
   padding: 2px 12px;
   t
 }
@@ -125,7 +134,14 @@ article.nottodolist {
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
 }
 /* 뽀모도로 타이머  */
-
+.Pomodoro-timer{
+  position: relative;
+  /* top: 30px; */
+  left: 75px;
+  width: 480px;
+  height: 250px;
+  border: 1px solid gray;
+}
 /*  */
 #stop {
   position: relative;
@@ -171,22 +187,11 @@ article.nottodolist {
   box-shadow: 1px 1px 3px #949da6, -1px -1px 2px #ffffff;
 }
 
-div.clock {
-  position: relative;
-  top: 0;
-  left: 75px;
-  height: 240px;
-  width: 480px;
-  padding: 10px;
-
-  border: 1px solid gray;
-}
-
 div.record {
   position: relative;
   top: 30px;
   left: 75px;
-  height: 240px;
+  height: 265px;
   width: 480px;
   padding: 10px;
   margin-right: 0px;
