@@ -21,6 +21,7 @@ window.onload = function(){
     setInterval(setClock,1000);
 }
 //뽀모도로타이머
+
 let minutes = 0;
 let seconds = 0;
 
@@ -43,17 +44,17 @@ const buttonSecond2Minus = document.getElementById("second2__minus");
 let intervalID;
 
 
-buttonStart.onclick = function(){
+buttonStart.onclick = function(){ //Start
     clearInterval(intervalID) 
     intervalID = setInterval(operateTimer, 1000)
 
 }
 
-buttonPause.onclick = function(){ //pause   버튼 만들기
+buttonPause.onclick = function(){ //Pause 
     clearInterval(intervalID) 
 }
 
-buttonStop.onclick = function(){ //pause   버튼 만들기
+buttonStop.onclick = function(){ //Stop
     clearInterval(intervalID) 
     minutes = 0; seconds = 0;
     appendMinutes.textContent = "00"
@@ -61,7 +62,6 @@ buttonStop.onclick = function(){ //pause   버튼 만들기
 }
 
 function operateTimer(){ //1초씩 감소시키기
-    // if(minutes = 0 && seconds >= 0){
         if(minutes<10)
             appendMinutes.textContent="0"+minutes;
         seconds--; 
@@ -82,8 +82,8 @@ function operateTimer(){ //1초씩 감소시키기
             appendMinutes.textContent = "00"
             appendSeconds.textContent = "00"
         }
-    // }
 }
+
 //minutes증감 버튼
 buttonMinute1Plus.onclick = function(){
     if(minutes<90){
@@ -149,4 +149,24 @@ buttonSecond2Minus.onclick = function(){
                 appendSeconds.textContent="0"+seconds;
     }
 }
+//
+//모달창 구현
+let modal = document.getElementById("modal")
+let btnModal = document.getElementById("mail-btn")
+btnModal.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+    if (modal.style.display == "flex"){
+        modal.style.display = "none"
+    }else{
+        modal.style.display = "flex"
+    }
+})
+let closeBtn = modal.querySelector(".close-area") //X버튼 눌러서 모달창 종료
+closeBtn.addEventListener("click", e => {
+    modal.style.display = "none"
+})
+window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
+    if(modal.style.display === "flex" && e.key === "Escape") {
+        modal.style.display = "none"
+    }
+})
 //

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoMoToDo</title>
-    <link rel="stylesheet" href="style.css"">
+    <link rel="shortcut icon" href="/POMOTODO icon/mountain-solid.svg">
+    <title>POMOTODO</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
     <script defer src="main.js"></script>
 </head>
@@ -23,10 +24,19 @@
             </ul>
             <ul class="POMOTODO__contact-me">
                 <div id="POMOTODO__clock">시계</div>
-                <li><a href="https://coqoa.tistory.com/" title="tistory blog"><i class="fas fa-blog"></i></a></li>
-                <li><a href="https://github.com/coqoa" title="github"><i class="fab fa-github"></i></a></li>
-                <li><a href="#"><i class="far fa-envelope" title="E-mail"></i></a></li>
+                <li><a href="https://coqoa.tistory.com/" title="tistory blog" target="blank"><i class="fas fa-bold"></i></a></li>
+                <li><a href="https://github.com/coqoa" title="github" target="blank"><i class="fab fa-github"></i></a></li>
+                <li id="mail-btn"><i class="far fa-envelope" title="E-mail"></i></li>
+                
             </ul>
+            <div id="modal" class="modal-overlay">
+                <div class="mail-modal-window">
+                    <div class="close-area"><i class="fas fa-times"></i></div>
+                        <div class="content">
+                            coqoa28@gmail.com
+                        </div>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -35,7 +45,9 @@
             <h2>Pomodoro</h2> <!--date-->
             <div><!--clock, record-->
                 <!-- 뽀모도로타이머  -->
-                
+                <div class="cover">
+
+                </div>
                 <div class="Pomodoro-timer-container">
                     <button class="clock__updown" id="minute1__plus"><i class="fas fa-caret-up"></i></button>
                     <button class="clock__updown" id="minute2__plus"><i class="fas fa-caret-up"></i></button>
@@ -101,6 +113,7 @@
         <article class="todolist"><!-- todolist-->
             <div><!--title-->
                 <h2>ToDoList</h2>
+                + 메일 모달창 구현, 타이머 마무리, 자바스크립트 드롭다운리스트 구현, 투두/낫투두
             </div>
             <div id="todo-write"><!--write--><!--write-todo-->
                 <form action="index.html"><!-- index.html 임시로 지정-->
