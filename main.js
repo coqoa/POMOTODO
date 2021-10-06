@@ -170,3 +170,46 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
     }
 })
 //
+//투두
+let itemList = [];
+let inputButton = document.querySelector(".input__button");
+inputButton.addEventListener("click", addItem);
+
+function addItem() {
+    let item = document.querySelector(".input-text").value;
+    if(item != null){
+        itemList.push(item);
+        document.querySelector(".input-text").value = " ";
+        document.querySelector(".input-text").focus;
+    }
+    showList();
+}
+
+
+// 
+
+function showList(){
+    let list = "<ul>"
+    for (let i = 0; i < itemList.length; i++){
+        list += "<li>" + "<span class='list-drag' id=" + i + ">" + " ⬍ " + "</span>"
+                       + itemList[i] 
+                       + "<span class='list-check' id=" + i + ">" + " ✔ " + "</span>" 
+                       + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
+                       + "</li>";
+    } // 이동, 체크, 삭제버튼 여기서 생기도록 구현하고 아래에 작동 구현하기 + css로 꾸미기 + 기존에것들 지우기?
+
+// 
+    list += "</ul>";
+    document.querySelector(".item-list").innerHTML = list;
+
+    let deleteButtons = document.querySelectorAll(".list-delete");
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener("click", deleteItem);
+    }
+}
+
+function deleteItem() {
+    let id = this.getAttribute("id");
+    itemList.splice(id, 1);
+    showList();
+}

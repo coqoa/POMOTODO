@@ -38,7 +38,7 @@ a {
 }
 .POMOTODO__logo i {
   position:relative;
-  /* bottom: px; */
+  bottom: 1px;
   padding-right: 5px;
   color: #ff8585;
 }
@@ -65,7 +65,7 @@ a {
 
 #POMOTODO__clock{
   position: relative;
-  top: 2px;
+  top: 5px;
   margin-right: 10px;
   font-size: 14px;
   color: #5E5E5E;
@@ -94,8 +94,8 @@ a {
 }
 
 #modal.modal-overlay{
-  width: 180px;
-  height: 70px;
+  width: 210px;
+  height: 65px;
   position: absolute;
   right: 30px;
   top: 30px;
@@ -110,7 +110,9 @@ a {
   border-radius: 10px;
 }
 #modal .content{
-  padding: 13px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
 }
 #modal .close-area {
   display: inline;
@@ -396,7 +398,7 @@ div.music {
   box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
 }
 
-div.list {
+.item-list {
   margin-bottom: 10px;
 }
 
@@ -417,7 +419,7 @@ div.list {
   background-color: white;
 }
 
-#text {
+#input-text {
   position: relative;
   left: 3px;
   top: 0px;
@@ -429,33 +431,40 @@ div.list {
   padding: 1px;
 }
 
-#submit {
+/* #submit { */
+#button {
+  position: relative;
+
+  padding: 7px;
+  right: 0px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  /* background: url("Pomotodo icon/button-enter.png"); */
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position-x: 50px;
+  background-position-y: -1px;
+  opacity: 0.5;
+}
+/* #button {
   position: relative;
   margin: 0px;
   padding: 0px;
-  right: 3px;
+  right: 0px;
   border: 0;
   outline: 0;
   border-radius: 5px;
   background: url("Pomotodo icon/button-enter.png");
-  background-size: 20px;
+  background-size: 200px;
   background-repeat: no-repeat;
-  background-position-x: 10px;
+  background-position-x: 50px;
   background-position-y: -1px;
   opacity: 0.5;
-}
+} */
 
-#list-drag {
-  position: relative;
-  top: 10px;
-  left: 0px;
-
-  width: 25px;
-  height: 25px;
-  opacity: 0.5;
-}
-
-#list-article {
+.item-list #list-article{
+  margin: 10px;
   border: 0;
   outline: 0;
   position: relative;
@@ -468,6 +477,30 @@ div.list {
   background: #e9f0fa;
   box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
 }
+
+#list-drag {
+  position: relative;
+  top: 10px;
+  left: 0px;
+
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+
+/* #list-article {
+  border: 0;
+  outline: 0;
+  position: relative;
+  top: 0px;
+  left: 2px;
+  width: 535px;
+  height: 25px;
+  border-radius: 10px;
+  height: 34px;
+  background: #e9f0fa;
+  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
+} */
 
 #list-check {
   position: relative;
@@ -530,4 +563,34 @@ section.Pomodoro{
  section.nottodolist{
    margin-bottom: 50px;
  }
+}
+
+ul li {
+  list-style: none;
+  border:1px solid gray;
+}
+
+.list-drag{
+  font-size: 20px;
+  position: absolute;
+  /* top: -10px; */
+  /* top: 141px; */
+  left:17px;
+}
+
+.list-delete {
+  position: absolute;
+  right: 20px;
+}
+
+.list-check{
+  position: absolute;
+  right: 43px;
+}
+
+.list-drag:hover,
+.list-check:hover,
+.list-delete:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
