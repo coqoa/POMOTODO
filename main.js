@@ -189,23 +189,23 @@ function addItem() {
 // 
 
 function showList(){
-    let list = "<ul>"
+    let list = "<ol>"
     for (let i = 0; i < itemList.length; i++){
-        list += "<li>" + "<span class='list-drag' id=" + i + ">" + " ⬍ " + "</span>"
-                       + itemList[i] 
-                       + "<span class='list-check' id=" + i + ">" + " ✔ " + "</span>" 
+        list += "<li>" + "<span class='list-drag' id=" + i + ">" + " ⇵ " + "</span>"
+                       + itemList[i]
+                    //    + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
                        + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
                        + "</li>";
-    } // 이동, 체크, 삭제버튼 여기서 생기도록 구현하고 아래에 작동 구현하기 + css로 꾸미기 + 기존에것들 지우기?
+    } 
 
-// 
-    list += "</ul>";
+    list += "</ol>";
     document.querySelector(".item-list").innerHTML = list;
 
     let deleteButtons = document.querySelectorAll(".list-delete");
     for (let i = 0; i < deleteButtons.length; i++) {
         deleteButtons[i].addEventListener("click", deleteItem);
     }
+   
 }
 
 function deleteItem() {
@@ -213,3 +213,10 @@ function deleteItem() {
     itemList.splice(id, 1);
     showList();
 }
+
+let checkList = document.querySelector('.item-list'); 
+checkList.addEventListener('click', event => {
+      if (event.target.tagName === 'LI') {
+         event.target.classList.toggle('checked');
+  }
+});

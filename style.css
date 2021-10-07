@@ -59,7 +59,7 @@ a {
 .POMOTODO__menu li:hover {
   background-color: #edeeee;
   opacity: 1;
-  height: 16px;
+  height: 21px;
   border-radius: 8px;
 }
 
@@ -85,7 +85,7 @@ a {
 .POMOTODO__contact-me li:hover {
   background-color: #edeeee;
   opacity: 1;
-  height: 16px;
+  height: 21px;
   border-radius: 8px;
 }
 
@@ -386,10 +386,11 @@ div.music {
   background: #e9f0fa;
   box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
-
+/* 투두, 낫투두 */
 #todo-write,
 #nottodo-write {
-  margin-left: 30px;
+  width: 585px;
+  margin-left: 40px;
   margin-right: 60px;
   margin-bottom: 15px;
   border-radius: 10px;
@@ -398,9 +399,9 @@ div.music {
   box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
 }
 
-.item-list {
-  margin-bottom: 10px;
-}
+/* .item-list {
+  margin-bottom: 50px;
+} */
 
 .select-color {
   position: relative;
@@ -419,109 +420,31 @@ div.music {
   background-color: white;
 }
 
-#input-text {
+.input-text {
   position: relative;
   left: 3px;
   top: 0px;
   border: 0;
   outline: 0;
   border-radius: 7px;
-  width: 440px;
+  width: 470px;
   height: 28px;
   padding: 1px;
 }
 
-/* #submit { */
-#button {
-  position: relative;
-
-  padding: 7px;
-  right: 0px;
+.input__button{
+  color: #5e5e5e;
   border: 0;
-  outline: 0;
-  border-radius: 5px;
-  /* background: url("Pomotodo icon/button-enter.png"); */
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-position-x: 50px;
-  background-position-y: -1px;
-  opacity: 0.5;
-}
-/* #button {
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  right: 0px;
-  border: 0;
-  outline: 0;
-  border-radius: 5px;
-  background: url("Pomotodo icon/button-enter.png");
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-position-x: 50px;
-  background-position-y: -1px;
-  opacity: 0.5;
-} */
-
-.item-list #list-article{
-  margin: 10px;
-  border: 0;
-  outline: 0;
-  position: relative;
-  top: 0px;
-  left: 2px;
-  width: 535px;
-  height: 25px;
-  border-radius: 10px;
-  height: 34px;
-  background: #e9f0fa;
-  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
+  background-color: #f4f8fb;
+  padding: 7px 11px 7px;
+  margin-left: 5px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px lightgray, -1px -1px 1px #ffffff;
 }
 
-#list-drag {
-  position: relative;
-  top: 10px;
-  left: 0px;
 
-  width: 25px;
-  height: 25px;
-  opacity: 0.5;
-}
 
-/* #list-article {
-  border: 0;
-  outline: 0;
-  position: relative;
-  top: 0px;
-  left: 2px;
-  width: 535px;
-  height: 25px;
-  border-radius: 10px;
-  height: 34px;
-  background: #e9f0fa;
-  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
-} */
-
-#list-check {
-  position: relative;
-  top: 5px;
-  left: 8px;
-
-  width: 20px;
-  height: 20px;
-  opacity: 0.2;
-}
-#list-delete {
-  position: relative;
-  top: 5px;
-  left: 6px;
-
-  width: 20px;
-  height: 20px;
-  opacity: 0.2;
-}
-
-#checked-list-article {
+/* #checked-list-article {
   border: 0;
   outline: 0;
   position: relative;
@@ -543,7 +466,9 @@ div.music {
   width: 20px;
   height: 20px;
   opacity: 0.7;
-}
+} */
+
+
 @media screen and (max-width:1360px) {
    .body{
      width: 1360px;
@@ -554,6 +479,8 @@ section.Pomodoro{
   position: absolute;
   left: 15px;
 }
+
+
  section.todonottodo{
   position: absolute;
   top: 1000px;
@@ -564,33 +491,97 @@ section.Pomodoro{
    margin-bottom: 50px;
  }
 }
+/*  */
+ul {
+  padding: 10px 30px;
+}
+ol li {
 
-ul li {
+  width: 565px;
   list-style: none;
-  border:1px solid gray;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: #e9f0fa;
+  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
+}
+/* .item-list.active{
+  color: lightgray;
+  
+} */
+
+ol li:hover{
+  color: gray;
+  cursor: pointer;
+  
+}
+ol li:active,
+ol li.checked:active {
+  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
+ol li.checked {
+  /* background: #ddd; */
+  color: lightgray;
+  box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
+}
+
+/* ol li.checked::before {   
+  content: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇ";
+  position: absolute;
+  border-color: #272341;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 13px;
+  left: 80px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+} */
+
+
 .list-drag{
-  font-size: 20px;
+  color: #949da6;
+  font-size: 15px;
+
   position: absolute;
   /* top: -10px; */
   /* top: 141px; */
-  left:17px;
+  left:23px;
 }
-
 .list-delete {
   position: absolute;
-  right: 20px;
+  color:lightgray;
+  right: 25px;
 }
-
 .list-check{
   position: absolute;
-  right: 43px;
+  color: lightgray;;
+  right: 50px;
 }
 
-.list-drag:hover,
-.list-check:hover,
-.list-delete:hover {
+.list-drag:hover{
   opacity: 0.5;
+  cursor: pointer;
+}
+/* .list-check:hover{
+  color:#C5F1BA;
+  cursor: pointer;
+} */
+.list-delete:hover {
+  color:#FF8585;
+  cursor: pointer;
+}
+
+.list-drag:active{
+  color: black;
+  cursor: pointer;
+}
+/* .list-check:active{
+  color:#6EDA88;
+  cursor: pointer;
+} */
+.list-delete:active {
+  color:#DD5E56;
   cursor: pointer;
 }
