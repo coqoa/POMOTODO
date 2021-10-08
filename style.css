@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 /* font-family: 'Open Sans', sans-serif; */
 
+
 header nav {
   /* font-family: 'Roboto Mono', monospace; */
   font-family: 'Open Sans', sans-serif;
@@ -420,7 +421,7 @@ div.music {
   background-color: white;
 }
 
-.input-text {
+.input-text, .ntd-input-text {
   position: relative;
   left: 3px;
   top: 0px;
@@ -432,7 +433,7 @@ div.music {
   padding: 1px;
 }
 
-.input__button{
+.input-button, .ntd-input-button{
   color: #5e5e5e;
   border: 0;
   background-color: #f4f8fb;
@@ -444,54 +445,7 @@ div.music {
 
 
 
-/* #checked-list-article {
-  border: 0;
-  outline: 0;
-  position: relative;
-  top: 0px;
-  left: 2px;
-  width: 535px;
-  height: 25px;
-  border-radius: 10px;
-  height: 34px;
-  background: #e9f0fa;
-  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
-}
-
-#list-checked {
-  position: relative;
-  top: 5px;
-  left: 8px;
-
-  width: 20px;
-  height: 20px;
-  opacity: 0.7;
-} */
-
-
-@media screen and (max-width:1360px) {
-   .body{
-     width: 1360px;
-   }
-}
-@media screen and (max-width:720px) {
-section.Pomodoro{
-  position: absolute;
-  left: 15px;
-}
-
-
- section.todonottodo{
-  position: absolute;
-  top: 1000px;
-  left: 0px;
-  width: 670px;
- }
- section.nottodolist{
-   margin-bottom: 50px;
- }
-}
-/*  */
+/* 투두리스트 */
 ul {
   padding: 10px 30px;
 }
@@ -505,10 +459,6 @@ ol li {
   background: #e9f0fa;
   box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
 }
-/* .item-list.active{
-  color: lightgray;
-  
-} */
 
 ol li:hover{
   color: gray;
@@ -519,69 +469,72 @@ ol li:active,
 ol li.checked:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
-
 ol li.checked {
   /* background: #ddd; */
   color: lightgray;
   box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
-/* ol li.checked::before {   
-  content: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇ";
-  position: absolute;
-  border-color: #272341;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 13px;
-  left: 80px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-} */
-
-
-.list-drag{
+.list-drag, .ntd-list-drag{
   color: #949da6;
   font-size: 15px;
-
   position: absolute;
-  /* top: -10px; */
-  /* top: 141px; */
   left:23px;
 }
-.list-delete {
+.list-delete, .ntd-list-delete {
   position: absolute;
   color:lightgray;
-  right: 25px;
+  right: 28px;
 }
-.list-check{
+.list-check, .ntd-list-check{
   position: absolute;
   color: lightgray;;
   right: 50px;
 }
 
-.list-drag:hover{
+.list-drag:hover, .ntd-list-drag:hover{
   opacity: 0.5;
   cursor: pointer;
 }
-/* .list-check:hover{
-  color:#C5F1BA;
-  cursor: pointer;
-} */
-.list-delete:hover {
+.list-delete:hover, .ntd-list-delete:hover {
   color:#FF8585;
   cursor: pointer;
 }
 
-.list-drag:active{
+.list-drag:active, .ntd-list-drag:active{
   color: black;
   cursor: pointer;
 }
-/* .list-check:active{
-  color:#6EDA88;
-  cursor: pointer;
-} */
-.list-delete:active {
+.list-delete:active, .ntd-list-delete:active  {
   color:#DD5E56;
   cursor: pointer;
+}
+
+/* 반응형 */
+@media screen and (max-width:1360px) {
+  .body{
+    width: 1360px;
+  }
+}
+@media screen and (max-width:720px) {
+  section.Pomodoro{
+  position: absolute;
+  left: 15px;
+  }
+
+
+  section.todonottodo{
+  position: absolute;
+  top: 1000px;
+  left: 0px;
+  width: 670px;
+  }
+  section.nottodolist{
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-height:1080px){
+section.Pomodoro, section.todonottodo{
+  position: relative;
+  top: 25%;
 }

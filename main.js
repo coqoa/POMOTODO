@@ -170,9 +170,9 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
     }
 })
 //
-//투두
+//투두 
 let itemList = [];
-let inputButton = document.querySelector(".input__button");
+let inputButton = document.querySelector(".input-button");
 inputButton.addEventListener("click", addItem);
 
 function addItem() {
@@ -184,9 +184,6 @@ function addItem() {
     }
     showList();
 }
-
-
-// 
 
 function showList(){
     let list = "<ol>"
@@ -217,6 +214,59 @@ function deleteItem() {
 let checkList = document.querySelector('.item-list'); 
 checkList.addEventListener('click', event => {
       if (event.target.tagName === 'LI') {
+        console.log("td-LI")
          event.target.classList.toggle('checked');
   }
 });
+
+
+// 낫투두
+let ntdItemList = [];
+
+let ntdInputButton = document.querySelector(".ntd-input-button");
+ntdInputButton.addEventListener("click", ntdAddItem);
+
+function ntdAddItem() {
+    let ntdItem = document.querySelector(".ntd-input-text").value;
+    if(ntdItem != null){
+        ntdItemList.push(ntdItem);
+        document.querySelector(".ntd-input-text").value = " ";
+        document.querySelector(".ntd-input-text").focus;
+    }
+    ntdShowList();
+}
+
+function ntdShowList(){
+    let ntdList = "<ol>"
+    for (let i = 0; i < ntdItemList.length; i++){
+        ntdList += "<li>" + "<span class='ntd-list-drag' id=" + i + ">" + " ⇵ " + "</span>"
+                       + ntdItemList[i]
+                       + "<span class='ntd-list-delete' id=" + i + ">" + " ✖ " + "</span>"
+                       + "</li>";
+    } 
+
+    ntdList += "</ol>";
+    document.querySelector(".ntd-item-list").innerHTML = ntdList;
+
+    let ntdDeleteButtons = document.querySelectorAll(".ntd-list-delete");
+    for (let i = 0; i < ntdDeleteButtons.length; i++) {
+        ntdDeleteButtons[i].addEventListener("click", ntdDeleteItem);
+    }
+   
+}
+
+function ntdDeleteItem() {
+    let ntdId = this.getAttribute("id");
+    ntdItemList.splice(ntdId, 1);
+    ntdShowList();
+}
+
+let ntdCheckList = document.querySelector('.ntd-item-list'); 
+ntdCheckList.addEventListener('click', event => {
+      if (event.target.tagName === 'LI') {
+          console.log("ntd-LI")
+         event.target.classList.toggle('checked');
+  }
+});
+//낫투두 작동완료
+
