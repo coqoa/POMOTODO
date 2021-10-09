@@ -160,21 +160,35 @@ section.todonottodo {
 }
 
 article.todolist {
-  height: 530px;
+  height: 510px;
   padding: 10px;
   margin-bottom: 20px;
 
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
+  overflow:auto; /*211009*/
+}
+article.todolist::-webkit-scrollbar,
+article.nottodolist::-webkit-scrollbar {
+  width: 7px;
+  background-color: transparent;
+}
+article.todolist::-webkit-scrollbar-thumb,
+article.nottodolist::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-top: 30px solid transparent;
+  border-bottom: 30px  solid transparent;
+  background-color: lightgray;
 }
 
 article.nottodolist {
-  height: 255px;
+  height: 270px;
   padding: 10px;
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
+  overflow:auto;
 }
 /* 뽀모도로 타이머  */
 .Pomodoro-timer-container{
@@ -363,7 +377,7 @@ div.music {
   opacity: 0.5;
 }
 
-#side-nav {
+/* #side-nav {
   position: relative;
   left: 0;
   top: 0;
@@ -386,23 +400,24 @@ div.music {
   border-radius: 5px;
   background: #e9f0fa;
   box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
-}
+} */
 /* 투두, 낫투두 */
 #todo-write,
 #nottodo-write {
   width: 585px;
-  margin-left: 40px;
+  margin: 0px 18px 5px;
+  /* margin-left: 25px;
   margin-right: 60px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  height: 36px;
+  margin-bottom: 15px; */
+  border-radius: 11px;
+  height: 40px;
   background: #e9f0fa;
-  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
+  box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
 }
 
-/* .item-list {
-  margin-bottom: 50px;
-} */
+.item-list {
+  
+}
 
 .select-color {
   position: relative;
@@ -421,15 +436,15 @@ div.music {
   background-color: white;
 }
 
-.input-text, .ntd-input-text {
+.input-text, .ntd-input-text { /*211009 모달창 구현하면 조정필요 ?*/
+  width: 464px;
+  height: 32px;
   position: relative;
   left: 3px;
-  top: 0px;
+  top: 2px;
   border: 0;
   outline: 0;
-  border-radius: 7px;
-  width: 470px;
-  height: 28px;
+  border-radius: 8px;
   padding: 1px;
 }
 
@@ -437,27 +452,34 @@ div.music {
   color: #5e5e5e;
   border: 0;
   background-color: #f4f8fb;
-  padding: 7px 11px 7px;
-  margin-left: 5px;
+  padding:8px 11px 10px;
+  margin-left: 2px;
   border-radius: 8px;
-  box-shadow: 1px 1px 1px lightgray, -1px -1px 1px #ffffff;
+  /* box-shadow: 1px 1px 1px lightgray, -1px -1px 1px #ffffff; */
 }
 
 
 
 /* 투두리스트 */
-ul {
+/* ul {
   padding: 10px 30px;
+} */
+ol{
+  margin: 0px;
+  padding: 20px;
 }
 ol li {
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
   width: 565px;
   list-style: none;
-  padding: 10px;
+  padding: 9px;
   margin-bottom: 15px;
-  border-radius: 10px;
+  border-radius: 11px;
   background: #e9f0fa;
-  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
+  box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
 }
 
 ol li:hover{
@@ -478,19 +500,20 @@ ol li.checked {
 .list-drag, .ntd-list-drag{
   color: #949da6;
   font-size: 15px;
-  position: absolute;
-  left:23px;
+  position: relative;
+  left:0px;
 }
 .list-delete, .ntd-list-delete {
-  position: absolute;
+  position: relative;
+  font-size: 15px;
   color:lightgray;
-  right: 28px;
+  right:0;
 }
-.list-check, .ntd-list-check{
+/* .list-check, .ntd-list-check{
   position: absolute;
   color: lightgray;;
   right: 50px;
-}
+} */
 
 .list-drag:hover, .ntd-list-drag:hover{
   opacity: 0.5;

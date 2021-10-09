@@ -175,12 +175,14 @@ let itemList = [];
 let inputButton = document.querySelector(".input-button");
 inputButton.addEventListener("click", addItem);
 
+
 function addItem() {
     let item = document.querySelector(".input-text").value;
-    if(item != null){
+
+    if(item.length !== 0 ){ //빈값출력안되도록 구현 211009
         itemList.push(item);
-        document.querySelector(".input-text").value = " ";
-        document.querySelector(".input-text").focus;
+        document.querySelector(".input-text").value = "";
+        document.querySelector(".input-text").focus();
     }
     showList();
 }
@@ -228,10 +230,10 @@ ntdInputButton.addEventListener("click", ntdAddItem);
 
 function ntdAddItem() {
     let ntdItem = document.querySelector(".ntd-input-text").value;
-    if(ntdItem != null){
+    if(ntdItem.length !== 0 ){
         ntdItemList.push(ntdItem);
-        document.querySelector(".ntd-input-text").value = " ";
-        document.querySelector(".ntd-input-text").focus;
+        document.querySelector(".ntd-input-text").value = "";
+        document.querySelector(".ntd-input-text").focus();
     }
     ntdShowList();
 }
