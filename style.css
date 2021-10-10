@@ -252,49 +252,6 @@ button:active{
 }
 
 /*  */
-/* #stop {
-  position: relative;
-  left: 265px;
-  top: 15px;
-  border: 0;
-  outline: 0;
-  padding: 3px;
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
-  opacity: 0.5;
-}
-
-#change-time {
-  position: relative;
-  left: 280px;
-  top: 15px;
-  border: 0;
-  outline: 0;
-  padding: 5px;
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
-  opacity: 0.5;
-}
-
-#change-type {
-  position: relative;
-  left: 295px;
-  top: 15px;
-  border: 0;
-  outline: 0;
-  padding: 6px;
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 3px #949da6, -1px -1px 2px #ffffff;
-} */
 
 div.record {
   position: relative;
@@ -377,30 +334,6 @@ div.music {
   opacity: 0.5;
 }
 
-/* #side-nav {
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 19px;
-  height: 19px;
-  padding: 6px;
-  opacity: 0.5;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
-}
-#record-nav {
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 19px;
-  height: 19px;
-  padding: 6px;
-  opacity: 0.5;
-  border-radius: 5px;
-  background: #e9f0fa;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
-} */
 /* 투두, 낫투두 */
 #todo-write,
 #nottodo-write {
@@ -460,10 +393,7 @@ div.music {
 
 
 
-/* 투두리스트 */
-/* ul {
-  padding: 10px 30px;
-} */
+
 ol{
   margin: 0px;
   padding: 20px;
@@ -509,11 +439,6 @@ ol li.checked {
   color:lightgray;
   right:0;
 }
-/* .list-check, .ntd-list-check{
-  position: absolute;
-  color: lightgray;;
-  right: 50px;
-} */
 
 .list-drag:hover, .ntd-list-drag:hover{
   opacity: 0.5;

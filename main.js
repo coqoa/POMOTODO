@@ -45,43 +45,47 @@ let intervalID;
 
 
 buttonStart.onclick = function(){ //Start
-    clearInterval(intervalID) 
-    intervalID = setInterval(operateTimer, 1000)
+    
+    clearInterval(intervalID); 
+    intervalID = setInterval(operateTimer, 1000);
 
 }
 
 buttonPause.onclick = function(){ //Pause 
-    clearInterval(intervalID) 
+    clearInterval(intervalID); 
 }
 
 buttonStop.onclick = function(){ //Stop
-    clearInterval(intervalID) 
+    clearInterval(intervalID); 
     minutes = 0; seconds = 0;
-    appendMinutes.textContent = "00"
-    appendSeconds.textContent = "00"
+    appendMinutes.textContent = "00";
+    appendSeconds.textContent = "00";
 }
 
 function operateTimer(){ //1초씩 감소시키기
-        if(minutes<10)
-            appendMinutes.textContent="0"+minutes;
-        seconds--; 
+    seconds--; 
+    appendSeconds.textContent = seconds;
+    if(minutes<10)
+    appendMinutes.textContent="0"+minutes;
+    if(seconds<10)
+    appendSeconds.textContent="0"+seconds;
+    if(seconds<0){
+        minutes--;
+        appendMinutes.textContent = minutes;
+        seconds = 59;
         appendSeconds.textContent = seconds;
-        if(seconds<10)
-            appendSeconds.textContent="0"+seconds;
-        if(seconds<0){
-            minutes--;
-            appendMinutes.textContent = minutes;
-            seconds = 59;
-            appendSeconds.textContent = seconds;
-            if(minutes<10)
-            appendMinutes.textContent="0"+minutes;
-        }
-        if(minutes === 0 && seconds >= 0){
-            clearInterval(intervalID) 
-            minutes = 0; seconds = 0;
-            appendMinutes.textContent = "00"
-            appendSeconds.textContent = "00"
-        }
+        if(minutes<10)
+        appendMinutes.textContent="0"+minutes;
+    }
+    if(minutes === 0 && seconds === 0){
+        clearInterval(intervalID);
+    }
+        // if(minutes < 0 && seconds == 0){
+        //     clearInterval(intervalID) 
+        //     minutes = 0; seconds = 0;
+        //     appendMinutes.textContent = "00"
+        //     appendSeconds.textContent = "00"
+        // }
 }
 
 //minutes증감 버튼
@@ -96,7 +100,7 @@ buttonMinute2Plus.onclick = function(){
         minutes++;
         appendMinutes.textContent=minutes;
         if(minutes<10)
-            appendMinutes.textContent="0"+minutes
+            appendMinutes.textContent="0"+minutes;
     }
 }
 buttonMinute1Minus.onclick = function(){
@@ -151,22 +155,22 @@ buttonSecond2Minus.onclick = function(){
 }
 //
 //모달창 구현
-let modal = document.getElementById("modal")
-let btnModal = document.getElementById("mail-btn")
+let modal = document.getElementById("modal");
+let btnModal = document.getElementById("mail-btn");
 btnModal.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
     if (modal.style.display == "flex"){
-        modal.style.display = "none"
+        modal.style.display = "none";
     }else{
-        modal.style.display = "flex"
+        modal.style.display = "flex";
     }
 })
 let closeBtn = modal.querySelector(".close-area") //X버튼 눌러서 모달창 종료
 closeBtn.addEventListener("click", e => {
-    modal.style.display = "none"
+    modal.style.display = "none";
 })
 window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
     if(modal.style.display === "flex" && e.key === "Escape") {
-        modal.style.display = "none"
+        modal.style.display = "none";
     }
 })
 //
@@ -187,10 +191,10 @@ function addItem() {
     showList();
 }
 
-function showList(){
+function showList(){ draggable="true"
     let list = "<ol>"
     for (let i = 0; i < itemList.length; i++){
-        list += "<li>" + "<span class='list-drag' id=" + i + ">" + " ⇵ " + "</span>"
+        list += "<li draggable='true'>" + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
                        + itemList[i]
                     //    + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
                        + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
@@ -216,7 +220,7 @@ function deleteItem() {
 let checkList = document.querySelector('.item-list'); 
 checkList.addEventListener('click', event => {
       if (event.target.tagName === 'LI') {
-        console.log("td-LI")
+        console.log("td-LI");
          event.target.classList.toggle('checked');
   }
 });
@@ -266,7 +270,7 @@ function ntdDeleteItem() {
 let ntdCheckList = document.querySelector('.ntd-item-list'); 
 ntdCheckList.addEventListener('click', event => {
       if (event.target.tagName === 'LI') {
-          console.log("ntd-LI")
+          console.log("ntd-LI");
          event.target.classList.toggle('checked');
   }
 });
