@@ -77,8 +77,15 @@ function operateTimer(){ //1초씩 감소시키기
         if(minutes<10)
         appendMinutes.textContent="0"+minutes;
     }
-    if(minutes === 0 && seconds === 0){
+    if(minutes === 00 && seconds === 00){
+        
         clearInterval(intervalID);
+    }
+    if(minutes < 00){
+        clearInterval(intervalID);
+        minutes = 0; seconds = 0;
+        appendMinutes.textContent = "00";
+        appendSeconds.textContent = "00";
     }
         // if(minutes < 0 && seconds == 0){
         //     clearInterval(intervalID) 
