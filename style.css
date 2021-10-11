@@ -268,20 +268,20 @@ div.record {
 }
 .record-list {
   position: relative;
-  left: 400px;
+  left: 0px;
   /* margin-right: 100px; */
-  width: 1000;
+  width: 300px;
   display: inline;
   border-radius: 5px;
 }
 #record-time {
   position: relative;
-  left: 30px;
+  left: 20px;
   color: #e96977;
 }
 #record-text {
   position: relative;
-  left: 10px;
+  left: 5px;
   border: 1px solid #e9f0fa;
   background-color: #e9f0fa;
 }
@@ -309,29 +309,39 @@ div.music {
   background: #e9f0fa;
   box-shadow: 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
 }
-#previous {
+.previous {
   position: relative;
   left: 184px;
-  top: 33px;
+  top: 41px;
   width: 30px;
   height: 30px;
   opacity: 0.5;
+  border: 0px;
+  background-color: transparent;
+  border-radius: 10px;
 }
-#start-music {
+.start-music {
+  font-size: 25px;
   position: relative;
-  left: 194px;
-  top: 40px;
+  left: 195px;
+  top: 45px;
   width: 45px;
   height: 45px;
   opacity: 0.5;
+  border: 0px;
+  background-color: transparent;
+  border-radius: 10px;
 }
-#next {
+.next {
   position: relative;
-  left: 204px;
-  top: 33px;
+  left: 203px;
+  top: 41px;
   width: 30px;
   height: 30px;
   opacity: 0.5;
+  border: 0px;
+  background-color: transparent;
+  border-radius: 10px;
 }
 
 /* 투두, 낫투두 */
@@ -360,7 +370,7 @@ div.music {
   outline: 0;
   border-radius: 5px;
   height: 35px;
-  width: 50px;
+  width: 60px;
   padding: 2px;
   background-color: #e9f0fa;
 }
@@ -457,6 +467,11 @@ ol li.checked {
   color:#DD5E56;
   cursor: pointer;
 }
+
+/* .draggable{
+  color: red;
+  opacity: 0.5;
+} */
 
 /* 반응형 */
 @media screen and (max-width:1360px) {

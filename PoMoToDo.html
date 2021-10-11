@@ -81,11 +81,11 @@
             
                 <div class ="record" overflow:auto;><!--record-->
                     <form action="index.html">
-                        <ol > 
+                        <ul > 
                             <!--입력값 출력하는건 JS의 영역-->
                             <li class="record-list" id="record-time" >time-record <input class="record-list" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off> </li>
                             <!-- <input class="record-list" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off> -->
-                        </ol>
+                        </ul>
                         
                     </form>
                 </div>
@@ -101,9 +101,10 @@
                             <option id="music5" value="music5"></option>
                         </select>
                         <br>
-                        <input id="previous" type="image" alt="previous" src="/POMOTODO icon/button-previouse.png">
-                        <input id="start-music" type="image" alt="start-music" src="/POMOTODO icon/button-play.png">
-                        <input id="next" type="image" alt="next" src="/POMOTODO icon/button-next.png">
+                        <button type="button" class="previous"><i class="fas fa-step-backward"></i></button>
+                        <button type="button" class="start-music"><i class="fas fa-play"></i></button>
+                        <button type="button" class="next"><i class="fas fa-step-forward"></i></button>
+                        
                 </form>
             </div>
         </article>
@@ -128,16 +129,8 @@
                         <button type="button" class="input-button" id="todo-input-button">입력</button>
                 </form>
             </div>
-            <div class="item-list"><!--list--></div>
-            <!-- <div class="checked-list">
-                <form action="index.html">
-                        <input id="list-drag" type="image" alt="list-drag" src="POMOTODO icon/button-movelist.png">
-                        <input id="checked-list-article" type="text" alt="list-article">
-                        <input id="list-checked" type="image" alt="list-check" src="POMOTODO icon/button-check.png" >
-                        <input id="list-delete" type="image" alt="list-delete" src="POMOTODO icon/button-delete.png">
-
-                </form>
-            </div> -->
+            <!-- <div class="container"> -->
+                <div class="item-list"><!--list--></div>
         </article>
 
         <article class="nottodolist"><!--Not-ToDoList-->

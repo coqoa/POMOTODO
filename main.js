@@ -191,12 +191,13 @@ function addItem() {
     showList();
 }
 
-function showList(){ draggable="true"
-    let list = "<ol>"
+function showList(){
+    let list = "<ol class = 'container'>"
     for (let i = 0; i < itemList.length; i++){
-        list += "<li draggable='true'>" + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
-                       + itemList[i]
-                    //    + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
+        list += "<li class = 'draggable' draggable = 'true'>" 
+                       + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
+                    //    + itemList[i]
+                       + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
                        + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
                        + "</li>";
     } 
@@ -220,11 +221,30 @@ function deleteItem() {
 let checkList = document.querySelector('.item-list'); 
 checkList.addEventListener('click', event => {
       if (event.target.tagName === 'LI') {
-        console.log("td-LI");
+        // event.target.style.color ="red"; -> 빨강으로변경 : 선택한컬러로변경하기? 각 색상별로 토글만들고 토글로구현?
          event.target.classList.toggle('checked');
   }
 });
+const draggables = document.querySelectorAll('.draggable');
+const containers = document.querySelectorAll('.container');
 
+draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => {
+        console.log('dragStart');
+        // draggable.classList.add("dragging");
+    });
+    draggable.addEventListener("dragend", () => {
+        console.log('dragEnd');
+        // draggable.classList.remove("dragging");
+    });
+});
+// containers.forEach(container => {
+//     container.addEventListener("dragover", e => {
+//         e.preventDefault();
+//         const draggable = document.querySelector(".dragging");
+//         container.appendChild(draggable);
+//     });
+// });
 
 // 낫투두
 let ntdItemList = [];
@@ -270,7 +290,6 @@ function ntdDeleteItem() {
 let ntdCheckList = document.querySelector('.ntd-item-list'); 
 ntdCheckList.addEventListener('click', event => {
       if (event.target.tagName === 'LI') {
-          console.log("ntd-LI");
          event.target.classList.toggle('checked');
   }
 });
