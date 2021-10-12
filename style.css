@@ -114,6 +114,7 @@ a {
   padding-bottom: 10px;
   margin-bottom: 5px;
   margin-left: 10px;
+  
 }
 #modal .close-area {
   display: inline;
@@ -160,7 +161,7 @@ section.todonottodo {
 }
 
 article.todolist {
-  height: 510px;
+  height: 500px;
   padding: 10px;
   margin-bottom: 20px;
 
@@ -183,7 +184,7 @@ article.nottodolist::-webkit-scrollbar-thumb {
 }
 
 article.nottodolist {
-  height: 270px;
+  height: 280px;
   padding: 10px;
   border-radius: 30px;
   background: #e9f0fa;
@@ -418,26 +419,133 @@ div.music {
 }
 
 .input-text, .ntd-input-text { /*211009 모달창 구현하면 조정필요 ?*/
-  width: 464px;
-  height: 32px;
+  width: 495px;
+  height: 34px;
   position: relative;
   left: 3px;
-  top: 2px;
+  top: 3px;
   border: 0;
   outline: 0;
-  border-radius: 8px;
-  padding: 1px;
+  border-radius: 9px;
+  padding: 0px 16px 0px;
+
+  margin-right: 2px;
 }
 
 .input-button, .ntd-input-button{
+  width: 47px;
+  height: 34px;
+  position: relative;
+  left: 0px;
+  top: 3px;
   color: #5e5e5e;
   border: 0;
-  background-color: #f4f8fb;
-  padding:8px 11px 10px;
-  margin-left: 2px;
-  border-radius: 8px;
+  outline: 0;
+  background-color: transparent;
+  /* padding:10px; */
+  margin-left: 1px;
+  border-radius: 9px;
   /* box-shadow: 1px 1px 1px lightgray, -1px -1px 1px #ffffff; */
 }
+    /* 투두 모달창 */
+    #todo-modal.todo-modal-overlay {
+      width: 120px;
+      height: 365px;
+      position: absolute;
+      right: 20px;
+      top: 90px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 6px 6px 9px #c8ced7;
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      border-radius: 10px;
+      overflow:auto;
+    }
+    
+    #todo-modal.todo-modal-overlay::-webkit-scrollbar {
+      width: 7px;
+      background-color: transparent;
+    }
+    #todo-modal.todo-modal-overlay::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      border-top: 30px solid transparent;
+      border-bottom: 30px  solid transparent;
+      background-color: lightgray;
+    }
+    .color-button{
+      position: relative;
+      top: 60px;
+      display:flex;
+      
+      justify-content: space-around;
+      /* padding-top: 100px; */
+      padding: 15px;
+      margin: 5px;
+      width: 100px;
+      border: 0px;
+      border-radius: 10px;
+    }
+    #todo-modal.todo-modal-close {
+      display: inline;
+      float: right;
+      padding-right: 3px;
+      cursor: pointer;
+      color: gray;
+    }
+    /* 낫투두모달창 */
+    
+    #not-todo-modal.not-todo-modal-overlay{
+      width: 120px;
+      height: 180px;
+      position: absolute;
+      right: 20px;
+      top: 640px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 6px 6px 9px #c8ced7;
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      border-radius: 10px;
+      overflow:auto;
+    }
+    #not-todo-modal.not-todo-modal-overlay::-webkit-scrollbar {
+      width: 7px;
+      background-color: transparent;
+    }
+    #not-todo-modal.not-todo-modal-overlay::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      border-top: 10px solid transparent;
+      border-bottom: 5px  solid transparent;
+      background-color: lightgray;
+    }
+    .ntd-color-button{
+      position: relative;
+      top: 10px;
+      display:flex;
+      
+      justify-content: space-around;
+      /* padding-top: 100px; */
+      padding: 15px;
+      margin: 5px;
+      width: 100px;
+      border: 0px;
+      border-radius: 10px;
+      /* background-color: #e9f0fa; 버튼 색깔 ?*/ 
+    }
+    #not-todo-modal.not-todo-modal-close {
+      display: inline;
+      float: right;
+      padding-right: 3px;
+      cursor: pointer;
+      color: gray;
+    }
 
 
 
@@ -461,18 +569,13 @@ ol li {
 }
 
 ol li:hover{
-  color: gray;
+  box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
   cursor: pointer;
   
 }
 ol li:active,
 ol li.checked:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
-}
-ol li.checked {
-  /* background: #ddd; */
-  color: lightgray;
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
 .list-drag, .ntd-list-drag{

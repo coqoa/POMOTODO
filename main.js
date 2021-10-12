@@ -225,26 +225,20 @@ function deleteItem() {
     showList();
 }
 
-let checkList = document.querySelector('.item-list'); 
-checkList.addEventListener('click', event => {
-      if (event.target.tagName === 'LI') {
-        // event.target.style.color ="red"; -> 빨강으로변경 : 선택한컬러로변경하기? 각 색상별로 토글만들고 토글로구현?
-         event.target.classList.toggle('checked');
-  }
-});
-const draggables = document.querySelectorAll('.draggable');
-const containers = document.querySelectorAll('.container');
 
-draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => {
-        console.log('dragStart');
-        // draggable.classList.add("dragging");
-    });
-    draggable.addEventListener("dragend", () => {
-        console.log('dragEnd');
-        // draggable.classList.remove("dragging");
-    });
-});
+// const draggables = document.querySelectorAll('.draggable');
+// const containers = document.querySelectorAll('.container');
+
+// draggables.forEach(draggable => {
+//     draggable.addEventListener('dragstart', () => {
+//         console.log('dragStart');
+//         // draggable.classList.add("dragging");
+//     });
+//     draggable.addEventListener("dragend", () => {
+//         console.log('dragEnd');
+//         // draggable.classList.remove("dragging");
+//     });
+// });
 // containers.forEach(container => {
 //     container.addEventListener("dragover", e => {
 //         e.preventDefault();
@@ -252,6 +246,107 @@ draggables.forEach(draggable => {
 //         container.appendChild(draggable);
 //     });
 // });
+
+
+// let checkList = document.querySelector('.item-list'); 
+// checkList.addEventListener('click', event => {
+//       if (event.target.tagName === 'LI') {
+//         // event.target.style.color ="red"; -> 빨강으로변경 : 선택한컬러로변경하기? 각 색상별로 토글만들고 토글로구현?
+//          event.target.classList.toggle('checked');
+//   }
+// });
+
+
+//투두 모달창 구현
+let todoModal = document.getElementById("todo-modal");
+let todoModalBtn = document.querySelector(".item-list");
+let setColorList;
+todoModalBtn.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+    if(e.target.tagName !== "SPAN"){
+        if (todoModal.style.display == "flex"){
+            todoModal.style.display = "none";
+        }else{
+            setColorList = e.target;
+            todoModal.style.display = "flex";
+        }
+    }
+})
+let todoCloseBtn = document.getElementById("close") //X버튼 눌러서 모달창 종료
+todoCloseBtn.addEventListener("click", e => {
+    todoModal.style.display = "none";
+})
+window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
+    if(todoModal.style.display === "flex" && e.key === "Escape") {
+        todoModal.style.display = "none";
+    }
+})
+let todoCheckBtn = document.getElementById("check")
+todoCheckBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="lightgray";
+    todoModal.style.display = "none";
+    }
+})
+let todoRedBtn = document.getElementById("red")
+todoRedBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="red";
+    todoModal.style.display = "none";
+    }
+})
+let todoBlueBtn = document.getElementById("blue")
+todoBlueBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="blue";
+    todoModal.style.display = "none";
+    }
+})
+let todoGreenBtn = document.getElementById("green")
+todoGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="green";
+    todoModal.style.display = "none";
+    }
+})
+// 
+let todoPutpleBtn = document.getElementById("purple")
+todoPutpleBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="purple";
+    todoModal.style.display = "none";
+    }
+})
+let todoOrangeBtn = document.getElementById("orange")
+todoOrangeBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="orange";
+    todoModal.style.display = "none";
+    }
+})
+let todoPinkBtn = document.getElementById("pink")
+todoPinkBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="pink";
+    todoModal.style.display = "none";
+    }
+})
+let todoTomatoBtn = document.getElementById("tomato")
+todoTomatoBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="tomato";
+    todoModal.style.display = "none";
+    }
+})
+let todoNavyBtn = document.getElementById("navy")
+todoNavyBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="navy";
+    todoModal.style.display = "none";
+    }
+})
+
+
+
 
 // 낫투두
 let ntdItemList = [];
@@ -294,11 +389,57 @@ function ntdDeleteItem() {
     ntdShowList();
 }
 
-let ntdCheckList = document.querySelector('.ntd-item-list'); 
-ntdCheckList.addEventListener('click', event => {
-      if (event.target.tagName === 'LI') {
-         event.target.classList.toggle('checked');
-  }
-});
+// let ntdCheckList = document.querySelector('.ntd-item-list'); 
+// ntdCheckList.addEventListener('click', event => {
+//       if (event.target.tagName === 'LI') {
+//          event.target.classList.toggle('checked');
+//   }
+// });
+
+//낫투두 모달창 구현
+let notTodoModal = document.getElementById("not-todo-modal");
+let notTodoModalBtn = document.querySelector(".ntd-item-list");
+let ntdSetColorList;
+notTodoModalBtn.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+    if(e.target.tagName !== "SPAN"){
+        if (notTodoModal.style.display == "flex"){
+            notTodoModal.style.display = "none";
+        }else{
+            ntdSetColorList = e.target;
+            notTodoModal.style.display = "flex";
+        }
+    }
+})
+let notTodoCloseBtn = document.getElementById("ntdClose") //X버튼 눌러서 모달창 종료
+notTodoCloseBtn.addEventListener("click", e => {
+    notTodoModal.style.display = "none";
+})
+window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
+    if(notTodoModal.style.display === "flex" && e.key === "Escape") {
+        notTodoModal.style.display = "none";
+    }
+})
+let ntdCheckBtn = document.getElementById("ntdCheck")
+ntdCheckBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    ntdSetColorList.style.color="lightgray";
+    notTodoModal.style.display = "none";
+    }
+})
+let notTodoRedBtn = document.getElementById("ntdRed")
+notTodoRedBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    ntdSetColorList.style.color="red";
+    notTodoModal.style.display = "none";
+    }
+})
+
+let notTodoGreenBtn = document.getElementById("ntdGreen")
+notTodoGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    ntdSetColorList.style.color="green";
+    notTodoModal.style.display = "none";
+    }
+})
 //낫투두 작동완료
 
