@@ -78,7 +78,7 @@ function operateTimer(){ //1초씩 감소시키기
         appendMinutes.textContent="0"+minutes;
     }
     if(minutes === 00 && seconds === 00){
-        
+        console.log('어케해야하지');
         clearInterval(intervalID);
     }
     if(minutes < 00){
@@ -225,15 +225,15 @@ function deleteItem() {
     showList();
 }
 
-
 // const draggables = document.querySelectorAll('.draggable');
 // const containers = document.querySelectorAll('.container');
 
 // draggables.forEach(draggable => {
 //     draggable.addEventListener('dragstart', () => {
-//         console.log('dragStart');
+//         alert('dragStart');
 //         // draggable.classList.add("dragging");
 //     });
+
 //     draggable.addEventListener("dragend", () => {
 //         console.log('dragEnd');
 //         // draggable.classList.remove("dragging");
@@ -442,4 +442,6 @@ notTodoGreenBtn.addEventListener("click", e => {
     }
 })
 //낫투두 작동완료
+
+
 

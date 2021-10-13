@@ -642,3 +642,34 @@ section.Pomodoro, section.todonottodo{
   position: relative;
   top: 25%;
 }
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #3d4e56fa;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  width: 700px;
+  height: 700px;
+  border: none;
+  border-radius: 8px;
+  margin: 12px;
+  cursor: move;
+  font-size: 30px;
+  background: #eaeaea4f;
+}
+
+.container {
+  margin: 100px;
+  padding: 100px;
+  background-color: #b5c1dc57;
+  border-radius: 8px;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
