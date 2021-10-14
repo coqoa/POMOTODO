@@ -82,11 +82,10 @@
                 
             
                 <div class ="record" overflow:auto;><!--record-->
-                    <form action="index.html">
-                        <ul class="record-list"> 
-                            <!--입력값 출력하는건 JS의 영역-->
-                            <li class="record-content" id="record-time" >time-record <input class="record-list" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off> </li>
-                            <!-- <input class="record-list" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off> -->
+                    <form onsubmit="return false;">
+                        <ul class="record-list" id="record-list"> 
+                            
+                            <!-- <li class="record-content" id="record-time" >time-record <input class="record-content" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off> </li> -->
                         </ul>
                         
                     </form>

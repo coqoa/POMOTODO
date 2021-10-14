@@ -43,19 +43,25 @@ const buttonSecond2Minus = document.getElementById("second2__minus");
 
 let intervalID;
 
-
-buttonStart.onclick = function(){ //Start
+//Pomo  Start
+buttonStart.onclick = function(){ 
+    if(minutes >0 || seconds>0){
+        startRecodList();
+    }
     
     clearInterval(intervalID); 
     intervalID = setInterval(operateTimer, 1000);
 
 }
-
-buttonPause.onclick = function(){ //Pause 
+//Pomo  Pause 
+buttonPause.onclick = function(){ 
     clearInterval(intervalID); 
 }
-
-buttonStop.onclick = function(){ //Stop
+//Stop
+buttonStop.onclick = function(){ 
+    if(minutes >0 || seconds>0){
+        stopRecodList();
+    }
     clearInterval(intervalID); 
     minutes = 0; seconds = 0;
     appendMinutes.textContent = "00";
@@ -78,7 +84,7 @@ function operateTimer(){ //1초씩 감소시키기
         appendMinutes.textContent="0"+minutes;
     }
     if(minutes === 00 && seconds === 00){
-        console.log('어케해야하지');
+        stopRecodList();
         clearInterval(intervalID);
     }
     if(minutes < 00){
@@ -87,14 +93,37 @@ function operateTimer(){ //1초씩 감소시키기
         appendMinutes.textContent = "00";
         appendSeconds.textContent = "00";
     }
-        // if(minutes < 0 && seconds == 0){
-        //     clearInterval(intervalID) 
-        //     minutes = 0; seconds = 0;
-        //     appendMinutes.textContent = "00"
-        //     appendSeconds.textContent = "00"
-        // }
 }
 
+//record 시간기록 
+function startRecodList(){ // 스타트버튼 누를때 
+    const  recordList = document.getElementById("record-list");
+
+    let now = new Date();
+    let hours = addStringZero(now.getHours());
+    let mins = addStringZero(now.getMinutes());
+    recordList.innerHTML += '<br><span class="record-content" id="record-time">'+hours +' : '+ mins +' ';
+};
+
+function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
+    const  recordList = document.getElementById("record-list");
+    const  recordText = document.getElementById("record-text");
+    
+    let now = new Date();
+    let hours = addStringZero(now.getHours());
+    let mins = addStringZero(now.getMinutes());
+    recordList.innerHTML += '<span class="record-content" id="record-time">'
+                            +' ~ '+ hours +' : '+ mins 
+                            +'</span><input class="record-content" id="record-text"  type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}"/>';
+
+};
+function addRecordText(){
+    // recordText.innerHTML = 'aaa'
+    let aaa = document.getElementById("record-text").value;
+    let bbb = document.getElementById("record-text");
+    // aaa = recordText에 대입?
+    // recordtext에 대입하는 코드를 내부에서 찾아보자 (그동안 했던 코드들?)
+}
 //minutes증감 버튼
 buttonMinute1Plus.onclick = function(){
     if(minutes<90){
