@@ -326,6 +326,11 @@ div.record {
   border-bottom: 1px solid #dbe2eb;
   background-color: #e9f0fa;
 }
+#record-input-button{
+  border: 0;
+  width: 1px;
+  height: 1px;
+}
 
 div.music {
   position: relative;

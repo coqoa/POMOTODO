@@ -114,13 +114,16 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     let mins = addStringZero(now.getMinutes());
     recordList.innerHTML += '<span class="record-content" id="record-time">'
                             +' ~ '+ hours +' : '+ mins 
-                            +'</span><input class="record-content" id="record-text"  type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}"/>';
-
+                            +'</span><input class="record-content" id="record-text"  type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}"/>'
+                            +'<button type="button" class="record-button" id="record-input-button"><i class="fas fa-greater-than"></i></button>';
+    // 값을 다른 페이지로 넘기려면 배열에 넣어야??
 };
 function addRecordText(){
-    // recordText.innerHTML = 'aaa'
     let aaa = document.getElementById("record-text").value;
-    let bbb = document.getElementById("record-text");
+    alert(aaa);
+    //위에서 recordList를 통해 입력창은 모달형식으로, 출력창을 버튼으로 만들어서 출력창 클릭시 모달창뜨면서 입력할 수 있도록 구현?
+    // recordText.innerHTML = 'aaa'
+    // let bbb = document.getElementById("record-text");
     // aaa = recordText에 대입?
     // recordtext에 대입하는 코드를 내부에서 찾아보자 (그동안 했던 코드들?)
 }
@@ -211,6 +214,8 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
 })
 //
 //투두 
+//버튼을 누르면 addItem메소드를 실행한다 addItem메소드는 인풋텍스트값을 아이템리스트배열에 넣은 후 값을초기화, 포커스는 인풋텍스트에 남게한후 showList메소드를 실행한다
+//showList메소드는 리스트를 출력해주는 메소드이고 ol태그인 list변수에다가 for문을 통해 li태그, span태그, 아이템리스트 등등을 넣은뒤 innerHTML을 통해 list에 다시 넣어준다
 let itemList = [];
 let inputButton = document.querySelector(".input-button");
 inputButton.addEventListener("click", addItem);
