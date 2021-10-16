@@ -476,6 +476,44 @@ notTodoGreenBtn.addEventListener("click", e => {
     }
 })
 //낫투두 작동완료
-
-
+//뮤직플레이어
+let music1 = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
+let music2 = new Audio('POMOTODO audio/Thunderstorm .mp3');
+let music3 = new Audio('POMOTODO audio/Jungle Atmosphere Morning.mp3');
+let music4 = new Audio('POMOTODO audio/Jungle Atmosphere Late Night.mp3');
+let music5 = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
+// let music6 = new Audio('POMOTODO audio/The Boy Got Skills - Max McFerren.mp3');
+let check = document.getElementById("select-music");
+let start = document.getElementById("start-button");
+let pause = document.querySelectorAll("start-music playing")
+start.addEventListener("click", function(){
+    // audio1.play();
+    // console.log(check.value);
+    switch(check.value){
+        case 'music1':
+            if(music1.paused) music1.play();
+            else music1.pause();
+            start.classList.toggle('playing')
+            break;
+        case 'music2':
+            if(music2.paused) music2.play();
+            else music2.pause();
+            break;
+        case 'music3':
+            if(music3.paused) music3.play();
+            else music3.pause();
+            break;
+        case 'music4':
+            if(music4.paused) music4.play();
+            else music4.pause();
+            break;
+        case 'music5':
+            if(music5.paused) music5.play();
+            else music5.pause();
+            break;
+    }
+// pause.addEventListener("click", ()=>{
+//     alert('pause');
+// })
+});
 

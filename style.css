@@ -367,7 +367,11 @@ div.music {
   border-radius: 10px;
 }
 .start-music {
-  font-size: 25px;
+  background-image: url('POMOTODO icon/play-solid.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* font-size: 25px; */
   position: relative;
   left: 195px;
   top: 45px;
@@ -377,6 +381,14 @@ div.music {
   border: 0px;
   background-color: transparent;
   border-radius: 10px;
+}
+.start-music.playing{
+  
+  background-image: url('POMOTODO icon/pause-solid.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
 }
 .next {
   position: relative;
