@@ -259,38 +259,6 @@ function deleteItem() {
     showList();
 }
 
-// const draggables = document.querySelectorAll('.draggable');
-// const containers = document.querySelectorAll('.container');
-
-// draggables.forEach(draggable => {
-//     draggable.addEventListener('dragstart', () => {
-//         alert('dragStart');
-//         // draggable.classList.add("dragging");
-//     });
-
-//     draggable.addEventListener("dragend", () => {
-//         console.log('dragEnd');
-//         // draggable.classList.remove("dragging");
-//     });
-// });
-// containers.forEach(container => {
-//     container.addEventListener("dragover", e => {
-//         e.preventDefault();
-//         const draggable = document.querySelector(".dragging");
-//         container.appendChild(draggable);
-//     });
-// });
-
-
-// let checkList = document.querySelector('.item-list'); 
-// checkList.addEventListener('click', event => {
-//       if (event.target.tagName === 'LI') {
-//         // event.target.style.color ="red"; -> 빨강으로변경 : 선택한컬러로변경하기? 각 색상별로 토글만들고 토글로구현?
-//          event.target.classList.toggle('checked');
-//   }
-// });
-
-
 //투두 모달창 구현
 let todoModal = document.getElementById("todo-modal");
 let todoModalBtn = document.querySelector(".item-list");
@@ -423,13 +391,6 @@ function ntdDeleteItem() {
     ntdShowList();
 }
 
-// let ntdCheckList = document.querySelector('.ntd-item-list'); 
-// ntdCheckList.addEventListener('click', event => {
-//       if (event.target.tagName === 'LI') {
-//          event.target.classList.toggle('checked');
-//   }
-// });
-
 //낫투두 모달창 구현
 let notTodoModal = document.getElementById("not-todo-modal");
 let notTodoModalBtn = document.querySelector(".ntd-item-list");
@@ -477,43 +438,55 @@ notTodoGreenBtn.addEventListener("click", e => {
 })
 //낫투두 작동완료
 //뮤직플레이어
-let music1 = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
-let music2 = new Audio('POMOTODO audio/Thunderstorm .mp3');
-let music3 = new Audio('POMOTODO audio/Jungle Atmosphere Morning.mp3');
-let music4 = new Audio('POMOTODO audio/Jungle Atmosphere Late Night.mp3');
-let music5 = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
-// let music6 = new Audio('POMOTODO audio/The Boy Got Skills - Max McFerren.mp3');
+let music = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
 let check = document.getElementById("select-music");
 let start = document.getElementById("start-button");
-let pause = document.querySelectorAll("start-music playing")
+let stop = document.getElementById("pause-button")
 start.addEventListener("click", function(){
-    // audio1.play();
-    // console.log(check.value);
-    switch(check.value){
-        case 'music1':
-            if(music1.paused) music1.play();
-            else music1.pause();
-            start.classList.toggle('playing')
-            break;
-        case 'music2':
-            if(music2.paused) music2.play();
-            else music2.pause();
-            break;
-        case 'music3':
-            if(music3.paused) music3.play();
-            else music3.pause();
-            break;
-        case 'music4':
-            if(music4.paused) music4.play();
-            else music4.pause();
-            break;
-        case 'music5':
-            if(music5.paused) music5.play();
-            else music5.pause();
-            break;
-    }
-// pause.addEventListener("click", ()=>{
-//     alert('pause');
-// })
+    music.play();
+    music.pause();
+        switch(check.value){
+            case 'music1':
+                music.pause();
+                music = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
+                music.loop = true;
+                music.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
+                break;
+            case 'music2':
+                music.pause();
+                music = new Audio('POMOTODO audio/Thunderstorm .mp3');
+                music.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
+                break;
+            case 'music3':
+                music.pause();
+                music = new Audio('POMOTODO audio/Jungle Atmosphere Morning.mp3');
+                music.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
+                break;
+            case 'music4':
+                music.pause();
+                music = new Audio('POMOTODO audio/Jungle Atmosphere Late Night.mp3');
+                music.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
+                break;
+            case 'music5':
+                music.pause();
+                music = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
+                music.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
+                break;
+        }
+});
+stop.addEventListener("click", function(){
+    music.pause();
+    start.style.display = "flex";
+    stop.style.display = "none";
 });
 
