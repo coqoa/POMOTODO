@@ -114,13 +114,17 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     let mins = addStringZero(now.getMinutes());
     recordList.innerHTML += '<span class="record-content" id="record-time">'
                             +' ~ '+ hours +' : '+ mins 
-                            +'</span><input class="record-content" id="record-text"  type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}"/>'
-                            +'<button type="button" class="record-button" id="record-input-button"><i class="fas fa-greater-than"></i></button>';
+                            +'</span><input class="record-content" id="record-text"  type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}"></input>'
+                            +'<button type="button" class="record-button" id="record-input-button"></button>';
+                            // +'<span id="input-text-record"><span>';
     // 값을 다른 페이지로 넘기려면 배열에 넣어야??
 };
 function addRecordText(){
     let aaa = document.getElementById("record-text").value;
-    alert(aaa);
+    // console.log(aaa);
+    document.getElementById("record-text").value = aaa;
+    console.log(aaa);
+    
     //위에서 recordList를 통해 입력창은 모달형식으로, 출력창을 버튼으로 만들어서 출력창 클릭시 모달창뜨면서 입력할 수 있도록 구현?
     // recordText.innerHTML = 'aaa'
     // let bbb = document.getElementById("record-text");
@@ -233,7 +237,7 @@ function addItem() {
 }
 
 function showList(){
-    let list = "<ol class = 'container'>"
+    let list = "<ol class = 'container' id='sortable'>"
     for (let i = 0; i < itemList.length; i++){
         list += "<li class = 'draggable' draggable = 'true'>" 
                        + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
@@ -242,6 +246,13 @@ function showList(){
                        + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
                        + "</li>";
     } 
+    $(function(){
+        $("#sortable").sortable({
+            start:function(event, ui){
+                console.log("drag : " + (ui.item.index()));
+            }    
+        });
+    })
 
     list += "</ol>";
     document.querySelector(".item-list").innerHTML = list;
@@ -289,64 +300,120 @@ todoCheckBtn.addEventListener("click", e => {
     todoModal.style.display = "none";
     }
 })
+
 let todoRedBtn = document.getElementById("red")
 todoRedBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="red";
+    setColorList.style.color="#f36164";
     todoModal.style.display = "none";
     }
 })
-let todoBlueBtn = document.getElementById("blue")
-todoBlueBtn.addEventListener("click", e => {
+let todoLightOrangeBtn = document.getElementById("light-orange")
+todoLightOrangeBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="blue";
-    todoModal.style.display = "none";
-    }
-})
-let todoGreenBtn = document.getElementById("green")
-todoGreenBtn.addEventListener("click", e => {
-    if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="green";
-    todoModal.style.display = "none";
-    }
-})
-// 
-let todoPutpleBtn = document.getElementById("purple")
-todoPutpleBtn.addEventListener("click", e => {
-    if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="purple";
+    setColorList.style.color="#FFD77F";
     todoModal.style.display = "none";
     }
 })
 let todoOrangeBtn = document.getElementById("orange")
 todoOrangeBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="orange";
+    setColorList.style.color="#FFA045";
+    todoModal.style.display = "none";
+    }
+})
+// 
+let todoLightPinkBtn = document.getElementById("light-pink")
+todoLightPinkBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#FFC1F8";
     todoModal.style.display = "none";
     }
 })
 let todoPinkBtn = document.getElementById("pink")
 todoPinkBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="pink";
+    setColorList.style.color="#EE57B6";
     todoModal.style.display = "none";
     }
 })
-let todoTomatoBtn = document.getElementById("tomato")
-todoTomatoBtn.addEventListener("click", e => {
+// let todoYellowBtn = document.getElementById("yellow")
+// todoYellowBtn.addEventListener("click", e => {
+//     if (e.target.tagName === 'BUTTON') {
+//     setColorList.style.color="#F2D586";
+//     todoModal.style.display = "none";
+//     }
+// })
+let todoLightPurpleBtn = document.getElementById("light-puple")
+todoLightPurpleBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="tomato";
+    setColorList.style.color="#B8B2FF";
     todoModal.style.display = "none";
     }
 })
-let todoNavyBtn = document.getElementById("navy")
-todoNavyBtn.addEventListener("click", e => {
+let todoPurpleBtn = document.getElementById("purple")
+todoPurpleBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    setColorList.style.color="navy";
+    setColorList.style.color="#B668FC";
     todoModal.style.display = "none";
     }
 })
-
+let todoLightGreenBtn = document.getElementById("light-green")
+todoLightGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#AFD5AB";
+    todoModal.style.display = "none";
+    }
+})
+let todoGreenBtn = document.getElementById("green")
+todoGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#56D69C";
+    todoModal.style.display = "none";
+    }
+})
+let todoDeepGreenBtn = document.getElementById("deep-green")
+todoDeepGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#88BE7B";
+    todoModal.style.display = "none";
+    }
+})
+let todoLightBlueGreenBtn = document.getElementById("light-blue-green")
+todoLightBlueGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#66DAE2";
+    todoModal.style.display = "none";
+    }
+})
+let todoBlueGreenBtn = document.getElementById("blue-green")
+todoBlueGreenBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#429488";
+    todoModal.style.display = "none";
+    }
+})
+let todoLightBlueBtn = document.getElementById("light-blue")
+todoLightBlueBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#289BFF";
+    todoModal.style.display = "none";
+    }
+})
+let todoBlueBtn = document.getElementById("blue")
+todoBlueBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#1C00FF";
+    todoModal.style.display = "none";
+    }
+})
+let todoOliveBtn = document.getElementById("olive")
+todoOliveBtn.addEventListener("click", e => {
+    if (e.target.tagName === 'BUTTON') {
+    setColorList.style.color="#BFC655";
+    todoModal.style.display = "none";
+    }
+})
 
 
 
@@ -417,26 +484,19 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
 let ntdCheckBtn = document.getElementById("ntdCheck")
 ntdCheckBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    ntdSetColorList.style.color="lightgray";
+    ntdSetColorList.style.color="#88BE7B";
     notTodoModal.style.display = "none";
     }
 })
 let notTodoRedBtn = document.getElementById("ntdRed")
 notTodoRedBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
-    ntdSetColorList.style.color="red";
-    notTodoModal.style.display = "none";
-    }
-})
-
-let notTodoGreenBtn = document.getElementById("ntdGreen")
-notTodoGreenBtn.addEventListener("click", e => {
-    if (e.target.tagName === 'BUTTON') {
-    ntdSetColorList.style.color="green";
+    ntdSetColorList.style.color="#f36164";
     notTodoModal.style.display = "none";
     }
 })
 //낫투두 작동완료
+
 //뮤직플레이어
 let music = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
 let check = document.getElementById("select-music");
@@ -480,7 +540,7 @@ start.addEventListener("click", function(){
                 music = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
                 music.play();
                 start.style.display = "none";
-                stop.style.display = "flex";
+                stop.style.display = "flequ";
                 break;
         }
 });
@@ -490,3 +550,13 @@ stop.addEventListener("click", function(){
     stop.style.display = "none";
 });
 
+let pomoScreen = document.querySelector(".Pomodoro");
+let todoScreen = document.querySelector(".todonottodo");
+// function extendScreen(){
+//     if(true)
+// }
+if(window.screen.width<2500){
+    console.log(window.screen.width);
+    console.log(window.screen.height);
+    
+}

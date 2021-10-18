@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+/* font-family: 'Nanum Gothic', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 /* font-family: 'Roboto Mono', monospace; */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 /* font-family: 'Open Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/* font-family: 'Ubuntu', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+/* font-family: 'Josefin Sans', sans-serif; */
 
+/* .body {
+  min-width: 2300px;
+} */
 
 header nav {
   /* font-family: 'Roboto Mono', monospace; */
@@ -25,12 +34,13 @@ a {
   color: #5e5e5e;
 }
 
-
 .POMOTODO__logo a {
   list-style: none;
-  padding: 5px;
-  font-size: 14px;
-  font-weight: bold;
+  padding: 0px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
 }
 .POMOTODO__logo a:hover {
   background-color: #edeeee;
@@ -65,6 +75,7 @@ a {
 }
 
 #POMOTODO__clock{
+  font-family: 'Ubuntu', sans-serif;
   position: relative;
   top: 5px;
   margin-right: 10px;
@@ -135,10 +146,18 @@ body {
 }
 
 h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  
+font-size: 35px;
+
   text-align: center;
-  margin: 10px 0px 10px;
+  margin: 0px 0px 20px;
   padding: 7px;
   opacity: 0.7;
+}
+.section-title{
+  font-style: italic;
 }
 
 section.Pomodoro {
@@ -195,7 +214,7 @@ article.nottodolist {
 
 .Pomodoro-timer-cover{
   position: absolute;
-  top: 65px;
+  top: 75px;
   left: 210px;
   width: 215px;
   height: 215px;
@@ -235,27 +254,28 @@ article.nottodolist {
 }
 .Pomodoro-timer-container > h2 > span{
   display:inline-block;
-
+position: relative;
+top: -5px;
   /* color: #DD5E56; */
   width: 75px;
 }
 
 .Pomodoro-timer-container > .clock__updown {
   position: relative;
-  top: 37px;
+  top: 38px;
   opacity: 0.1;
   border: 0;
-  padding: 2px 8px 4px;
+  padding: 2px 6px 4px;
   border-radius: 30%;
   background-color: transparent;
 }
 #minute2__minus, #minute2__plus {
   margin-top: 0px;
-  margin-right: 15px;
+  margin-right: 18px;
 }
 #second1__minus, #second1__plus{
   margin-top: 0px;
-  margin-left: 15px;
+  margin-left: 18px;
 }
 
 .Pomodoro-timer-container>.clock__btn{
@@ -293,6 +313,7 @@ button:active{
 /*  */
 
 div.record {
+  font-family: 'Nanum Gothic', sans-serif;
   position: relative;
   top: 60px;
   left: 75px;
@@ -304,6 +325,18 @@ div.record {
   border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
+
+  overflow:auto;
+}
+div.record::-webkit-scrollbar {
+  width: 7px;
+  background-color: transparent;
+}
+div.record::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-top: 30px solid transparent;
+  border-bottom: 30px  solid transparent;
+  background-color: lightgray;
 }
 .record-list {
   position: relative;
@@ -315,13 +348,14 @@ div.record {
 }
 #record-time {
   position: relative;
-  left: 20px;
+  left: 10px;
   color: #e96977;
 }
 #record-text {
+  font-family: 'Nanum Gothic', sans-serif;
   position: relative;
-  width: 300px;
-  left: 45px;
+  width: 200px;
+  left: 30px;
   border: 1px solid #e9f0fa;
   border-bottom: 1px solid #dbe2eb;
   background-color: #e9f0fa;
@@ -331,8 +365,18 @@ div.record {
   width: 1px;
   height: 1px;
 }
+#input-text-record{
+  position: absolute;
+  top:  10px;
+  left: 10px;
+  width: 400px;
+  /* height: 20px; */
+  background-color: black;
+
+}
 
 div.music {
+  
   position: relative;
   top: 85px;
   left: 75px;
@@ -343,6 +387,9 @@ div.music {
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
 #select-music {
+  /* font-family: 'Nanum Gothic', sans-serif; */
+  font-family: 'Ubuntu', sans-serif;
+  
     -o-appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -359,13 +406,11 @@ div.music {
   padding:12px;
   border-radius: 8px;
   background: #e9f0fa;
-  box-shadow: 2px 2px 4px #949da6, -2px -2px 4px #ffffff;
+  box-shadow: 2px 2px 2px #949da6, -2px -2px 10px #ffffff;
 }
 #select-music:hover{
-  /* border: 1px solid white; */
-  /* box-sizing: border-box; */
   background: #e9f0fa;
-  box-shadow: 1px 1px 1px #949da6, -1px -1px 1px #ffffff;
+  box-shadow: 1px 1px 1px #949da6, -1px -1px 10px #ffffff;
   cursor: pointer;
 }
 
@@ -448,22 +493,54 @@ div.music {
 }
 
 .item-list {
-  
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 600;
+  color: #5E5E5E;
+  /* font-style: italic; */
 }
+.todo-modal-content>#check {background-color:lightgray ; color:white;}
+.todo-modal-content>#red {background-color: #f36164;}
+.todo-modal-content>#light-orange {background-color: #FFD77F;}
+.todo-modal-content>#orange {background-color: #FFA045;}
+.todo-modal-content>#light-pink {background-color: #FFC1F8;}
+.todo-modal-content>#pink {background-color: #EE57B6;}
+/* .todo-modal-content>#yellow {background-color: #f1c95a;} */
+.todo-modal-content>#light-puple {background-color: #B8B2FF;}
+.todo-modal-content>#purple {background-color: #B668FC;}
+.todo-modal-content>#light-green {background-color: #AFD5AB;}
+.todo-modal-content>#green {background-color: #56D69C;}
+.todo-modal-content>#deep-green {background-color: #88BE7B;}
+.todo-modal-content>#light-blue-green {background-color: #66DAE2;}
+.todo-modal-content>#blue-green {background-color: #429488;}
+.todo-modal-content>#light-blue {background-color: #289BFF;}
+.todo-modal-content>#blue {background-color: #1C00FF;}
+.todo-modal-content>#olive {background-color: #BFC655;}
 
-.select-color {
-  position: relative;
-  left: 3px;
-  top: -1px;
-  border: 0;
-  outline: 0;
-  border-radius: 5px;
-  height: 35px;
-  width: 58px;
-  padding: 2px;
-  background-color: #e9f0fa;
+.ntd-item-list{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 600;
+  color: #f36164;
 }
+.not-todo-modal-content>#ntdCheck {background-color:#88BE7B ; color:white;}
+.not-todo-modal-content>#ntdRed {background-color: #f36164;}
 
+
+/* <button type="button" class="color-button" id="red"></button> */
+/* <button type="button" class="color-button" id="light-orange"></button> FFB43F */
+/* <button type="button" class="color-button" id="orange"></button> FF7F58 */
+/* <button type="button" class="color-button" id="light-pink"></button> F5BEFA */
+/* <button type="button" class="color-button" id="pink"></button> F989C7 */
+/* <button type="button" class="color-button" id="yellow"></button> F2D586 */
+/* <button type="button" class="color-button" id="light-puple"></button> B8B2FF */
+/* <button type="button" class="color-button" id="purple"></button> 9A77FA */
+/* <button type="button" class="color-button" id="light-green"></button> AFD5AB */
+/* <button type="button" class="color-button" id="green"></button> 56D69C */
+/* <button type="button" class="color-button" id="deep-green"></button> 88BE7B */
+/* <button type="button" class="color-button" id="light-blue-green"></button> 82D2D4 */
+/* <button type="button" class="color-button" id="blue-green"></button> 66DAE1 */
+/* <button type="button" class="color-button" id="light-blue"></button> 82C6F7 */
+/* <button type="button" class="color-button" id="blue"></button> 5386FF */
+/* <button type="button" class="color-button" id="olive"></button> BFC655 */
 #todo-write #list-color-gray{
   background-color: white;
 }
@@ -499,19 +576,20 @@ div.music {
 }
     /* 투두 모달창 */
     #todo-modal.todo-modal-overlay {
-      width: 120px;
-      height: 365px;
+      width: 85px;
+      height: 300px;
       position: absolute;
       right: 20px;
-      top: 90px;
+      top: 140px;
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.6);
-      box-shadow: 6px 6px 9px #c8ced7;
-      backdrop-filter: blur(1.5px);
-      -webkit-backdrop-filter: blur(1.5px);
+      /* background: rgba(255, 255, 255, 0.6); */
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
+      /* backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px); */
       border-radius: 10px;
       overflow:auto;
     }
@@ -528,17 +606,21 @@ div.music {
     }
     .color-button{
       position: relative;
-      top: 60px;
+      top: 140px;
       display:flex;
       
       justify-content: space-around;
       /* padding-top: 100px; */
-      padding: 15px;
+      background-color: #e9f0fa;
+      padding: 8px;
       margin: 5px;
-      width: 100px;
+      width: 65px;
+      height: 30px;
       border: 0px;
-      border-radius: 10px;
+      border-radius: 7px;
+      box-shadow: 1px 1px 2px #c8ced7;
     }
+  
     #todo-modal.todo-modal-close {
       display: inline;
       float: right;
@@ -549,44 +631,35 @@ div.music {
     /* 낫투두모달창 */
     
     #not-todo-modal.not-todo-modal-overlay{
-      width: 120px;
-      height: 180px;
+      width: 75px;
+      height: 110px;
       position: absolute;
       right: 20px;
-      top: 640px;
+      top: 680px;
       display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.6);
-      box-shadow: 6px 6px 9px #c8ced7;
-      backdrop-filter: blur(1.5px);
-      -webkit-backdrop-filter: blur(1.5px);
+      /* justify-content: center; */
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
       border-radius: 10px;
-      overflow:auto;
     }
-    #not-todo-modal.not-todo-modal-overlay::-webkit-scrollbar {
-      width: 7px;
-      background-color: transparent;
-    }
-    #not-todo-modal.not-todo-modal-overlay::-webkit-scrollbar-thumb {
-      background-clip: padding-box;
-      border-top: 10px solid transparent;
-      border-bottom: 5px  solid transparent;
-      background-color: lightgray;
-    }
+    
     .ntd-color-button{
       position: relative;
-      top: 10px;
+      
+      top: -20px;
       display:flex;
       
       justify-content: space-around;
       /* padding-top: 100px; */
-      padding: 15px;
+      padding: 8px;
       margin: 5px;
-      width: 100px;
+      width: 65px;
+      height: 30px;
       border: 0px;
-      border-radius: 10px;
+      border-radius: 7px;
+      box-shadow: 1px 1px 2px #c8ced7;
       /* background-color: #e9f0fa; 버튼 색깔 ?*/ 
     }
     #not-todo-modal.not-todo-modal-close {
@@ -608,11 +681,11 @@ ol li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   width: 565px;
   list-style: none;
   padding: 9px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-radius: 11px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
@@ -687,8 +760,9 @@ ol li.checked:active {
     margin-bottom: 50px;
   }
 }
-@media screen and (min-height:1080px){
-section.Pomodoro, section.todonottodo{
+/* @media screen and (min-height:925px){
+/* section.Pomodoro, section.todonottodo{
   position: relative;
-  top: 25%;
-}
+  top: 25%; */
+  /* extendScreed(); */
+/* }  */

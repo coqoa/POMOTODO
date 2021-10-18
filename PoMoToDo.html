@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
     <script defer src="main.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
+
     
 </head>
 <body class="body">
@@ -42,10 +46,10 @@
             </div>
         </nav>
     </header>
-    <div class="main-content"></div>
+    <!-- <div class="main-content"></div> -->
     <section class = "Pomodoro">
         <article class = "Pomodoro-timer"> <!--Pomodoro-->
-            <h2>Pomodoro</h2> <!--date-->
+            <h2 class="section-title">Pomodoro</h2> <!--date-->
             <div><!--clock, record-->
                 <!-- 뽀모도로타이머  -->
                 <div class="Pomodoro-timer-cover">
@@ -114,7 +118,7 @@
 
     <section class="todonottodo">
         <article class="todolist"><!-- todolist-->
-            <div><!--title-->
+            <div class="section-title"><!--title-->
                 <h2>ToDoList</h2>
                 <!-- + 메일 모달창 구현, 타이머 마무리, 자바스크립트 드롭다운리스트 구현, 투두/낫투두 -->
             </div>
@@ -132,14 +136,23 @@
                     <span class="todo-modal-content">ﾠ
                             <button type="button" class="color-button" id="close"><i class="fas fa-angle-left"></i></button>
                             <button type="button" class="color-button" id="check"><i class="fas fa-check"></i></button>
-                            <button type="button" class="color-button" id="red">red</button>
-                            <button type="button" class="color-button" id="blue">blue</button>
-                            <button type="button" class="color-button" id="green">green</button>
-                            <button type="button" class="color-button" id="purple">purple</button>
-                            <button type="button" class="color-button" id="orange">orange</button>
-                            <button type="button" class="color-button" id="pink">pink</button>
-                            <button type="button" class="color-button" id="tomato">tomato</button>
-                            <button type="button" class="color-button" id="navy">navy</button>
+                            
+                            <button type="button" class="color-button" id="red"></button>
+                            <button type="button" class="color-button" id="light-orange"></button>
+                            <button type="button" class="color-button" id="orange"></button>
+                            <button type="button" class="color-button" id="light-pink"></button>
+                            <button type="button" class="color-button" id="pink"></button>
+                            <!-- <button type="button" class="color-button" id="yellow"></button> -->
+                            <button type="button" class="color-button" id="light-puple"></button>
+                            <button type="button" class="color-button" id="purple"></button>
+                            <button type="button" class="color-button" id="light-green"></button>
+                            <button type="button" class="color-button" id="green"></button>
+                            <button type="button" class="color-button" id="deep-green"></button>
+                            <button type="button" class="color-button" id="light-blue-green"></button>
+                            <button type="button" class="color-button" id="blue-green"></button>
+                            <button type="button" class="color-button" id="light-blue"></button>
+                            <button type="button" class="color-button" id="blue"></button>
+                            <button type="button" class="color-button" id="olive"></button>
                         </span>
                 </div>
 
@@ -147,7 +160,7 @@
         </article>
 
         <article class="nottodolist"><!--Not-ToDoList-->
-            <div>
+            <div class="section-title">
                 <h2>NotToDoList</h2>
             </div>
             <div id="nottodo-write"><!--title-->
@@ -162,8 +175,7 @@
                 <div class="not-todo-modal-content">ﾠ
                     <button type="button" class="ntd-color-button" id="ntdClose"><i class="fas fa-angle-left"></i></button>
                     <button type="button" class="ntd-color-button" id="ntdCheck"><i class="fas fa-check"></i></button>
-                    <button type="button" class="ntd-color-button" id="ntdRed">red</button>
-                    <button type="button" class="ntd-color-button" id="ntdGreen">green</button>
+                    <button type="button" class="ntd-color-button" id="ntdRed"></button>
                 </div>
         </div>
 
