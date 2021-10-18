@@ -124,6 +124,7 @@ function addRecordText(){
     // console.log(aaa);
     document.getElementById("record-text").value = aaa;
     console.log(aaa);
+
     
     //위에서 recordList를 통해 입력창은 모달형식으로, 출력창을 버튼으로 만들어서 출력창 클릭시 모달창뜨면서 입력할 수 있도록 구현?
     // recordText.innerHTML = 'aaa'
@@ -434,13 +435,37 @@ function ntdAddItem() {
 }
 
 function ntdShowList(){
-    let ntdList = "<ol>"
+    let ntdList = "<ol class='ntd-container' id='ntd-sortable'>"
     for (let i = 0; i < ntdItemList.length; i++){
         ntdList += "<li>" + "<span class='ntd-list-drag' id=" + i + ">" + " ⇵ " + "</span>"
                        + ntdItemList[i]
                        + "<span class='ntd-list-delete' id=" + i + ">" + " ✖ " + "</span>"
                        + "</li>";
     } 
+    $(function(){
+        $("#ntd-sortable").sortable({
+            start:function(event, ui){
+                console.log("drag : " + (ui.item.index()));
+            }    
+        });
+    })
+
+    // let list = "<ol class = 'container' id='sortable'>"
+    // for (let i = 0; i < itemList.length; i++){
+    //     list += "<li class = 'draggable' draggable = 'true'>" 
+    //                    + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
+    //                 //    + itemList[i]
+    //                    + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
+    //                    + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
+    //                    + "</li>";
+    // } 
+    // $(function(){
+    //     $("#sortable").sortable({
+    //         start:function(event, ui){
+    //             console.log("drag : " + (ui.item.index()));
+    //         }    
+    //     });
+    // })
 
     ntdList += "</ol>";
     document.querySelector(".ntd-item-list").innerHTML = ntdList;
