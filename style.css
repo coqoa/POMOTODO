@@ -288,7 +288,19 @@ top: -5px;
   border-radius: 5px;
   background: transparent;
 }
+
+#btn__start{
+  display: inline;
+  /* display: none; */
+}
+
+#btn__pause{
+  display: none;
+  /* display: inline; */
+}
+
 #btn__stop{
+  
   padding: 7px;
 }
 
@@ -359,23 +371,56 @@ div.record::-webkit-scrollbar-thumb {
   border: 1px solid #e9f0fa;
   border-bottom: 1px solid #dbe2eb;
   background-color: #e9f0fa;
+  z-index: 1;
 }
 #record-input-button{
   border: 0;
   width: 1px;
   height: 1px;
 }
-#input-text-record{
-  position: absolute;
-  top:  10px;
-  left: 10px;
-  width: 400px;
-  /* height: 20px; */
-  background-color: black;
-
+#record-text-output{
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  left: 20px;
+  margin: 0px;
+  padding: 0px;
+  width: 300px;
+  height: 20px;
+  /* right: 170px; */
+  /* padding: 0px 80px 0px; */
+  /* border: 1px solid #dbe2eb; */
+  border-bottom: 1px solid #dbe2eb;
+  /* background-color: black; */
+  cursor: pointer;
+  z-index: 2;
 }
+.record-text>.text-co{
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+  z-index: 999;
+}
+/* 
+#record-modal.record-modal-overlay{
+  width: 210px;
+  height: 65px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+} */
 
-div.music {
+
+div.audio {
   
   position: relative;
   top: 85px;
@@ -386,9 +431,10 @@ div.music {
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
-#select-music {
-  /* font-family: 'Nanum Gothic', sans-serif; */
+#select-audio {
   font-family: 'Ubuntu', sans-serif;
+  font-style: italic;
+  font-weight: 400;
   
     -o-appearance: none;
     -webkit-appearance: none;
@@ -398,7 +444,7 @@ div.music {
   font-size:15px;
   position: relative;
 
-  left: 130px;
+  left: 137px;
   
   top: 30px;
   text-align: center;
@@ -408,10 +454,14 @@ div.music {
   background: #e9f0fa;
   box-shadow: 2px 2px 2px #949da6, -2px -2px 10px #ffffff;
 }
-#select-music:hover{
+#select-audio:hover{
   background: #e9f0fa;
   box-shadow: 1px 1px 1px #949da6, -1px -1px 10px #ffffff;
   cursor: pointer;
+}
+#select-audio>.audio-list{
+  /* display: none; */
+  font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -426,7 +476,7 @@ div.music {
   background-color: transparent;
   border-radius: 10px;
 }
-.start-music {
+.start-audio {
   display: flex;
   background-image: url('POMOTODO icon/play-solid.svg');
   background-size: 25px;
@@ -444,11 +494,11 @@ div.music {
   border-radius: 10px;
 }
 
-/* .start-music.playing{
+/* .start-audio.playing{
   background: black;
 } */
 
-.pause-music{
+.pause-audio{
   display: none;
   background-image: url('POMOTODO icon/pause-solid.svg');
   background-size: 25px;

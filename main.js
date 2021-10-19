@@ -46,7 +46,16 @@ let intervalID;
 //Pomo  Start
 buttonStart.onclick = function(){ 
     if(minutes >0 || seconds>0){
-        startRecodList();
+        if(buttonStart.className === 'clock__btn'){
+            startRecodList();
+            audio = new Audio('POMOTODO audio/Beep Short .mp3');
+            audio.volume = 0.2;
+            audio.play();
+        }
+        buttonStart.classList.add('active');
+        buttonStop.classList.add('active');
+        buttonStart.style.display = "none";
+        buttonPause.style.display = "inline";
     }
     
     clearInterval(intervalID); 
@@ -56,11 +65,16 @@ buttonStart.onclick = function(){
 //Pomo  Pause 
 buttonPause.onclick = function(){ 
     clearInterval(intervalID); 
+    buttonStart.style.display = "inline";
+    buttonPause.style.display = "none";
 }
 //Stop
 buttonStop.onclick = function(){ 
     if(minutes >0 || seconds>0){
-        stopRecodList();
+        if(buttonStop.className === 'clock__btn active'){
+            stopRecodList();
+
+        }
     }
     clearInterval(intervalID); 
     minutes = 0; seconds = 0;
@@ -107,31 +121,51 @@ function startRecodList(){ // 스타트버튼 누를때
 
 function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     const  recordList = document.getElementById("record-list");
-    const  recordText = document.getElementById("record-text");
-    
+    // const  recordText = document.getElementById("record-text");
+
+    buttonStart.style.display = "inline";
+    buttonPause.style.display = "none";
+    buttonStart.classList.remove('active');
+    buttonStop.classList.remove('active');
+
     let now = new Date();
     let hours = addStringZero(now.getHours());
     let mins = addStringZero(now.getMinutes());
+    // for(i=0; i<recordList.length; i++){
+    
     recordList.innerHTML += '<span class="record-content" id="record-time">'
                             +' ~ '+ hours +' : '+ mins 
-                            +'</span><input class="record-content" id="record-text"  type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}"></input>'
-                            +'<button type="button" class="record-button" id="record-input-button"></button>';
-                            // +'<span id="input-text-record"><span>';
-    // 값을 다른 페이지로 넘기려면 배열에 넣어야??
+                            +'<input class="record-content" id="record-text" type="text" value="입력" onchange="changeText(this)" maxlength="26"  autocomplete=off></input></span>'
+                            // +'<input class="record-content" id="record-text" type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}">'
+                            // +'</input><button type="button" class="record-button" id="record-input-button"></button></span>';
+                            // +'<span class ="record-text-output" id="record-text-output"></span></span>';
+    // 값을 다른 페이지로 넘기려면 배열에 넣어야 => 배열에 넣어서 관리하자
+    audio = new Audio('POMOTODO audio/Beep Short .mp3');
+    audio.volume = 0.2;
+    audio.play();
+    // console.log(recordText.value);
 };
-function addRecordText(){
-    let aaa = document.getElementById("record-text").value;
-    // console.log(aaa);
-    document.getElementById("record-text").value = aaa;
-    console.log(aaa);
 
-    
+function changeText(txt){
+    let recordText = document.getElementById("record-text");
+    // txt.style.backgroundColor ='yellow';
+    $('#record-text').val('asdasdasd');
+    console.log(recordText.value)
+}
+// function bgcolor_yellow(obj) {
+//     obj.style.backgroundColor ='yellow';
+//   }
+
+function addRecordText(){
+    $
     //위에서 recordList를 통해 입력창은 모달형식으로, 출력창을 버튼으로 만들어서 출력창 클릭시 모달창뜨면서 입력할 수 있도록 구현?
     // recordText.innerHTML = 'aaa'
     // let bbb = document.getElementById("record-text");
     // aaa = recordText에 대입?
     // recordtext에 대입하는 코드를 내부에서 찾아보자 (그동안 했던 코드들?)
 }
+
+
 //minutes증감 버튼
 buttonMinute1Plus.onclick = function(){
     if(minutes<90){
@@ -338,13 +372,6 @@ todoPinkBtn.addEventListener("click", e => {
     todoModal.style.display = "none";
     }
 })
-// let todoYellowBtn = document.getElementById("yellow")
-// todoYellowBtn.addEventListener("click", e => {
-//     if (e.target.tagName === 'BUTTON') {
-//     setColorList.style.color="#F2D586";
-//     todoModal.style.display = "none";
-//     }
-// })
 let todoLightPurpleBtn = document.getElementById("light-puple")
 todoLightPurpleBtn.addEventListener("click", e => {
     if (e.target.tagName === 'BUTTON') {
@@ -449,23 +476,7 @@ function ntdShowList(){
             }    
         });
     })
-
-    // let list = "<ol class = 'container' id='sortable'>"
-    // for (let i = 0; i < itemList.length; i++){
-    //     list += "<li class = 'draggable' draggable = 'true'>" 
-    //                    + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
-    //                 //    + itemList[i]
-    //                    + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
-    //                    + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
-    //                    + "</li>";
-    // } 
-    // $(function(){
-    //     $("#sortable").sortable({
-    //         start:function(event, ui){
-    //             console.log("drag : " + (ui.item.index()));
-    //         }    
-    //     });
-    // })
+    
 
     ntdList += "</ol>";
     document.querySelector(".ntd-item-list").innerHTML = ntdList;
@@ -523,54 +534,88 @@ notTodoRedBtn.addEventListener("click", e => {
 //낫투두 작동완료
 
 //뮤직플레이어
-let music = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
-let check = document.getElementById("select-music");
+let audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
+let check = document.getElementById("select-audio");
 let start = document.getElementById("start-button");
 let stop = document.getElementById("pause-button")
+
+
+check.addEventListener("click", function(){
+    clickList();
+})
+function clickList(){
+    if(stop.style.display = "flex"){
+        start.style.display = "flex";
+        stop.style.display = "none";
+    }
+}
+
 start.addEventListener("click", function(){
-    music.play();
-    music.pause();
+    audio.play();
+    audio.pause();
         switch(check.value){
-            case 'music1':
-                music.pause();
-                music = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
-                music.loop = true;
-                music.play();
+            case 'audio1':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
+                audio.loop = true;
+                audio.play();
                 start.style.display = "none";
                 stop.style.display = "flex";
                 break;
-            case 'music2':
-                music.pause();
-                music = new Audio('POMOTODO audio/Thunderstorm .mp3');
-                music.play();
+            case 'audio2':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Fire.mp3');
+                audio.loop = true;
+                audio.play();
                 start.style.display = "none";
                 stop.style.display = "flex";
                 break;
-            case 'music3':
-                music.pause();
-                music = new Audio('POMOTODO audio/Jungle Atmosphere Morning.mp3');
-                music.play();
+            case 'audio3':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Outdoor Summer Ambience.mp3');
+                audio.loop = true;
+                audio.play();
                 start.style.display = "none";
                 stop.style.display = "flex";
                 break;
-            case 'music4':
-                music.pause();
-                music = new Audio('POMOTODO audio/Jungle Atmosphere Late Night.mp3');
-                music.play();
+            case 'audio4':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Rain Heavy Loud.mp3');
+                audio.loop = true;
+                audio.volume = 0.2;
+                audio.play();
                 start.style.display = "none";
                 stop.style.display = "flex";
                 break;
-            case 'music5':
-                music.pause();
-                music = new Audio('POMOTODO audio/Carnival Atmosphere.mp3');
-                music.play();
+            case 'audio5':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
+                audio.loop = true;
+                audio.play();
                 start.style.display = "none";
-                stop.style.display = "flequ";
+                stop.style.display = "flex";
+                break;
+            case 'audio6':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Valley Night.mp3');
+                audio.loop = true;
+                audio.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
+                break;   
+            case 'audio7':
+                audio.pause();
+                audio = new Audio('POMOTODO audio/Waves Crashing on Rock Beach.mp3');
+                audio.loop = true;
+                audio.volume = 0.5;
+                audio.play();
+                start.style.display = "none";
+                stop.style.display = "flex";
                 break;
         }
 });
 stop.addEventListener("click", function(){
-    music.pause();
+    audio.pause();
     start.style.display = "flex";
     stop.style.display = "none";
 });
