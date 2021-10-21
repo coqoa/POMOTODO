@@ -110,36 +110,40 @@ function operateTimer(){ //1초씩 감소시키기
 }
 
 //record 시간기록 
-function startRecodList(){ // 스타트버튼 누를때 
-    const  recordList = document.getElementById("record-list");
+let recordList = document.getElementById("record-list");
+let recordText = document.querySelector("record-content");
+let now;
+let startHours;
+let startMins;
+let stopHours;
+let stopMins;
 
-    let now = new Date();
-    let hours = addStringZero(now.getHours());
-    let mins = addStringZero(now.getMinutes());
-    recordList.innerHTML += '<br><span class="record-content" id="record-time">'+hours +' : '+ mins +' ';
+function startRecodList(){ // 스타트버튼 누를때 
+
+    now = new Date();
+    startHours = addStringZero(now.getHours());
+    startMins = addStringZero(now.getMinutes());
+    // recordList.innerHTML += '<br><span class="record-content" id="record-time">'+startHours +' : '+ startMins +' ';
 };
 
 function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
-    const  recordList = document.getElementById("record-list");
-    // const  recordText = document.getElementById("record-text");
-
+    
     buttonStart.style.display = "inline";
     buttonPause.style.display = "none";
     buttonStart.classList.remove('active');
     buttonStop.classList.remove('active');
 
-    let now = new Date();
-    let hours = addStringZero(now.getHours());
-    let mins = addStringZero(now.getMinutes());
-    // for(i=0; i<recordList.length; i++){
-    
-    recordList.innerHTML += '<span class="record-content" id="record-time">'
-                            +' ~ '+ hours +' : '+ mins 
-                            +'<input class="record-content" id="record-text" type="text" value="입력" onchange="changeText(this)" maxlength="26"  autocomplete=off></input></span>'
-                            // +'<input class="record-content" id="record-text" type="text" maxlength="26"  autocomplete=off onkeydown="if(window.event.keyCode==13){addRecordText()}">'
-                            // +'</input><button type="button" class="record-button" id="record-input-button"></button></span>';
-                            // +'<span class ="record-text-output" id="record-text-output"></span></span>';
-    // 값을 다른 페이지로 넘기려면 배열에 넣어야 => 배열에 넣어서 관리하자
+    now = new Date();
+    stopHours = addStringZero(now.getHours());
+    stopMins = addStringZero(now.getMinutes());
+   
+    recordList.innerHTML += '<li class="record-content" id="record-time">'
+                            + startHours +' : '+ startMins 
+                            +' ~ '+ stopHours +' : '+ stopMins
+                            +'<input type="text" class="record-text" id='+recordList.childElementCount+' onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input></li>'
+                            // +'<input class="record-content" id="record-text" type="text" onkeydown="if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off>aasdasdasdasdasdasasdsadasdasd</input></li>'
+                            
+
     audio = new Audio('POMOTODO audio/Beep Short .mp3');
     audio.volume = 0.2;
     audio.play();
@@ -147,24 +151,11 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
 };
 
 function changeText(txt){
-    let recordText = document.getElementById("record-text");
-    // txt.style.backgroundColor ='yellow';
-    $('#record-text').val('asdasdasd');
-    console.log(recordText.value)
+    txt.innerHTML = 
+    txt.style.backgroundColor ='yellow';
+    console.log(recordList.childElementCount);
+   
 }
-// function bgcolor_yellow(obj) {
-//     obj.style.backgroundColor ='yellow';
-//   }
-
-function addRecordText(){
-    $
-    //위에서 recordList를 통해 입력창은 모달형식으로, 출력창을 버튼으로 만들어서 출력창 클릭시 모달창뜨면서 입력할 수 있도록 구현?
-    // recordText.innerHTML = 'aaa'
-    // let bbb = document.getElementById("record-text");
-    // aaa = recordText에 대입?
-    // recordtext에 대입하는 코드를 내부에서 찾아보자 (그동안 했던 코드들?)
-}
-
 
 //minutes증감 버튼
 buttonMinute1Plus.onclick = function(){

@@ -363,7 +363,7 @@ div.record::-webkit-scrollbar-thumb {
   left: 10px;
   color: #e96977;
 }
-#record-text {
+.record-text {
   font-family: 'Nanum Gothic', sans-serif;
   position: relative;
   width: 200px;
@@ -378,29 +378,8 @@ div.record::-webkit-scrollbar-thumb {
   width: 1px;
   height: 1px;
 }
-#record-text-output{
-  display: inline-block;
-  position: relative;
-  top: 0px;
-  left: 20px;
-  margin: 0px;
-  padding: 0px;
-  width: 300px;
-  height: 20px;
-  /* right: 170px; */
-  /* padding: 0px 80px 0px; */
-  /* border: 1px solid #dbe2eb; */
-  border-bottom: 1px solid #dbe2eb;
-  /* background-color: black; */
-  cursor: pointer;
-  z-index: 2;
-}
-.record-text>.text-co{
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
-  z-index: 999;
-}
+
+
 /* 
 #record-modal.record-modal-overlay{
   width: 210px;
@@ -810,9 +789,3 @@ ol li.checked:active {
     margin-bottom: 50px;
   }
 }
-/* @media screen and (min-height:925px){
-/* section.Pomodoro, section.todonottodo{
-  position: relative;
-  top: 25%; */
-  /* extendScreed(); */
-/* }  */
