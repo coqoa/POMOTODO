@@ -211,11 +211,12 @@ article.nottodolist {
   overflow:auto;
 }
 /* 뽀모도로 타이머  */
+/* 여기서부터 시작한다 이거 지워지면 롤백이야 */
 
 .Pomodoro-timer-cover{
   position: absolute;
   top: 75px;
-  left: 210px;
+  left: 208px;
   width: 215px;
   height: 215px;
   border: 1px solid black;
@@ -224,18 +225,29 @@ article.nottodolist {
   border: 20px solid #EBF3FB;
   /* border: 20px solid black; */
   box-shadow: 3px 3px 6px #949da6, -3px -3px 6px #ffffff;
+  background-color: #FF6F71;
+}
+/* 게이지 구현  */
+.Pomodoro-timer-guage{
+  position: absolute;
+padding:  0px;
+margin: 0px;
+/* border: 1px solid gray; */
+
 }
 .Pomodoro-timer-container{
   position: relative;
-  left: 220px;
-  top: 12px;
-  /* padding-top: 50px; */
+  left: 239px;
+  top: 31px;
   width: 175px;
   height: 175px;
   text-align : center;
-  border: 20px solid #FF6F71;
+  /* border: 20px solid #FF6F71; */
+  
   border-radius: 50%;
   background: #EBF3FB;
+
+
   /* background: #DD5E56; */
   /* box-shadow: 3px 3px 6px #ffffff, -3px -3px 6px #949da6; */
   
@@ -254,8 +266,8 @@ article.nottodolist {
 }
 .Pomodoro-timer-container > h2 > span{
   display:inline-block;
-position: relative;
-top: -5px;
+  position: relative;
+  top: -5px;
   /* color: #DD5E56; */
   width: 75px;
 }
@@ -322,12 +334,11 @@ button:active{
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
-/*  */
-
+/* record 스크롤 */
 div.record {
   font-family: 'Nanum Gothic', sans-serif;
   position: relative;
-  top: 60px;
+  top: 100px;
   left: 75px;
   height: 275px;
   width: 480px;
@@ -350,59 +361,37 @@ div.record::-webkit-scrollbar-thumb {
   border-bottom: 30px  solid transparent;
   background-color: lightgray;
 }
-.record-list {
+/* record 자동입력 부분 */
+.record-list {/*레이아웃*/
   position: relative;
   left: 0px;
-  /* margin-right: 100px; */
   width: 300px;
   display: inline;
   border-radius: 5px;
 }
-#record-time {
+#record-time {/*시간*/
   position: relative;
   left: 10px;
   color: #e96977;
 }
-.record-text {
+.record-text { /*텍스트*/
   font-family: 'Nanum Gothic', sans-serif;
   position: relative;
-  width: 200px;
-  left: 30px;
+  width: 250px;
+  left: 20px;
+  background-color: #e9f0fa;
   border: 1px solid #e9f0fa;
   border-bottom: 1px solid #dbe2eb;
-  background-color: #e9f0fa;
-  z-index: 1;
 }
-#record-input-button{
-  border: 0;
-  width: 1px;
-  height: 1px;
+.record-content{/*li태그*/ 
+  display: inline-block;
+  padding-right: 30px;
 }
-
-
-/* 
-#record-modal.record-modal-overlay{
-  width: 210px;
-  height: 65px;
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 6px 6px 9px #c8ced7;
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
-  border-radius: 10px;
-} */
-
 
 div.audio {
   
   position: relative;
-  top: 85px;
+  top: 120px;
   left: 75px;
   height: 150px;
   width: 500px;
@@ -730,30 +719,15 @@ ol li.checked:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
-.list-drag, .ntd-list-drag{
-  color: #949da6;
-  font-size: 15px;
-  position: relative;
-  left:0px;
-}
+
 .list-delete, .ntd-list-delete {
   position: relative;
   font-size: 15px;
   color:lightgray;
   right:0;
 }
-
-.list-drag:hover, .ntd-list-drag:hover{
-  opacity: 0.5;
-  cursor: pointer;
-}
 .list-delete:hover, .ntd-list-delete:hover {
   color:#FF8585;
-  cursor: pointer;
-}
-
-.list-drag:active, .ntd-list-drag:active{
-  color: black;
   cursor: pointer;
 }
 .list-delete:active, .ntd-list-delete:active  {
@@ -788,4 +762,23 @@ ol li.checked:active {
   section.nottodolist{
     margin-bottom: 50px;
   }
+}
+.pie-chart {
+  position: absolute;
+  display:inline-block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  transition: 0s;
+}
+span.center{
+  background: #fff;
+  display : block;
+  position: absolute;
+  top:50%; left:50%;
+  width:200px; height:200px;
+  border-radius: 50%;
+  text-align:center; line-height: 200px;
+  font-size:30px;
+   transform: translate(-50%, -50%);
 }

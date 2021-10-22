@@ -52,9 +52,10 @@
             <h2 class="section-title">Pomodoro</h2> <!--date-->
             <div><!--clock, record-->
                 <!-- 뽀모도로타이머  -->
-                <div class="Pomodoro-timer-cover">
+                <div class="Pomodoro-timer-cover"></div>
+                <canvas class="Pomodoro-timer-guage" id="guage" width="200px" height="200px"></canvas>
 
-                </div>
+                
                 <div class="Pomodoro-timer-container">
                     <button class="clock__updown" id="minute1__plus"><i class="fas fa-caret-up"></i></button>
                     <button class="clock__updown" id="minute2__plus"><i class="fas fa-caret-up"></i></button>
@@ -72,25 +73,14 @@
                     <button class="clock__btn" id="btn__start"><i class="fas fa-play"></i></button>
                     <button class="clock__btn" id="btn__stop"><i class="fas fa-stop"></i></button>
                 </div>
-                
-                <!--  
-                <div>
-                    <form action="index.html">
-                        
-                        <input id="stop" type = "image" alt="stop" src="/POMOTODO icon/button-stop.png"> 
-                        <input id="change-time" type = "image" alt="change-time" src="/POMOTODO icon/button-changetime.png"> 
-                        <input id="change-type" type = "image" alt="change-type" src="/POMOTODO icon/button-changetype.png" > 
-                    </form>
-                </div>
-                -->
-                
+    
             
                 <div class ="record" overflow:auto;><!--record-->
                     <!-- <form onsubmit="return false;"> -->
-                        <div class="record-list" id="record-list"> 
+                        <ul class="record-list" id="record-list"> 
                             
                             <!-- <li class="record-content" id="record-time" >time-record <input class="record-content" id="record-text"  type="text" placeholder="입력하세요." autocomplete=off> </li> -->
-                        </div>
+                        </ul>
                         
                     <!-- </form> -->
                 </div>

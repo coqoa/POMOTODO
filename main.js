@@ -111,7 +111,9 @@ function operateTimer(){ //1초씩 감소시키기
 
 //record 시간기록 
 let recordList = document.getElementById("record-list");
-let recordText = document.querySelector("record-content");
+let recordText;
+
+
 let now;
 let startHours;
 let startMins;
@@ -123,11 +125,12 @@ function startRecodList(){ // 스타트버튼 누를때
     now = new Date();
     startHours = addStringZero(now.getHours());
     startMins = addStringZero(now.getMinutes());
-    // recordList.innerHTML += '<br><span class="record-content" id="record-time">'+startHours +' : '+ startMins +' ';
+
+    animateCircle();
 };
 
 function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
-    
+    // 재생, 일시정지, 정지버튼을 원래대로 되돌리는 코드
     buttonStart.style.display = "inline";
     buttonPause.style.display = "none";
     buttonStart.classList.remove('active');
@@ -137,23 +140,26 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     stopHours = addStringZero(now.getHours());
     stopMins = addStringZero(now.getMinutes());
    
-    recordList.innerHTML += '<li class="record-content" id="record-time">'
+    recordList.innerHTML += '<br><li class="record-content" id="record-time">'
                             + startHours +' : '+ startMins 
                             +' ~ '+ stopHours +' : '+ stopMins
-                            +'<input type="text" class="record-text" id='+recordList.childElementCount+' onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input></li>'
-                            // +'<input class="record-content" id="record-text" type="text" onkeydown="if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off>aasdasdasdasdasdasasdsadasdasd</input></li>'
+                            +'<input type="text" class="record-text" id='+recordList.childElementCount+' onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input>'
+                            +'</li>'
                             
 
     audio = new Audio('POMOTODO audio/Beep Short .mp3');
     audio.volume = 0.2;
     audio.play();
-    // console.log(recordText.value);
 };
 
 function changeText(txt){
-    txt.innerHTML = 
-    txt.style.backgroundColor ='yellow';
-    console.log(recordList.childElementCount);
+    txt.style.display ='none';
+    // txt.style.backgroundColor ='yellow';
+    // recordText  = document.querySelector(".record-text").value;
+    // console.log(txt.value);
+    // console.log(recordText.length);
+    recordList.append(txt.value);
+    
    
 }
 
@@ -266,8 +272,7 @@ function showList(){
     let list = "<ol class = 'container' id='sortable'>"
     for (let i = 0; i < itemList.length; i++){
         list += "<li class = 'draggable' draggable = 'true'>" 
-                       + "<span class='list-drag'  id=" + i + " >" + " ⇵ " + "</span>"
-                    //    + itemList[i]
+                       + "<span class='list-drag'  id=" + i + " >" + "  " + "</span>"
                        + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
                        + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
                        + "</li>";
@@ -621,3 +626,54 @@ if(window.screen.width<2500){
     console.log(window.screen.height);
     
 }
+
+
+//뽀모도로 게이지 구현 (css 230 line)
+
+function animateCircle() {
+    var ctx = document.querySelector('#guage').getContext('2d');
+    var start = Math.PI * 2;
+    var end = Math.PI * 1.5;
+    for (var i = 0; i < 100; i++) {
+      draw(i);
+    };
+    function draw(delay) {
+        setTimeout(function() {
+          ctx.clearRect(0, 0, 200, 200); //캔버를 지울때 사용 (전체화면 지우기)
+          ctx.beginPath(); //선을 그리는 경우 다음을 잊지 마십시오. 그렇지 않으면 줄이 지워지지 않습니다 -> 이전에 그린 선과 이어진다 
+          ctx.arc(100, 100, 50, end, end / 100 * delay); // 중심점x 중심점 y 반지름길이 시작점위치 종료위치 방향 
+        //   ctx.arc(100, 100, 50, 0, end / 100 * delay); // 중심점x 중심점 y 반지름길이 시작점위치 종료위치 방향 
+          ctx.stroke();
+        }, delay * 10);
+        //setTimeout : 메소드, 시간 : 일정 시간 후 함수 실행 (뽀모시간에 맞춰서 조저하려면 건드려야 할 코드)
+        //
+    }
+};
+
+$(window).ready(function(){
+    draw(80, '.pie-chart1', '#ccc');
+
+ });
+ 
+ function draw(max, classname, colorname){
+    var i=1;
+     var func1 = setInterval(function(){
+       if(i<max){
+           color1(i,classname,colorname);
+           i++;
+       } else{
+         clearInterval(func1);
+       }
+     },10);
+ }
+ function color1(i, classname,colorname){
+    $(classname).css({
+         "background":"conic-gradient("+colorname+" 0% "+i+"%, #ffffff "+i+"% 100%)"
+    });
+ }
+ 
+ 
+ function replay(){
+   draw(80, '.pie-chart1', '#ccc');
+
+ }
