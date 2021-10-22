@@ -206,10 +206,18 @@ buttonSecond1Plus.onclick = function(){
 }
 buttonSecond2Plus.onclick = function(){
     if(seconds<59){
-        seconds++;
+        seconds+=5;
         appendSeconds.textContent=seconds;
         if(seconds<10)
             appendSeconds.textContent="0"+seconds;
+    }
+    if(seconds == 60){
+        minutes++;
+        appendMinutes.textContent=minutes;
+        if(minutes<10)
+            appendMinutes.textContent="0"+minutes;
+        seconds = 0;
+        appendSeconds.textContent = "00";
     }
 }
 buttonSecond1Minus.onclick = function(){
@@ -222,7 +230,7 @@ buttonSecond1Minus.onclick = function(){
 }
 buttonSecond2Minus.onclick = function(){
     if(seconds>0){
-        seconds--;
+        seconds-=5;
         appendSeconds.textContent=seconds;
         if(seconds<10)
                 appendSeconds.textContent="0"+seconds;
@@ -650,30 +658,31 @@ function animateCircle() {
     }
 };
 
-$(window).ready(function(){
-    draw(80, '.pie-chart1', '#ccc');
 
+
+$(window).ready(function(){
+    draw('.pie-chart1');
  });
  
- function draw(max, classname, colorname){
-    var i=1;
+ function draw(classname){
+    console.log('시작');
+    var i=100; //100%여서 고정
      var func1 = setInterval(function(){
-       if(i<max){
-           color1(i,classname,colorname);
-           i++;
-       } else{
+       if(i >= 0){ //0%일때까지 반복
+           color1(i,classname);
+           i-=0.1;
+        //    console.log(i);
+           console.log('시작');
+       } else{  
          clearInterval(func1);
        }
-     },10);
+     },60); // 5가 최소값, 
+    
  }
- function color1(i, classname,colorname){
+ function color1(i, classname){
     $(classname).css({
-         "background":"conic-gradient("+colorname+" 0% "+i+"%, #ffffff "+i+"% 100%)"
+         "background":"conic-gradient( #ccc 0% "+i+"%, #ffffff "+i+"% 0%)"
     });
  }
  
  
- function replay(){
-   draw(80, '.pie-chart1', '#ccc');
-
- }
