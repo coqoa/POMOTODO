@@ -21,8 +21,7 @@ window.onload = function(){
     setInterval(setClock,1000);
 }
 //뽀모도로타이머
-
-let minutes = 0;
+let minutes = 25;
 let seconds = 0;
 
 const appendMinutes = document.getElementById("minute");
@@ -41,9 +40,35 @@ const buttonMinute2Minus = document.getElementById("minute2__minus");
 const buttonSecond1Minus = document.getElementById("second1__minus");
 const buttonSecond2Minus = document.getElementById("second2__minus");
 
+//뽀모도로 타이머 게이지 채우는 코드
 let intervalID;
+let func1;
+let pomodoroDelay=1500; //25분은 1500초
+let pieChart = document.getElementById("pie-chart1")
+let PomodoroGuage
 
-//Pomo  Start
+
+function draw(classname){
+    
+    PomodoroGuage = 100; //100%여서 고정
+    func1 = setInterval(function(){
+       if(PomodoroGuage >= 0){ //0%일때까지 반복
+        color1(PomodoroGuage ,classname);
+        PomodoroGuage -= 0.1;
+    } else{  
+        clearInterval(func1);
+    }
+    },pomodoroDelay); // 5가 최소값이라서 뽀모도로 초 변경부분 5초씩 늘리도록 구현했음
+}
+function color1(PomodoroGuage, classname){
+    $(classname).css({
+        "background":"conic-gradient( #FF6F71 0% "+PomodoroGuage+"%, #ffffff "+PomodoroGuage+"% 0%)"
+    });
+}
+
+
+
+//Pomo  Start버튼
 buttonStart.onclick = function(){ 
     if(minutes >0 || seconds>0){
         if(buttonStart.className === 'clock__btn'){
@@ -56,30 +81,33 @@ buttonStart.onclick = function(){
         buttonStop.classList.add('active');
         buttonStart.style.display = "none";
         buttonPause.style.display = "inline";
+        clearInterval(intervalID); 
     }
-    
-    clearInterval(intervalID); 
     intervalID = setInterval(operateTimer, 1000);
-
+    pieChart.style.background = "#FF6F71";
+    // console.log(pomodoroDelay);
 }
-//Pomo  Pause 
+//Pomo  Pause 버튼
 buttonPause.onclick = function(){ 
     clearInterval(intervalID); 
     buttonStart.style.display = "inline";
     buttonPause.style.display = "none";
+    // clearInterval(func1);// 반복 정지
 }
-//Stop
+//Pomo stop버튼
 buttonStop.onclick = function(){ 
     if(minutes >0 || seconds>0){
         if(buttonStop.className === 'clock__btn active'){
             stopRecodList();
-
         }
     }
     clearInterval(intervalID); 
-    minutes = 0; seconds = 0;
-    appendMinutes.textContent = "00";
+    minutes = 25; seconds = 0;
+    appendMinutes.textContent = "25";
     appendSeconds.textContent = "00";
+
+    pomodoroDelay = 1500;
+    // pieChart.style.background = "yellow";
 }
 
 function operateTimer(){ //1초씩 감소시키기
@@ -98,8 +126,12 @@ function operateTimer(){ //1초씩 감소시키기
         appendMinutes.textContent="0"+minutes;
     }
     if(minutes === 00 && seconds === 00){
-        stopRecodList();
         clearInterval(intervalID);
+        minutes = 25; seconds = 0;
+        appendMinutes.textContent = "25";
+        appendSeconds.textContent = "00";
+        stopRecodList();
+        
     }
     if(minutes < 00){
         clearInterval(intervalID);
@@ -125,8 +157,7 @@ function startRecodList(){ // 스타트버튼 누를때
     now = new Date();
     startHours = addStringZero(now.getHours());
     startMins = addStringZero(now.getMinutes());
-
-    animateCircle();
+    draw(pieChart); // 타이머 애니메이션 적용,
 };
 
 function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
@@ -136,10 +167,13 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     buttonStart.classList.remove('active');
     buttonStop.classList.remove('active');
 
+    PomodoroGuage = 0; // 애니메이션 종료시키기
+    pomodoroDelay = 1500; // 초기값으로 초기화;
+
     now = new Date();
     stopHours = addStringZero(now.getHours());
     stopMins = addStringZero(now.getMinutes());
-   
+
     recordList.innerHTML += '<br><li class="record-content" id="record-time">'
                             + startHours +' : '+ startMins 
                             +' ~ '+ stopHours +' : '+ stopMins
@@ -150,6 +184,8 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     audio = new Audio('POMOTODO audio/Beep Short .mp3');
     audio.volume = 0.2;
     audio.play();
+
+    // pieChart.style.backgroundColor = "#FF6F71";
 };
 
 function changeText(txt){
@@ -165,31 +201,35 @@ function changeText(txt){
 
 //minutes증감 버튼
 buttonMinute1Plus.onclick = function(){
-    if(minutes<90){
+    if(minutes<90 && buttonStart.style.display !== "none"){
         minutes+=10;
         appendMinutes.textContent=minutes;
+        pomodoroDelay += 600; // 게이지 10분 증가
     }
 }
 buttonMinute2Plus.onclick = function(){
-    if(minutes<99){
+    if(minutes<99 && buttonStart.style.display !== "none"){
         minutes++;
         appendMinutes.textContent=minutes;
+        pomodoroDelay += 60; // 게이지1분증가
         if(minutes<10)
             appendMinutes.textContent="0"+minutes;
     }
 }
 buttonMinute1Minus.onclick = function(){
-    if(minutes>9){
+    if(minutes>9 && buttonStart.style.display !== "none"){
         minutes-=10;
         appendMinutes.textContent=minutes;
+        pomodoroDelay -= 600; // 게이지 10분감소
         if(minutes<10)
             appendMinutes.textContent="0"+minutes;
     }
 }
 buttonMinute2Minus.onclick = function(){
-    if(minutes>0){
+    if(minutes>0 && buttonStart.style.display !== "none"){
         minutes--;
         appendMinutes.textContent=minutes;
+        pomodoroDelay -= 60; //게이지 1분 감소
         if(minutes<10)
             appendMinutes.textContent="0"+minutes;
     }
@@ -197,43 +237,61 @@ buttonMinute2Minus.onclick = function(){
 //
 //seconds 증감 버튼
 buttonSecond1Plus.onclick = function(){
-    if(seconds<50){
-        seconds+=10;
+    if(seconds<50 && buttonStart.style.display !== "none"){
+        seconds += 10;
         appendSeconds.textContent=seconds;
-        // if(seconds === 60)
-        //     alert('60이다')
+        pomodoroDelay += 10;
+    }else if (seconds>=50 && buttonStart.style.display !== "none"){
+        minutes++;
+        appendMinutes.textContent=minutes;
+        seconds -=50;
+        appendSeconds.textContent="0"+seconds;
     }
 }
 buttonSecond2Plus.onclick = function(){
-    if(seconds<59){
-        seconds+=5;
+    if(seconds<=54 && buttonStart.style.display !== "none"){
+        seconds += 5;
         appendSeconds.textContent=seconds;
+        pomodoroDelay += 5;
         if(seconds<10)
             appendSeconds.textContent="0"+seconds;
-    }
-    if(seconds == 60){
+    }else if(seconds > 54 && buttonStart.style.display !== "none"){
         minutes++;
         appendMinutes.textContent=minutes;
-        if(minutes<10)
-            appendMinutes.textContent="0"+minutes;
-        seconds = 0;
-        appendSeconds.textContent = "00";
+        
+        seconds -= 55;
+            appendSeconds.textContent="0"+seconds;
+            
     }
+    
 }
 buttonSecond1Minus.onclick = function(){
-    if(seconds>10){
-        seconds-=10;
+    if(seconds>=10 && buttonStart.style.display !== "none"){
+        seconds -= 10;
         appendSeconds.textContent=seconds;
+        pomodoroDelay -= 10;
         if(seconds<10)
             appendSeconds.textContent="0"+seconds;
+    }else if (seconds<10 && buttonStart.style.display !== "none"){
+        minutes--;
+        appendMinutes.textContent=minutes;
+        seconds +=50;
+        appendSeconds.textContent=seconds;
     }
 }
 buttonSecond2Minus.onclick = function(){
-    if(seconds>0){
-        seconds-=5;
+    if(seconds>=5 && buttonStart.style.display !== "none"){
+        seconds -= 5;
         appendSeconds.textContent=seconds;
-        if(seconds<10)
+        pomodoroDelay -= 5;
+        if(seconds<10 )
                 appendSeconds.textContent="0"+seconds;
+    }else if(seconds <5 ){
+        minutes--;
+        appendMinutes.textContent=minutes;
+        
+        seconds += 55;
+        appendSeconds.textContent = seconds;
     }
 }
 //
@@ -638,51 +696,34 @@ if(window.screen.width<2500){
 
 //뽀모도로 게이지 구현 (css 230 line)
 
-function animateCircle() {
-    var ctx = document.querySelector('#guage').getContext('2d');
-    var start = Math.PI * 2;
-    var end = Math.PI * 1.5;
-    for (var i = 0; i < 100; i++) {
-      draw(i);
-    };
-    function draw(delay) {
-        setTimeout(function() {
-          ctx.clearRect(0, 0, 200, 200); //캔버를 지울때 사용 (전체화면 지우기)
-          ctx.beginPath(); //선을 그리는 경우 다음을 잊지 마십시오. 그렇지 않으면 줄이 지워지지 않습니다 -> 이전에 그린 선과 이어진다 
-          ctx.arc(100, 100, 50, end, end / 100 * delay); // 중심점x 중심점 y 반지름길이 시작점위치 종료위치 방향 
-        //   ctx.arc(100, 100, 50, 0, end / 100 * delay); // 중심점x 중심점 y 반지름길이 시작점위치 종료위치 방향 
-          ctx.stroke();
-        }, delay * 10);
-        //setTimeout : 메소드, 시간 : 일정 시간 후 함수 실행 (뽀모시간에 맞춰서 조저하려면 건드려야 할 코드)
-        //
-    }
-};
+// let pomodoroDelay;
 
+// $(window).ready(function(){
+//     draw('.pie-chart1');
+// });
 
+// function draw(classname){
 
-$(window).ready(function(){
-    draw('.pie-chart1');
- });
- 
- function draw(classname){
-    console.log('시작');
-    var i=100; //100%여서 고정
-     var func1 = setInterval(function(){
-       if(i >= 0){ //0%일때까지 반복
-           color1(i,classname);
-           i-=0.1;
-        //    console.log(i);
-           console.log('시작');
-       } else{  
-         clearInterval(func1);
-       }
-     },60); // 5가 최소값, 
+//     pomodoroDelay = 60; //60초 나중에 수정하기
+
+//     console.log('시작');
+//     var i=100; //100%여서 고정
+//     var func1 = setInterval(function(){
+//        if(i >= 0){ //0%일때까지 반복
+//         color1(i,classname);
+//         i-=0.1;
+//         //    console.log(i);
+//         console.log('시작');
+//        } else{  
+//         clearInterval(func1);
+//        }
+//      },pomodoroDelay); // 5가 최소값, 
     
- }
- function color1(i, classname){
-    $(classname).css({
-         "background":"conic-gradient( #ccc 0% "+i+"%, #ffffff "+i+"% 0%)"
-    });
- }
- 
- 
+// }
+// function color1(i, classname){
+//     $(classname).css({
+//         "background":"conic-gradient( #ccc 0% "+i+"%, #ffffff "+i+"% 0%)"
+//     });
+// }
+
+

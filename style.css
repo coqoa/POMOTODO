@@ -225,7 +225,8 @@ article.nottodolist {
   border: 20px solid #EBF3FB;
   /* border: 20px solid black; */
   box-shadow: 3px 3px 6px #949da6, -3px -3px 6px #ffffff;
-  background-color: #FF6F71;
+  /* background-color: #FF6F71; */
+  background-color: white;
 }
 /* 게이지 구현  */
 .Pomodoro-timer-guage{
@@ -763,22 +764,14 @@ ol li.checked:active {
     margin-bottom: 50px;
   }
 }
-.pie-chart {
+#pie-chart1 {
   position: absolute;
-  display:inline-block;
-  width: 300px;
-  height: 300px;
+  top: 95px;
+  left: 228px;
+  display:iline-block;
+  width: 215px;
+  height: 215px;
   border-radius: 50%;
-  transition: 0s;
-}
-span.center{
-  background: #fff;
-  display : block;
-  position: absolute;
-  top:50%; left:50%;
-  width:200px; height:200px;
-  border-radius: 50%;
-  text-align:center; line-height: 200px;
-  font-size:30px;
-   transform: translate(-50%, -50%);
+  transition: 0.1s;
+
 }
