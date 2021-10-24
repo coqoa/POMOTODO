@@ -282,6 +282,17 @@ margin: 0px;
   border-radius: 30%;
   background-color: transparent;
 }
+#pomo-timer{
+  position: relative;
+  top: 35px;
+  opacity: 0.5;
+ 
+}
+#minute, #second{
+  position: relative;
+  top:  2px;
+}
+
 #minute2__minus, #minute2__plus {
   margin-top: 0px;
   margin-right: 18px;
@@ -294,7 +305,7 @@ margin: 0px;
 .Pomodoro-timer-container>.clock__btn{
   position: relative;
   top: 35px;
-  opacity: 0.1;
+  opacity: 0.5;
   font-size: 15px;
   padding: 7px 9px 7px;
   border:none;
@@ -304,22 +315,23 @@ margin: 0px;
 
 #btn__start{
   display: inline;
+  color: #ff6f71;
   /* display: none; */
 }
 
 #btn__pause{
   display: none;
-  /* display: inline; */
 }
 
 #btn__stop{
-  
+  /* opacity: 0.5; */
+  display: none;
   padding: 7px;
 }
 
 .clock__btn:hover,
 .clock__updown:hover {
-  opacity: 0.4;
+  opacity: 0.9;
   cursor: pointer;
 }
 .clock__btn:active,
@@ -328,7 +340,7 @@ margin: 0px;
 }
 
 button:hover{
-  opacity: 0.3;
+  opacity: 0.6;
   cursor: pointer;
 }
 button:active{
@@ -337,7 +349,7 @@ button:active{
 
 /* record 스크롤 */
 div.record {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   position: relative;
   top: 100px;
   left: 75px;
@@ -364,6 +376,10 @@ div.record::-webkit-scrollbar-thumb {
 }
 /* record 자동입력 부분 */
 .record-list {/*레이아웃*/
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #5e5e5e;
   position: relative;
   left: 0px;
   width: 300px;
@@ -371,22 +387,31 @@ div.record::-webkit-scrollbar-thumb {
   border-radius: 5px;
 }
 #record-time {/*시간*/
+  border: 0px;
   position: relative;
   left: 10px;
-  color: #e96977;
+
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: transparent;
+  color: gray;
+
+  padding: 5px;
+  border-radius: 8px;
 }
 .record-text { /*텍스트*/
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   position: relative;
   width: 250px;
-  left: 20px;
+  /* left: 0px; */
   background-color: #e9f0fa;
   border: 1px solid #e9f0fa;
   border-bottom: 1px solid #dbe2eb;
 }
-.record-content{/*li태그*/ 
-  display: inline-block;
-  padding-right: 30px;
+#record-time:hover {
+  opacity: 1;
+  color: black;
 }
 
 div.audio {

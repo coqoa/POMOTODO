@@ -26,10 +26,11 @@ let seconds = 0;
 
 const appendMinutes = document.getElementById("minute");
 const appendSeconds = document.getElementById("second");
+const appendTimes = document.getElementById("#pomo-timer");
 
 const buttonStart = document.getElementById("btn__start");
 const buttonStop = document.getElementById("btn__stop");
-const buttonPause = document.getElementById("btn__pause")
+// const buttonPause = document.getElementById("btn__pause")
 
 const buttonMinute1Plus = document.getElementById("minute1__plus");
 const buttonMinute2Plus = document.getElementById("minute2__plus");
@@ -47,7 +48,12 @@ let pomodoroDelay=1500; //25분은 1500초
 let pieChart = document.getElementById("pie-chart1")
 let PomodoroGuage
 
+let pomodoroColor;
+pomodoroColor = '#FF6F71';
+let pomodoroGuageColor = '1'; //토글을 위한 변수
+// pomodoroGuageColor 가 1이면 pomodoroColor = ff6f71, 2면 초록색 출력?
 
+//뽀모도로 게이지 구현부분 draw함수를 호출해서 애니메이션을 시각화
 function draw(classname){
     
     PomodoroGuage = 100; //100%여서 고정
@@ -62,11 +68,9 @@ function draw(classname){
 }
 function color1(PomodoroGuage, classname){
     $(classname).css({
-        "background":"conic-gradient( #FF6F71 0% "+PomodoroGuage+"%, #ffffff "+PomodoroGuage+"% 0%)"
+        "background":"conic-gradient("+pomodoroColor+" 0% "+PomodoroGuage+"%, #ffffff "+PomodoroGuage+"% 0%)"
     });
 }
-
-
 
 //Pomo  Start버튼
 buttonStart.onclick = function(){ 
@@ -76,37 +80,49 @@ buttonStart.onclick = function(){
             audio = new Audio('POMOTODO audio/Beep Short .mp3');
             audio.volume = 0.2;
             audio.play();
+
+            pieChart.style.background = pomodoroColor;
         }
         buttonStart.classList.add('active');
         buttonStop.classList.add('active');
         buttonStart.style.display = "none";
-        buttonPause.style.display = "inline";
+        buttonStop.style.display = "inline";
         clearInterval(intervalID); 
+    }else if (minutes == 0 && seconds == 0){
+        buttonStart.style.display = "none";
+        buttonStop.style.display = "inline";
     }
     intervalID = setInterval(operateTimer, 1000);
-    pieChart.style.background = "#FF6F71";
-    // console.log(pomodoroDelay);
+    
+    console.log(pomodoroDelay);
 }
 //Pomo  Pause 버튼
-buttonPause.onclick = function(){ 
-    clearInterval(intervalID); 
-    buttonStart.style.display = "inline";
-    buttonPause.style.display = "none";
+// buttonPause.onclick = function(){ 
+    // clearInterval(intervalID); 
+    // buttonStart.style.display = "inline";
+    // buttonPause.style.display = "none";
     // clearInterval(func1);// 반복 정지
-}
+// }
+
 //Pomo stop버튼
 buttonStop.onclick = function(){ 
     if(minutes >0 || seconds>0){
         if(buttonStop.className === 'clock__btn active'){
             stopRecodList();
+            
+            //스탑레코드리스트 함수로 이동시켜봄
         }
+    
+    }else if (minutes == 0 && seconds == 0){
+        buttonStart.style.display = "inline";
+        buttonStop.style.display = "none";
     }
     clearInterval(intervalID); 
-    minutes = 25; seconds = 0;
-    appendMinutes.textContent = "25";
-    appendSeconds.textContent = "00";
+    // minutes = 25; seconds = 0;
+    // appendMinutes.textContent = "25";
+    // appendSeconds.textContent = "00";
 
-    pomodoroDelay = 1500;
+    // pomodoroDelay = 1500;
     // pieChart.style.background = "yellow";
 }
 
@@ -143,8 +159,6 @@ function operateTimer(){ //1초씩 감소시키기
 
 //record 시간기록 
 let recordList = document.getElementById("record-list");
-let recordText;
-
 
 let now;
 let startHours;
@@ -163,7 +177,7 @@ function startRecodList(){ // 스타트버튼 누를때
 function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     // 재생, 일시정지, 정지버튼을 원래대로 되돌리는 코드
     buttonStart.style.display = "inline";
-    buttonPause.style.display = "none";
+    buttonStop.style.display = "none";
     buttonStart.classList.remove('active');
     buttonStop.classList.remove('active');
 
@@ -174,30 +188,73 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
     stopHours = addStringZero(now.getHours());
     stopMins = addStringZero(now.getMinutes());
 
-    recordList.innerHTML += '<br><li class="record-content" id="record-time">'
-                            + startHours +' : '+ startMins 
-                            +' ~ '+ stopHours +' : '+ stopMins
-                            +'<input type="text" class="record-text" id='+recordList.childElementCount+' onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input>'
-                            +'</li>'
-                            
 
+    
+    // 스탑버튼 누르면 기록하는 코드
+    //야기서부터 새로 시작//
+    recordList.innerHTML += '<br><button type="button" class="record-content" id="record-time" onclick="appearInputText(this)">'
+                            + startHours +' : '+ startMins 
+                            +' ~ '+ stopHours +' : '+ stopMins +'ㅤㅤㅤ'
+                            // +'<input type="text" class="record-text" id='+recordList.childElementCount+' style ="display: inline" onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input>'
+                            // +'<input type="text" class="record-text" id="record-text" style ="display: inline" onblur="changeText(this)" onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input>'
+                            +'<input type="text" class="record-text" id="record-text" style ="display: inline" onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26"  autocomplete=off></input>'
+                            +' </button>'
+                            
+    //스탑버튼 누르면 출력하는 오디오
     audio = new Audio('POMOTODO audio/Beep Short .mp3');
     audio.volume = 0.2;
     audio.play();
 
-    // pieChart.style.backgroundColor = "#FF6F71";
-};
+    
+    // 스탑버튼 누르면 색깔, 분 변경하는 코드
+    if(pomodoroGuageColor == 1){ // 스탑버튼을 눌렀을 때 빨강이면 초록으로+05분으로+게이지도 초록으로 + 토글변수인 포모도로게이지컬러도 2로변경
+        buttonStart.style.color = '#56D69C'; // 타이머실행버튼 컬러 조작함수
+        
+        minutes = 5; seconds = 0;
+        appendMinutes.textContent = "05";
+        appendSeconds.textContent = "00";
+        pomodoroDelay = 300;
+        pomodoroColor = '#56D69C'; // 게이지컬러 조작함수
+        pomodoroGuageColor = 2;
 
+        
+
+    }else if(pomodoroGuageColor == 2){
+        buttonStart.style.color = '#FF6F71'
+        minutes = 25; seconds = 0;
+        appendMinutes.textContent = "25";
+        appendSeconds.textContent = "00";
+        pomodoroDelay = 1500;
+        pomodoroColor = '#FF6F71';
+        pomodoroGuageColor = 1;
+    }
+
+    // document.querySelector(".record-text").value = "";
+    // document.getElementById("record-text").focus(); // 시간종료시 기록 출력하고 자동으로 포커스 옮기기  // 211024 왜 첫번째만선택하고 실행이 안되는지? 고민
+
+};
+//기록에 입력시 값 대입해주는 코드
 function changeText(txt){
     txt.style.display ='none';
-    // txt.style.backgroundColor ='yellow';
-    // recordText  = document.querySelector(".record-text").value;
-    // console.log(txt.value);
-    // console.log(recordText.length);
-    recordList.append(txt.value);
     
-   
+    // recordList.append(txt.value);
+    // console.log(txt.className); // record-text 출력함. 부모객체를 변수선언하고 부모객체의 텍스트로 추가하는식으로 구현하기
+    // console.log(txt.parentNode);// 부모변수찾기
+    let recordTextParent = txt.parentNode;
+    recordTextParent.innerHTML += "<span>"+txt.value+"</span>";
 }
+
+function appearInputText(txt){ // 기록시간 클릭 시 
+    
+    let recordTextInputTextTag = txt.childNodes[1]; // inputText창의 display를 inline으로 변경해서 보이게 한다
+    recordTextInputTextTag.style.display = 'inline';
+    let recordTextContent = txt.childNodes[3]; // 입력을 통해 생성된 span태그를 변수에 담아준다
+    if(recordTextContent!==undefined) // 생성된 span태그가 있을경우에 지워주고 없다면 실행하지않는다
+        txt.removeChild(recordTextContent);
+    else
+    recordTextInputTextTag.focus();
+}
+
 
 //minutes증감 버튼
 buttonMinute1Plus.onclick = function(){
@@ -241,7 +298,7 @@ buttonSecond1Plus.onclick = function(){
         seconds += 10;
         appendSeconds.textContent=seconds;
         pomodoroDelay += 10;
-    }else if (seconds>=50 && buttonStart.style.display !== "none"){
+    }else if (seconds>=50 && buttonStart.style.display !== "none" && minutes < 99){
         minutes++;
         appendMinutes.textContent=minutes;
         seconds -=50;
@@ -249,7 +306,7 @@ buttonSecond1Plus.onclick = function(){
     }
 }
 buttonSecond2Plus.onclick = function(){
-    if(seconds<=54 && buttonStart.style.display !== "none"){
+    if(seconds<=54 && buttonStart.style.display !== "none" && minutes < 99){
         seconds += 5;
         appendSeconds.textContent=seconds;
         pomodoroDelay += 5;
@@ -272,9 +329,12 @@ buttonSecond1Minus.onclick = function(){
         pomodoroDelay -= 10;
         if(seconds<10)
             appendSeconds.textContent="0"+seconds;
-    }else if (seconds<10 && buttonStart.style.display !== "none"){
+    }else if (seconds<10 && buttonStart.style.display !== "none" && minutes > 0){
         minutes--;
-        appendMinutes.textContent=minutes;
+        if(minutes <10)
+            appendMinutes.textContent="0"+minutes;
+        else
+            appendMinutes.textContent=minutes;
         seconds +=50;
         appendSeconds.textContent=seconds;
     }
@@ -286,9 +346,12 @@ buttonSecond2Minus.onclick = function(){
         pomodoroDelay -= 5;
         if(seconds<10 )
                 appendSeconds.textContent="0"+seconds;
-    }else if(seconds <5 ){
+    }else if(seconds <5  && buttonStart.style.display !== "none" && minutes > 0){
         minutes--;
-        appendMinutes.textContent=minutes;
+        if(minutes <10)
+            appendMinutes.textContent="0"+minutes;
+        else
+            appendMinutes.textContent=minutes;
         
         seconds += 55;
         appendSeconds.textContent = seconds;
@@ -526,7 +589,7 @@ function ntdAddItem() {
 function ntdShowList(){
     let ntdList = "<ol class='ntd-container' id='ntd-sortable'>"
     for (let i = 0; i < ntdItemList.length; i++){
-        ntdList += "<li>" + "<span class='ntd-list-drag' id=" + i + ">" + " ⇵ " + "</span>"
+        ntdList += "<li>" + "<span class='ntd-list-drag' id=" + i + ">" + " " + "</span>"
                        + ntdItemList[i]
                        + "<span class='ntd-list-delete' id=" + i + ">" + " ✖ " + "</span>"
                        + "</li>";
