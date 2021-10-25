@@ -229,9 +229,6 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
         pomodoroGuageColor = 1;
     }
 
-    // document.querySelector(".record-text").value = "";
-    // document.getElementById("record-text").focus(); // 시간종료시 기록 출력하고 자동으로 포커스 옮기기  // 211024 왜 첫번째만선택하고 실행이 안되는지? 고민
-
 };
 //기록에 입력시 값 대입해주는 코드
 function changeText(txt){
@@ -377,65 +374,49 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
         modal.style.display = "none";
     }
 })
+
+
+
+
 //
 //투두 
 //버튼을 누르면 addItem메소드를 실행한다 addItem메소드는 인풋텍스트값을 아이템리스트배열에 넣은 후 값을초기화, 포커스는 인풋텍스트에 남게한후 showList메소드를 실행한다
 //showList메소드는 리스트를 출력해주는 메소드이고 ol태그인 list변수에다가 for문을 통해 li태그, span태그, 아이템리스트 등등을 넣은뒤 innerHTML을 통해 list에 다시 넣어준다
-let itemList = [];
+
+let itemList = document.querySelector(".item-list")
 let inputButton = document.querySelector(".input-button");
 inputButton.addEventListener("click", addItem);
-
 
 function addItem() {
     let item = document.querySelector(".input-text").value;
 
     if(item.length !== 0 ){ //빈값출력안되도록 구현 211009
-        itemList.push(item);
+        // itemList.push(item);
+        itemList.innerHTML += "<li class = 'draggable' draggable = 'true' ><i class='fas fa-arrows-alt-v'></i> <button type= ='button' class='todo-list-content' >"+ item +"</button>"
+                            +"<button type ='button' class='todo-list-delete' onclick='deleteItem(this)'>"+" ✖ "+"</button></li>"
         document.querySelector(".input-text").value = "";
         document.querySelector(".input-text").focus();
     }
-    showList();
 }
 
-function showList(){
-    let list = "<ol class = 'container' id='sortable'>"
-    for (let i = 0; i < itemList.length; i++){
-        list += "<li class = 'draggable' draggable = 'true'>" 
-                       + "<span class='list-drag'  id=" + i + " >" + "  " + "</span>"
-                       + "<span class='list-content' id=" + i + ">" + itemList[i] + "</span>" 
-                       + "<span class='list-delete' id=" + i + ">" + " ✖ " + "</span>"
-                       + "</li>";
-    } 
-    $(function(){
-        $("#sortable").sortable({
-            start:function(event, ui){
-                console.log("drag : " + (ui.item.index()));
-            }    
-        });
-    })
+$(function(){
+    $("#sortable").sortable({
+        start:function(event, ui){
+            console.log("drag : " + (ui.item.index()));
+        }    
+    });
+})
 
-    list += "</ol>";
-    document.querySelector(".item-list").innerHTML = list;
-
-    let deleteButtons = document.querySelectorAll(".list-delete");
-    for (let i = 0; i < deleteButtons.length; i++) {
-        deleteButtons[i].addEventListener("click", deleteItem);
-    }
-   
-}
-
-function deleteItem() {
-    let id = this.getAttribute("id");
-    itemList.splice(id, 1);
-    showList();
+function deleteItem(txt) {
+    txt.parentNode.remove();
 }
 
 //투두 모달창 구현
 let todoModal = document.getElementById("todo-modal");
-let todoModalBtn = document.querySelector(".item-list");
+// let todoModalBtn = document.querySelector(".item-list");
 let setColorList;
-todoModalBtn.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
-    if(e.target.tagName !== "SPAN"){
+itemList.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+    if(e.target.tagName !== "SPAN" && e.target.className=='todo-list-content'){
         if (todoModal.style.display == "flex"){
             todoModal.style.display = "none";
         }else{
@@ -455,7 +436,7 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
 })
 let todoCheckBtn = document.getElementById("check")
 todoCheckBtn.addEventListener("click", e => {
-    if (e.target.tagName === 'BUTTON') {
+    if (e.target.tagName === 'BUTTON' || e.target.className === 'fas fa-check') {
     setColorList.style.color="lightgray";
     todoModal.style.display = "none";
     }
@@ -571,60 +552,37 @@ todoOliveBtn.addEventListener("click", e => {
 
 
 // 낫투두
-let ntdItemList = [];
 
+let ntdItemList = document.querySelector(".ntd-item-list")
 let ntdInputButton = document.querySelector(".ntd-input-button");
 ntdInputButton.addEventListener("click", ntdAddItem);
 
 function ntdAddItem() {
     let ntdItem = document.querySelector(".ntd-input-text").value;
-    if(ntdItem.length !== 0 ){
-        ntdItemList.push(ntdItem);
+
+    if(ntdItem.length !== 0 ){ //빈값출력안되도록 구현 211009
+        // itemList.push(item);
+        ntdItemList.innerHTML += "<li class = 'draggable' draggable = 'true' ><i class='fas fa-arrows-alt-v'></i> <button type= ='button' class='ntd-todo-list-content' >"+ ntdItem +"</button>"
+                            +"<button type ='button' class='ntd-todo-list-delete' onclick='deleteItem(this)'>"+" ✖ "+"</button></li>"
         document.querySelector(".ntd-input-text").value = "";
         document.querySelector(".ntd-input-text").focus();
     }
-    ntdShowList();
 }
 
-function ntdShowList(){
-    let ntdList = "<ol class='ntd-container' id='ntd-sortable'>"
-    for (let i = 0; i < ntdItemList.length; i++){
-        ntdList += "<li>" + "<span class='ntd-list-drag' id=" + i + ">" + " " + "</span>"
-                       + ntdItemList[i]
-                       + "<span class='ntd-list-delete' id=" + i + ">" + " ✖ " + "</span>"
-                       + "</li>";
-    } 
-    $(function(){
-        $("#ntd-sortable").sortable({
-            start:function(event, ui){
-                console.log("drag : " + (ui.item.index()));
-            }    
-        });
-    })
-    
-
-    ntdList += "</ol>";
-    document.querySelector(".ntd-item-list").innerHTML = ntdList;
-
-    let ntdDeleteButtons = document.querySelectorAll(".ntd-list-delete");
-    for (let i = 0; i < ntdDeleteButtons.length; i++) {
-        ntdDeleteButtons[i].addEventListener("click", ntdDeleteItem);
-    }
-   
-}
-
-function ntdDeleteItem() {
-    let ntdId = this.getAttribute("id");
-    ntdItemList.splice(ntdId, 1);
-    ntdShowList();
-}
+$(function(){
+    $("#ntd-sortable").sortable({
+        start:function(event, ui){
+            console.log("drag : " + (ui.item.index()));
+        }    
+    });
+})
 
 //낫투두 모달창 구현
 let notTodoModal = document.getElementById("not-todo-modal");
-let notTodoModalBtn = document.querySelector(".ntd-item-list");
+// let notTodoModalBtn = document.querySelector(".ntd-item-list");
 let ntdSetColorList;
-notTodoModalBtn.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
-    if(e.target.tagName !== "SPAN"){
+ntdItemList.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+    if(e.target.tagName !== "SPAN"  && e.target.className=='ntd-todo-list-content'){
         if (notTodoModal.style.display == "flex"){
             notTodoModal.style.display = "none";
         }else{
@@ -644,7 +602,7 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
 })
 let ntdCheckBtn = document.getElementById("ntdCheck")
 ntdCheckBtn.addEventListener("click", e => {
-    if (e.target.tagName === 'BUTTON') {
+    if (e.target.tagName === 'BUTTON' || e.target.className === 'fas fa-check') {
     ntdSetColorList.style.color="#88BE7B";
     notTodoModal.style.display = "none";
     }
@@ -755,38 +713,3 @@ if(window.screen.width<2500){
     console.log(window.screen.height);
     
 }
-
-
-//뽀모도로 게이지 구현 (css 230 line)
-
-// let pomodoroDelay;
-
-// $(window).ready(function(){
-//     draw('.pie-chart1');
-// });
-
-// function draw(classname){
-
-//     pomodoroDelay = 60; //60초 나중에 수정하기
-
-//     console.log('시작');
-//     var i=100; //100%여서 고정
-//     var func1 = setInterval(function(){
-//        if(i >= 0){ //0%일때까지 반복
-//         color1(i,classname);
-//         i-=0.1;
-//         //    console.log(i);
-//         console.log('시작');
-//        } else{  
-//         clearInterval(func1);
-//        }
-//      },pomodoroDelay); // 5가 최소값, 
-    
-// }
-// function color1(i, classname){
-//     $(classname).css({
-//         "background":"conic-gradient( #ccc 0% "+i+"%, #ffffff "+i+"% 0%)"
-//     });
-// }
-
-

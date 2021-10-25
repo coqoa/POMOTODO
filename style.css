@@ -394,8 +394,8 @@ div.record::-webkit-scrollbar-thumb {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   font-size: 15px;
-  background-color: transparent;
   color: gray;
+  background-color: transparent;
 
   padding: 5px;
   border-radius: 8px;
@@ -412,6 +412,11 @@ div.record::-webkit-scrollbar-thumb {
 #record-time:hover {
   opacity: 1;
   color: black;
+}
+#record-time:active {
+  opacity: 0.3;
+  color: black;
+  box-shadow: inset 0px 0px 0px #949da6, 0px 0px 0px #ffffff; /*버튼클릭애니메이션을 없애기 위해 작성한 코드*/
 }
 
 div.audio {
@@ -715,8 +720,7 @@ div.audio {
     }
 
 
-
-
+/* 투두리스트 입력시 생겨나는 리스트들 */
 ol{
   margin: 0px;
   padding: 20px;
@@ -725,40 +729,69 @@ ol li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: 565px;
+  width: 575px;
   list-style: none;
-  padding: 9px;
+  padding-left: 10px;
   margin-bottom: 10px;
   border-radius: 11px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
+  color: lightgray;
 }
 
+ol li>i:hover{
+  color: gray;
+}
+ol li>i:active{
+  color: black;
+}
 ol li:hover{
-  box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
+  /* box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff; */
   cursor: pointer;
-  
 }
 ol li:active,
 ol li.checked:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
-
-
-.list-delete, .ntd-list-delete {
+/* 리스트 내용부분 버튼태그 (클릭시 색깔지정 모달창 뜨는 버튼) */
+.todo-list-content, .ntd-todo-list-content {
+  font-family: 'Ubuntu', sans-serif;
+  border: 0px;
+  border-radius: 10px;
+  background-color: transparent;
+  width: 560px;
+  height: 40px;
+  color: #5E5E5E;
+}
+.ntd-todo-list-content {
+  color:#f36164;
+}
+.todo-list-content:hover, .ntd-todo-list-content:hover{
+  opacity: 0.6;
+}
+.todo-list-content:active, .ntd-todo-list-content:active{
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+/* 리스트 삭제 버튼 */
+.todo-list-delete, .ntd-todo-list-delete {
   position: relative;
+  right: 5px;
+  padding-top: 3px;
+  border: 0px;
+  background-color: transparent;
   font-size: 15px;
   color:lightgray;
-  right:0;
+
 }
-.list-delete:hover, .ntd-list-delete:hover {
+.todo-list-delete:hover, .ntd-todo-list-delete:hover {
   color:#FF8585;
   cursor: pointer;
 }
-.list-delete:active, .ntd-list-delete:active  {
-  color:#DD5E56;
+.todo-list-delete:active, .ntd-todo-list-delete:active  {
+  color:red;
   cursor: pointer;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+  
 }
 
 /* .draggable{
