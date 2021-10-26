@@ -100,40 +100,27 @@ buttonStart.onclick = function(){
         buttonStop.style.display = "inline";
         clearInterval(intervalID); 
     }else if (minutes == 0 && seconds == 0){
-        buttonStart.style.display = "none";
-        buttonStop.style.display = "inline";
+        alert('시간은 0 이상이여야함 JS 105번줄')
     }
     intervalID = setInterval(operateTimer, 1000);
+    // console.log('redMinutes = '+redMinutes+'  redSeconds = '+redSeconds+' pomodoroDelayRed = '+pomodoroDelayRed +' 애니메이션시간 '+pomodoroDelay );
+    // console.log('greenMinutes = '+greenMinutes+'  greenSeconds = '+greenSeconds+' pomodoroDelayGreen = '+pomodoroDelayGreen +' 애니메이션시간 '+pomodoroDelay);
+    // console.log('현재 minutes = '+minutes);
+    // console.log('현재 seconds = '+seconds);
+    console.log(pomodoroGuageColor+'타입 '+minutes+'분 '+seconds+'초 '+'애니메이션 시간 = '+pomodoroDelay);
+    // 콘솔로그 출력내용 : 현재타입, 분, 초, 애니메이션시간
 }
 //Pomo stop버튼
 buttonStop.onclick = function(){ 
     if(minutes >0 || seconds>0){
         if(buttonStop.className === 'clock__btn active'){
             stopRecodList();
-            
-            //스탑레코드리스트 함수로 이동시켜봄
         }
     
     }else if (minutes == 0 && seconds == 0){
-        buttonStart.style.display = "inline";
-        buttonStop.style.display = "none";
+        // 구현내용 없어도 이상없음? 00분00초일때 정지버튼이 안나오니깐
     }
     clearInterval(intervalID); 
-    // minutes = 25; seconds = 0;
-    // appendMinutes.textContent = "25";
-    // appendSeconds.textContent = "00";
-
-    // pomodoroDelay = 1500;
-    // pieChart.style.background = "yellow";
-    console.log('pomodoroDelayRed = '+pomodoroDelayRed);
-    console.log('pomodoroDelayGreen = '+pomodoroDelayGreen);
-    console.log('minutes = '+minutes);
-    console.log('redMinutes = '+redMinutes);
-    console.log('greenMinutes = '+greenMinutes);
-    console.log('seconds = '+seconds);
-    console.log('redSeconds = '+redSeconds);
-    console.log('greenSeconds = '+greenSeconds);
-    console.log('---');
 }
 
 function operateTimer(){ //1초씩 감소시키기
@@ -228,10 +215,12 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
         else
             appendMinutes.textContent = minutes;
         
-        if(seconds>0)
+        if(seconds>9)
             appendSeconds.textContent = seconds;
-        else if(seconds===00)
-            appendSeconds.textContent = "00";
+        else if(seconds<10)
+            appendSeconds.textContent = "0"+seconds;
+        // else if(seconds===00)
+        //     appendSeconds.textContent = "00";
         
         pomodoroColor = '#56D69C'; // 게이지컬러 조작함수
         pomodoroGuageColor = 2;
@@ -249,10 +238,12 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
         else
             appendMinutes.textContent = minutes;
 
-        if(seconds>0)
+        if(seconds < 10)
+            appendSeconds.textContent = "0"+seconds;
+        else if(seconds > 9)
             appendSeconds.textContent = seconds;
-        else if(seconds===00)
-            appendSeconds.textContent = "00";
+        // else if(seconds === 00)
+        //     appendSeconds.textContent = "00";
 
         pomodoroColor = '#FF6F71';
         pomodoroGuageColor = 1;
@@ -385,7 +376,7 @@ buttonSecond1Plus.onclick = function(){ //10초 증가
 
             pomodoroDelayRed += 10; // 게이지 10초 증가
             pomodoroDelay = pomodoroDelayRed; //pomodoeoDelay = pomodoroDelayRed 때문에 한번 더 거쳐야 해서  재할당 해줘야 값이 저장됨 안하면 2번째바퀴부터 값이 저장됨
-        }else{
+        }else if(pomodoroGuageColor === 2){
             greenSeconds+=10;
             seconds = greenSeconds;
             appendSeconds.textContent = seconds; 
@@ -430,20 +421,67 @@ buttonSecond1Plus.onclick = function(){ //10초 증가
 }
 buttonSecond2Plus.onclick = function(){ // 5초 증가
     if(seconds<=54 && buttonStart.style.display !== "none" && minutes < 99){
-        seconds += 5;
-        appendSeconds.textContent=seconds;
-        pomodoroDelay += 5;
-        if(seconds<10)
+        if(pomodoroGuageColor === 1){
+
+            redSeconds += 5;
+            seconds = redSeconds;
+            appendSeconds.textContent=seconds;
+            if(seconds<10) // 타이머 1분 증가, 출력
+                appendSeconds.textContent="0"+seconds
+            else
+                appendSeconds.textContent = seconds; 
+
+            pomodoroDelayRed += 5;
+            pomodoroDelay = pomodoroDelayRed;
+
+        }else if(pomodoroGuageColor === 2){
+
+            greenSeconds += 5;
+            seconds = greenSeconds;
+            appendSeconds.textContent=seconds;
+            if(seconds<10) // 타이머 1분 증가, 출력
+                appendSeconds.textContent="0"+seconds
+            else
+                appendSeconds.textContent = seconds; 
+
+            pomodoroDelayGreen += 5;
+            pomodoroDelay = pomodoroDelayGreen;
+
+        }
+
+    }else if(seconds >= 55 && buttonStart.style.display !== "none"){
+        if(pomodoroGuageColor === 1){
+            redMinutes++;
+            minutes = redMinutes;
+            if(minutes<10) // 타이머 1분 증가, 출력
+                appendMinutes.textContent="0"+minutes
+            else
+                appendMinutes.textContent = minutes; 
+
+            redSeconds -= 55;
+            seconds = redSeconds;
             appendSeconds.textContent="0"+seconds;
-    }else if(seconds > 54 && buttonStart.style.display !== "none"){
-        minutes++;
-        appendMinutes.textContent=minutes;
-        
-        seconds -= 55;
+
+            pomodoroDelayRed += 5; // 게이지 10초 증가
+            pomodoroDelay = pomodoroDelayRed;
+            
+        }else if(pomodoroGuageColor === 2){
+            greenMinutes++;
+            minutes = greenMinutes;
+            if(minutes<10) // 타이머 1분 증가, 출력
+                appendMinutes.textContent="0"+minutes
+            else
+                appendMinutes.textContent = minutes; 
+            
+            greenSeconds -= 55;
+            seconds = greenSeconds;
             appendSeconds.textContent="0"+seconds;
             
+            pomodoroDelayGreen += 5; // 게이지 10초 증가
+            pomodoroDelay = pomodoroDelayGreen;
+            
+        } 
     }
-    
 }
 
 buttonSecond1Minus.onclick = function(){ //10초감소
@@ -452,21 +490,23 @@ buttonSecond1Minus.onclick = function(){ //10초감소
         if(pomodoroGuageColor === 1){
             redSeconds -= 10;
             seconds = redSeconds;
-            pomodoroDelayRed -= 10;
-            pomodoroDelay = pomodoroDelayRed; 
             if(seconds<10)
                 appendSeconds.textContent="0"+seconds;
             else
                 appendSeconds.textContent=seconds;
+
+            pomodoroDelayRed -= 10;
+            pomodoroDelay = pomodoroDelayRed; 
         }else{
             greenSeconds -= 10;
             seconds = greenSeconds;
-            pomodoroDelayGreen -= 10;
-            pomodoroDelay = pomodoroDelayGreen; 
             if(seconds<10)
                 appendSeconds.textContent="0"+seconds;
             else
                 appendSeconds.textContent=seconds;
+
+            pomodoroDelayGreen -= 10;
+            pomodoroDelay = pomodoroDelayGreen; 
         }
 
     }else if (seconds<10 && buttonStart.style.display !== "none" && minutes > 0){
@@ -484,6 +524,7 @@ buttonSecond1Minus.onclick = function(){ //10초감소
                 appendSeconds.textContent="0"+seconds;
             else
                 appendSeconds.textContent=seconds;
+
             pomodoroDelayRed -= 10; // 게이지 10초 증가
             pomodoroDelay = pomodoroDelayRed; 
 
@@ -501,35 +542,85 @@ buttonSecond1Minus.onclick = function(){ //10초감소
                 appendSeconds.textContent="0"+seconds;
             else
                 appendSeconds.textContent=seconds;
+
             pomodoroDelayGreen -= 10; // 게이지 10초 증가
             pomodoroDelay = pomodoroDelayGreen; 
             
         } 
     }
-                                                                                                 console.log(seconds);
 }
 
 buttonSecond2Minus.onclick = function(){ //5초감소 
     if(seconds>=5 && buttonStart.style.display !== "none"){
-        seconds -= 5;
-        appendSeconds.textContent=seconds;
-        pomodoroDelay -= 5;
-        if(seconds<10 )
-                appendSeconds.textContent="0"+seconds;
-    }else if(seconds <5  && buttonStart.style.display !== "none" && minutes > 0){
-        minutes--;
-        if(minutes <10)
-            appendMinutes.textContent="0"+minutes;
-        else
-            appendMinutes.textContent=minutes;
+        if(pomodoroGuageColor === 1){
+
+            redSeconds -= 5;
+            seconds = redSeconds;
+            appendSeconds.textContent=seconds;
+            if(seconds<10) // 타이머 1분 증가, 출력
+                appendSeconds.textContent="0"+seconds
+            else
+                appendSeconds.textContent = seconds; 
+
+            pomodoroDelayRed -= 5;
+            pomodoroDelay = pomodoroDelayRed;
+
+        }else if(pomodoroGuageColor === 2){
+
+            greenSeconds -= 5;
+            seconds = greenSeconds;
+            appendSeconds.textContent=seconds;
+            if(seconds<10) // 타이머 1분 증가, 출력
+                appendSeconds.textContent="0"+seconds
+            else
+                appendSeconds.textContent = seconds; 
+
+            pomodoroDelayGreen -= 5;
+            pomodoroDelay = pomodoroDelayGreen;
+
+        }
         
-        seconds += 55;
-        appendSeconds.textContent = seconds;
+    }else if (seconds < 5  && buttonStart.style.display !== "none" && minutes > 0){
+        if(pomodoroGuageColor === 1){
+            redMinutes--;
+            minutes = redMinutes;
+            if(minutes<10) // 타이머 1분 증가, 출력
+                appendMinutes.textContent="0"+minutes
+            else
+                appendMinutes.textContent = minutes; 
+                
+            redSeconds += 55;
+            seconds = redSeconds;
+            if(seconds<10)
+                appendSeconds.textContent="0"+seconds;
+            else
+                appendSeconds.textContent=seconds;
+
+            pomodoroDelayRed -= 5; // 게이지 10초 증가
+            pomodoroDelay = pomodoroDelayRed; 
+
+        }else if(pomodoroGuageColor === 2){
+            greenMinutes--;
+            minutes = greenMinutes;
+            if(minutes<10) // 타이머 1분 증가, 출력
+                appendMinutes.textContent="0"+minutes
+            else
+                appendMinutes.textContent = minutes; 
+                
+            greenSeconds += 55;
+            seconds = greenSeconds;
+            if(seconds<10)
+                appendSeconds.textContent="0"+seconds;
+            else
+                appendSeconds.textContent=seconds;
+
+            pomodoroDelayGreen -= 5; // 게이지 10초 증가
+            pomodoroDelay = pomodoroDelayGreen; 
+            
+        } 
     }
 }
 
-
-//
 //모달창 구현
 let modal = document.getElementById("modal");
 let btnModal = document.getElementById("mail-btn");
@@ -550,10 +641,6 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
     }
 })
 
-
-
-
-//
 //투두 
 //버튼을 누르면 addItem메소드를 실행한다 addItem메소드는 인풋텍스트값을 아이템리스트배열에 넣은 후 값을초기화, 포커스는 인풋텍스트에 남게한후 showList메소드를 실행한다
 //showList메소드는 리스트를 출력해주는 메소드이고 ol태그인 list변수에다가 for문을 통해 li태그, span태그, 아이템리스트 등등을 넣은뒤 innerHTML을 통해 list에 다시 넣어준다
