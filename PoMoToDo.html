@@ -7,21 +7,23 @@
     <link rel="shortcut icon" href="/POMOTODO icon/mountain-solid.svg">
     <title>POMOTODO</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
-    <script defer src="main.js"></script>
 
+    <!--웹폰트-->
+    <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
+    <!--제이쿼리-->
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" /> 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
-
-    
+    <!--자바스크립트--> 
+    <script defer src="main.js"></script>
 </head>
+
 <body class="body">
+    <!--네비게이션바-->
     <header>
         <nav>
             <div class="POMOTODO__logo">
                 <a href="PoMoToDo.html"><i class="fas fa-mountain"></i>POMOTODO</a>
-                
             </div>
             <ul class="POMOTODO__menu">
                 <li><a href="PoMoToDo.html" title="Desktop-ver"><i class="fas fa-desktop"></i></a></li>
@@ -33,29 +35,26 @@
                 <li><a href="https://coqoa.tistory.com/" title="tistory blog" target="blank"><i class="fas fa-bold"></i></a></li>
                 <li><a href="https://github.com/coqoa" title="github" target="blank"><i class="fab fa-github"></i></a></li>
                 <li id="mail-btn"><i class="far fa-envelope" title="E-mail"></i></li>
-                
             </ul>
+            <!--이메일 모달창-->
             <div id="modal" class="modal-overlay">
                 <div class="mail-modal-window">
                     <div class="close-area"><i class="fas fa-times"></i></div>
-                        <div class="content">ﾠ
-                            <i class="fas fa-paper-plane">ﾠcoqoa28@gmail.com</i>
-                            <!-- <i class="fas fa-envelope">ﾠcoqoa28@gmail.com</i> -->
-                        </div>
+                    <div class="content"><i class="fas fa-paper-plane">ﾠcoqoa28@gmail.com</i></div>
                 </div>
             </div>
         </nav>
     </header>
-    <!-- <div class="main-content"></div> -->
+
     <section class = "Pomodoro">
-        <article class = "Pomodoro-timer"> <!--Pomodoro-->
-            <h2 class="section-title">Pomodoro</h2> <!--date-->
-            <div><!--clock, record-->
-                <!-- 뽀모도로타이머  -->
+        <!-- 뽀모도로타이머  -->
+        <article class = "Pomodoro-timer"> 
+            <h2 class="section-title">Pomodoro</h2> 
+            <div> <!--타이머, 기록 구현-->
+                <!-- 타이머 -->
                 <div class="Pomodoro-timer-cover"></div>
                 <canvas class="Pomodoro-timer-guage" id="guage" width="200px" height="200px"></canvas>
                 <div class="pie-chart pie-chart1" id="pie-chart1"><span class="center"></span></div>
-
                 
                 <div class="Pomodoro-timer-container">
                     <button class="clock__updown" id="minute1__plus"><i class="fas fa-caret-up"></i></button>
@@ -70,108 +69,89 @@
                     <button class="clock__updown" id="second1__minus"><i class="fas fa-caret-down"></i></button>
                     <button class="clock__updown" id="second2__minus"><i class="fas fa-caret-down"></i></button>
                     <br>
-                    <!-- <button class="clock__btn" id="btn__pause"><i class="fas fa-pause"></i></button> -->
                     <button class="clock__btn" id="btn__start" style="display: inline;"><i class="fas fa-play"></i></button>
                     <button class="clock__btn" id="btn__stop"><i class="fas fa-stop"></i></button>
                 </div>
 
-            
-                <div class ="record" overflow:auto;><!--record-->
-                    <!-- <form onsubmit="return false;"> -->
-                        <ul class="record-list" id="record-list"> 
-                        </ul>
-                        
-                    <!-- </form> -->
+                <!-- 기록 -->
+                <div class ="record" overflow:auto;>
+                        <ul class="record-list" id="record-list"> </ul>
                 </div>
             </div>
-
-            <div class="audio"><!--audio-->
-                <form action="index.html">
-                        <select name="audio" id="select-audio" size=1>
-                            <option class="audio-list" id="audio1" value="audio1">Farm Morning with Sheep</option>
-                            <option class="audio-list" id="audio2" value="audio2">Fire</option>
-                            <option class="audio-list" id="audio3" value="audio3">Outdoor Summer Ambience</option>
-                            <option class="audio-list" id="audio4" value="audio4">Rain Heavy Loud</option>
-                            <option class="audio-list" id="audio5" value="audio5">Rain On Rooftop</option>
-                            <option class="audio-list" id="audio5" value="audio6">Valley Night</option>
-                            <option class="audio-list" id="audio5" value="audio7">Waves Crashing on Rock Beach</option>
-                        </select>
-                        <br>
-                        <!-- <button type="button" class="previous"><i class="fas fa-step-backward"></i></button> -->
-                        <button type="button" class="start-audio" id="start-button"></button>
-                        <button type="button" class="pause-audio" id="pause-button"></button>
-                        
-                </form>
+            <!-- 오디오 -->
+            <div class="audio">
+                <select name="audio" id="select-audio" size=1>
+                    <option class="audio-list" id="audio1" value="audio1">Farm Morning with Sheep</option>
+                    <option class="audio-list" id="audio2" value="audio2">Fire</option>
+                    <option class="audio-list" id="audio3" value="audio3">Outdoor Summer Ambience</option>
+                    <option class="audio-list" id="audio4" value="audio4">Rain Heavy Loud</option>
+                    <option class="audio-list" id="audio5" value="audio5">Rain On Rooftop</option>
+                    <option class="audio-list" id="audio5" value="audio6">Valley Night</option>
+                    <option class="audio-list" id="audio5" value="audio7">Waves Crashing on Rock Beach</option>
+                </select>
+                <br>
+                <button type="button" class="start-audio" id="start-button"></button>
+                <button type="button" class="pause-audio" id="pause-button"></button>
             </div>
-        </article>
+        </article> <!--포모도로 레이아웃-->
     </section>
 
-
     <section class="todonottodo">
-        <article class="todolist"><!-- todolist-->
-            <div class="section-title"><!--title-->
-                <h2>ToDoList</h2>
-                <!-- + 메일 모달창 구현, 타이머 마무리, 자바스크립트 드롭다운리스트 구현, 투두/낫투두 -->
-            </div>
-            <div id="todo-write"><!--write--><!--write-todo-->
+        <!-- todolist-->
+        <article class="todolist">
+            <div class="section-title"> <h2>ToDoList</h2> </div>
+            <div id="todo-write"><!--투두리스트 입력값을 위한 인풋태그, 버튼태그-->
                 <form onsubmit="return false;"><!-- index.html 임시로 지정, onsubmit을 막아서 엔터키를 내가원하는데로 지정-->
                         <input type="text" class="input-text" id="todo-input-text" maxlength="36" onkeydown="if(window.event.keyCode==13){addItem()}" autocomplete="off"/><!--onkeydown속성으로 버튼눌렀을때 키코드확인, 메서드 실행 211009-->
                         <button type="button" class="input-button" id="todo-input-button"><i class="fas fa-greater-than"></i></button>
                 </form>
             </div>
-            <!-- <div class="container"> -->
-                <ol class="item-list" id="sortable"><!--list--></ol>
-
-
-                <div id="todo-modal" class="todo-modal-overlay">
-                    <span class="todo-modal-content">ﾠ
-                            <button type="button" class="color-button" id="close"><i class="fas fa-angle-left"></i></button>
-                            <button type="button" class="color-button" id="check"><i class="fas fa-check"></i></button>
-                            
-                            <button type="button" class="color-button" id="red"></button>
-                            <button type="button" class="color-button" id="light-orange"></button>
-                            <button type="button" class="color-button" id="orange"></button>
-                            <button type="button" class="color-button" id="light-pink"></button>
-                            <button type="button" class="color-button" id="pink"></button>
-                            <!-- <button type="button" class="color-button" id="yellow"></button> -->
-                            <button type="button" class="color-button" id="light-puple"></button>
-                            <button type="button" class="color-button" id="purple"></button>
-                            <button type="button" class="color-button" id="light-green"></button>
-                            <button type="button" class="color-button" id="green"></button>
-                            <button type="button" class="color-button" id="deep-green"></button>
-                            <button type="button" class="color-button" id="light-blue-green"></button>
-                            <button type="button" class="color-button" id="blue-green"></button>
-                            <button type="button" class="color-button" id="light-blue"></button>
-                            <button type="button" class="color-button" id="blue"></button>
-                            <button type="button" class="color-button" id="olive"></button>
-                        </span>
-                </div>
-
-
-        </article>
-
-        <article class="nottodolist"><!--Not-ToDoList-->
-            <div class="section-title">
-                <h2>NotToDoList</h2>
+            <!-- 입력받은 값을출력하는 리스트 -->
+            <ol class="item-list" id="sortable"><!--각 리스트가 들어오는 위치--></ol>
+            <!-- 컬러지정을 위한 모달창 -->
+            <div id="todo-modal" class="todo-modal-overlay">
+                <span class="todo-modal-content">ﾠ
+                    <button type="button" class="color-button" id="close"><i class="fas fa-angle-left"></i></button>
+                    <button type="button" class="color-button" id="check"><i class="fas fa-check"></i></button>
+                    
+                    <button type="button" class="color-button" id="red"></button>
+                    <button type="button" class="color-button" id="light-orange"></button>
+                    <button type="button" class="color-button" id="orange"></button>
+                    <button type="button" class="color-button" id="light-pink"></button>
+                    <button type="button" class="color-button" id="pink"></button>
+                    <button type="button" class="color-button" id="light-puple"></button>
+                    <button type="button" class="color-button" id="purple"></button>
+                    <button type="button" class="color-button" id="light-green"></button>
+                    <button type="button" class="color-button" id="green"></button>
+                    <button type="button" class="color-button" id="deep-green"></button>
+                    <button type="button" class="color-button" id="light-blue-green"></button>
+                    <button type="button" class="color-button" id="blue-green"></button>
+                    <button type="button" class="color-button" id="light-blue"></button>
+                    <button type="button" class="color-button" id="blue"></button>
+                    <button type="button" class="color-button" id="olive"></button>
+                </span>
             </div>
-            <div id="nottodo-write"><!--title-->
+        </article> <!--투두리스트-->
+        
+        <!--Not-ToDoList-->
+        <article class="nottodolist">
+            <div class="section-title"> <h2>NotToDoList</h2> </div>
+            <div id="nottodo-write"><!--낫투두리스트 입력값을 위한 인풋태그, 버튼태그-->
                 <form onsubmit="return false;">
                         <input type="text" class="ntd-input-text" onkeydown="if(window.event.keyCode==13){ntdAddItem()}"/>
                         <button type="button" class="ntd-input-button"><i class="fas fa-greater-than"></i></button>
                 </form>
             </div>
-            <ol class="ntd-item-list" id="ntd-sortable"><!--list--></ol>
-            
+            <ol class="ntd-item-list" id="ntd-sortable"><!--각 리스트가 들어오는 위치--></ol>
+            <!-- 컬러지정을 위한 모달창 -->
             <div id="not-todo-modal" class="not-todo-modal-overlay">
                 <div class="not-todo-modal-content">ﾠ
                     <button type="button" class="ntd-color-button" id="ntdClose"><i class="fas fa-angle-left"></i></button>
                     <button type="button" class="ntd-color-button" id="ntdCheck"><i class="fas fa-check"></i></button>
                     <button type="button" class="ntd-color-button" id="ntdRed"></button>
                 </div>
-        </div>
-
-
-        </article>
+            </div>
+        </article> <!--낫투두리스트-->
     </section>
 
 

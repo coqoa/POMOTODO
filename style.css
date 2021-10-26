@@ -1,21 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 /* font-family: 'Nanum Gothic', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
-/* font-family: 'Roboto Mono', monospace; */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
-/* font-family: 'Open Sans', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 /* font-family: 'Ubuntu', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
-/* font-family: 'Josefin Sans', sans-serif; */
 
 /* .body {
   min-width: 2300px;
 } */
 
+/*네비게이션바*/
 header nav {
-  /* font-family: 'Roboto Mono', monospace; */
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,31 +24,33 @@ header nav {
 }
 
 a {
+  /*네비게이션바의 a태그*/
   text-decoration: none;
   color: #5e5e5e;
 }
 
+/* 로고 */
 .POMOTODO__logo a {
-  list-style: none;
   padding: 0px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 15px;
   font-weight: 400;
   font-style: italic;
 }
 .POMOTODO__logo a:hover {
-  background-color: #edeeee;
-  opacity: 1;
-  border-radius: 15px;
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
 }
 .POMOTODO__logo i {
-  position:relative;
+  /* 로고 아이콘 */
+  position: relative;
   bottom: 1px;
   padding-right: 5px;
   color: #ff8585;
 }
 
-
+/* 네비게이션아이콘 */
 .POMOTODO__menu {
   position: relative;
   left: 60px;
@@ -68,19 +64,16 @@ a {
   margin: 0px;
 }
 .POMOTODO__menu li:hover {
-  background-color: #edeeee;
-  opacity: 1;
-  height: 21px;
-  border-radius: 8px;
+  opacity: 0.5;
 }
-
-#POMOTODO__clock{
-  font-family: 'Ubuntu', sans-serif;
+/* 네비게이션 시계 */
+#POMOTODO__clock {
+  font-family: "Ubuntu", sans-serif;
   position: relative;
-  top: 5px;
+  top: 3px;
   margin-right: 10px;
   font-size: 14px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 .POMOTODO__contact-me {
   display: flex;
@@ -92,20 +85,15 @@ a {
 .POMOTODO__contact-me li {
   margin-top: 2px;
   padding: 2px 12px;
-  t
 }
 .POMOTODO__contact-me li:hover {
-  background-color: #edeeee;
-  opacity: 1;
-  height: 21px;
-  border-radius: 8px;
+  opacity: 0.5;
 }
-
-#mail-btn{
+#mail-btn {
   cursor: pointer;
 }
-
-#modal.modal-overlay{
+/* 이메일 모달창 */
+#modal.modal-overlay {
   width: 210px;
   height: 65px;
   position: absolute;
@@ -121,11 +109,10 @@ a {
   -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
 }
-#modal .content{
+#modal .content {
   padding-bottom: 10px;
   margin-bottom: 5px;
   margin-left: 10px;
-  
 }
 #modal .close-area {
   display: inline;
@@ -135,9 +122,9 @@ a {
   color: gray;
 }
 
-
+/* 본문 */
 body {
-  /* font-family: 'Roboto Mono', monospace; */
+  font-family: "Ubuntu", sans-serif;
   display: flex;
   justify-content: center;
   height: 870px;
@@ -146,17 +133,16 @@ body {
 }
 
 h2 {
-  font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
-  
-font-size: 35px;
-
+  font-size: 35px;
   text-align: center;
+
   margin: 0px 0px 20px;
   padding: 7px;
   opacity: 0.7;
 }
-.section-title{
+.section-title {
+  /*뽀모도로, 투두리스트, 낫투두리스트 타이틀의 폰트스타일*/
   font-style: italic;
 }
 
@@ -174,11 +160,10 @@ section.Pomodoro {
 
 section.todonottodo {
   position: relative;
-  top: 50px;
+  top: 55px;
   width: 650px;
   margin-left: 15px;
 }
-
 article.todolist {
   height: 500px;
   padding: 10px;
@@ -187,8 +172,17 @@ article.todolist {
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
-  overflow:auto; /*211009*/
+  overflow: auto;
 }
+article.nottodolist {
+  height: 280px;
+  padding: 10px;
+  border-radius: 30px;
+  background: #e9f0fa;
+  box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
+  overflow: auto;
+}
+/* 투두, 낫투두 스크롤 바 */
 article.todolist::-webkit-scrollbar,
 article.nottodolist::-webkit-scrollbar {
   width: 7px;
@@ -198,22 +192,12 @@ article.todolist::-webkit-scrollbar-thumb,
 article.nottodolist::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border-top: 30px solid transparent;
-  border-bottom: 30px  solid transparent;
+  border-bottom: 30px solid transparent;
   background-color: lightgray;
 }
 
-article.nottodolist {
-  height: 280px;
-  padding: 10px;
-  border-radius: 30px;
-  background: #e9f0fa;
-  box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
-  overflow:auto;
-}
 /* 뽀모도로 타이머  */
-/* 여기서부터 시작한다 이거 지워지면 롤백이야 */
-
-.Pomodoro-timer-cover{
+.Pomodoro-timer-cover {
   position: absolute;
   top: 75px;
   left: 208px;
@@ -222,54 +206,45 @@ article.nottodolist {
   border: 1px solid black;
   z-index: ;
   border-radius: 50%;
-  border: 20px solid #EBF3FB;
-  /* border: 20px solid black; */
+  border: 20px solid #ebf3fb;
   box-shadow: 3px 3px 6px #949da6, -3px -3px 6px #ffffff;
-  /* background-color: #FF6F71; */
   background-color: white;
 }
 /* 게이지 구현  */
-.Pomodoro-timer-guage{
+.Pomodoro-timer-guage {
   position: absolute;
-padding:  0px;
-margin: 0px;
-/* border: 1px solid gray; */
-
+  /* padding: 0px;
+  margin: 0px; */
 }
-.Pomodoro-timer-container{
+/* 시간은 컨트롤하는 타이머 커버영역 */
+.Pomodoro-timer-container {
   position: relative;
   left: 239px;
   top: 31px;
   width: 175px;
   height: 175px;
-  text-align : center;
-  /* border: 20px solid #FF6F71; */
-  
+  text-align: center;
   border-radius: 50%;
-  background: #EBF3FB;
-
-
-  /* background: #DD5E56; */
-  /* box-shadow: 3px 3px 6px #ffffff, -3px -3px 6px #949da6; */
-  
-  /* box-shadow: inset 1px 2px 2px #949da6, inset -1px -1px 2px #feffff; */
+  background: #ebf3fb;
 }
 
-.Pomodoro-timer-container > h2{
+.Pomodoro-timer-container > h2 {
+  /*시간, :, 버튼 모두 포함하는 부분*/
   position: relative;
-  top: 40px;
   opacity: 0.6;
   font-size: 44px;
-  margin-top: 0px;
+  margin: 0px 1px;
+  /* margin-top: 0px;
   margin-left: 1px;
-  margin-bottom: 0px;
+  margin-right: 1px;
+  margin-bottom: 0px; */
   padding: 0px;
 }
-.Pomodoro-timer-container > h2 > span{
-  display:inline-block;
+.Pomodoro-timer-container > h2 > span {
+  /*오직 시간만 표현하는 부분*/
+  display: inline-block;
   position: relative;
-  top: -5px;
-  /* color: #DD5E56; */
+  top: 35px;
   width: 75px;
 }
 
@@ -279,52 +254,47 @@ margin: 0px;
   opacity: 0.1;
   border: 0;
   padding: 2px 6px 4px;
-  border-radius: 30%;
+  border-radius: 40%;
   background-color: transparent;
 }
-#pomo-timer{
+#pomo-timer {
   position: relative;
   top: 35px;
   opacity: 0.5;
- 
 }
-#minute, #second{
+#minute,
+#second {
   position: relative;
-  top:  2px;
+  top: 2px;
 }
-
-#minute2__minus, #minute2__plus {
+/* 버튼간격조절 */
+#minute2__minus,
+#minute2__plus {
   margin-top: 0px;
   margin-right: 18px;
 }
-#second1__minus, #second1__plus{
+#second1__minus,
+#second1__plus {
   margin-top: 0px;
   margin-left: 18px;
 }
 
-.Pomodoro-timer-container>.clock__btn{
+.Pomodoro-timer-container > .clock__btn {
   position: relative;
   top: 35px;
   opacity: 0.5;
   font-size: 15px;
   padding: 7px 9px 7px;
-  border:none;
+  border: none;
   border-radius: 5px;
   background: transparent;
 }
 
-#btn__start{
+#btn__start {
   display: inline;
   color: #ff6f71;
-  /* display: none; */
 }
-
-#btn__pause{
-  display: none;
-}
-
-#btn__stop{
-  /* opacity: 0.5; */
+#btn__stop {
   display: none;
   padding: 7px;
 }
@@ -339,17 +309,16 @@ margin: 0px;
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
-button:hover{
+button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
-button:active{
+button:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 
-/* record 스크롤 */
+/* record , 스크롤 구현 */
 div.record {
-  font-family: 'Ubuntu', sans-serif;
   position: relative;
   top: 100px;
   left: 75px;
@@ -357,12 +326,10 @@ div.record {
   width: 480px;
   padding: 10px;
   margin-right: 0px;
-
   border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
-
-  overflow:auto;
+  overflow: auto;
 }
 div.record::-webkit-scrollbar {
   width: 7px;
@@ -371,27 +338,26 @@ div.record::-webkit-scrollbar {
 div.record::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border-top: 30px solid transparent;
-  border-bottom: 30px  solid transparent;
+  border-bottom: 30px solid transparent;
   background-color: lightgray;
 }
 /* record 자동입력 부분 */
-.record-list {/*레이아웃*/
-  font-family: 'Ubuntu', sans-serif;
+.record-list {
+  /*레이아웃*/
   font-size: 16px;
   font-weight: 500;
   color: #5e5e5e;
   position: relative;
-  left: 0px;
+  left: -5px;
   width: 300px;
   display: inline;
   border-radius: 5px;
 }
-#record-time {/*시간*/
+#record-time {
+  /*시간 자동입력*/
   border: 0px;
   position: relative;
   left: 10px;
-
-  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   font-size: 15px;
   color: gray;
@@ -400,11 +366,10 @@ div.record::-webkit-scrollbar-thumb {
   padding: 5px;
   border-radius: 8px;
 }
-.record-text { /*텍스트*/
-  font-family: 'Ubuntu', sans-serif;
+.record-text {
+  /*텍스트 자동입력*/
   position: relative;
   width: 250px;
-  /* left: 0px; */
   background-color: #e9f0fa;
   border: 1px solid #e9f0fa;
   border-bottom: 1px solid #dbe2eb;
@@ -419,8 +384,17 @@ div.record::-webkit-scrollbar-thumb {
   box-shadow: inset 0px 0px 0px #949da6, 0px 0px 0px #ffffff; /*버튼클릭애니메이션을 없애기 위해 작성한 코드*/
 }
 
+/* 뽀모도로 기록 타입확인용 아이콘 (빨강/초록)*/
+span > i {
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  left: 10px;
+  bottom: 2px;
+  font-size: 2px;
+}
+/* 오디오 */
 div.audio {
-  
   position: relative;
   top: 120px;
   left: 75px;
@@ -431,57 +405,42 @@ div.audio {
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
 #select-audio {
-  font-family: 'Ubuntu', sans-serif;
   font-style: italic;
   font-weight: 400;
-  
-    -o-appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  font-size: 15px;
 
-  font-size:15px;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   position: relative;
-
   left: 137px;
-  
   top: 30px;
   text-align: center;
   border: 0;
-  padding:12px;
+  padding: 12px;
   border-radius: 8px;
   background: #e9f0fa;
   box-shadow: 2px 2px 2px #949da6, -2px -2px 10px #ffffff;
 }
-#select-audio:hover{
+#select-audio:hover {
   background: #e9f0fa;
   box-shadow: 1px 1px 1px #949da6, -1px -1px 10px #ffffff;
   cursor: pointer;
 }
-#select-audio>.audio-list{
+#select-audio > .audio-list {
   /* display: none; */
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
-
-.previous {
-  position: relative;
-  left: 184px;
-  top: 41px;
-  width: 30px;
-  height: 30px;
-  opacity: 0.5;
-  border: 0px;
-  background-color: transparent;
-  border-radius: 10px;
-}
 .start-audio {
   display: flex;
-  background-image: url('POMOTODO icon/play-solid.svg');
+  background-image: url("POMOTODO icon/play-solid.svg");
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center center;
-  /* font-size: 25px; */
+
   position: relative;
   left: 230px;
   top: 45px;
@@ -493,13 +452,9 @@ div.audio {
   border-radius: 10px;
 }
 
-/* .start-audio.playing{
-  background: black;
-} */
-
-.pause-audio{
+.pause-audio {
   display: none;
-  background-image: url('POMOTODO icon/pause-solid.svg');
+  background-image: url("POMOTODO icon/pause-solid.svg");
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -513,18 +468,6 @@ div.audio {
   border: 0px;
   background-color: transparent;
   border-radius: 10px;
-
-}
-.next {
-  position: relative;
-  left: 203px;
-  top: 41px;
-  width: 30px;
-  height: 30px;
-  opacity: 0.5;
-  border: 0px;
-  background-color: transparent;
-  border-radius: 10px;
 }
 
 /* 투두, 낫투두 */
@@ -532,47 +475,78 @@ div.audio {
 #nottodo-write {
   width: 585px;
   margin: 0px 18px 5px;
-  /* margin-left: 25px;
-  margin-right: 60px;
-  margin-bottom: 15px; */
   border-radius: 11px;
   height: 40px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
 }
 
-.item-list {
-  font-family: 'Nanum Gothic', sans-serif;
+/* .item-list {
   font-weight: 600;
-  color: #5E5E5E;
-  /* font-style: italic; */
+  color: #5e5e5e;
+} */
+.todo-modal-content > #check {
+  background-color: lightgray;
+  color: white;
 }
-.todo-modal-content>#check {background-color:lightgray ; color:white;}
-.todo-modal-content>#red {background-color: #f36164;}
-.todo-modal-content>#light-orange {background-color: #FFD77F;}
-.todo-modal-content>#orange {background-color: #FFA045;}
-.todo-modal-content>#light-pink {background-color: #FFC1F8;}
-.todo-modal-content>#pink {background-color: #EE57B6;}
-/* .todo-modal-content>#yellow {background-color: #f1c95a;} */
-.todo-modal-content>#light-puple {background-color: #B8B2FF;}
-.todo-modal-content>#purple {background-color: #B668FC;}
-.todo-modal-content>#light-green {background-color: #AFD5AB;}
-.todo-modal-content>#green {background-color: #56D69C;}
-.todo-modal-content>#deep-green {background-color: #88BE7B;}
-.todo-modal-content>#light-blue-green {background-color: #66DAE2;}
-.todo-modal-content>#blue-green {background-color: #429488;}
-.todo-modal-content>#light-blue {background-color: #289BFF;}
-.todo-modal-content>#blue {background-color: #1C00FF;}
-.todo-modal-content>#olive {background-color: #BFC655;}
+.todo-modal-content > #red {
+  background-color: #f36164;
+}
+.todo-modal-content > #light-orange {
+  background-color: #ffd77f;
+}
+.todo-modal-content > #orange {
+  background-color: #ffa045;
+}
+.todo-modal-content > #light-pink {
+  background-color: #ffc1f8;
+}
+.todo-modal-content > #pink {
+  background-color: #ee57b6;
+}
+.todo-modal-content > #light-puple {
+  background-color: #b8b2ff;
+}
+.todo-modal-content > #purple {
+  background-color: #b668fc;
+}
+.todo-modal-content > #light-green {
+  background-color: #afd5ab;
+}
+.todo-modal-content > #green {
+  background-color: #56d69c;
+}
+.todo-modal-content > #deep-green {
+  background-color: #88be7b;
+}
+.todo-modal-content > #light-blue-green {
+  background-color: #66dae2;
+}
+.todo-modal-content > #blue-green {
+  background-color: #429488;
+}
+.todo-modal-content > #light-blue {
+  background-color: #289bff;
+}
+.todo-modal-content > #blue {
+  background-color: #1c00ff;
+}
+.todo-modal-content > #olive {
+  background-color: #bfc655;
+}
 
-.ntd-item-list{
-  font-family: 'Nanum Gothic', sans-serif;
+/* .ntd-item-list {
+  font-family: "Nanum Gothic", sans-serif;
   font-weight: 600;
   color: #f36164;
+} */
+.not-todo-modal-content > #ntdCheck {
+  background-color: #88be7b;
+  color: white;
 }
-.not-todo-modal-content>#ntdCheck {background-color:#88BE7B ; color:white;}
-.not-todo-modal-content>#ntdRed {background-color: #f36164;}
-
+.not-todo-modal-content > #ntdRed {
+  background-color: #f36164;
+}
 
 /* <button type="button" class="color-button" id="red"></button> */
 /* <button type="button" class="color-button" id="light-orange"></button> FFB43F */
@@ -590,11 +564,12 @@ div.audio {
 /* <button type="button" class="color-button" id="light-blue"></button> 82C6F7 */
 /* <button type="button" class="color-button" id="blue"></button> 5386FF */
 /* <button type="button" class="color-button" id="olive"></button> BFC655 */
-#todo-write #list-color-gray{
+/* #todo-write #list-color-gray {
   background-color: white;
-}
+} */
 
-.input-text, .ntd-input-text { /*211009 모달창 구현하면 조정필요 ?*/
+.input-text,
+.ntd-input-text {
   width: 495px;
   height: 34px;
   position: relative;
@@ -604,11 +579,11 @@ div.audio {
   outline: 0;
   border-radius: 9px;
   padding: 0px 16px 0px;
-
   margin-right: 2px;
 }
 
-.input-button, .ntd-input-button{
+.input-button,
+.ntd-input-button {
   width: 47px;
   height: 34px;
   position: relative;
@@ -618,110 +593,100 @@ div.audio {
   border: 0;
   outline: 0;
   background-color: transparent;
-  /* padding:10px; */
   margin-left: 1px;
   border-radius: 9px;
-  /* box-shadow: 1px 1px 1px lightgray, -1px -1px 1px #ffffff; */
 }
-    /* 투두 모달창 */
-    #todo-modal.todo-modal-overlay {
-      width: 85px;
-      height: 300px;
-      position: absolute;
-      right: 20px;
-      top: 140px;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      /* background: rgba(255, 255, 255, 0.6); */
-      background: rgba(255, 255, 255, 0.5);
-      box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
-      /* backdrop-filter: blur(1.5px);
-      -webkit-backdrop-filter: blur(1.5px); */
-      border-radius: 10px;
-      overflow:auto;
-    }
-    
-    #todo-modal.todo-modal-overlay::-webkit-scrollbar {
-      width: 7px;
-      background-color: transparent;
-    }
-    #todo-modal.todo-modal-overlay::-webkit-scrollbar-thumb {
-      background-clip: padding-box;
-      border-top: 30px solid transparent;
-      border-bottom: 30px  solid transparent;
-      background-color: lightgray;
-    }
-    .color-button{
-      position: relative;
-      top: 140px;
-      display:flex;
-      
-      justify-content: space-around;
-      /* padding-top: 100px; */
-      background-color: #e9f0fa;
-      padding: 8px;
-      margin: 5px;
-      width: 65px;
-      height: 30px;
-      border: 0px;
-      border-radius: 7px;
-      box-shadow: 1px 1px 2px #c8ced7;
-    }
-  
-    #todo-modal.todo-modal-close {
-      display: inline;
-      float: right;
-      padding-right: 3px;
-      cursor: pointer;
-      color: gray;
-    }
-    /* 낫투두모달창 */
-    
-    #not-todo-modal.not-todo-modal-overlay{
-      width: 75px;
-      height: 110px;
-      position: absolute;
-      right: 20px;
-      top: 680px;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      /* justify-content: center; */
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
-      border-radius: 10px;
-    }
-    
-    .ntd-color-button{
-      position: relative;
-      
-      top: -20px;
-      display:flex;
-      
-      justify-content: space-around;
-      /* padding-top: 100px; */
-      padding: 8px;
-      margin: 5px;
-      width: 65px;
-      height: 30px;
-      border: 0px;
-      border-radius: 7px;
-      box-shadow: 1px 1px 2px #c8ced7;
-      /* background-color: #e9f0fa; 버튼 색깔 ?*/ 
-    }
-    #not-todo-modal.not-todo-modal-close {
-      display: inline;
-      float: right;
-      padding-right: 3px;
-      cursor: pointer;
-      color: gray;
-    }
+/* 투두 모달창 */
+#todo-modal.todo-modal-overlay {
+  width: 85px;
+  height: 300px;
+  position: absolute;
+  right: 20px;
+  top: 140px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
+  border-radius: 10px;
+  overflow: auto;
+}
 
+#todo-modal.todo-modal-overlay::-webkit-scrollbar {
+  width: 7px;
+  background-color: transparent;
+}
+#todo-modal.todo-modal-overlay::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  background-color: lightgray;
+}
+.color-button {
+  position: relative;
+  top: 140px;
+  display: flex;
+  justify-content: space-around;
+  /* padding-top: 100px; */
+  background-color: #e9f0fa;
+  padding: 8px;
+  margin: 5px;
+  width: 65px;
+  height: 30px;
+  border: 0px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px #c8ced7;
+}
 
-/* 투두리스트 입력시 생겨나는 리스트들 */
-ol{
+/* #todo-modal.todo-modal-close {
+  display: inline;
+  float: right;
+  padding-right: 3px;
+  cursor: pointer;
+  color: gray;
+} */
+
+/* 낫투두모달창 */
+
+#not-todo-modal.not-todo-modal-overlay {
+  width: 75px;
+  height: 110px;
+  position: absolute;
+  right: 20px;
+  top: 680px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
+  border-radius: 10px;
+}
+
+.ntd-color-button {
+  position: relative;
+  top: -20px;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  margin: 5px;
+  width: 65px;
+  height: 30px;
+  border: 0px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px #c8ced7;
+}
+/* #not-todo-modal.not-todo-modal-close {
+  display: inline;
+  float: right;
+  padding-right: 3px;
+  cursor: pointer;
+  color: gray;
+} */
+
+/* 요까지 코드정리 211025 */
+/* 투두리스트, 낫투두 입력시 생겨나는 리스트들 */
+ol {
   margin: 0px;
   padding: 20px;
 }
@@ -739,13 +704,13 @@ ol li {
   color: lightgray;
 }
 
-ol li>i:hover{
+ol li > i:hover {
   color: gray;
 }
-ol li>i:active{
+ol li > i:active {
   color: black;
 }
-ol li:hover{
+ol li:hover {
   /* box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff; */
   cursor: pointer;
 }
@@ -754,44 +719,48 @@ ol li.checked:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 /* 리스트 내용부분 버튼태그 (클릭시 색깔지정 모달창 뜨는 버튼) */
-.todo-list-content, .ntd-todo-list-content {
-  font-family: 'Ubuntu', sans-serif;
+.todo-list-content,
+.ntd-todo-list-content {
+  font-family: "Ubuntu", sans-serif;
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
   width: 560px;
   height: 40px;
-  color: #5E5E5E;
+  color: #5e5e5e;
 }
 .ntd-todo-list-content {
-  color:#f36164;
+  color: #f36164;
 }
-.todo-list-content:hover, .ntd-todo-list-content:hover{
+.todo-list-content:hover,
+.ntd-todo-list-content:hover {
   opacity: 0.6;
 }
-.todo-list-content:active, .ntd-todo-list-content:active{
+.todo-list-content:active,
+.ntd-todo-list-content:active {
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 /* 리스트 삭제 버튼 */
-.todo-list-delete, .ntd-todo-list-delete {
+.todo-list-delete,
+.ntd-todo-list-delete {
   position: relative;
   right: 5px;
   padding-top: 3px;
   border: 0px;
   background-color: transparent;
   font-size: 15px;
-  color:lightgray;
-
+  color: lightgray;
 }
-.todo-list-delete:hover, .ntd-todo-list-delete:hover {
-  color:#FF8585;
+.todo-list-delete:hover,
+.ntd-todo-list-delete:hover {
+  color: #ff8585;
   cursor: pointer;
 }
-.todo-list-delete:active, .ntd-todo-list-delete:active  {
-  color:red;
+.todo-list-delete:active,
+.ntd-todo-list-delete:active {
+  color: red;
   cursor: pointer;
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
-  
 }
 
 /* .draggable{
@@ -800,25 +769,24 @@ ol li.checked:active {
 } */
 
 /* 반응형 */
-@media screen and (max-width:1360px) {
-  .body{
+@media screen and (max-width: 1360px) {
+  .body {
     width: 1360px;
   }
 }
-@media screen and (max-width:720px) {
-  section.Pomodoro{
-  position: absolute;
-  left: 15px;
+@media screen and (max-width: 720px) {
+  section.Pomodoro {
+    position: absolute;
+    left: 15px;
   }
 
-
-  section.todonottodo{
-  position: absolute;
-  top: 1000px;
-  left: 0px;
-  width: 670px;
+  section.todonottodo {
+    position: absolute;
+    top: 1000px;
+    left: 0px;
+    width: 670px;
   }
-  section.nottodolist{
+  section.nottodolist {
     margin-bottom: 50px;
   }
 }
@@ -826,10 +794,9 @@ ol li.checked:active {
   position: absolute;
   top: 95px;
   left: 228px;
-  display:iline-block;
+  display: iline-block;
   width: 215px;
   height: 215px;
   border-radius: 50%;
   transition: 0.1s;
-
 }
