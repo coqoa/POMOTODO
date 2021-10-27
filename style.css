@@ -393,6 +393,7 @@ span > i {
   bottom: 2px;
   font-size: 2px;
 }
+
 /* 오디오 */
 div.audio {
   position: relative;
@@ -404,22 +405,26 @@ div.audio {
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
 }
+/* 오디오 선택 버튼 */
 #select-audio {
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
 
-  -o-appearance: none;
+  /* -o-appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  appearance: none; */
 
   position: relative;
-  left: 137px;
+  left: 112px;
   top: 30px;
+  width: 250px;
+  height: 20px;
   text-align: center;
+
+  padding-top: 7px;
   border: 0;
-  padding: 12px;
   border-radius: 8px;
   background: #e9f0fa;
   box-shadow: 2px 2px 2px #949da6, -2px -2px 10px #ffffff;
@@ -432,6 +437,50 @@ div.audio {
 #select-audio > .audio-list {
   /* display: none; */
   font-family: "Ubuntu", sans-serif;
+}
+
+/* 오디오 선택시 나오는 모달창 */
+#modal-audio {
+  /* display: flex; */
+  /* display: none; */
+  flex-direction: column;
+  position: relative;
+  top: 20px;
+  left: 100px;
+  align-items: center;
+
+  border: 1px solid red;
+  width: 260px;
+  height: 100px;
+  padding: 10px 5px 10px 5px;
+  border-radius: 8px;
+  overflow: auto;
+}
+/* 투두, 낫투두 스크롤 바 */
+#modal-audio::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+#modal-audio::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  background-color: lightgray;
+}
+
+.audio-list {
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+
+  width: 250px;
+  height: 30px;
+  margin: 0px;
+  margin-top: 5px;
+  border: 1px solid gray;
+  background-color: transparent;
+  border-radius: 8px;
 }
 
 .start-audio {

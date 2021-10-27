@@ -78,21 +78,29 @@
                         <ul class="record-list" id="record-list"> </ul>
                 </div>
             </div>
+
+
+
             <!-- 오디오 -->
             <div class="audio">
-                <select name="audio" id="select-audio" size=1>
-                    <option class="audio-list" id="audio1" value="audio1">Farm Morning with Sheep</option>
-                    <option class="audio-list" id="audio2" value="audio2">Fire</option>
-                    <option class="audio-list" id="audio3" value="audio3">Outdoor Summer Ambience</option>
-                    <option class="audio-list" id="audio4" value="audio4">Rain Heavy Loud</option>
-                    <option class="audio-list" id="audio5" value="audio5">Rain On Rooftop</option>
-                    <option class="audio-list" id="audio5" value="audio6">Valley Night</option>
-                    <option class="audio-list" id="audio5" value="audio7">Waves Crashing on Rock Beach</option>
-                </select>
+                <div name="audio" id="select-audio" size=1></div>
+                <div id="modal-audio" style="display: none;"size=1>
+                    <button type="button" class="audio-list" id="audio1" value="audio1">Farm Morning with Sheep</button>
+                    <button type="button" class="audio-list" id="audio2" value="audio2">Fire</button>
+                    <button type="button" class="audio-list" id="audio3" value="audio3">Outdoor Summer Ambience</button>
+                    <button type="button" class="audio-list" id="audio4" value="audio4">Rain Heavy Loud</button>
+                    <button type="button" class="audio-list" id="audio5" value="audio5">Rain On Rooftop</button>
+                    <button type="button" class="audio-list" id="audio6" value="audio6">Valley Night</button>
+                    <button type="button" class="audio-list" id="audio7" value="audio7">Waves Crashing on Rock Beach</button>
+                </div>
                 <br>
-                <button type="button" class="start-audio" id="start-button"></button>
-                <button type="button" class="pause-audio" id="pause-button"></button>
+                <button type="button" class="start-audio" id="start-button" style="display: flex;"></button>
+                <button type="button" class="pause-audio" id="pause-button" style="display: none;"></button>
             </div>
+
+
+
+            
         </article> <!--포모도로 레이아웃-->
     </section>
 

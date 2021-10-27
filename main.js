@@ -880,84 +880,17 @@ notTodoRedBtn.addEventListener("click", e => {
 
 //뮤직플레이어
 let audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
-let check = document.getElementById("select-audio");
+let selectAudio = document.getElementById("select-audio");
+let modalAudio = document.getElementById("modal-audio");
 let start = document.getElementById("start-button");
 let stop = document.getElementById("pause-button")
 
-
-check.addEventListener("click", function(){
-    clickList();
-})
-function clickList(){
-    if(stop.style.display = "flex"){
-        start.style.display = "flex";
-        stop.style.display = "none";
-    }
-}
+selectAudio.innerText = audio1.innerText;
 
 start.addEventListener("click", function(){
     audio.play();
-    audio.pause();
-        switch(check.value){
-            case 'audio1':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
-                audio.loop = true;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;
-            case 'audio2':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Fire.mp3');
-                audio.loop = true;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;
-            case 'audio3':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Outdoor Summer Ambience.mp3');
-                audio.loop = true;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;
-            case 'audio4':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Rain Heavy Loud.mp3');
-                audio.loop = true;
-                audio.volume = 0.2;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;
-            case 'audio5':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
-                audio.loop = true;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;
-            case 'audio6':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Valley Night.mp3');
-                audio.loop = true;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;   
-            case 'audio7':
-                audio.pause();
-                audio = new Audio('POMOTODO audio/Waves Crashing on Rock Beach.mp3');
-                audio.loop = true;
-                audio.volume = 0.5;
-                audio.play();
-                start.style.display = "none";
-                stop.style.display = "flex";
-                break;
-        }
+    start.style.display = "none";
+    stop.style.display = "flex";
 });
 stop.addEventListener("click", function(){
     audio.pause();
@@ -965,13 +898,46 @@ stop.addEventListener("click", function(){
     stop.style.display = "none";
 });
 
-let pomoScreen = document.querySelector(".Pomodoro");
-let todoScreen = document.querySelector(".todonottodo");
-// function extendScreen(){
-//     if(true)
-// }
-if(window.screen.width<2500){
-    console.log(window.screen.width);
-    console.log(window.screen.height);
-    
+
+// 클릭시 모달창 나오는 코드
+selectAudio.addEventListener("click", modalClick);
+function modalClick(){
+    if(modalAudio.style.display == "none")
+        modalAudio.style.display = "flex";
+    else if(modalAudio.style.display == "flex")
+        modalAudio.style.display = "none"
+    // 오디오 선택 버튼 상호작용 구현
+    modalAudio.addEventListener("click", e =>{
+        audio.pause();
+        if(e.target.value == 'audio1'){
+            audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
+            selectAudio.innerText = audio1.innerText;
+        }else if(e.target.value == 'audio2'){
+            audio = new Audio('POMOTODO audio/Fire.mp3');
+            selectAudio.innerText = audio2.innerText;
+        }else if(e.target.value == 'audio3'){
+            audio = new Audio('POMOTODO audio/Outdoor Summer Ambience.mp3');
+            selectAudio.innerText = audio3.innerText;
+        }else if(e.target.value == 'audio4'){
+            audio = new Audio('POMOTODO audio/Rain Heavy Loud.mp3');
+            selectAudio.innerText = audio4.innerText;
+        }else if(e.target.value == 'audio5'){
+            audio = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
+            selectAudio.innerText = audio5.innerText;
+        }else if(e.target.value == 'audio6'){
+            audio = new Audio('POMOTODO audio/Valley Night.mp3');
+            selectAudio.innerText = audio6.innerText;
+        }else if(e.target.value == 'audio7'){
+            audio = new Audio('POMOTODO audio/Waves Crashing on Rock Beach.mp3');
+            selectAudio.innerText = audio7.innerText;
+        }
+        audio.loop = true;
+        setTimeout(function(){ //stop과 동시에 play를 해서 생기는 문제 해결
+            audio.play();
+        },150) 
+        start.style.display = "none";
+        stop.style.display = "flex";
+        modalAudio.style.display = "none"
+
+    })
 }
