@@ -443,13 +443,13 @@ div.audio {
   left: 115px;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255);
   width: 260px;
   height: 95px;
-  padding: 10px 5px 10px 5px;
+  padding: 5px 5px 10px 5px;
   border-radius: 10px;
   overflow: auto;
-  box-shadow: 2px 2px 2px #949da6, -2px -2px 10px #ffffff;
+  box-shadow: 2px 2px 2px #949da6, -2px -2px 2px #ffffff;
   z-index: 99;
 }
 /* 오디오 선택 모달창 스크롤 */
@@ -594,26 +594,6 @@ div.audio {
   background-color: #f36164;
 }
 
-/* <button type="button" class="color-button" id="red"></button> */
-/* <button type="button" class="color-button" id="light-orange"></button> FFB43F */
-/* <button type="button" class="color-button" id="orange"></button> FF7F58 */
-/* <button type="button" class="color-button" id="light-pink"></button> F5BEFA */
-/* <button type="button" class="color-button" id="pink"></button> F989C7 */
-/* <button type="button" class="color-button" id="yellow"></button> F2D586 */
-/* <button type="button" class="color-button" id="light-puple"></button> B8B2FF */
-/* <button type="button" class="color-button" id="purple"></button> 9A77FA */
-/* <button type="button" class="color-button" id="light-green"></button> AFD5AB */
-/* <button type="button" class="color-button" id="green"></button> 56D69C */
-/* <button type="button" class="color-button" id="deep-green"></button> 88BE7B */
-/* <button type="button" class="color-button" id="light-blue-green"></button> 82D2D4 */
-/* <button type="button" class="color-button" id="blue-green"></button> 66DAE1 */
-/* <button type="button" class="color-button" id="light-blue"></button> 82C6F7 */
-/* <button type="button" class="color-button" id="blue"></button> 5386FF */
-/* <button type="button" class="color-button" id="olive"></button> BFC655 */
-/* #todo-write #list-color-gray {
-  background-color: white;
-} */
-
 .input-text,
 .ntd-input-text {
   width: 495px;
@@ -730,7 +710,6 @@ div.audio {
   color: gray;
 } */
 
-/* 요까지 코드정리 211025 */
 /* 투두리스트, 낫투두 입력시 생겨나는 리스트들 */
 ol {
   margin: 0px;
@@ -750,20 +729,19 @@ ol li {
   color: lightgray;
 }
 
-ol li > i:hover {
+/* ol li > i:hover {
   color: gray;
 }
 ol li > i:active {
   color: black;
 }
 ol li:hover {
-  /* box-shadow: 1px 1px 2px #949da6, -1px -1px 3px #ffffff; */
   cursor: pointer;
 }
 ol li:active,
 ol li.checked:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
-}
+} */
 /* 리스트 내용부분 버튼태그 (클릭시 색깔지정 모달창 뜨는 버튼) */
 .todo-list-content,
 .ntd-todo-list-content {
@@ -813,6 +791,17 @@ ol li.checked:active {
   color: red;
   opacity: 0.5;
 } */
+/* 뽀모도로 애니메이션 게이지 */
+#pie-chart1 {
+  position: absolute;
+  top: 95px;
+  left: 228px;
+  display: iline-block;
+  width: 215px;
+  height: 215px;
+  border-radius: 50%;
+  transition: 0.1s;
+}
 
 /* 반응형 */
 @media screen and (max-width: 1360px) {
@@ -835,14 +824,4 @@ ol li.checked:active {
   section.nottodolist {
     margin-bottom: 50px;
   }
-}
-#pie-chart1 {
-  position: absolute;
-  top: 95px;
-  left: 228px;
-  display: iline-block;
-  width: 215px;
-  height: 215px;
-  border-radius: 50%;
-  transition: 0.1s;
 }

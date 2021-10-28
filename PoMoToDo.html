@@ -79,12 +79,10 @@
                 </div>
             </div>
 
-
-
             <!-- 오디오 -->
             <div class="audio">
                 <div name="audio" id="select-audio" size=1></div>
-                <div id="modal-audio" style="display: none;"size=1>
+                <div  id="modal-audio" style="display: none;"size=1>
                     <button type="button" class="audio-list" id="audio1" value="audio1">Farm Morning with Sheep</button>
                     <button type="button" class="audio-list" id="audio2" value="audio2">Fire</button>
                     <button type="button" class="audio-list" id="audio3" value="audio3">Outdoor Summer Ambience</button>
@@ -98,9 +96,6 @@
                 <button type="button" class="pause-audio" id="pause-button" style="display: none;"></button>
             </div>
 
-
-
-            
         </article> <!--포모도로 레이아웃-->
     </section>
 
@@ -119,8 +114,8 @@
             <!-- 컬러지정을 위한 모달창 -->
             <div id="todo-modal" class="todo-modal-overlay">
                 <span class="todo-modal-content" id="todo-modal-content">ﾠ
-                    <button type="button" class="color-button" id="close"><i class="fas fa-angle-left"></i></button>
-                    <button type="button" class="color-button" id="check"><i class="fas fa-check"></i></button>
+                    <button type="button" class="color-button" id="close" value="close"><i class="fas fa-angle-left"></i></button>
+                    <button type="button" class="color-button" id="check" value="check"><i class="fas fa-check"></i></button>
                     
                     <button type="button" class="color-button" id="red" value="red"></button>
                     <button type="button" class="color-button" id="light-orange" value="light-orange"></button>
@@ -153,19 +148,17 @@
             <ol class="ntd-item-list" id="ntd-sortable"><!--각 리스트가 들어오는 위치--></ol>
             <!-- 컬러지정을 위한 모달창 -->
             <div id="not-todo-modal" class="not-todo-modal-overlay">
-                <div class="not-todo-modal-content">ﾠ
-                    <button type="button" class="ntd-color-button" id="ntdClose"><i class="fas fa-angle-left"></i></button>
-                    <button type="button" class="ntd-color-button" id="ntdCheck"><i class="fas fa-check"></i></button>
-                    <button type="button" class="ntd-color-button" id="ntdRed"></button>
+                <div class="not-todo-modal-content" id="not-todo-modal-content">ﾠ
+                    <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"><i class="fas fa-angle-left"></i></button>
+                    <button type="button" class="ntd-color-button" id="ntdCheck" value="ntd-check"><i class="fas fa-check"></i></button>
+                    <button type="button" class="ntd-color-button" id="ntdRed" value="ntd-red"></button>
                 </div>
             </div>
         </article> <!--낫투두리스트-->
     </section>
 
-
     <footer>
         <!--  -->
     </footer>
-    
 </body>
 </html>
