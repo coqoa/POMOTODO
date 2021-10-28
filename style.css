@@ -411,19 +411,14 @@ div.audio {
   font-weight: 400;
   font-size: 15px;
 
-  /* -o-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; */
-
   position: relative;
-  left: 112px;
+  left: 125px;
   top: 30px;
   width: 250px;
-  height: 20px;
+  height: 25px;
   text-align: center;
 
-  padding-top: 7px;
+  padding-top: 10px;
   border: 0;
   border-radius: 8px;
   background: #e9f0fa;
@@ -434,29 +429,30 @@ div.audio {
   box-shadow: 1px 1px 1px #949da6, -1px -1px 10px #ffffff;
   cursor: pointer;
 }
-#select-audio > .audio-list {
-  /* display: none; */
-  font-family: "Ubuntu", sans-serif;
+#select-audio:active {
+  background: #e9f0fa;
+  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 2px #ffffff;
+  cursor: pointer;
 }
 
 /* 오디오 선택시 나오는 모달창 */
 #modal-audio {
-  /* display: flex; */
-  /* display: none; */
   flex-direction: column;
-  position: relative;
+  position: absolute;
   top: 20px;
-  left: 100px;
+  left: 115px;
   align-items: center;
 
-  border: 1px solid red;
+  background: rgba(255, 255, 255, 0.8);
   width: 260px;
-  height: 100px;
+  height: 95px;
   padding: 10px 5px 10px 5px;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: auto;
+  box-shadow: 2px 2px 2px #949da6, -2px -2px 10px #ffffff;
+  z-index: 99;
 }
-/* 투두, 낫투두 스크롤 바 */
+/* 오디오 선택 모달창 스크롤 */
 #modal-audio::-webkit-scrollbar {
   width: 5px;
   background-color: transparent;
@@ -473,14 +469,20 @@ div.audio {
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
+  color: #808080;
 
   width: 250px;
   height: 30px;
-  margin: 0px;
-  margin-top: 5px;
-  border: 1px solid gray;
-  background-color: transparent;
-  border-radius: 8px;
+  margin: 5px 0px 0px 0px;
+
+  border: 0;
+  border-radius: 5px;
+  background: #e9f0fa;
+  box-shadow: 1px 1px 1px lavender, -1px -1px 4px #ffffff;
+}
+.audio-list:hover {
+  color: black;
+  opacity: 1;
 }
 
 .start-audio {
@@ -584,11 +586,6 @@ div.audio {
   background-color: #bfc655;
 }
 
-/* .ntd-item-list {
-  font-family: "Nanum Gothic", sans-serif;
-  font-weight: 600;
-  color: #f36164;
-} */
 .not-todo-modal-content > #ntdCheck {
   background-color: #88be7b;
   color: white;
