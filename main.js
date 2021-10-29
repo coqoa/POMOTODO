@@ -81,9 +81,9 @@ buttonStart.onclick = function(){
     if(minutes >0 || seconds>0){
         if(buttonStart.className === 'clock__btn'){
             startRecodList();
-            audio = new Audio('POMOTODO audio/Beep Short .mp3');
-            audio.volume = 0.1;
-            // audio.play();
+            timeAudio = new Audio('POMOTODO audio/Beep Short .mp3');
+            timeAudio.volume = 0.1;
+            // timeAudio.play();
             pieChart.style.background = pomodoroColor;
         }
         buttonStart.classList.add('active');
@@ -175,9 +175,9 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
                             +' </button>'
                             
     //스탑버튼 누르면 출력하는 오디오
-    audio = new Audio('POMOTODO audio/Beep Short .mp3');
-    audio.volume = 0.1;
-    // audio.play();
+    timeAudio = new Audio('POMOTODO audio/Beep Short .mp3');
+    timeAudio.volume = 0.1;
+    // timeAudio.play();
 
     // 스탑버튼 누르면 색깔, 분 변경하는 코드
     if(pomodoroGuageColor == 1){ // 스탑버튼을 눌렀을 때 빨강이면 초록으로+05분으로+게이지도 초록으로 + 토글변수인 포모도로게이지컬러도 2로변경
@@ -230,7 +230,8 @@ function appearInputText(txt){ // 기록내용 수정 클릭 시
     let recordTextInputTextTag = txt.childNodes[2]; // inputText창의 display를 inline으로 변경해서 보이게 한다
     recordTextInputTextTag.style.display = 'inline';
     let recordTextContent = txt.childNodes[4]; // 입력을 통해 생성된 span태그를 변수에 담아준다
-    recordTextInputTextTag.value = recordTextContent.innerText; // 텍스트입력창에 기존의 텍스트값을 넣어준다
+    if(recordTextContent !== undefined)
+        recordTextInputTextTag.value = recordTextContent.innerText; // 텍스트입력창에 기존의 텍스트값을 넣어준다
     if(recordTextContent !== undefined) // 생성된 span태그가 있을경우에 지워주고 없다면 실행하지않는다
         txt.removeChild(recordTextContent);
     recordTextInputTextTag.focus();
@@ -579,33 +580,33 @@ modalTodoColor.addEventListener("click", e =>{
     else if(e.target.value == "red")
         setColorList.style.color="#f36164";
     else if(e.target.value == "light-orange")
-        setColorList.style.color="#FFD77F";
+        setColorList.style.color="#E6B74B";
     else if(e.target.value == "orange")
-        setColorList.style.color="#FFA045";
+        setColorList.style.color="#F88313";
     else if(e.target.value == "light-pink")
-        setColorList.style.color="#FFC1F8";
+        setColorList.style.color="#E69DDE";
     else if(e.target.value == "pink")
-        setColorList.style.color="#EE57B6";
+        setColorList.style.color="#E509CC";
     else if(e.target.value == "light-puple")
-        setColorList.style.color="#B8B2FF";
+        setColorList.style.color="#9288FD";
     else if(e.target.value == "purple")
-        setColorList.style.color="#B668FC";
+        setColorList.style.color="#AB57F7";
     else if(e.target.value == "light-green")
-        setColorList.style.color="#AFD5AB";
+        setColorList.style.color="#91C349";
     else if(e.target.value == "green")
-        setColorList.style.color="#56D69C";
-    else if(e.target.value == "deep-green")
-        setColorList.style.color="#88BE7B";
+        setColorList.style.color="#5C8A3D";
     else if(e.target.value == "light-blue-green")
-        setColorList.style.color="#66DAE2";
+        setColorList.style.color="#91EADD";
     else if(e.target.value == "blue-green")
-        setColorList.style.color="#429488";
+        setColorList.style.color="#06D2E0";
     else if(e.target.value == "light-blue")
         setColorList.style.color="#289BFF";
     else if(e.target.value == "blue")
         setColorList.style.color="#1C00FF";
+    else if(e.target.value == "sand")
+        setColorList.style.color="#C39B7A";
     else if(e.target.value == "olive")
-        setColorList.style.color="#BFC655";
+        setColorList.style.color="#B7BE54";
     
     todoModal.style.display = "none"; //공통사항
 })
@@ -656,7 +657,7 @@ ModalNotTodoColor.addEventListener("click", e =>{
     if(e.target.value == "ntd-close"){
         
     }else if(e.target.value == "ntd-check")
-        ntdSetColorList.style.color="#88BE7B";
+        ntdSetColorList.style.color="#5C8A3D";
     else if(e.target.value == "ntd-red")
         ntdSetColorList.style.color="#f36164";
     notTodoModal.style.display = "none"; //공통사항
@@ -664,6 +665,7 @@ ModalNotTodoColor.addEventListener("click", e =>{
 
 //오디오 플레이어
 let audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
+audio.volume = 0.3;
 let selectAudio = document.getElementById("select-audio");
 let modalAudio = document.getElementById("modal-audio");
 let start = document.getElementById("start-button");
@@ -694,20 +696,34 @@ function modalClick(){
     modalAudio.addEventListener("click", e =>{
         console.log(e.target.className);
         audio.pause();
-        if(e.target.value == 'audio1')
+        if(e.target.value == 'audio1'){
             audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
-        else if(e.target.value == 'audio2')
+            audio.volume = 0.5;
+        }
+        else if(e.target.value == 'audio2'){
             audio = new Audio('POMOTODO audio/Fire.mp3');
-        else if(e.target.value == 'audio3')
+            audio.volume = 0.5;
+        }
+        else if(e.target.value == 'audio3'){
             audio = new Audio('POMOTODO audio/Outdoor Summer Ambience.mp3');
-        else if(e.target.value == 'audio4')
+            audio.volume = 1;
+        }
+        else if(e.target.value == 'audio4'){
             audio = new Audio('POMOTODO audio/Rain Heavy Loud.mp3');
-        else if(e.target.value == 'audio5')
+            audio.volume = 0.1;
+        }
+        else if(e.target.value == 'audio5'){
             audio = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
-        else if(e.target.value == 'audio6')
+            audio.volume = 0.6;
+        }
+        else if(e.target.value == 'audio6'){
             audio = new Audio('POMOTODO audio/Valley Night.mp3');
-        else if(e.target.value == 'audio7')
+            audio.volume = 1;
+        }
+        else if(e.target.value == 'audio7'){
             audio = new Audio('POMOTODO audio/Waves Crashing on Rock Beach.mp3');
+            audio.volume = 0.5;
+        }
         selectAudio.innerText = e.target.innerText;
         audio.loop = true;
         setTimeout(function(){ //stop과 동시에 play를 해서 생기는 문제 해결
@@ -718,3 +734,8 @@ function modalClick(){
         modalAudio.style.display = "none"
     })
 }
+//세로반응형
+let mainLayoutHeight = document.getElementById('mainLayout');
+
+console.log(mainLayoutHeight)
+// console.log(window.innerHeight)

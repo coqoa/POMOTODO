@@ -3,9 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 /* font-family: 'Ubuntu', sans-serif; */
 
-/* .body {
-  min-width: 2300px;
-} */
+.body {
+  /* 화면비율 80% */
+  zoom: 80%;
+}
 
 /*네비게이션바*/
 header nav {
@@ -145,7 +146,13 @@ h2 {
   /*뽀모도로, 투두리스트, 낫투두리스트 타이틀의 폰트스타일*/
   font-style: italic;
 }
-
+#mainLayout {
+  display: flex;
+  position: relative;
+  /* top: 0px; */
+  /* justify-content: space-between; */
+  align-items: center;
+}
 section.Pomodoro {
   position: relative;
   top: 50px;
@@ -160,7 +167,7 @@ section.Pomodoro {
 
 section.todonottodo {
   position: relative;
-  top: 55px;
+  top: 50px;
   width: 650px;
   margin-left: 15px;
 }
@@ -532,10 +539,9 @@ div.audio {
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
 }
 
-/* .item-list {
+.todo-list-content {
   font-weight: 600;
-  color: #5e5e5e;
-} */
+}
 .todo-modal-content > #check {
   background-color: lightgray;
   color: white;
@@ -544,37 +550,34 @@ div.audio {
   background-color: #f36164;
 }
 .todo-modal-content > #light-orange {
-  background-color: #ffd77f;
+  background-color: #e6b74b;
 }
 .todo-modal-content > #orange {
-  background-color: #ffa045;
+  background-color: #f88313;
 }
 .todo-modal-content > #light-pink {
-  background-color: #ffc1f8;
+  background-color: #e69dde;
 }
 .todo-modal-content > #pink {
-  background-color: #ee57b6;
+  background-color: #e509cc;
 }
 .todo-modal-content > #light-puple {
-  background-color: #b8b2ff;
+  background-color: #9288fd;
 }
 .todo-modal-content > #purple {
-  background-color: #b668fc;
+  background-color: #ab57f7;
 }
 .todo-modal-content > #light-green {
-  background-color: #afd5ab;
+  background-color: #91c349;
 }
 .todo-modal-content > #green {
-  background-color: #56d69c;
-}
-.todo-modal-content > #deep-green {
-  background-color: #88be7b;
+  background-color: #5c8a3d;
 }
 .todo-modal-content > #light-blue-green {
-  background-color: #66dae2;
+  background-color: #91eadd;
 }
 .todo-modal-content > #blue-green {
-  background-color: #429488;
+  background-color: #06d2e0;
 }
 .todo-modal-content > #light-blue {
   background-color: #289bff;
@@ -582,12 +585,15 @@ div.audio {
 .todo-modal-content > #blue {
   background-color: #1c00ff;
 }
+.todo-modal-content > #sand {
+  background-color: #c39b7a;
+}
 .todo-modal-content > #olive {
-  background-color: #bfc655;
+  background-color: #b7be54;
 }
 
 .not-todo-modal-content > #ntdCheck {
-  background-color: #88be7b;
+  background-color: #5c8a3d;
   color: white;
 }
 .not-todo-modal-content > #ntdRed {
@@ -823,5 +829,31 @@ ol li.checked:active {
   }
   section.nottodolist {
     margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  #mainLayout {
+    top: 25px;
+  }
+}
+@media screen and (min-height: 850) {
+  #mainLayout {
+    top: 55px;
+  }
+}
+@media screen and (min-height: 900px) {
+  #mainLayout {
+    top: 85px;
+  }
+}
+@media screen and (min-height: 950px) {
+  #mainLayout {
+    top: 115px;
+  }
+}
+@media screen and (min-height: 1000px) {
+  #mainLayout {
+    top: 145px;
   }
 }
