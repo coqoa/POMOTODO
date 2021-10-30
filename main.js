@@ -735,7 +735,5 @@ function modalClick(){
     })
 }
 //세로반응형
-let mainLayoutHeight = document.getElementById('mainLayout');
-
-console.log(mainLayoutHeight)
 // console.log(window.innerHeight)
+// 반응형은 좀 더 공부가 필요하고 지긐은 AWS먼저 공부
