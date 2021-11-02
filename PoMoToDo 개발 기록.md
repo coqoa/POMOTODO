@@ -1,3 +1,28 @@
+# 211102 aws ec2로 ubuntu 인스턴스 생성, 작업한 파일들 생성, 파일질라를 통해 로컬환경에서 서버로 파일전송 완성
+POMOTODO 주소 : http://13.209.251.65/
+![스크린샷 2021-11-02 오후 6 24 49](https://user-images.githubusercontent.com/81023768/139820439-331e20ca-016d-4264-aa7a-365f37fbfd44.png)
+
+
+생활코딩 aws : https://opentutorials.org/course/2717
+
+<br>
+
+---
+
+생활코딩과 여러 블로그를 참고해서 로컬컴퓨터에 있는 오디오파일, 아이콘파일을 전송하고 구동확인했음
+<img width="1440" alt="스크린샷 2021-11-02 오후 6 03 48" src="https://user-images.githubusercontent.com/81023768/139820398-47373b06-ceb5-4249-bc5f-41d5e400a21a.png">
+
+<br>
+참고 강의 및 블로그  
+
+<br>
+
+생활코딩 파일질라 : https://opentutorials.org/course/128/881     
+[파일질라 비밀번호 관련 문제 해결](https://twosb.github.io/2018/07/02/AWS%20EC2%20Key%20Pair%20%EC%97%86%EC%9D%B4%20%EB%8C%80%EC%8B%A0%20%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%EB%A1%9C%20%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0/)  
+[파일질라 permission denied 오류](https://threeidiotscoding.tistory.com/14)  
+
+---
+
 # 211101 자바스크립트 90%완료, 서버공부
 
 ## 저번주에 설정한 목표 :
