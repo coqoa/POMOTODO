@@ -671,7 +671,8 @@ let modalAudio = document.getElementById("modal-audio");
 let start = document.getElementById("start-button");
 let stop = document.getElementById("pause-button")
 
-selectAudio.innerText = audio1.innerText;
+// selectAudio.innerText = audio1.innerText;
+selectAudio.innerText = 'Farm Morning with Sheep';
 
 start.addEventListener("click", function(){
     audio.play();
@@ -694,37 +695,39 @@ function modalClick(){
         modalAudio.style.display = "none"
     // 오디오 선택 버튼 상호작용 구현
     modalAudio.addEventListener("click", e =>{
+        selectAudio.innerText = '';
         console.log(e.target.className);
         audio.pause();
-        if(e.target.value == 'audio1'){
+        if(e.target.value == 'Farm Morning with Sheep'){
             audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
             audio.volume = 0.5;
         }
-        else if(e.target.value == 'audio2'){
+        else if(e.target.value == 'Fire'){
             audio = new Audio('POMOTODO audio/Fire.mp3');
             audio.volume = 0.5;
         }
-        else if(e.target.value == 'audio3'){
+        else if(e.target.value == 'Outdoor Summer Ambience'){
             audio = new Audio('POMOTODO audio/Outdoor Summer Ambience.mp3');
             audio.volume = 1;
         }
-        else if(e.target.value == 'audio4'){
+        else if(e.target.value == 'Rain Heavy Loud'){
             audio = new Audio('POMOTODO audio/Rain Heavy Loud.mp3');
             audio.volume = 0.1;
         }
-        else if(e.target.value == 'audio5'){
+        else if(e.target.value == 'Rain On Rooftop'){
             audio = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
             audio.volume = 0.6;
         }
-        else if(e.target.value == 'audio6'){
+        else if(e.target.value == 'Valley Night'){
             audio = new Audio('POMOTODO audio/Valley Night.mp3');
             audio.volume = 1;
         }
-        else if(e.target.value == 'audio7'){
+        else if(e.target.value == 'Waves Crashing on Rock Beach'){
             audio = new Audio('POMOTODO audio/Waves Crashing on Rock Beach.mp3');
             audio.volume = 0.5;
         }
-        selectAudio.innerText = e.target.innerText;
+        // selectAudio.innerText = e.target.innerText;
+        selectAudio.innerText = e.target.value;
         audio.loop = true;
         setTimeout(function(){ //stop과 동시에 play를 해서 생기는 문제 해결
             audio.play();
@@ -737,3 +740,5 @@ function modalClick(){
 //세로반응형
 // console.log(window.innerHeight)
 // 반응형은 좀 더 공부가 필요하고 지긐은 AWS먼저 공부
+
+// 오디오파일 제목위치가 이상해서 수정
