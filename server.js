@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.static('public'));
 
 //listen(서버띄울 포트번호, 띄운 후 실행할 코드)
 app.listen(8080, function(){
@@ -25,5 +26,6 @@ app.get('/beauty',function(요청, 응답){
 app.get('/',function(요청, 응답){
     // sendFile을 통해 파일전송가능, __dirname은 server.js의 현재경로를 나타냄
     응답.sendFile(__dirname + '/index.html')
+    // 응답.sendFile(__dirname + '/style.css')
 });
 

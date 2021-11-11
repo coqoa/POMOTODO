@@ -1,0 +1,22 @@
+{
+  "name": "pomotodo",
+  "version": "1.0.0",
+  "description": "Pomodoro타이머,   </br> ToDoList & Not-ToDoList,    </br> 집중에 도움이 되는 소리를 합친 일정 관리 프로그램입니다.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://%3C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%3E@github.com/coqoa/PoMoToDo-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coqoa/PoMoToDo-/issues"
+  },
+  "homepage": "https://github.com/coqoa/PoMoToDo-#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
