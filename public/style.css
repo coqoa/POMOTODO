@@ -32,6 +32,8 @@ a {
 
 /* 로고 */
 .POMOTODO__logo a {
+  /* position: absolute; */
+
   padding: 0px;
   font-family: "Ubuntu", sans-serif;
   font-size: 15px;
@@ -50,14 +52,28 @@ a {
   padding-right: 5px;
   color: #ff8585;
 }
+/* 로그인버튼 */
+.loginButton {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: gray;
+  position: absolute;
+  left: 160px;
+  right: 300px;
 
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: transparent;
+}
 /* 네비게이션아이콘 */
 .POMOTODO__menu {
   position: relative;
-  left: 60px;
+  left: 16%;
   display: flex;
   list-style: none;
-  padding-right: 30px;
+  padding: 0px;
   margin: 0px;
 }
 .POMOTODO__menu li {
@@ -155,11 +171,12 @@ h2 {
 }
 section.Pomodoro {
   position: relative;
+  right: 20px;
   top: 50px;
   width: 650px;
   height: 95%;
   padding: 10px;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 20px #ffffff;
@@ -168,8 +185,9 @@ section.Pomodoro {
 section.todonottodo {
   position: relative;
   top: 50px;
+  left: 10px;
   width: 650px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
 }
 article.todolist {
   height: 500px;
@@ -810,11 +828,11 @@ ol li.checked:active {
 }
 
 /* 반응형 */
-@media screen and (max-width: 1360px) {
+/* @media screen and (max-width: 1360px) {
   .body {
     width: 1360px;
   }
-}
+} */
 @media screen and (max-width: 720px) {
   section.Pomodoro {
     position: absolute;

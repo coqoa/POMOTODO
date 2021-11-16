@@ -737,6 +737,11 @@ function modalClick(){
         modalAudio.style.display = "none"
     })
 }
+
+let loginBtn = document.querySelector('.loginButton')
+loginBtn.addEventListener("click", e => {
+    location.href='/login';
+})
 //세로반응형
 // console.log(window.innerHeight)
 // 반응형은 좀 더 공부가 필요하고 지긐은 AWS먼저 공부
