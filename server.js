@@ -4,9 +4,11 @@ app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
 let db;
 let navId;
+navId = 'log in';
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 app.set('view engine', 'ejs');
+let flash = require('connect-flash');
 
 MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
     //db지정하는코드
@@ -43,31 +45,50 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
         res.render('POMOTODO.ejs', { posts : `${navId}`}); 
     });
 
-    // 누군가가 /login으로 방문을 하면..login관련 안내문을 띄워주자.
-    app.get('/login',function(req, res){
-        res.render('login.ejs')
-
-    });
+    
     // 누군가가 /signup으로 방문을 하면..signup관련 안내문을 띄워주자.
     app.get('/signup',function(req, res){
         res.sendFile(__dirname + '/views/signup.html')
     });
     
+    // 누군가가 /login으로 방문을 하면..login관련 안내문을 띄워주자.
+    // app.get('/login',function(req, res){
+    //     let fmsg = req.flash();
+    //     console.log(fmsg);
+
+    //     res.render('login.ejs')
+
+    // });
+
     // 로그인 페이지(세션,쿠키)
     const passport = require('passport');
     const LocalStrategy = require('passport-local').Strategy;
     const session = require('express-session');
 
     // 미들웨어 설정
-    app.use(session({secret : 'sessionCreatePOMOTODO', resave : true, saveUninitialized: false})); 
     // 비밀코드는 세션을 만들때 사용할 비밀번호
-    app.use(passport.initialize());
-    app.use(passport.session());
+    app.use(session({secret : 'sessionCreatePOMOTODO', resave : true, saveUninitialized: false})); 
     //미들웨어 : app.use = request - response 중간에 뭔가 실행되는 코드
+    app.use(passport.initialize());
+    app.use(passport.session()); 
+    app.use(flash());
+    
+    // 누군가가 /login으로 방문을 하면..login관련 안내문을 띄워주자.
+    app.get('/login',function(req, res){
+        let fmsg = req.flash(); // 로그인 실패시 출려되는 플래시메세지
+        // console.log(fmsg); // 아이디가 없는지 , 비밀번호가 틀렸는지 검사해서 작성해놓은 message를 출력해준다 125번, 132번줄
+        let feedback= '';
+        if(fmsg.error){
+            feedback = fmsg.error[0]
+        }
 
+        res.render('login.ejs', {loginFeedback : feedback})
+    });
     //passport라이브러리 사용
     app.post('/login', passport.authenticate('local', { // 로컬방식으로 인증
-        failureRedirect : '/fail' //실패시 /fail페이지로 이동시켜주세요
+        failureRedirect : '/fail' ,
+        failureFlash : true
+        //실패시 /fail페이지로 이동시켜주세요
         }), function(req, res){
             res.redirect('/') // 성공시 redirect해서 홈페이지로 보내주기
         });
@@ -90,11 +111,16 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
             if (err) return done(err) //에러처리문법
 
             //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
-            if (!user) return done(null, false, { message: '존재하지않는 아이디입니다' })
+            if (!user) {
+                console.log('11111')
+                return done(null, false, { message: 'incorrect id' })
+
+            }
             if (inputPw == user.password) {
                 return done(null, user)
             } else {
-                return done(null, false, { message: '비밀번호 틀렸어요' })
+                console.log('444444');
+                return done(null, false, { message: 'incorrect password' })
             }
         })
     }));
@@ -110,7 +136,15 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     passport.deserializeUser(function (아이디, done) { //로그인하면 페이지에 방문할 때 마다 콜백함수가 호출, 사용자의 실제 데이터를 조회해서 가져옴
         done(null, {})
     });
-    
+    app.get('/logout', function(req, res){
+        // res.render('logout.ejs')
+        req.session.destroy(() => {
+            res.clearCookie('connect.sid');
+            navId = 'log in';
+            res.redirect('/');
+        });
+
+    })
 })
 
 

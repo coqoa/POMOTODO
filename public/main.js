@@ -742,13 +742,15 @@ let modalButton = document.getElementById('modal-button-id-check');
 let modalWindow = document.getElementById('modal-window-id-check');
 let loginButton = document.getElementById('loginButton');
 let logoutButton = document.getElementById('logoutButton');
+// let testReplace = document.getElementById('testReplace');
 
 modalButton.addEventListener("click", e=>{
     if(modalWindow.style.display == 'flex')
         modalWindow.style.display = "none"
     else
         modalWindow.style.display = "flex"
-        if(modalButton.innerText == "undefined"){
+        if(modalButton.innerText == "log in"){
+            
             loginButton.style.display = "flex"
             logoutButton.style.display = "none"
         }
@@ -759,8 +761,10 @@ modalButton.addEventListener("click", e=>{
 })
 loginButton.addEventListener("click", e=>{
     location.href='/login';
+    // testReplace.style.display = "none"
 })
 logoutButton.addEventListener("click", e=>{
     location.href='/logout';
+    // testReplace.style.display = "flex"
 })
 // ----------------------------------------------------------------------
