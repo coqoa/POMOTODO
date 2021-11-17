@@ -12,7 +12,8 @@
 header nav {
   font-family: "Ubuntu", sans-serif;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
   align-items: center;
   padding: 8px 12px;
   position: fixed;
@@ -32,7 +33,9 @@ a {
 
 /* 로고 */
 .POMOTODO__logo a {
-  /* position: absolute; */
+  position: absolute;
+  bottom: 4px;
+  left: 10px;
 
   padding: 0px;
   font-family: "Ubuntu", sans-serif;
@@ -52,25 +55,84 @@ a {
   padding-right: 5px;
   color: #ff8585;
 }
-/* 로그인버튼 */
-.loginButton {
+
+/* 로그인확인 관련 코드 */
+/* 아이디체크 전체 */
+#id-check {
   font-family: "Ubuntu", sans-serif;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 17px;
+  font-weight: 500;
   font-style: italic;
   color: gray;
-  position: absolute;
-  left: 160px;
-  right: 300px;
-
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  background-color: transparent;
 }
+/* 아이디체크 모달버튼 */
+#modal-button-id-check {
+  position: absolute;
+  left: 130px;
+  bottom: 1px;
+  height: 20px;
+  width: 75px;
+  padding-bottom: 3px;
+  border-radius: 7px;
+}
+#modal-button-id-check:hover {
+  cursor: pointer;
+  color: black;
+}
+#modal-button-id-check:active {
+  cursor: pointer;
+  box-shadow: inset 0px 1px 1px #949da6, -0px -1px 1px #ffffff;
+}
+/* 생성된 모달버튼 */
+#modal-window-id-check {
+  /* display: none; */
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+
+  top: 35px;
+  left: 110px;
+  height: 70px;
+  width: 100px;
+
+  background: rgba(255, 255, 255);
+
+  padding: 5px 5px 10px 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #949da6, -2px -2px 2px #ffffff;
+  z-index: 99;
+}
+/* 로그인버튼, 로그아웃버튼 */
+#loginButton,
+#logoutButton {
+  display: none;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+  color: gray;
+  border: 0;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 10px;
+  margin-top: 15px;
+}
+#loginButton {
+  background-color: green;
+  color: white;
+  box-shadow: 0px 1px 2px gray, 0px 0px 2px #ffffff;
+}
+#logoutButton {
+  background-color: red;
+  color: white;
+  box-shadow: 0px 1px 2px gray, 0px 0px 2px #ffffff;
+}
+
 /* 네비게이션아이콘 */
 .POMOTODO__menu {
   position: relative;
-  left: 16%;
+  /* left: 4%; */
   display: flex;
   list-style: none;
   padding: 0px;
@@ -86,13 +148,17 @@ a {
 /* 네비게이션 시계 */
 #POMOTODO__clock {
   font-family: "Ubuntu", sans-serif;
-  position: relative;
-  top: 3px;
+  position: absolute;
+  right: 125px;
+  top: 4px;
   margin-right: 10px;
   font-size: 14px;
   color: #5e5e5e;
 }
 .POMOTODO__contact-me {
+  position: absolute;
+  /* bottom: 4px; */
+  right: 10px;
   display: flex;
   list-style: none;
   padding-left: 0px;

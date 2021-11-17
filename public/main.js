@@ -737,13 +737,30 @@ function modalClick(){
         modalAudio.style.display = "none"
     })
 }
+// 네비게이션 바 로그인 출력 부분
+let modalButton = document.getElementById('modal-button-id-check');
+let modalWindow = document.getElementById('modal-window-id-check');
+let loginButton = document.getElementById('loginButton');
+let logoutButton = document.getElementById('logoutButton');
 
-let loginBtn = document.querySelector('.loginButton')
-loginBtn.addEventListener("click", e => {
+modalButton.addEventListener("click", e=>{
+    if(modalWindow.style.display == 'flex')
+        modalWindow.style.display = "none"
+    else
+        modalWindow.style.display = "flex"
+        if(modalButton.innerText == "undefined"){
+            loginButton.style.display = "flex"
+            logoutButton.style.display = "none"
+        }
+        else{
+            logoutButton.style.display = "flex"
+            loginButton.style.display = "none"
+        }
+})
+loginButton.addEventListener("click", e=>{
     location.href='/login';
 })
-//세로반응형
-// console.log(window.innerHeight)
-// 반응형은 좀 더 공부가 필요하고 지긐은 AWS먼저 공부
-
-// 오디오파일 제목위치가 이상해서 수정
+logoutButton.addEventListener("click", e=>{
+    location.href='/logout';
+})
+// ----------------------------------------------------------------------

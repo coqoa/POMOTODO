@@ -25,10 +25,20 @@
         <div class="POMOTODO__logo">
           <a href="/"><i class="fas fa-mountain"></i>POMOTODO</a>
         </div>
-        <button type="button" class="loginButton" >로그인</button>
+        <div id="id-check">
+          <!-- 아이디출력 -->
+          <span id="modal-button-id-check"><%= posts %></span>
+          <!-- 모달창 출력 -->
+          <span id="modal-window-id-check">
+            <!-- 로그인/로그아웃 버튼 -->
+            <!-- <span>1</span> -->
+            <button id="loginButton">login</button>
+            <button id="logoutButton">logout</button>
+          </span>
+        </div>
         <ul class="POMOTODO__menu">
           <li>
-            <a href="POMOTODO.html" title="Desktop-ver" ><i class="fas fa-desktop"></i></a>
+            <a href="POMOTODO.ejs" title="Desktop-ver" ><i class="fas fa-desktop"></i></a>
           </li>
           <li>
             <a href="PoMoToDo-record.html" title="Record" ><i class="far fa-calendar-alt"></i><a>
@@ -37,8 +47,8 @@
             <a href="PoMoToDo-side.html" title="Mobile-ver" ><i class="fas fa-mobile-alt"></i><a>
           </li>
         </ul>
+        <div id="POMOTODO__clock">시계</div>
         <ul class="POMOTODO__contact-me">
-          <div id="POMOTODO__clock">시계</div>
           <li>
             <a href="https://coqoa.tistory.com/" title="tistory blog" target="blank" ><i class="fas fa-bold"></i></a>
           </li>
