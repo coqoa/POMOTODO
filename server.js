@@ -9,6 +9,13 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 app.set('view engine', 'ejs');
 let flash = require('connect-flash');
+let bkfd2Password = require('pbkdf2-password')
+let hasher = bkfd2Password();
+
+// hasher({password:'비밀번호'}, function(err, pass, salt, hash){
+//     console.log(err, pass, salt, hash);
+//     // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
+// })
 
 MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
     //db지정하는코드
@@ -22,7 +29,17 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     });
 
     app.post('/signupResult',function(req, res){
-        // res.sendFile(__dirname + '/user/signupResult.html')
+        hasher({password: req.body.password}, function(err, pass, salt, hash){
+            // console.log(err, pass, salt, hash);
+            // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
+
+            //서버에 자료 저장하기
+            //db의 컬렉션 지정하기
+            db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
+                console.log('db save')
+            })
+            res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
+        })
 
         // console.log('회원가입정보');
         // console.log(req.body) : bodyParser를 통해 요청값을 분석한 정보(객체형식으로 반환하는 값)
@@ -33,13 +50,9 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
         // console.log("gender = "+ req.body.gender);
         // console.log("birthday = "+ req.body.birthday);
 
-    //서버에 자료 저장하기
-        //db의 컬렉션 지정하기
-        db.collection('users').insertOne({ id : req.body.loginId, password : req.body.password, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
-            console.log('db save')
-        })
-        res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
+    
     })
+
     app.get('/',function(req, res){
         //로그인 아이디를 화면에 출력시켜주는 코드 변수 posts (ejs파일에 넣을 변수임)
         res.render('POMOTODO.ejs', { posts : `${navId}`}); 
@@ -116,11 +129,19 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                 return done(null, false, { message: 'incorrect id' })
 
             }
-            if (inputPw == user.password) {
-                return done(null, user)
-            } else {
-                console.log('444444');
-                return done(null, false, { message: 'incorrect password' })
+            if(user){
+                console.log('유저있어요')
+                hasher({password:inputPw, salt: user.saltPassword}, function(err, pass, salt, hash){
+                    // console.log(err, pass, salt, hash);
+                    // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
+                    // 입력비밀번호와 유저의 salt를 가져와서 hash로 만들고 그 해쉬값이 서버의 해쉬값과 일치하다면  로그인성공
+                    if (hash == user.hashPassword) {
+                        return done(null, user)
+                    } else {
+                        console.log('444444');
+                        return done(null, false, { message: 'incorrect password' })
+                    }
+                })
             }
         })
     }));
@@ -143,8 +164,13 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
             navId = 'log in';
             res.redirect('/');
         });
-
     })
+
+
+
+
+
+
 })
 
 
