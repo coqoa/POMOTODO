@@ -8,20 +8,36 @@
     <link rel="stylesheet" href="login.css" />
 </head>
 <body>
-    <form method="post" id="authForm" action="/login">
-        <div>
-          <label for="loginId">아이디</label>
-          <input type="text" id="loginId" name="loginId" placeholder="5~10자" minlength="5" maxlength="10" autocomplete='off'>
-        </div>
-        <div>
-          <label for="loginPw">비밀번호</label>
-          <input type="password" id="loginPw" name="loginPassword" placeholder="5~20자" minlength="5" maxlength="20" autocomplete='off'>
-        </div>
-        <div class="id-check"><%= loginFeedback %></div>
-        <button type="submit" onkeyup='printName()''>로그인</button>
-        <!-- <button type="button" onclick="location.href='signup.html'">회원가입</button> -->
-        <button type="button" onclick="location.href='/signup'">회원가입</button>
-        <button type="button" onclick="window.open('https://github.com/coqoa')">POMOTODO?</button>
-      </form>
+    <div class="container">
+      <header>
+
+      </header>
+      <section>
+        <nav>
+
+        </nav>
+        <form method="post" id="authForm" action="/login">
+            <div>
+              <label for="loginId">아이디</label>
+              <input type="text" id="loginId" name="loginId" placeholder="5~10자" minlength="5" maxlength="10" autocomplete='off'>
+            </div>
+            <div>
+              <label for="loginPw">비밀번호</label>
+              <input type="password" id="loginPw" name="loginPassword" placeholder="5~20자" minlength="5" maxlength="20" autocomplete='off'>
+            </div>
+            <div class="id-check"><%= loginFeedback %></div>
+            <button type="submit" onkeyup='printName()''>로그인</button>
+            <!-- <button type="button" onclick="location.href='signup.html'">회원가입</button> -->
+            <button type="button" onclick="location.href='/signup'">회원가입</button>
+            <button type="button" onclick="window.open('https://github.com/coqoa')">POMOTODO?</button>
+        </form>
+        <aside>
+
+        </aside>
+    </section>
+      <footer>
+
+      </footer>
+    </div>
 </body>
 </html>

@@ -29,26 +29,41 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     });
 
     app.post('/signupResult',function(req, res){
-        hasher({password: req.body.password}, function(err, pass, salt, hash){
-            // console.log(err, pass, salt, hash);
-            // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
+        db.collection('users').findOne({id: req.body.loginId}, function(err,result){
+            // console.log(result)
+            if(result == null){
+                console.log('아이디가 없음') 
+                //서버에 아이디가 없으면 if, 있으면 else 출력 -> 없으면 가입을 진행해주고 있으면 얼럿창띄운다음에 회원가입페이지로 보내기
+                hasher({password: req.body.password}, function(err, pass, salt, hash){
+                    // console.log(err, pass, salt, hash);
+                    // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
+        
+                    //서버에 자료 저장하기
+                    //db의 컬렉션 지정하기
+                    db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
+                        console.log('db save')
+                    })
+                    res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
+                })
+        
+                // console.log('회원가입정보');
+                // console.log(req.body) : bodyParser를 통해 요청값을 분석한 정보(객체형식으로 반환하는 값)
+                // console.log("id = "+ req.body.loginId);
+                // console.log("password = "+ req.body.password);
+                // console.log("email = "+ req.body.email);
+                // console.log("number = "+ req.body.num₩ber);
+                // console.log("gender = "+ req.body.gender);
+                // console.log("birthday = "+ req.body.birthday);
+            }else{
+                console.log('아이디가 있음')
+                res.send("<script>alert('이미 사용중인 아이디입니다');location.href='/login';</script>");
+                
+            }
+        });
 
-            //서버에 자료 저장하기
-            //db의 컬렉션 지정하기
-            db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
-                console.log('db save')
-            })
-            res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
-        })
 
-        // console.log('회원가입정보');
-        // console.log(req.body) : bodyParser를 통해 요청값을 분석한 정보(객체형식으로 반환하는 값)
-        // console.log("id = "+ req.body.loginId);
-        // console.log("password = "+ req.body.password);
-        // console.log("email = "+ req.body.email);
-        // console.log("number = "+ req.body.num₩ber);
-        // console.log("gender = "+ req.body.gender);
-        // console.log("birthday = "+ req.body.birthday);
+
+
 
     
     })
@@ -138,7 +153,7 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                     if (hash == user.hashPassword) {
                         return done(null, user)
                     } else {
-                        console.log('444444');
+                        console.log('비밀번호 틀렸어요');
                         return done(null, false, { message: 'incorrect password' })
                     }
                 })
