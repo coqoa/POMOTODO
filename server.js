@@ -140,12 +140,12 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
 
             //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
             if (!user) {
-                console.log('11111')
+                console.log('아이디가 없습니다')
                 return done(null, false, { message: 'incorrect id' })
 
             }
             if(user){
-                console.log('유저있어요')
+                console.log('아이디가 존재합니다')
                 hasher({password:inputPw, salt: user.saltPassword}, function(err, pass, salt, hash){
                     // console.log(err, pass, salt, hash);
                     // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다

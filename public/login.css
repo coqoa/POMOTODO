@@ -3,10 +3,22 @@
 
 body {
   background-color: #e9f0fa;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+}
+.container {
+  /* 수직/수평 가운데정렬 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 400px;
+  height: 500px;
+  border: 1px solid gray;
+  border-radius: 15px;
 }
 #authForm {
   font-family: "Ubuntu", sans-serif;
@@ -14,20 +26,38 @@ body {
   font-weight: 500;
   font-style: italic;
   color: gray;
+
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.container {
-  width: 400px;
-  height: 500px;
-  border: 1px solid gray;
-  border-radius: 15px;
+.form-list {
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 10px;
+  text-align: center;
+}
+#loginId,
+#loginPw {
+  background-color: white;
 }
 
 /* 플래시 메세지 */
 .id-check {
+  position: absolute;
+  /* top: 10px; */
   font-family: "Ubuntu", sans-serif;
   font-size: 13px;
   font-weight: 500;
   font-style: italic;
   color: gray;
-  margin: 20px;
+  /* margin: 20px; */
 }
