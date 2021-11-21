@@ -5,43 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
+    <link rel="stylesheet" href="signup.css" />
 </head>
 <body>
+    <div class="container">
     <form id="signupForm" action="/signupResult" method="post">
-        <div>
-            <label for="id">아이디</label>
+        <div class="form-list">
+            <label for="id">아이디</label><br>
             <input type="text" id="id" name="loginId" placeholder="5~10자" minlength="5" maxlength="10" autocomplete='off' >
         </div>
-        <div>
-            <label for="password">비밀번호</label>
+        <div class="form-list">
+            <label for="password">비밀번호</label><br>
             <input type="password" id="password" name="password" placeholder="5~20자" minlength="5" maxlength="20" autocomplete='off'>
         </div>
         <!-- <div>
             <label for="passwordCheck">비밀번호확인</label>
             <input type="password" id="passwordCheck" name="passwordCheck" placeholder="5~20자" minlength="5" maxlength="20" autocomplete='off'>
         </div> -->
-        <div>
-            <label for="email">이메일</label>
+        <div class="form-list">
+            <label for="email">이메일</label><br>
             <input type="email" id="email" name="email" placeholder="이메일" autocomplete="off">
         </div>
-        <div>
-            <label for="number">휴대전화</label>
+        <div class="form-list">
+            <label for="number">휴대전화</label><br>
             <input type="tel" id="number" name="number" placeholder="(-) 제외 11자" autocomplete='off' maxlength="11">
         </div>
-        <div>
+        <div class="form-list">
             <label for="gender">남</label>
             <input type="radio" id="gender" name="gender" value="male">
             <label for="gender">여</label>
             <input type="radio" id="gender" name="gender" value="female">
         </div>
-        <div>
-            <label for="birthday">생년월일</label>
+        <div class="form-list">
+            <label for="birthday">생년월일</label><br>
             <input type="text" id="birthday" name="birthday" placeholder="연도월일 6자 ex.910208" maxlength='6' autocomplete='off'>
         </div>
 
-        <button type="submit">회원가입</button>
+        <button type="submit" class="form-list">회원가입</button>
+        <button type="button" class="form-list" onclick="location.href='/login'">로그인화면으로</button>
     </form>
     
-    <button type="button" onclick="location.href='/login'">로그인화면으로</button>
+</div>
 </body>
 </html>

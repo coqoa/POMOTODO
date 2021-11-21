@@ -76,7 +76,7 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     
     // 누군가가 /signup으로 방문을 하면..signup관련 안내문을 띄워주자.
     app.get('/signup',function(req, res){
-        res.sendFile(__dirname + '/views/signup.html')
+        res.render('signup.ejs')
     });
     
     // 누군가가 /login으로 방문을 하면..login관련 안내문을 띄워주자.
