@@ -931,28 +931,28 @@ ol li.checked:active {
   }
 }
 
-@media screen and (min-height: 800px) {
-  #mainLayout {
-    top: 25px;
+@media screen and (min-height: 760px) {
+  .body {
   }
 }
-@media screen and (min-height: 850) {
-  #mainLayout {
-    top: 55px;
+@media screen and (min-height: 850px) {
+  .body {
   }
 }
-@media screen and (min-height: 900px) {
-  #mainLayout {
-    top: 85px;
+@media screen and (min-height: 940px) {
+  .body {
   }
 }
-@media screen and (min-height: 950px) {
-  #mainLayout {
-    top: 115px;
+/* @media screen and (min-height: 1020px) {
+  .body {
+    zoom: 115%;
+  }
+} */
+@media screen and (min-height: 1160px) {
+  .body {
   }
 }
-@media screen and (min-height: 1000px) {
-  #mainLayout {
-    top: 145px;
+@media screen and (min-height: 1200px) {
+  .body {
   }
 }
