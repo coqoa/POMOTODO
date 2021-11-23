@@ -524,7 +524,7 @@ window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
 
 let itemList = document.querySelector(".item-list")
 let inputButton = document.querySelector(".input-button");
-inputButton.addEventListener("click", addItem);
+inputButton.addEventListener("click", addItem); 
 
 function addItem() {
     let item = document.querySelector(".input-text").value;
@@ -768,3 +768,11 @@ logoutButton.addEventListener("click", e=>{
     // testReplace.style.display = "flex"
 })
 // ----------------------------------------------------------------------
+$.ajax({
+    method : 'POST',
+    url : '/insertPomodoro',
+    data : {게시물번호 : 1}
+}).done(function(result){
+    // console.log(result)
+    console.log('에이잭스전송')
+})
