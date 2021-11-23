@@ -182,8 +182,11 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     })
 
     app.post('/insertPomodoro', function(req, res){
-        console.log(req.body);
-        // console.log('111');
+        // console.log(req.body);
+        db.collection('pomodoro').insertOne(req.body, function(err, result){
+            console.log('pomodoro save?')
+        })
+        res.send("<script>alert('저장.');location.href='/';</script>");
     })
 })
 

@@ -771,7 +771,7 @@ logoutButton.addEventListener("click", e=>{
 $.ajax({
     method : 'POST',
     url : '/insertPomodoro',
-    data : {게시물번호 : 1}
+    data : {listNumber : 1}
 }).done(function(result){
     // console.log(result)
     console.log('에이잭스전송')
