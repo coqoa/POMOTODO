@@ -217,6 +217,15 @@ function stopRecodList(){ // 00분00초돌때, 정지버튼 누를때,
         pomodoroColor = '#FF6F71';
         pomodoroGuageColor = 1;
     }
+    $.ajax({
+        method : 'POST',
+        url : '/insertPomodoro',
+        data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML} //id, 리스트번호, 내용 
+    }).done(function(result){
+        console.log('모달')
+        // alert('에이잭스전송')
+    })
+    // console.log(recordList.innerText)
 };
 
 //기록에 입력시 값 대입해주는 코드
@@ -224,6 +233,15 @@ function changeText(txt){
     txt.style.display ='none';
     let recordTextParent = txt.parentNode;
     recordTextParent.innerHTML += "<span>"+txt.value+"</span>";
+    // console.log(recordList.childElementCount/2) // index알아내는코드
+    $.ajax({
+        method : 'POST',
+        url : '/insertPomodoro',
+        data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML} //id, 리스트번호, 내용 
+    }).done(function(result){
+        console.log(result)
+        // alert('에이잭스전송')
+    })
 }
 
 function appearInputText(txt){ // 기록내용 수정 클릭 시 
@@ -745,6 +763,7 @@ let logoutButton = document.getElementById('logoutButton');
 // let testReplace = document.getElementById('testReplace');
 
 modalButton.addEventListener("click", e=>{
+    // console.log(modalButton.innerHTML);
     if(modalWindow.style.display == 'flex')
         modalWindow.style.display = "none"
     else
@@ -768,11 +787,11 @@ logoutButton.addEventListener("click", e=>{
     // testReplace.style.display = "flex"
 })
 // ----------------------------------------------------------------------
-$.ajax({
-    method : 'POST',
-    url : '/insertPomodoro',
-    data : {listNumber : 1}
-}).done(function(result){
-    // console.log(result)
-    console.log('에이잭스전송')
-})
+// $.ajax({
+//     method : 'POST',
+//     url : '/insertPomodoro',
+//     data : {id : modalButton.innerHTML, listNumber : 1} //id, 리스트번호, 내용 
+// }).done(function(result){
+//     console.log(result)
+//     // alert('에이잭스전송')
+// })

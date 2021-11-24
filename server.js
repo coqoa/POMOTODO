@@ -181,12 +181,23 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
         });
     })
 
+    // Pomodoro 기록 서버저장코드
     app.post('/insertPomodoro', function(req, res){
-        // console.log(req.body);
-        db.collection('pomodoro').insertOne(req.body, function(err, result){
-            console.log('pomodoro save?')
-        })
-        res.send("<script>alert('저장.');location.href='/';</script>");
+        if(navId !== 'log in'){ //로그인 했을때만 db에 저장하도록 하는 코드
+            // 서버에 아이디가 있는지 찾아보고, 있으면 수정하는코드, 없으면 생성하는 코드
+            // 각 사용자별로 따로 관리해야하므로 사용자를 구분할 수 있는 id 값으로 서버에 데이터가 있는지 찾아본다
+            db.collection('pomodoro').findOne({ id: navId }, function (err, result) {
+                if(result == null){ //아이디가 없을 때 생성
+                    db.collection('pomodoro').insertOne(req.body, function(err, result){ 
+                        console.log('생성하자')
+                    })
+                }else{//아이디가 있을 때 수정
+                    db.collection('pomodoro').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                        console.log('수정하자')
+                    })
+                }
+            })
+        }
     })
 })
 
