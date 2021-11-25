@@ -11,7 +11,8 @@
     <!--웹폰트-->
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
     <!--제이쿼리-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- ajax 서버문제시 아래코드 활성화허면 됨 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -102,7 +103,8 @@
 
             <!-- 기록 -->
             <div class="record" overflow:auto;>
-              <ul class="record-list" id="record-list"></ul>
+              <!-- html을 유지하면서 기록하려면? <%- %> 사용 -->
+              <ul class="record-list" id="record-list"> <%- pomodoroRecord.contentHTML %> </ul> 
             </div>
           </div>
 
@@ -140,14 +142,24 @@
             </form>
           </div>
           <!-- 입력받은 값을출력하는 리스트 -->
+          <!--각 리스트가 들어오는 위치-->
           <ol class="item-list" id="sortable">
-            <!--각 리스트가 들어오는 위치-->
-          </ol>
+
+
+
+
+            <%- todoListRecord.todoListHTML %> </ol>
+
+
+
+
           <!-- 컬러지정을 위한 모달창 -->
           <div id="todo-modal" class="todo-modal-overlay">
             <span class="todo-modal-content" id="todo-modal-content">ﾠ
-              <button type="button" class="color-button" id="close" value="close"> <i class="fas fa-angle-left"></i> </button>
-              <button type="button" class="color-button" id="check" value="check"><i class="fas fa-check"></i> </button>
+              <!-- <button type="button" class="color-button" id="close" value="close"> <i class="fas fa-angle-left"></i> </button> -->
+              <button type="button" class="color-button" id="close" value="close"> <b> < </b>  </button>
+              <button type="button" class="color-button" id="check" value="check"> ✔︎ </button>
+              <!-- <button type="button" class="color-button" id="check" value="check"><i class="fas fa-check"></i> </button> -->
 
               <button type="button" class="color-button" id="red" value="red"></button>
               <button type="button" class="color-button" id="light-orange" value="light-orange"></button>
@@ -179,15 +191,18 @@
               <button type="button" class="ntd-input-button"> <i class="fas fa-greater-than"></i> </button>
             </form>
           </div>
-          <ol class="ntd-item-list" id="ntd-sortable">
-            <!--각 리스트가 들어오는 위치-->
+          <!--각 리스트가 들어오는 위치-->
+          <ol class="ntd-item-list" id="ntd-sortable"> 
+            <%- notTodoListRecord.notTodoListHTML %>
           </ol>
           <!-- 컬러지정을 위한 모달창 -->
           <div id="not-todo-modal" class="not-todo-modal-overlay">
             <div class="not-todo-modal-content" id="not-todo-modal-content">
               ﾠ
-              <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"> <i class="fas fa-angle-left"></i> </button>
-              <button type="button" class="ntd-color-button" id="ntdCheck" value="ntd-check"> <i class="fas fa-check"></i> </button>
+              <!-- <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"> <i class="fas fa-angle-left"></i> </button>
+              <button type="button" class="ntd-color-button" id="ntdCheck" value="ntd-check"> <i class="fas fa-check"></i> </button> -->
+              <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"> <b> < </b> </button>
+              <button type="button" class="ntd-color-button" id="ntdCheck" value="ntd-check"> ✔︎ </button>
               <button type="button" class="ntd-color-button" id="ntdRed" value="ntd-red"></button>
             </div>
           </div>

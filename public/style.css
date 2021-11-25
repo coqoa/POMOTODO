@@ -809,6 +809,7 @@ div.audio {
 ol {
   margin: 0px;
   padding: 20px;
+  /* width: 100px; */
 }
 ol li {
   display: flex;
@@ -816,7 +817,7 @@ ol li {
   align-items: center;
   width: 575px;
   list-style: none;
-  padding-left: 10px;
+  padding-left: 5px;
   margin-bottom: 10px;
   border-radius: 11px;
   background: #e9f0fa;
@@ -824,7 +825,7 @@ ol li {
   color: lightgray;
 }
 
-/* ol li > i:hover {
+ol li > i:hover {
   color: gray;
 }
 ol li > i:active {
@@ -833,18 +834,22 @@ ol li > i:active {
 ol li:hover {
   cursor: pointer;
 }
-ol li:active,
+/* ol li:active,
 ol li.checked:active {
-  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
+  border: 1px solid lightgray;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 } */
+
 /* 리스트 내용부분 버튼태그 (클릭시 색깔지정 모달창 뜨는 버튼) */
 .todo-list-content,
 .ntd-todo-list-content {
+  padding: 1px;
+
   font-family: "Ubuntu", sans-serif;
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
-  width: 560px;
+  width: 530px;
   height: 40px;
   color: #5e5e5e;
 }
@@ -864,11 +869,14 @@ ol li.checked:active {
 .ntd-todo-list-delete {
   position: relative;
   right: 5px;
+  top: -1px;
   padding-top: 3px;
+  margin-left: 10px;
   border: 0px;
   background-color: transparent;
   font-size: 15px;
   color: lightgray;
+  /* background-color: black; */
 }
 .todo-list-delete:hover,
 .ntd-todo-list-delete:hover {

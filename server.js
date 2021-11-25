@@ -70,7 +70,20 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
 
     app.get('/',function(req, res){
         //로그인 아이디를 화면에 출력시켜주는 코드 변수 posts (ejs파일에 넣을 변수임)
-        res.render('POMOTODO.ejs', { posts : `${navId}`}); 
+        db.collection('pomodoro').findOne({id:navId}, function(err, pomoResult){
+            db.collection('todolist').findOne({id : navId}, function(err, todoResult){ // 투두리스트 로드하는 코드,
+                db.collection('not-todolist').findOne({id : navId}, function(err, notTodoResult){ // 낫투두 로드하는 코드
+
+                    // pomodoro 기록 출력하는 코드
+                    if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
+                        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
+                    }else{ // 아이디가 없을경우는 빈공백
+                        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : '', todoListRecord : '', notTodoListRecord : ''}); // 아이디없는경우 꼭 추가해줘야함
+        
+                    }
+                })
+            })
+        })
     });
 
     
@@ -199,6 +212,44 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
             })
         }
     })
+    //투두리스트 생성코드
+    app.post('/insertTodoList', function(req, res){
+        if(navId !== 'log in'){
+            db.collection('todolist').findOne({ id: navId }, function (err, result) {
+                if(result == null){ //아이디가 없을 때 생성
+                    db.collection('todolist').insertOne(req.body, function(err, result){
+                        console.log('투두리스트 생성')
+                    })
+                }else{//아이디가 있을 때 수정
+                    db.collection('todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                        console.log('투두리스트 업데이트')
+                    })
+                }
+            })
+        }else{
+            console.log('로그인좀..');
+        }
+    })
+    //낫투두리스트 생성하기
+    app.post('/insertNotTodoList', function(req, res){
+        if(navId !== 'log in'){
+            db.collection('not-todolist').findOne({ id: navId }, function (err, result) {
+                if(result == null){ //아이디가 없을 때 생성
+                    db.collection('not-todolist').insertOne(req.body, function(err, result){
+                        console.log('낫투두리스트 생성')
+                    })
+                }else{//아이디가 있을 때 수정
+                    db.collection('not-todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                        console.log('낫투두리스트 업데이트')
+                    })
+                }
+            })
+        }
+    })
+    //포모도로 기록 서버에서 불러오기 
+    //투두리스트 서버에서 기록 불러오기
+    //낫투두리스트 서버에서 기록 불러오기
+    // 이 세가지는 위의 app.get('/',function(req, res)에서 처리한다
 })
 
 
