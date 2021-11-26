@@ -647,6 +647,7 @@ modalTodoColor.addEventListener("click", e =>{
         setColorList.style.color="#B7BE54";
     
     todoModal.style.display = "none"; //공통사항
+    
     $.ajax({ 
         method : 'POST',
         url : '/insertTodoList',
@@ -867,14 +868,15 @@ logoutButton.addEventListener("click", e=>{
 // -------------------------------------------------------------------------------------------------------------------------------------
 // 투두리스트 생성 ajax 위치 : 투두리스트를 생성 하는곳
 // $.ajax({ 
-    //     method : 'POST',
-    //     url : '/insertTodoList',
-    //     data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
-    // }).done(function(result){
-        //     console.log('모달')
-        // }) 
-        // data : {id : modalButton.innerHTML, todoList: itemList.innerText, contentHTML : itemList.innerHTML, notTodoList : ntdItemList.innerText , notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
+//         method : 'get',
+//         url : '/',
+//         data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
+//         // data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
+// }).done(function(result){
+//         console.log('모달')
+//     }) 
+//     // data : {id : modalButton.innerHTML, todoList: itemList.innerText, contentHTML : itemList.innerHTML, notTodoList : ntdItemList.innerText , notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
 
-        // 낫투두리스트 생성 ajax 위치 : 낫투두리스트를 생성 하는곳
+//         // 낫투두리스트 생성 ajax 위치 : 낫투두리스트를 생성 하는곳
 
         

@@ -41,11 +41,25 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                     //서버에 자료 저장하기
                     //db의 컬렉션 지정하기
                     db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
-                        console.log('db save')
+                        console.log('db user create')
+                        
+                    })
+
+                    db.collection('pomodoro').insertOne({ id : req.body.loginId, content: ' ', contentHTML:' '}, function(err, result){
+                        console.log('db pomodoro create')
+                        
+                    })
+                    db.collection('todolist').insertOne({ id : req.body.loginId, todoList: ' ', todoListHTML:' '}, function(err, result){
+                        console.log('db todolist create')
+                        
+                    })
+                    db.collection('not-todolist').insertOne({ id : req.body.loginId, notTodoList: ' ', notTodoListHTML:' '}, function(err, result){
+                        console.log('db not-todolist create')
+                        
                     })
                     res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
                 })
-        
+                
                 // console.log('회원가입정보');
                 // console.log(req.body) : bodyParser를 통해 요청값을 분석한 정보(객체형식으로 반환하는 값)
                 // console.log("id = "+ req.body.loginId);
@@ -60,32 +74,68 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                 
             }
         });
-
-
+        
+        
+        
 
 
 
     
     })
 
-    app.get('/',function(req, res){
-        //로그인 아이디를 화면에 출력시켜주는 코드 변수 posts (ejs파일에 넣을 변수임)
-        db.collection('pomodoro').findOne({id:navId}, function(err, pomoResult){
-            db.collection('todolist').findOne({id : navId}, function(err, todoResult){ // 투두리스트 로드하는 코드,
-                db.collection('not-todolist').findOne({id : navId}, function(err, notTodoResult){ // 낫투두 로드하는 코드
+    // app.get('/',function(req, res){
+    //     //로그인 아이디를 화면에 출력시켜주는 코드 변수 posts (ejs파일에 넣을 변수임)
+    //     db.collection('pomodoro').findOne({id:navId}, function(err, pomoResult){
+    //         db.collection('todolist').findOne({id : navId}, function(err, todoResult){ // 투두리스트 로드하는 코드,
+    //             db.collection('not-todolist').findOne({id : navId}, function(err, notTodoResult){ // 낫투두 로드하는 코드
+                    
+    //                 // db.collection('todolist').insertone({id : navId, todoList: 'a', todoListHTML : 'a'}, function(err, result){
+    //                 //     console.log('db todolist create')
+    //                 // })
+    //                 // db.collection('not-todolist').insertone({id : navId, todoList: 'a', todoListHTML : 'a'}, function(err, result){
+    //                 //     console.log('db todolist create')
+    //                 // })
+    //                 // pomodoro 기록 출력하는 코드
+    //                 if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
+    //                     res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
+    //                 }else{ // 아이디가 없을경우는 빈공백
+    //                     res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : '', todoListRecord : '', notTodoListRecord : '' }); // 아이디없는경우 꼭 추가해줘야함
+    //                 }
+    //             })
+    //         })
+    //     })
+    // });
 
+let pomoResult;
+let todoResult;
+let notTodoResult;
+    app.get('/',function(req, res){
+        console.log(navId);
                     // pomodoro 기록 출력하는 코드
                     if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
-                        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
-                    }else{ // 아이디가 없을경우는 빈공백
-                        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : '', todoListRecord : '', notTodoListRecord : ''}); // 아이디없는경우 꼭 추가해줘야함
-        
-                    }
-                })
-            })
-        })
-    });
 
+
+                        db.collection('pomodoro').findOne({id:navId}, function(err, pomodoroResult){
+                                pomoResult = pomodoroResult.contentHTML;
+                                console.log('pomoResult:' + pomoResult);
+                                db.collection('todolist').findOne({id : navId}, function(err, todolistResult){
+                                        todoResult = todolistResult.todoListHTML;
+                                        console.log('todoResult:' +todoResult);
+                                        db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
+                                                notTodoResult = nottodolistResult.notTodoListHTML;
+                                                console.log('notTodoResult:' +notTodoResult);
+                                                res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
+                                        })
+                                })
+                        })
+
+                        // res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : `${pomoResult}`, todoListRecord : `${todoResult}`, notTodoListRecord : `${notTodoResult}`}); //todoList  <%- todolist.todoListHTML %>
+                    }else{ // 아이디가 없을경우는 빈공백
+                        
+                        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : ' ', todoListRecord : ' ', notTodoListRecord : ' ' }); // 아이디없는경우 꼭 추가해줘야함
+                    }
+    });
+    // res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");???????????????????????????????????????????
     
     // 누군가가 /signup으로 방문을 하면..signup관련 안내문을 띄워주자.
     app.get('/signup',function(req, res){
@@ -132,6 +182,7 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
         //실패시 /fail페이지로 이동시켜주세요
         }), function(req, res){
             res.redirect('/') // 성공시 redirect해서 홈페이지로 보내주기
+            // res.send("<script>location.href='/';</script>");
         });
         app.get('/fail', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
             res.redirect('/login')
@@ -216,12 +267,21 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     app.post('/insertTodoList', function(req, res){
         if(navId !== 'log in'){
             db.collection('todolist').findOne({ id: navId }, function (err, result) {
+                if(err){
+                    console.log('err')
+                }
                 if(result == null){ //아이디가 없을 때 생성
                     db.collection('todolist').insertOne(req.body, function(err, result){
+                        if(err){
+                            console.log('err')
+                        }
                         console.log('투두리스트 생성')
                     })
                 }else{//아이디가 있을 때 수정
                     db.collection('todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                        if(err){
+                            console.log('err')
+                        }
                         console.log('투두리스트 업데이트')
                     })
                 }

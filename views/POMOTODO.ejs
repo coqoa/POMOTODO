@@ -100,11 +100,8 @@
               <button class="clock__btn" id="btn__start" style="display: inline" ><i class="fas fa-play"></i></button>
               <button class="clock__btn" id="btn__stop"> <i class="fas fa-stop"></i> </button>
             </div>
-
-            <!-- 기록 -->
             <div class="record" overflow:auto;>
-              <!-- html을 유지하면서 기록하려면? <%- %> 사용 -->
-              <ul class="record-list" id="record-list"> <%- pomodoroRecord.contentHTML %> </ul> 
+              <ul class="record-list" id="record-list"> <%- pomodoroRecord %> </ul> 
             </div>
           </div>
 
@@ -141,18 +138,7 @@
               <button type="button" class="input-button" id="todo-input-button"><i class="fas fa-greater-than"></i> </button>
             </form>
           </div>
-          <!-- 입력받은 값을출력하는 리스트 -->
-          <!--각 리스트가 들어오는 위치-->
-          <ol class="item-list" id="sortable">
-
-
-
-
-            <%- todoListRecord.todoListHTML %> </ol>
-
-
-
-
+          <ol class="item-list" id="sortable"> <%- todoListRecord %> </ol>
           <!-- 컬러지정을 위한 모달창 -->
           <div id="todo-modal" class="todo-modal-overlay">
             <span class="todo-modal-content" id="todo-modal-content">ﾠ
@@ -191,11 +177,8 @@
               <button type="button" class="ntd-input-button"> <i class="fas fa-greater-than"></i> </button>
             </form>
           </div>
-          <!--각 리스트가 들어오는 위치-->
-          <ol class="ntd-item-list" id="ntd-sortable"> 
-            <%- notTodoListRecord.notTodoListHTML %>
-          </ol>
-          <!-- 컬러지정을 위한 모달창 -->
+          <ol class="ntd-item-list" id="ntd-sortable"> <%- notTodoListRecord %> </ol>
+
           <div id="not-todo-modal" class="not-todo-modal-overlay">
             <div class="not-todo-modal-content" id="not-todo-modal-content">
               ﾠ
