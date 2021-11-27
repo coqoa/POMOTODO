@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+/* font-family: 'Ubuntu', sans-serif; */
+:root {
+  --bluetext: #221974;
+  --redtext: #ff8585;
+  --hoverredtext: #f75858;
+  --graytext: #c7c8ca;
+  --beigetext: #f5f5dc;
+}
+body {
+  /* 같은배경컬러 */
+  background-color: #e9f0fa;
+  /* 다른배경컬러 */
+  /* background-color: #dce7f7; */
+}
+.container {
+  /* 수직/수평 가운데정렬 */
+  background-color: #e9f0fa;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 350px;
+  height: 600px;
+  box-shadow: 8px 8px 25px #c1c7d0, -5px -5px 25px #ffffff;
+  /* box-shadow: 8px 8px 25px #c1c7d0, -5px -5px 25px #edf4fc; */
+  border-radius: 15px;
+}
+/* #signupForm, */
+/* 로그인폼 레이아웃 */
+#authForm {
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* 로그인 폼 내 각 요소에 관한 코드 */
+.form-list {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bluetext);
+
+  padding: 5px;
+  margin: 5px;
+  border: 0;
+  border-radius: 15px;
+  text-align: center;
+  background-color: transparent;
+}
+h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--bluetext);
+
+  position: relative;
+  top: 30px;
+  right: 85px;
+  text-align: center;
+  margin-bottom: 150px;
+}
+label {
+  position: relative;
+  top: 0px;
+  right: 100px;
+}
+/*------------------------------------------------ ⬆︎ login, signup공통적용 ------------------------------------------------ */
+
+/* ⬇︎ 개별적용 */
+/*------------------------------------------------ ⬇︎ login ------------------------------------------------ */
+#loginPw,
+#loginId {
+  width: 250px;
+  height: 35px;
+  border: 0;
+  background-color: white;
+  border: 1px solid white;
+}
+#form-login {
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  top: 40px;
+  margin-top: 20px;
+  width: 260px;
+  height: 45px;
+  color: var(--redtext);
+  background-color: transparent;
+  box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
+  border-radius: 15px;
+}
+#form-login:hover {
+  cursor: pointer;
+  color: var(--hoverredtext);
+}
+#form-login:active {
+  box-shadow: inset 2px 2px 3px #949da6, inset -2px -2px 2px #ffffff;
+}
+#form-toSignup {
+  position: relative;
+  top: 60px;
+  color: var(--graytext);
+}
+#form-pomotodo {
+  position: relative;
+  top: 65px;
+  color: var(--graytext);
+}
+#form-toSignup:hover,
+#form-pomotodo:hover {
+  cursor: pointer;
+  color: black;
+}
+.login-title-underline {
+  position: relative;
+  top: -125px;
+  left: 45px;
+  height: 5px;
+  width: 95px;
+  border-bottom: 3px solid var(--bluetext);
+}
+/* 플래시 메세지 */
+.id-check {
+  position: absolute;
+  top: 160px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--bluetext);
+}
+
+/*------------------------------------------------ ⬇︎ signup ------------------------------------------------ */
+.signup-title {
+  right: 70px;
+}
+.signup-title-underline {
+  position: relative;
+  top: -125px;
+  left: 42px;
+  height: 5px;
+  width: 130px;
+  border-bottom: 3px solid var(--bluetext);
+  margin-bottom: 20px;
+}
+.gender {
+  position: relative;
+  top: -7px;
+  padding: 0px;
+  margin: 0px;
+}
+.gender-label {
+  position: relative;
+  top: -2px;
+  right: 0px;
+}
+/* #signupGender {
+  background-color: black;
+} */
+#signupId,
+#signupPassword,
+#signupEmail,
+#signupNumber,
+#signupBirthday {
+  font-size: 11px;
+  position: relative;
+  width: 250px;
+  height: 15px;
+  border: 0;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+  /* padding: 0px; */
+  margin: 3px;
+}
+#form-signup {
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  top: -10px;
+  margin-top: 20px;
+  width: 260px;
+  height: 35px;
+  color: var(--redtext);
+  background-color: transparent;
+  box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
+  border-radius: 10px;
+}
+#form-signup:hover {
+  cursor: pointer;
+  color: var(--hoverredtext);
+}
+
+#form-signup:active {
+  box-shadow: inset 2px 2px 3px #949da6, inset -2px -2px 2px #ffffff;
+}
+
+#form-toLogin {
+  font-size: 13px;
+  position: relative;
+  top: -13px;
+  color: var(--graytext);
+}
+#form-toLogin:hover {
+  cursor: pointer;
+  color: black;
+}

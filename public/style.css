@@ -232,6 +232,8 @@ h2 {
 .section-title {
   /*뽀모도로, 투두리스트, 낫투두리스트 타이틀의 폰트스타일*/
   font-style: italic;
+  /* opacity: 1;
+  color: #221974; */
 }
 #mainLayout {
   display: flex;

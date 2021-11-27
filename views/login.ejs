@@ -9,21 +9,22 @@
 </head>
 <body>
     <div class="container">
-      <h1>POMOTODO</h1>
+      <h1>log in</h1>
+      <div class="login-title-underline"></div>
       <form method="post" id="authForm" action="/login">
           <div class="form-list">
-            <!-- <label for="loginId"></label><br> -->
-            <input type="text" class="form-list" id="loginId" name="loginId" placeholder="username" minlength="5" maxlength="10" autocomplete='off'>
+            <label for="loginId" class="login-label">username</label><br>
+            <input type="text" class="form-list" id="loginId" name="loginId" placeholder="" minlength="5" maxlength="10" autocomplete='off'>
           </div>
           <div class="form-list">
-            <!-- <label for="loginPw"></label><br> -->
-            <input type="password" class="form-list" id="loginPw" name="loginPassword" placeholder="password" minlength="5" maxlength="20" autocomplete='off'>
+            <label for="loginPw" class="login-label">password</label><br>
+            <input type="password" class="form-list" id="loginPw" name="loginPassword" placeholder="" minlength="5" maxlength="20" autocomplete='off'>
           </div>
           <div class="id-check"><%= loginFeedback %></div>
           <button type="submit" class="form-list" id="form-login" onkeyup='printName()''>login</button>
             <!-- <button type="button" onclick="location.href='signup.html'">회원가입</button> -->
-          <button type="button" class="form-list" id="form-signup" onclick="location.href='/signup'">회원가입</button>
-          <button type="button" class="form-list" id="form-pomotodo" onclick="window.open('https://github.com/coqoa')">POMOTODO?</button>
+          <button type="button" class="form-list" id="form-toSignup" onclick="location.href='/signup'">sign up</button>
+          <button type="button" class="form-list" id="form-pomotodo" onclick="window.open('https://github.com/coqoa')">what is POMOTODO?</button>
       </form>
     </div>
 </body>

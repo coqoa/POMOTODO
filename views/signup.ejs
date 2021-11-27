@@ -9,41 +9,41 @@
 </head>
 <body>
     <div class="container">
-    <form id="authForm" action="/signupResult" method="post">
-        <div class="form-list">
-            <label for="id">아이디</label><br>
-            <input type="text" id="id" name="loginId" placeholder="5~10자" minlength="5" maxlength="10" autocomplete='off' >
-        </div>
-        <div class="form-list">
-            <label for="password">비밀번호</label><br>
-            <input type="password" id="password" name="password" placeholder="5~20자" minlength="5" maxlength="20" autocomplete='off'>
-        </div>
-        <!-- <div>
-            <label for="passwordCheck">비밀번호확인</label>
-            <input type="password" id="passwordCheck" name="passwordCheck" placeholder="5~20자" minlength="5" maxlength="20" autocomplete='off'>
-        </div> -->
-        <div class="form-list">
-            <label for="email">이메일</label><br>
-            <input type="email" id="email" name="email" placeholder="이메일" autocomplete="off">
-        </div>
-        <div class="form-list">
-            <label for="number">휴대전화</label><br>
-            <input type="tel" id="number" name="number" placeholder="(-) 제외 11자" autocomplete='off' maxlength="11">
-        </div>
-        <div class="form-list">
-            <label for="gender">남</label>
-            <input type="radio" id="gender" name="gender" value="male">
-            <label for="gender">여</label>
-            <input type="radio" id="gender" name="gender" value="female">
-        </div>
-        <div class="form-list">
-            <label for="birthday">생년월일</label><br>
-            <input type="text" id="birthday" name="birthday" placeholder="연도월일 6자 ex.910208" maxlength='6' autocomplete='off'>
-        </div>
-
-        <button type="submit" class="form-list">회원가입</button>
-        <button type="button" class="form-list" onclick="location.href='/login'">로그인화면으로</button>
-    </form>
+        <h1 class="signup-title">sign up</h1>
+        <div class="signup-title-underline"></div>
+        <form id="authForm" action="/signupResult" method="post">
+            <div class="form-list">
+                <label for="id">username</label><br>
+                <input type="text" class="form-list" id="signupId" name="loginId" placeholder="5~10" minlength="5" maxlength="10" autocomplete='off' >
+            </div>
+            <div class="form-list">
+                <label for="password">password</label><br>
+                <input type="password" class="form-list" id="signupPassword" name="password" placeholder="5~20" minlength="5" maxlength="20" autocomplete='off'>
+            </div>
+            <div class="form-list">
+                <label for="email">email</label><br>
+                <input type="email" class="form-list" id="signupEmail" name="email" placeholder="" autocomplete="off">
+            </div>
+            <div class="form-list">
+                <label for="number">number</label><br>
+                <input type="tel" class="form-list" id="signupNumber" name="number" placeholder="( - ) 제외 11자" autocomplete='off' maxlength="11">
+            </div>
+            <div class="form-list">
+                <label for="birthday">birthday</label><br>
+                <input type="text" class="form-list" id="signupBirthday" name="birthday" placeholder="ex.910208" maxlength='6' autocomplete='off'>
+            </div>
+            <div class="form-list">
+                <div class="gender">
+                    <label for="gender" class="gender-label">male</label>
+                    <input type="radio" id="signupGender" name="gender" value="male">
+                
+                    <label for="gender" class="gender-label">ﾠﾠfemale</label>
+                    <input type="radio" id="signupGender" name="gender" value="female">
+                </div>
+            </div>
+            <button type="submit" class="form-list" id="form-signup">sign up</button>
+            <button type="button" class="form-list" id="form-toLogin" onclick="location.href='/login'">login</button>
+        </form>
     
 </div>
 </body>
