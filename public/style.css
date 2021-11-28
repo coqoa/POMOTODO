@@ -106,7 +106,8 @@ a {
 /* 로그인버튼, 로그아웃버튼, 회원탈퇴버튼 */
 #loginButton,
 #logoutButton,
-#unregister {
+#unregister,
+#signup-login-modal {
   position: relative;
   top: 25%;
   display: none;
@@ -171,6 +172,14 @@ a {
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
+}
+#signup-login-modal {
+  position: relative;
+  top: 20px;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: #e9f0fa;
+  color: gray;
 }
 
 /* 네비게이션아이콘 */

@@ -830,6 +830,7 @@ let unregister = document.getElementById('unregister');
 let unregisterCheck = document.getElementById('unregister-check');
 let unregisterOk = document.getElementById('unregister-ok');
 let unregisterNo = document.getElementById('unregister-no');
+let signupLoginModal = document.getElementById('signup-login-modal');
 // let testReplace = document.getElementById('testReplace');
 
 modalButton.addEventListener("click", e=>{
@@ -842,7 +843,7 @@ modalButton.addEventListener("click", e=>{
             
             loginButton.style.display = "flex"
             logoutButton.style.display = "none"
-            // unregister.style.display = "flex"
+            signupLoginModal.style.display = "flex"
         }
         else{
             logoutButton.style.display = "flex"
@@ -866,6 +867,9 @@ unregisterOk.addEventListener("click", e=>{
 })
 unregisterNo.addEventListener("click", e=>{
     unregisterCheck.style.display = "none"
+})
+signupLoginModal.addEventListener("click", e=>{
+    location.href='/signup';
 })
 // ----------------------------------------------------------------------
 // 뽀모도로 생성 ajax 위치 : 타이머를 정지할때
