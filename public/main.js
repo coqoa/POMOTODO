@@ -826,6 +826,10 @@ let modalButton = document.getElementById('modal-button-id-check');
 let modalWindow = document.getElementById('modal-window-id-check');
 let loginButton = document.getElementById('loginButton');
 let logoutButton = document.getElementById('logoutButton');
+let unregister = document.getElementById('unregister');
+let unregisterCheck = document.getElementById('unregister-check');
+let unregisterOk = document.getElementById('unregister-ok');
+let unregisterNo = document.getElementById('unregister-no');
 // let testReplace = document.getElementById('testReplace');
 
 modalButton.addEventListener("click", e=>{
@@ -838,9 +842,11 @@ modalButton.addEventListener("click", e=>{
             
             loginButton.style.display = "flex"
             logoutButton.style.display = "none"
+            // unregister.style.display = "flex"
         }
         else{
             logoutButton.style.display = "flex"
+            unregister.style.display = "flex"
             loginButton.style.display = "none"
         }
 })
@@ -850,7 +856,16 @@ loginButton.addEventListener("click", e=>{
 })
 logoutButton.addEventListener("click", e=>{
     location.href='/logout';
-    // testReplace.style.display = "flex"
+})
+
+unregister.addEventListener("click", e=>{
+    unregisterCheck.style.display = "inline-block"
+})
+unregisterOk.addEventListener("click", e=>{
+    location.href='/deleteUser';
+})
+unregisterNo.addEventListener("click", e=>{
+    unregisterCheck.style.display = "none"
 })
 // ----------------------------------------------------------------------
 // 뽀모도로 생성 ajax 위치 : 타이머를 정지할때
@@ -879,4 +894,4 @@ logoutButton.addEventListener("click", e=>{
 
 //         // 낫투두리스트 생성 ajax 위치 : 낫투두리스트를 생성 하는곳
 
-        
+    

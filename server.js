@@ -311,6 +311,27 @@ let notTodoResult;
     //투두리스트 서버에서 기록 불러오기
     //낫투두리스트 서버에서 기록 불러오기
     // 이 세가지는 위의 app.get('/',function(req, res)에서 처리한다
+    app.get('/deleteUser', function(req, res) {
+        if(navId !== 'log in'){
+            db.collection('users').deleteOne({ id: navId }, function (err, result) {
+                if(err){
+                    console.log(err)
+                }
+                console.log('유저 삭제')
+            })
+            db.collection('pomodoro').deleteOne({ id: navId }, function (err, result) {
+                console.log('포모도로 삭제')
+            })
+            db.collection('todolist').deleteOne({ id: navId }, function (err, result) {
+                console.log('투두리스트 삭제')
+            })
+            db.collection('not-todolist').deleteOne({ id: navId }, function (err, result) {
+                console.log('낫투두리스트 삭제')
+            })
+        }
+        navId = 'log in';
+        res.redirect('/');
+    })
 })
 
 

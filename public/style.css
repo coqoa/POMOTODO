@@ -92,7 +92,7 @@ a {
 
   top: 35px;
   left: 145px;
-  height: 70px;
+  height: 120px;
   width: 100px;
 
   /* background: rgba(255, 255, 255); */
@@ -103,9 +103,12 @@ a {
   box-shadow: 2px 2px 2px #949da6, -2px -2px 2px #ffffff;
   z-index: 99;
 }
-/* 로그인버튼, 로그아웃버튼 */
+/* 로그인버튼, 로그아웃버튼, 회원탈퇴버튼 */
 #loginButton,
-#logoutButton {
+#logoutButton,
+#unregister {
+  position: relative;
+  top: 25%;
   display: none;
   font-family: "Ubuntu", sans-serif;
   font-size: 20px;
@@ -131,6 +134,43 @@ a {
 #loginButton:active,
 #logoutButton:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
+}
+#unregister {
+  position: relative;
+  top: 20px;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: #e9f0fa;
+  color: gray;
+}
+#unregister:active {
+  color: red;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+#unregister-check {
+  display: none;
+  background-color: #e9f0fa;
+  padding-top: 15px;
+  position: relative;
+  top: 100px;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 200px;
+  height: 150px;
+  box-shadow: 2px 2px 2px lightgray;
+}
+#unregister-ok,
+#unregister-no {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  font-style: italic;
+
+  margin: 10px;
+  padding: 10px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: transparent;
 }
 
 /* 네비게이션아이콘 */
