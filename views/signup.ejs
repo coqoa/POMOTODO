@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
     <link rel="stylesheet" href="login-signup.css" />
+    <script defer src="signup.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="signup-title">sign up</h1>
         <div class="signup-title-underline"></div>
-        <form id="authForm" action="/signupResult" method="post">
+        <form id="authForm" name="signupForm" action="/signupResult" method="post">
             <div class="form-list">
                 <label for="id">username</label><br>
                 <input type="text" class="form-list" id="signupId" name="loginId" placeholder="5~10" minlength="5" maxlength="10" autocomplete='off' >
@@ -41,7 +42,8 @@
                     <input type="radio" id="signupGender" name="gender" value="female">
                 </div>
             </div>
-            <button type="submit" class="form-list" id="form-signup">sign up</button>
+            <!-- <button type="submit" class="form-list" id="form-signup">sign up</button> -->
+            <button type="button" onclick="signup()" class="form-list" id="form-signup">sign up</button>
             <button type="button" class="form-list" id="form-toLogin" onclick="location.href='/login'">login</button>
         </form>
     
