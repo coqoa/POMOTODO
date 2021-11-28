@@ -131,7 +131,7 @@ label {
 /* 플래시 메세지 */
 .id-check {
   position: absolute;
-  top: 160px;
+  top: 200px;
   font-family: "Ubuntu", sans-serif;
   font-size: 13px;
   font-weight: 500;
