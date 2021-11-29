@@ -841,6 +841,8 @@ let unregisterCheck = document.getElementById('unregister-check');
 let unregisterOk = document.getElementById('unregister-ok');
 let unregisterNo = document.getElementById('unregister-no');
 let signupLoginModal = document.getElementById('signup-login-modal');
+let hello = document.getElementById('hello');
+let helloUser = document.getElementById('hello-user');
 // let testReplace = document.getElementById('testReplace');
 
 modalButton.addEventListener("click", e=>{
@@ -852,13 +854,15 @@ modalButton.addEventListener("click", e=>{
         if(modalButton.innerText == "log in"){
             
             loginButton.style.display = "flex"
-            logoutButton.style.display = "none"
             signupLoginModal.style.display = "flex"
+            hello.style.display="inline-block"
+            // logoutButton.style.display = "none"
         }
         else{
             logoutButton.style.display = "flex"
             unregister.style.display = "flex"
-            loginButton.style.display = "none"
+            helloUser.style.display="inline-block"
+            // loginButton.style.display = "none"
         }
 })
 loginButton.addEventListener("click", e=>{

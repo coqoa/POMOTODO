@@ -6,6 +6,7 @@
 .body {
   /* 화면비율 80% */
   zoom: 80%;
+  height: 0;
 }
 
 /*네비게이션바*/
@@ -103,13 +104,21 @@ a {
   box-shadow: 2px 2px 2px #949da6, -2px -2px 2px #ffffff;
   z-index: 99;
 }
+
 /* 로그인버튼, 로그아웃버튼, 회원탈퇴버튼 */
+#hello,
+#hello-user {
+  display: none;
+}
+#hello {
+  padding-top: 15px;
+}
 #loginButton,
 #logoutButton,
 #unregister,
 #signup-login-modal {
   position: relative;
-  top: 25%;
+  top: 5%;
   display: none;
   font-family: "Ubuntu", sans-serif;
   font-size: 20px;
@@ -123,22 +132,24 @@ a {
   margin-top: 15px;
 }
 #loginButton {
+  top: -5px;
   background-color: #e9f0fa;
   color: #5c8a3d;
-  box-shadow: 2px 2px 2px lightgray, -2px -2px 2px white;
+  /* box-shadow: 2px 2px 2px lightgray, -2px -2px 2px white; */
 }
 #logoutButton {
+  top: -5px;
   background-color: #e9f0fa;
   color: #ed5656;
-  box-shadow: 2px 2px 2px lightgray, -2px -2px 2px #ffffff;
+  /* box-shadow: 2px 2px 2px lightgray, -2px -2px 2px #ffffff; */
 }
 #loginButton:active,
 #logoutButton:active {
-  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
+  box-shadow: inset 1px 1px 1px #949da6, -1px -1px 3px #ffffff;
 }
 #unregister {
   position: relative;
-  top: 20px;
+  top: -20px;
   font-size: 13px;
   font-weight: 400;
   background-color: #e9f0fa;
@@ -175,7 +186,7 @@ a {
 }
 #signup-login-modal {
   position: relative;
-  top: 20px;
+  top: -20px;
   font-size: 13px;
   font-weight: 400;
   background-color: #e9f0fa;
@@ -286,17 +297,20 @@ h2 {
 }
 #mainLayout {
   display: flex;
-  position: relative;
-  /* top: 0px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -53%);
   /* justify-content: space-between; */
   align-items: center;
+  /* height: 1200px; */
 }
 section.Pomodoro {
   position: relative;
   right: 20px;
   top: 50px;
   width: 650px;
-  height: 95%;
+  height: 830px;
   padding: 10px;
   /* margin-right: 15px; */
   border-radius: 30px;
@@ -671,8 +685,10 @@ div.audio {
 /* 투두, 낫투두 */
 #todo-write,
 #nottodo-write {
-  width: 585px;
-  margin: 0px 18px 5px;
+  position: relative;
+  left: 20px;
+  width: 590px;
+  /* margin: 0px 18px 5px; */
   border-radius: 11px;
   height: 40px;
   background: #e9f0fa;
@@ -742,24 +758,24 @@ div.audio {
 
 .input-text,
 .ntd-input-text {
-  width: 495px;
-  height: 34px;
+  width: 540px;
+  height: 33px;
   position: relative;
   left: 3px;
   top: 3px;
   border: 0;
   outline: 0;
   border-radius: 9px;
-  padding: 0px 16px 0px;
-  margin-right: 2px;
+  /* padding: 0px 16px 0px; */
+  /* margin-right: 2px; */
 }
 
 .input-button,
 .ntd-input-button {
-  width: 47px;
+  width: 40px;
   height: 34px;
   position: relative;
-  left: 0px;
+  right: px;
   top: 3px;
   color: #5e5e5e;
   border: 0;
@@ -767,6 +783,8 @@ div.audio {
   background-color: transparent;
   margin-left: 1px;
   border-radius: 9px;
+  padding: 0px;
+  margin: 0px;
 }
 /* 투두 모달창 */
 #todo-modal.todo-modal-overlay {
@@ -863,10 +881,12 @@ ol {
   /* width: 100px; */
 }
 ol li {
+  position: relative;
+  left: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 575px;
+  width: 585px;
   list-style: none;
   padding-left: 5px;
   margin-bottom: 10px;
@@ -875,7 +895,14 @@ ol li {
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
   color: lightgray;
 }
-
+ol li > i {
+  position: relative;
+  top: 2px;
+}
+button > i {
+  position: relative;
+  top: 1px;
+}
 ol li > i:hover {
   color: gray;
 }
@@ -941,10 +968,6 @@ ol li.checked:active {
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 
-/* .draggable{
-  color: red;
-  opacity: 0.5;
-} */
 /* 뽀모도로 애니메이션 게이지 */
 #pie-chart1 {
   position: absolute;
@@ -958,8 +981,8 @@ ol li.checked:active {
 }
 
 /* 반응형 */
-
-@media screen and (max-width: 485px) {
+/* min은 ~이상, max는 ~이하 */
+/* @media screen and (max-width: 500px) {
   #POMOTODO__clock {
     top: 25px;
     right: 25px;
@@ -967,8 +990,11 @@ ol li.checked:active {
   .POMOTODO__menu {
     left: 60px;
   }
-}
+} */
 @media screen and (max-width: 960px) {
+  #mainLayout {
+    top: 450px;
+  }
   section.Pomodoro {
     position: relative;
     top: 60px;
@@ -988,30 +1014,11 @@ ol li.checked:active {
     width: 650px;
     margin-bottom: 30px;
   }
-}
-
-@media screen and (min-height: 760px) {
-  .body {
+  #todo-write,
+  #nottodo-write {
+    left: 31px;
   }
-}
-@media screen and (min-height: 850px) {
-  .body {
-  }
-}
-@media screen and (min-height: 940px) {
-  .body {
-  }
-}
-/* @media screen and (min-height: 1020px) {
-  .body {
-    zoom: 115%;
-  }
-} */
-@media screen and (min-height: 1160px) {
-  .body {
-  }
-}
-@media screen and (min-height: 1200px) {
-  .body {
+  ol li {
+    left: 11px;
   }
 }
