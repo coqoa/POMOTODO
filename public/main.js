@@ -566,14 +566,21 @@ function addItem() {
 }
 
 $(function(){
-    // $("#sortable").sortable(
     $("#sortable").sortable({
         start:function(event, ui){
-            console.log("drag : " + (ui.item.index()));
-        }    
+            console.log('투두드래그시작');
+        },
+        stop:function(event, ui){
+            $.ajax({ 
+                method : 'POST',
+                url : '/insertTodoList',
+                data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
+            }).done(function(result){
+                console.log('투두리스트드래그 끝')
+            }) 
+        }
     });
     $("#sortable").disableSelection();
-    // );
 })
 
 function deleteItem(txt) {
@@ -699,18 +706,21 @@ $(function(){
     // $("#sortable").sortable(
     $("#ntd-sortable").sortable({
         start:function(event, ui){
-            console.log("drag : " + (ui.item.index()));
-        }    
+            console.log('낫투두드래그시작');
+        },   
+        stop:function(event, ui){
+            $.ajax({ 
+                method : 'POST',
+                url : '/insertNotTodoList',
+                data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
+            }).done(function(result){
+                console.log('낫투두드래그끝');
+            }) 
+        }     
     });
     $("#sortable").disableSelection();
     // );
-    // $.ajax({ 
-    //     method : 'POST',
-    //     url : '/insertNotTodoList',
-    //     data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
-    // }).done(function(result){
-    //     console.log('모달')
-    // }) 
+    
 })
 
 //낫투두 모달창 구현
