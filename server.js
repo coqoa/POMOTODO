@@ -70,7 +70,7 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                 // console.log("birthday = "+ req.body.birthday);
             }else{
                 console.log('아이디가 있음')
-                res.send("<script>alert('이미 사용중인 아이디입니다');location.href='/login';</script>");
+                res.send("<script>alert('이미 사용중인 아이디입니다');location.href='/signup';</script>");
                 
             }
         });
@@ -140,17 +140,9 @@ let notTodoResult;
     
     // 누군가가 /signup으로 방문을 하면..signup관련 안내문을 띄워주자.
     app.get('/signup',function(req, res){
-        res.render('signup.ejs')
+        // res.render(res.render('signup.ejs', { idCheckResult : ' '}))
+        res.render('signup.ejs', { idCheckResult : ''});
     });
-    
-    // 누군가가 /login으로 방문을 하면..login관련 안내문을 띄워주자.
-    // app.get('/login',function(req, res){
-    //     let fmsg = req.flash();
-    //     console.log(fmsg);
-
-    //     res.render('login.ejs')
-
-    // });
 
     // 로그인 페이지(세션,쿠키)
     const passport = require('passport');
@@ -269,26 +261,26 @@ let notTodoResult;
         if(navId !== 'log in'){
             db.collection('todolist').findOne({ id: navId }, function (err, result) {
                 if(err){
-                    console.log('err')
+                    console.log(err);
                 }
                 if(result == null){ //아이디가 없을 때 생성
                     db.collection('todolist').insertOne(req.body, function(err, result){
                         if(err){
-                            console.log('err')
+                            console.log(err);
                         }
                         console.log('투두리스트 생성')
                     })
                 }else{//아이디가 있을 때 수정
                     db.collection('todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
                         if(err){
-                            console.log('err')
+                            console.log(err);
                         }
                         console.log('투두리스트 업데이트')
                     })
                 }
             })
         }else{
-            console.log('로그인좀..');
+            console.log('로그인해주세요');
         }
     })
     //낫투두리스트 생성하기
@@ -332,6 +324,42 @@ let notTodoResult;
         navId = 'log in';
         res.redirect('/');
     })
+    // 폼 예외처리 추후에마무리하기 (211201)
+    // let idCheck
+    // idCheck = '123';
+    // app.post('/signup-id-check', function(req, res){
+    //     // console.log(req.body.id);
+    //     db.collection('users').findOne({id: req.body.id}, function(err,result){
+    //         if(result == null){
+    //             idCheck = '가입가능합니다'
+    //             console.log(idCheck)
+    //             res.render('signup.ejs', { idCheckResult :'가입가능'});
+    //         }else{
+    //             idCheck = '중복된아이디입니다'
+    //             console.log(idCheck)
+    //             res.render('signup.ejs', { idCheckResult : '가입불가능'});
+    //         }
+    //         // res.render('signup.ejs');
+    //         // console.log(req.body.id)
+    //     })
+    // })
+    // app.post('/signup-id-check', function(req, res){
+    //     db.collection('users').findOne({id: req.body.id}, function(err,result){
+    //         if(result == null){
+    //             let idCheckResult;
+    //             let idCheck = '가입';
+    //             // idCheck = '가입가능합니다'
+    //             // console.log(idCheck)
+    //             res.render('signup.ejs', { idCheckResult : `${idCheck}`});
+    //         }else{
+    //             let idCheckResult = '';
+    //             idCheck = '중복된아이디입니다'
+    //             console.log(idCheck)
+    //             res.render('signup.ejs', { idCheckResult : '가입불가능'});
+    //         }
+    //     })
+
+    // })
 })
 
 

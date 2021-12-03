@@ -558,7 +558,8 @@ function addItem() {
         $.ajax({ 
             method : 'POST',
             url : '/insertTodoList',
-            data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
+            data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용
+
         }).done(function(result){
             console.log('모달')
         }) 

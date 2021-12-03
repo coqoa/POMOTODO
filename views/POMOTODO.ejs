@@ -16,7 +16,7 @@
     <!-- sortable이상하게 작동해서 jquery ui 변경 -->
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <!-- 위에서 제이쿼리 3.x버전을 쓰므로 지워도 문제없을듯 sortable문제생기면 활성화시켜보기 -->
-    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
     <!--자바스크립트-->
     <script defer src="main.js"></script>
@@ -25,7 +25,7 @@
   <body class="body">
     <!--네비게이션바-->
     <header>
-      <nav>
+      <nav class="top-bar">
         <div class="POMOTODO__logo">
           <a href="/"><i class="fas fa-mountain"></i>POMOTODO</a>
         </div>
@@ -38,16 +38,34 @@
           <span id="modal-window-id-check">
             <!-- 로그인/로그아웃 버튼 -->
             <!-- <span>1</span> -->
-            <span id="hello">HELLO!</span>
-            <span id="hello-user">HELLO ! <%= posts %></span>
-            <button id="loginButton">log in </button>
-            <button id="logoutButton">log out</button>
-            <button id="signup-login-modal">sign up</button>
-            <button id="unregister">delete id</button>
+            <span id="hello">Hello!</span>
+            <span id="hello-user">Hello ! <%= posts %></span>
+            <button id="loginButton">Log in </button>
+            <button id="logoutButton">Log out</button>
+            <button id="signup-login-modal">Sign up</button>
+            <button id="unregister">Delete ID</button>
             <div id="unregister-check">
               회원탈퇴하시겠습니까?<br>
               <button id="unregister-ok">네</button>
               <button id="unregister-no">아니요</button>
+            </div>
+            <div id="contact-me-title">
+              contact-developer 
+              <ul class="POMOTODO__contact-me">
+                <li>
+                  <a href="https://coqoa.tistory.com/" title="tistory blog" target="blank" ><i class="fas fa-bold"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/coqoa" title="github" target="blank"><i class="fab fa-github"></i></a>
+                </li>
+                <li id="mail-btn"><i class="far fa-envelope" title="E-mail"></i></li>
+              </ul>
+            </div>
+            <div id="modal" class="modal-overlay">
+              <div class="mail-modal-window">
+                <div class="close-area"><i class="fas fa-times"></i></div>
+                <div class="content"><i class="fas fa-paper-plane">ﾠcoqoa28@gmail.com</i></div>
+              </div>
             </div>
           </span>
         </div>
@@ -63,22 +81,8 @@
           </li>
         </ul>
         <div id="POMOTODO__clock">시계</div>
-        <ul class="POMOTODO__contact-me">
-          <li>
-            <a href="https://coqoa.tistory.com/" title="tistory blog" target="blank" ><i class="fas fa-bold"></i></a>
-          </li>
-          <li>
-            <a href="https://github.com/coqoa" title="github" target="blank"><i class="fab fa-github"></i></a>
-          </li>
-          <li id="mail-btn"><i class="far fa-envelope" title="E-mail"></i></li>
-        </ul>
         <!--이메일 모달창-->
-        <div id="modal" class="modal-overlay">
-          <div class="mail-modal-window">
-            <div class="close-area"><i class="fas fa-times"></i></div>
-            <div class="content"><i class="fas fa-paper-plane">ﾠcoqoa28@gmail.com</i></div>
-          </div>
-        </div>
+        
       </nav>
     </header>
     <div id="mainLayout">

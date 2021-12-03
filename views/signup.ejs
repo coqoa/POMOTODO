@@ -7,6 +7,7 @@
     <title>signup</title>
     <link rel="stylesheet" href="login-signup.css" />
     <script defer src="signup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 </head>
 <body>
     <div class="container">
@@ -16,36 +17,51 @@
             <div class="form-list">
                 <label for="id">username</label><br>
                 <input type="text" class="form-list" id="signupId" name="loginId" placeholder="id (5~10)" minlength="5" maxlength="10" autocomplete='off' autofocus>
+
+                <!-- <div class="signup-id-check" id="id-impossibility">아이디중복</div>
+                <div class="signup-id-check" id="id-possibility">사용가능한 id입니다</div> -->
             </div>
             <div class="form-list">
                 <label for="password">password</label><br>
                 <input type="password" class="form-list" id="signupPassword" name="password" placeholder="password (5~20)" minlength="5" maxlength="20" autocomplete='off'>
                 <input type="password" class="form-list" id="signupPasswordCheck" name="passwordCheck" placeholder="password reapeat" minlength="5" maxlength="20" autocomplete='off'>
+                <div class="message" id="password-message-match">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
+                <div class="message" id="password-message-unmatch">ﾠ비밀번호가 일치하지 않습니다ﾠ</div>
+                <div class="message" id="password-message-length">비밀번호는 5~20자로 입력해주세요</div>
             </div>
             <div class="form-list">
                 <label for="email">email</label><br>
-                <input type="email" class="form-list" id="signupEmail" name="email" placeholder="email" autocomplete="off">
+                <input type="email" class="form-list" id="signupEmail" name="email" placeholder="email" autocomplete="off" onblur="mailCheck()">
+                <div class="message" id="email-check-match">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
+                <div class="message" id="email-check-unmatch">이메일 형식으로 입력해주세요</div>
             </div>
             <div class="form-list">
                 <label for="number">number</label><br>
-                <input type="tel" class="form-list" id="signupNumber" name="number" placeholder="( - ) 제외 11자" autocomplete='off' maxlength="11">
+                <input type="text" class="form-list" id="signupNumber" name="number" placeholder="( - ) 제외 11자" autocomplete='off' maxlength="11" onkeyup="onlyNumber1(this)" onchange="numberBlur(this)">
+                <div class="message" id="number-message-count">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
+                <div class="message" id="number-message">숫자 11자를 입력해주세요</div>
             </div>
             <div class="form-list">
                 <label for="birthday">birthday</label><br>
-                <input type="text" class="form-list" id="signupBirthday" name="birthday" placeholder="ex.910208" maxlength='6' autocomplete='off'>
+                <input type="text" class="form-list" id="signupBirthday" name="birthday" placeholder="ex.910208" maxlength='6' autocomplete='off' onkeyup="onlyNumber2(this)" onblur="numberBlur2(this)">
+                <div class="message" id="birthday-message-count">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
+                <div class="message" id="birthday-message">숫자 6자를 입력해주세요</div>
             </div>
             <div class="form-list">
                 <div class="gender">
-                    <label for="gender" class="gender-label">male</label>
-                    <input type="radio" id="signupGender" name="gender" value="male">
-                
-                    <label for="gender" class="gender-label">ﾠﾠfemale</label>
-                    <input type="radio" id="signupGender" name="gender" value="female">
+                    <label class="gender-label">
+                        <input type="radio" name="gender" value="male" checked="checked">
+                        <span>male</span>
+                    </label>
+                    <label class="gender-label">
+                        <input type="radio" id="signupGender" name="gender" value="female">
+                        <span>female</span>
+                    </label>
                 </div>
             </div>
-            <!-- <button type="submit" class="form-list" id="form-signup">sign up</button> -->
             <button type="button" onclick="signup()" class="form-list" id="form-signup">sign up</button>
-            <button type="button" class="form-list" id="form-toLogin" onclick="location.href='/login'">login</button>
+            <button type="button" class="form-list" id="signup-toHome" onclick="location.href='/'">home</button>
+            <button type="button" class="form-list" id="signup-toLogin" onclick="location.href='/login'">login</button>
         </form>
     
 </div>

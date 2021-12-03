@@ -6,6 +6,7 @@
   --hoverredtext: #f75858;
   --graytext: #c7c8ca;
   --beigetext: #f5f5dc;
+  --greentext: #76c576;
 }
 body {
   /* 같은배경컬러 */
@@ -49,7 +50,7 @@ body {
   color: var(--bluetext);
 
   padding: 5px;
-  margin: 5px;
+  margin: 3px;
   border: 0;
   border-radius: 15px;
   text-align: center;
@@ -77,22 +78,36 @@ label {
 
 /* ⬇︎ 개별적용 */
 /*------------------------------------------------ ⬇︎ login ------------------------------------------------ */
+.login-title-underline {
+  position: relative;
+  top: -125px;
+  left: 45px;
+  height: 5px;
+  width: 95px;
+  border-bottom: 3px solid var(--bluetext);
+}
 #loginPw,
 #loginId {
+  position: relative;
+  top: 20px;
   width: 250px;
-  height: 35px;
+  height: 40px;
   border: 0;
+  margin-bottom: 30px;
   background-color: white;
   border: 1px solid white;
+}
+#loginPw {
+  top: 26px;
 }
 #form-login {
   font-size: 20px;
   font-weight: 500;
   position: relative;
-  top: 40px;
+  top: 25px;
   margin-top: 20px;
   width: 260px;
-  height: 45px;
+  height: 50px;
   color: var(--redtext);
   background-color: transparent;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
@@ -105,29 +120,7 @@ label {
 #form-login:active {
   box-shadow: inset 2px 2px 3px #949da6, inset -2px -2px 2px #ffffff;
 }
-#form-toSignup {
-  position: relative;
-  top: 60px;
-  color: var(--graytext);
-}
-#form-pomotodo {
-  position: relative;
-  top: 65px;
-  color: var(--graytext);
-}
-#form-toSignup:hover,
-#form-pomotodo:hover {
-  cursor: pointer;
-  color: black;
-}
-.login-title-underline {
-  position: relative;
-  top: -125px;
-  left: 45px;
-  height: 5px;
-  width: 95px;
-  border-bottom: 3px solid var(--bluetext);
-}
+
 /* 플래시 메세지 */
 .id-check {
   position: absolute;
@@ -138,7 +131,20 @@ label {
   font-style: italic;
   color: var(--bluetext);
 }
-
+#login-toHome,
+#login-toSignup,
+#form-pomotodo {
+  font-size: 15px;
+  position: relative;
+  color: var(--graytext);
+  top: 40px;
+}
+#login-toHome:hover,
+#login-toSignup:hover,
+#form-pomotodo:hover {
+  cursor: pointer;
+  color: black;
+}
 /*------------------------------------------------ ⬇︎ signup ------------------------------------------------ */
 .signup-title {
   right: 70px;
@@ -150,9 +156,9 @@ label {
   height: 5px;
   width: 130px;
   border-bottom: 3px solid var(--bluetext);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
-.gender {
+/* .gender {
   position: relative;
   top: -10px;
   padding: 0px;
@@ -162,6 +168,35 @@ label {
   position: relative;
   top: -2px;
   right: 0px;
+} */
+
+.gender-label input[type="radio"] {
+  display: none;
+}
+
+.gender-label input[type="radio"] + span {
+  position: relative;
+  width: 50px;
+  left: 101px;
+  display: inline-block;
+  background: none;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  height: 35px;
+  line-height: 33px;
+  font-weight: 500;
+  cursor: pointer;
+  color: lightgray;
+  z-index: 100;
+}
+
+.gender-label input[type="radio"]:checked + span {
+  border: 1px solid var(--bluetext);
+  background: none;
+  color: var(--bluetext);
 }
 /* #signupGender {
   background-color: black;
@@ -191,28 +226,91 @@ label {
   margin-top: 20px;
   width: 260px;
   height: 35px;
-  color: var(--redtext);
+  color: var(--bluetext);
   background-color: transparent;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
-  border-radius: 10px;
-}
-#form-signup:hover {
+  border-radius: 8px;
   cursor: pointer;
-  color: var(--hoverredtext);
 }
 
 #form-signup:active {
   box-shadow: inset 2px 2px 3px #949da6, inset -2px -2px 2px #ffffff;
 }
-
-#form-toLogin {
-  font-size: 13px;
+#signup-toHome,
+#signup-toLogin {
+  font-size: 15px;
   position: relative;
-  left: 110px;
-  top: -30px;
   color: var(--graytext);
 }
-#form-toLogin:hover {
+#signup-toHome {
+  top: -25px;
+  left: 60px;
+}
+#signup-toLogin {
+  top: -58px;
+  left: 110px;
+}
+#signup-toHome:hover,
+#signup-toLogin:hover {
   cursor: pointer;
   color: black;
+}
+
+/* ---------_---------_---------_---------_---------_---------_---------_---------_---------_ */
+.message {
+  display: none;
+  font-size: 12px;
+}
+#password-message-match,
+#password-message-unmatch,
+#password-message-length,
+#number-message,
+#number-message-count,
+#birthday-message,
+#birthday-message-count,
+#email-check-match,
+#email-check-unmatch {
+  position: absolute;
+  top: 160px;
+  left: 28%;
+}
+#password-message-unmatch {
+  left: 29%;
+}
+#password-message-match,
+#number-message-count,
+#birthday-message-count,
+#email-check-match {
+  color: var(--greentext);
+}
+#password-message-unmatch,
+#password-message-length,
+#number-message,
+#birthday-message,
+#email-check-unmatch {
+  color: var(--redtext);
+}
+#email-check-match,
+#email-check-unmatch {
+  top: 225px;
+  left: 31%;
+}
+#email-check-match {
+  left: 28%;
+}
+#number-message,
+#number-message-count {
+  top: 290px;
+  left: 34%;
+}
+#number-message-count {
+  left: 28%;
+}
+#birthday-message,
+#birthday-message-count {
+  top: 355px;
+  left: 35%;
+}
+#birthday-message-count {
+  left: 28%;
 }

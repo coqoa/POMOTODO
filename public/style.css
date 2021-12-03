@@ -5,7 +5,7 @@
 
 .body {
   /* 화면비율 80% */
-  zoom: 80%;
+  /* zoom: 80; */
   height: 0;
 }
 
@@ -68,12 +68,13 @@ a {
 /* 아이디체크 모달버튼 */
 #modal-button-id-check {
   position: absolute;
-  left: 140px;
+  right: 155px;
   bottom: 0px;
   height: 20px;
   width: 120px;
   padding-bottom: 3px;
   border-radius: 7px;
+  color: gray;
 }
 #modal-button-id-check:hover {
   cursor: pointer;
@@ -81,7 +82,7 @@ a {
 }
 #modal-button-id-check:active {
   cursor: pointer;
-  box-shadow: inset 2px 2px 1px #949da6, -2px -2px 1px #ffffff;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 /* 생성된 모달창 */
 #modal-window-id-check {
@@ -89,107 +90,157 @@ a {
   display: none;
   flex-direction: column;
   position: absolute;
-  align-items: center;
-
-  top: 35px;
-  left: 145px;
-  height: 120px;
-  width: 100px;
-
-  /* background: rgba(255, 255, 255); */
-  background: #e9f0fa;
-
-  padding: 5px 5px 10px 5px;
+  top: 45px;
+  right: 120px;
+  height: 220px;
+  width: 150px;
+  font-family: "Ubuntu", sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
-  box-shadow: 2px 2px 2px #949da6, -2px -2px 2px #ffffff;
+  padding: 5px 5px 10px 5px;
   z-index: 99;
 }
 
 /* 로그인버튼, 로그아웃버튼, 회원탈퇴버튼 */
 #hello,
-#hello-user {
-  display: none;
-}
-#hello {
-  padding-top: 15px;
-}
+#hello-user,
 #loginButton,
 #logoutButton,
 #unregister,
 #signup-login-modal {
-  position: relative;
-  top: 5%;
-  display: none;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   font-style: italic;
   color: gray;
+  display: none;
+  justify-content: center;
+  margin: 13px 0px;
   border: 0;
-  border-radius: 10px;
   background-color: transparent;
-  padding: 10px;
-  margin-top: 15px;
 }
-#loginButton {
-  top: -5px;
-  background-color: #e9f0fa;
-  color: #5c8a3d;
-  /* box-shadow: 2px 2px 2px lightgray, -2px -2px 2px white; */
+#loginButton:hover {
+  opacity: 1;
+  color: #8ab36f;
 }
-#logoutButton {
-  top: -5px;
-  background-color: #e9f0fa;
-  color: #ed5656;
-  /* box-shadow: 2px 2px 2px lightgray, -2px -2px 2px #ffffff; */
+#logoutButton:hover {
+  opacity: 1;
+  color: #e24747;
 }
+#signup-login-modal:hover {
+  opacity: 1;
+  color: #5140eb;
+}
+/* #loginButton:active {
+  color: green;
+}
+#logoutButton:active {
+  color: red;
+} */
 #loginButton:active,
 #logoutButton:active {
-  box-shadow: inset 1px 1px 1px #949da6, -1px -1px 3px #ffffff;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
-#unregister {
-  position: relative;
-  top: -20px;
-  font-size: 13px;
-  font-weight: 400;
-  background-color: #e9f0fa;
-  color: gray;
+#unregister:hover {
+  opacity: 1;
+  color: #f0942c;
 }
 #unregister:active {
-  color: red;
+  cursor: pointer;
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 #unregister-check {
-  display: none;
-  background-color: #e9f0fa;
-  padding-top: 15px;
   position: relative;
   top: 100px;
+  left: -25px;
+  display: none;
+  padding-top: 15px;
   border: 1px solid white;
   border-radius: 10px;
   width: 200px;
   height: 150px;
-  box-shadow: 2px 2px 2px lightgray;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
 }
 #unregister-ok,
 #unregister-no {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 13px;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 500;
+  color: gray;
   font-style: italic;
-
   margin: 10px;
   padding: 10px;
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
 }
-#signup-login-modal {
-  position: relative;
-  top: -20px;
-  font-size: 13px;
+#unregister-ok:hover,
+#unregister-no:hover {
+  color: black;
+}
+#unregister-ok:active,
+#unregister-no:active {
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+#contact-me-title {
+  position: absolute;
+  top: 150px;
+  left: 12px;
   font-weight: 400;
-  background-color: #e9f0fa;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.POMOTODO__contact-me {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.POMOTODO__contact-me li {
+  margin-top: 2px;
+  padding: 2px 12px;
+}
+.POMOTODO__contact-me li:hover {
+  color: black;
+}
+#mail-btn {
+  cursor: pointer;
+}
+/* 이메일 모달창 */
+#modal.modal-overlay {
+  position: relative;
+  top: 100px;
+  left: -10px;
+  width: 210px;
+  height: 65px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+}
+#modal .content {
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+#modal .close-area {
+  display: inline;
+  float: right;
+  padding-right: 3px;
+  cursor: pointer;
   color: gray;
 }
 
@@ -214,60 +265,11 @@ a {
   display: inline;
   font-family: "Ubuntu", sans-serif;
   position: absolute;
-  right: 125px;
+  right: 30px;
   top: 4px;
   margin-right: 10px;
   font-size: 14px;
   color: #5e5e5e;
-}
-.POMOTODO__contact-me {
-  position: absolute;
-  /* bottom: 4px; */
-  right: 10px;
-  display: flex;
-  list-style: none;
-  padding-left: 0px;
-  padding-right: 10px;
-  margin: 0px;
-}
-.POMOTODO__contact-me li {
-  margin-top: 2px;
-  padding: 2px 12px;
-}
-.POMOTODO__contact-me li:hover {
-  opacity: 0.5;
-}
-#mail-btn {
-  cursor: pointer;
-}
-/* 이메일 모달창 */
-#modal.modal-overlay {
-  width: 210px;
-  height: 65px;
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 6px 6px 9px #c8ced7;
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
-  border-radius: 10px;
-}
-#modal .content {
-  padding-bottom: 10px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-}
-#modal .close-area {
-  display: inline;
-  float: right;
-  padding-right: 3px;
-  cursor: pointer;
-  color: gray;
 }
 
 /* 본문 */
@@ -296,9 +298,10 @@ h2 {
   color: #221974; */
 }
 #mainLayout {
+  zoom: 100%;
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -53%);
   /* justify-content: space-between; */
@@ -982,13 +985,9 @@ ol li.checked:active {
 
 /* 반응형 */
 /* min은 ~이상, max는 ~이하 */
-/* @media screen and (max-width: 500px) {
-  #POMOTODO__clock {
-    top: 25px;
-    right: 25px;
-  }
-  .POMOTODO__menu {
-    left: 60px;
+/* @media screen and (max-width: 655px) {
+  #modal-button-id-check {
+    right: 155px;
   }
 } */
 @media screen and (max-width: 960px) {
@@ -1022,3 +1021,20 @@ ol li.checked:active {
     left: 11px;
   }
 }
+@media screen and (min-width: 1850px) {
+  #mainLayout,
+  .top-bar {
+    zoom: 120%;
+  }
+}
+@media screen and (max-height: 1050px) {
+  #mainLayout,
+  .top-bar {
+    zoom: 100%;
+  }
+}
+/* @media screen and (min-width: 900px) {
+  #mainLayout {
+    zoom: 150%;
+  }
+} */
