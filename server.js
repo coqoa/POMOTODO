@@ -266,20 +266,20 @@ let notTodoResult;
         res.redirect('/');
     })
     // ------------------------------------------------------------------------------
+
     app.post('/signup-id-check', function(req, res){
         db.collection('users').findOne({id: req.body.id}, function(err,result){
             if(result == null){
-                idCheck = '';
+                idCheck = '가입가능';
                 // res.redirect('/signup');
+                // res.status(200).send("<script>alert('가입가능.');</script>");
             }else{
                 idCheck = '가입불가능';
+                // res.status(200).send("<script>alert('가입불가능.');</script>");
                 // res.redirect('/signup');
             }
+        res.status(200).send({ message : '아이디체크'});
         })
-    })
-    app.get('/signup-id-check', function(req, res){
-        res.redirect('/signup');
-        //온블러할때마다 리다이렉트하므로 다음폼입력이 불가능한상황임
     })
 })
 

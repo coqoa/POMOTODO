@@ -9,21 +9,33 @@ function signup(){
     var birthday = signupForm.birthday.value;
     var gender = signupForm.gender.value;
 
-    console.log(loginId);
-    console.log(password);
-    console.log(passwordCheck);
-    console.log(email);
-    console.log(number);
-    console.log(birthday);
-    console.log(gender);
+    // console.log(loginId);
+    // console.log(password);
+    // console.log(passwordCheck);
+    // console.log(email);
+    // console.log(number);
+    // console.log(birthday);
+    // console.log(gender);
+    
+    // console.log(isPasswordCheck);
+    // console.log(isMailCheck);
+    // console.log(isNumberCheck);
+    // console.log(isBirthdayCheck);
     
     if(loginId == '' || password == '' || passwordCheck == '' || email == '' || number == '' || birthday == '' || gender == ''){
         alert("항목을 모두 입력해주세요.");
-    }else {
-        if(password === passwordCheck){
+    }else{
+        if(isPasswordCheck && isMailCheck && isNumberCheck && isBirthdayCheck){
             signupForm.submit();
         }else{
-            alert('비밀번호가 일치하지 않습니다')
+            if(!isPasswordCheck)
+                    alert('비밀번호를 확인해주세요')
+            if(!isMailCheck)
+                alert('이메일을 확인해주세요')
+            if(!isNumberCheck)
+                alert('전화번호를 확인해주세요')
+            if(!isBirthdayCheck)
+                alert('생년월일을 확인해주세요')
         }
     }
 }
@@ -31,18 +43,36 @@ function signup(){
 
 // 폼 예외처리 나중에
 let idBlur = document.querySelector("#signupId");
+let validatdId = document.querySelector(".validate-id");
 idBlur.onblur = function (e) {
     let signupForm = document.signupForm;
     let idValue= signupForm.loginId.value;
     $.ajax({
         method : 'POST',
         url : '/signup-id-check',
-        data : {id : idValue} 
-    }).done(function(){
-        location.href='/signup-id-check';
+        data : {id : idValue},
+        success : function() {
+            console.log(validatdId.style.display);
+            if(validatdId.style.display == 'none'){
+                validatdId.style.display = 'block';
+            }
+            // }else{
+            //     validatdId.style.display = block;
+            // }
+        },
+        error : function(xhr, status, error) {
+            console.log('아이디체크 실패');
+        }
     })
 }
+let inputId = document.querySelector('#signupId');
+inputId.addEventListener(onfocus, validate);
+function validate(){
+    validatdId.style.display = 'none';
+}
 
+
+let isPasswordCheck;
 let passwordBlur = document.querySelector("#signupPasswordCheck");
 let passwordMessageMatch = document.getElementById('password-message-match');
 let passwordMessageUnmatch = document.getElementById('password-message-unmatch');
@@ -57,18 +87,22 @@ passwordBlur.onblur = function (e) {
                 passwordMessageMatch.style.display = "inline";
                 passwordMessageUnmatch.style.display = "none";
                 passwordMessageLength.style.display = "none";
+                isPasswordCheck = true;
             }else{
                 passwordMessageMatch.style.display = "none";
                 passwordMessageUnmatch.style.display = "inline";
                 passwordMessageLength.style.display = "none";
+                isPasswordCheck = false;
             }
         }else if(password.length < 5){
             passwordMessageMatch.style.display = "none";
             passwordMessageUnmatch.style.display = "none";
             passwordMessageLength.style.display = "inline";
+            isPasswordCheck = false
         }
     }
 }
+let isMailCheck;
 function mailCheck() {
     var email = document.getElementById('signupEmail').value;
     let  emailCehckMatch = document.getElementById('email-check-match');
@@ -78,11 +112,14 @@ function mailCheck() {
     if (regEmail.test(email) === true) {
         emailCehckMatch.style.display = "inline";
         emailCheckUnmatch.style.display = "none";
+        isMailCheck = true;
     }else{
         emailCehckMatch.style.display = "none";
         emailCheckUnmatch.style.display = "inline";
+        isMailCheck = false;
     }
 }
+let isNumberCheck;
 let numberMessage = document.getElementById('number-message');
 let numberMessageCount = document.getElementById('number-message-count');
 function onlyNumber1(loc) {
@@ -91,18 +128,22 @@ function onlyNumber1(loc) {
         loc.value = "";
         loc.focus();
         numberMessage.style.display = "inline";
+        isNumberCheck = false;
     }
 }
 function numberBlur(e) {
     if(e.value.length>10){
         numberMessageCount.style.display = "inline";
         numberMessage.style.display = "none";
+        isNumberCheck = true;
     }else{
         numberMessageCount.style.display = "none";
         numberMessage.style.display = "inline";  
+        isNumberCheck = false;
     }
 }
 
+let isBirthdayCheck;
 let birthdayMessage = document.getElementById('birthday-message');
 let birthdayMessageCount = document.getElementById('birthday-message-count');
 function onlyNumber2(loc) {
@@ -111,15 +152,18 @@ function onlyNumber2(loc) {
         loc.value = "";
         loc.focus();
         birthdayMessage.style.display = "inline";
+        isBirthdayCheck = false;
     }
 }
 function numberBlur2(e) {
     if(e.value.length>5){
         birthdayMessageCount.style.display = "inline";
         birthdayMessage.style.display = "none";
+        isBirthdayCheck = true;
     }else{
         birthdayMessageCount.style.display = "none";
         birthdayMessage.style.display = "inline";
+        isBirthdayCheck = false;
     }
 }
 // 1. 서버에서 id체크해서 있을때 / 없을때 메시지출력하도록

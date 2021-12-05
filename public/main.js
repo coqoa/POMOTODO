@@ -217,15 +217,7 @@ function stopRecordList(){ // 00분00초돌때, 정지버튼 누를때,
         pomodoroColor = '#FF6F71';
         pomodoroGuageColor = 1;
     }
-    $.ajax({
-        method : 'POST',
-        url : '/insertPomodoro',
-        data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML} //id, 리스트번호, 내용 
-    }).done(function(result){
-        console.log('모달')
-        // alert('에이잭스전송')
-    })
-    // console.log(recordList.innerText)
+    ajaxPomo();
 };
 
 //기록에 입력시 값 대입해주는 코드
@@ -233,15 +225,7 @@ function changeText(txt){
     txt.style.display ='none';
     let recordTextParent = txt.parentNode;
     recordTextParent.innerHTML += "<span>"+txt.value+"</span>";
-    // console.log(recordList.childElementCount/2) // index알아내는코드
-    $.ajax({
-        method : 'POST',
-        url : '/insertPomodoro',
-        data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML} //id, 리스트번호, 내용 
-    }).done(function(result){
-        console.log(result)
-        // alert('에이잭스전송')
-    })
+    ajaxPomo();
 }
 
 function appearInputText(txt){ // 기록내용 수정 클릭 시 
@@ -555,21 +539,7 @@ function addItem() {
         document.querySelector(".input-text").value = "";
         document.querySelector(".input-text").focus();
         
-        $.ajax({ 
-            url : '/insertTodoList',
-            type : 'post',
-            data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML}, //id, 리스트번호, 내용
-            async : true,
-            success : function() {
-                // console.log("data"+data.id);
-                // console.log("data"+data.todoList);
-                console.log('성공했어염')
-            },
-            error : function(xhr, status, error) {
-                console.log('실패');
-
-            }
-        })
+        ajaxTodo();
     }
 }
 
@@ -579,13 +549,7 @@ $(function(){
             console.log('투두드래그시작');
         },
         stop:function(event, ui){
-            $.ajax({ 
-                method : 'POST',
-                url : '/insertTodoList',
-                data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
-            }).done(function(result){
-                console.log('투두리스트드래그 끝')
-            }) 
+            ajaxTodo();
         }
     });
     $("#sortable").disableSelection();
@@ -593,16 +557,7 @@ $(function(){
 
 function deleteItem(txt) {
     txt.parentNode.remove();
-
-    $.ajax({ 
-        method : 'POST',
-        url : '/insertTodoList',
-        data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
-    }).done(function(result){
-        console.log('모달')
-    }).fail(function(){
-
-    }) 
+    ajaxTodo();
 }
 
 //투두 모달창 구현
@@ -664,14 +619,7 @@ modalTodoColor.addEventListener("click", e =>{
         setColorList.style.color="#B7BE54";
     
     todoModal.style.display = "none"; //공통사항
-    
-    $.ajax({ 
-        method : 'POST',
-        url : '/insertTodoList',
-        data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
-    }).done(function(result){
-        console.log('모달')
-    }) 
+    ajaxTodo();
 })
 
 
@@ -691,25 +639,13 @@ function ntdAddItem() {
         document.querySelector(".ntd-input-text").value = "";
         document.querySelector(".ntd-input-text").focus();
 
-        $.ajax({ 
-            method : 'POST',
-            url : '/insertNotTodoList',
-            data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
-        }).done(function(result){
-            console.log('모달')
-        }) 
+        ajaxNotTodo();
     }
 }
 
 function ntdDeleteItem(txt) {
     txt.parentNode.remove();
-    $.ajax({ 
-        method : 'POST',
-        url : '/insertNotTodoList',
-        data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
-    }).done(function(result){
-        console.log('모달')
-    }) 
+    ajaxNotTodo();
 }
 
 $(function(){
@@ -719,18 +655,10 @@ $(function(){
             console.log('낫투두드래그시작');
         },   
         stop:function(event, ui){
-            $.ajax({ 
-                method : 'POST',
-                url : '/insertNotTodoList',
-                data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
-            }).done(function(result){
-                console.log('낫투두드래그끝');
-            }) 
+            ajaxNotTodo();
         }     
     });
     $("#sortable").disableSelection();
-    // );
-    
 })
 
 //낫투두 모달창 구현
@@ -757,14 +685,7 @@ ModalNotTodoColor.addEventListener("click", e =>{
     else if(e.target.value == "ntd-red")
         ntdSetColorList.style.color="#f36164";
     notTodoModal.style.display = "none"; //공통사항
-
-    $.ajax({ 
-        method : 'POST',
-        url : '/insertNotTodoList',
-        data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
-    }).done(function(result){
-        console.log('모달')
-    }) 
+    ajaxNotTodo();
 })
 
 //오디오 플레이어
@@ -830,7 +751,6 @@ function modalClick(){
             audio = new Audio('POMOTODO audio/Waves Crashing on Rock Beach.mp3');
             audio.volume = 0.5;
         }
-        // selectAudio.innerText = e.target.innerText;
         selectAudio.innerText = e.target.value;
         audio.loop = true;
         setTimeout(function(){ //stop과 동시에 play를 해서 생기는 문제 해결
@@ -853,10 +773,8 @@ let unregisterNo = document.getElementById('unregister-no');
 let signupLoginModal = document.getElementById('signup-login-modal');
 let hello = document.getElementById('hello');
 let helloUser = document.getElementById('hello-user');
-// let testReplace = document.getElementById('testReplace');
 
 modalButton.addEventListener("click", e=>{
-    // console.log(modalButton.innerHTML);
     if(modalWindow.style.display == 'flex')
         modalWindow.style.display = "none"
     else
@@ -896,30 +814,43 @@ signupLoginModal.addEventListener("click", e=>{
     location.href='/signup';
 })
 // ----------------------------------------------------------------------
-// 뽀모도로 생성 ajax 위치 : 타이머를 정지할때
-// $.ajax({ 
-//     method : 'POST',
-//     url : '/insertPomodoro',
-//     data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML} //id, 리스트번호, 내용 
-// }).done(function(result){
-//     console.log('모달')
-// }) 
-// // console.log(recordList.innerText)
-// //url경로로 post요청을 하는데 요청과 함께 데이터를 보내주세요 실행순간은 각자 지정해야함
-// 그럼 홈화면에 표시하려면 /경로로 get요청을하는데 데이터를 보내주세요 데이터는 id와 contentHTML을 
-// 그럼 서버에서는 받은 
-// -------------------------------------------------------------------------------------------------------------------------------------
-// 투두리스트 생성 ajax 위치 : 투두리스트를 생성 하는곳
-// $.ajax({ 
-//         method : 'get',
-//         url : '/',
-//         data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
-//         // data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
-// }).done(function(result){
-//         console.log('모달')
-//     }) 
-//     // data : {id : modalButton.innerHTML, todoList: itemList.innerText, contentHTML : itemList.innerHTML, notTodoList : ntdItemList.innerText , notTodoListHTML : ntdItemList.innerHTML} //id, 리스트번호, 내용 
-
-//         // 낫투두리스트 생성 ajax 위치 : 낫투두리스트를 생성 하는곳
-
+function ajaxPomo(){
+    $.ajax({
+        method : 'POST',
+        url : '/insertPomodoro',
+        data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML},
+        success : function() {
+            console.log('포모도로 ajax 성공')
+        },
+        error : function(xhr, status, error) {
+            console.log('포모도로 ajax 실패');
+        }
+    })
+}
+function ajaxTodo(){
+    $.ajax({ 
+        type : 'post',
+        url : '/insertTodoList',
+        data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML},
+        success : function() {
+            console.log('투두 ajax 성공')
+        },
+        error : function(xhr, status, error) {
+            console.log('투두 ajax 실패');
+        }
+    })
+}
+function ajaxNotTodo(){
+    $.ajax({ 
+        method : 'POST',
+        url : '/insertNotTodoList',
+        data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML},
+        success : function() {
+            console.log('낫투두 ajax 성공')
+        },
+        error : function(xhr, status, error) {
+            console.log('낫투두 ajax 실패');
+        }
+    })
+}
     
