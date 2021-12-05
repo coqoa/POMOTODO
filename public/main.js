@@ -556,13 +556,20 @@ function addItem() {
         document.querySelector(".input-text").focus();
         
         $.ajax({ 
-            method : 'POST',
             url : '/insertTodoList',
-            data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용
+            type : 'post',
+            data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML}, //id, 리스트번호, 내용
+            async : true,
+            success : function() {
+                // console.log("data"+data.id);
+                // console.log("data"+data.todoList);
+                console.log('성공했어염')
+            },
+            error : function(xhr, status, error) {
+                console.log('실패');
 
-        }).done(function(result){
-            console.log('모달')
-        }) 
+            }
+        })
     }
 }
 
@@ -593,6 +600,8 @@ function deleteItem(txt) {
         data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML} //id, 리스트번호, 내용 
     }).done(function(result){
         console.log('모달')
+    }).fail(function(){
+
     }) 
 }
 

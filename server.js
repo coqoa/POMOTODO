@@ -82,30 +82,6 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
 
     
     })
-
-    // app.get('/',function(req, res){
-    //     //로그인 아이디를 화면에 출력시켜주는 코드 변수 posts (ejs파일에 넣을 변수임)
-    //     db.collection('pomodoro').findOne({id:navId}, function(err, pomoResult){
-    //         db.collection('todolist').findOne({id : navId}, function(err, todoResult){ // 투두리스트 로드하는 코드,
-    //             db.collection('not-todolist').findOne({id : navId}, function(err, notTodoResult){ // 낫투두 로드하는 코드
-                    
-    //                 // db.collection('todolist').insertone({id : navId, todoList: 'a', todoListHTML : 'a'}, function(err, result){
-    //                 //     console.log('db todolist create')
-    //                 // })
-    //                 // db.collection('not-todolist').insertone({id : navId, todoList: 'a', todoListHTML : 'a'}, function(err, result){
-    //                 //     console.log('db todolist create')
-    //                 // })
-    //                 // pomodoro 기록 출력하는 코드
-    //                 if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
-    //                     res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
-    //                 }else{ // 아이디가 없을경우는 빈공백
-    //                     res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : '', todoListRecord : '', notTodoListRecord : '' }); // 아이디없는경우 꼭 추가해줘야함
-    //                 }
-    //             })
-    //         })
-    //     })
-    // });
-
 let pomoResult;
 let todoResult;
 let notTodoResult;
@@ -113,35 +89,31 @@ let notTodoResult;
         console.log(navId);
             // pomodoro 기록 출력하는 코드
         if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
-
-
             db.collection('pomodoro').findOne({id:navId}, function(err, pomodoroResult){
                 pomoResult = pomodoroResult.contentHTML;
                 console.log('pomoResult:' + pomoResult);
 
                 db.collection('todolist').findOne({id : navId}, function(err, todolistResult){
-                        todoResult = todolistResult.todoListHTML;
-                        console.log('todoResult:' +todoResult);
+                    todoResult = todolistResult.todoListHTML;
+                    console.log('todoResult:' +todoResult);
 
-                        db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
-                                notTodoResult = nottodolistResult.notTodoListHTML;
-                                console.log('notTodoResult:' +notTodoResult);
+                    db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
+                            notTodoResult = nottodolistResult.notTodoListHTML;
+                            console.log('notTodoResult:' +notTodoResult);
 
-                                res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
-                        })
+                            res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
+                    })
                 })
             })
         }else{ // 아이디가 없을경우는 빈공백
-            
             res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : ' ', todoListRecord : ' ', notTodoListRecord : ' ' }); // 아이디없는경우 꼭 추가해줘야함
         }
     });
-    // res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");???????????????????????????????????????????
-    
     // 누군가가 /signup으로 방문을 하면..signup관련 안내문을 띄워주자.
+    let idCheckResult = '';
+    let idCheck;
     app.get('/signup',function(req, res){
-        // res.render(res.render('signup.ejs', { idCheckResult : ' '}))
-        res.render('signup.ejs', { idCheckResult : ''});
+        res.render('signup.ejs', { idCheckResult : idCheck});
     });
 
     // 로그인 페이지(세션,쿠키)
@@ -241,62 +213,34 @@ let notTodoResult;
     // Pomodoro 기록 서버저장코드
     app.post('/insertPomodoro', function(req, res){
         if(navId !== 'log in'){ //로그인 했을때만 db에 저장하도록 하는 코드
-            // 서버에 아이디가 있는지 찾아보고, 있으면 수정하는코드, 없으면 생성하는 코드
-            // 각 사용자별로 따로 관리해야하므로 사용자를 구분할 수 있는 id 값으로 서버에 데이터가 있는지 찾아본다
-            db.collection('pomodoro').findOne({ id: navId }, function (err, result) {
-                if(result == null){ //아이디가 없을 때 생성
-                    db.collection('pomodoro').insertOne(req.body, function(err, result){ 
-                        console.log('생성하자')
-                    })
-                }else{//아이디가 있을 때 수정
-                    db.collection('pomodoro').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
-                        console.log('수정하자')
-                    })
-                }
+            db.collection('pomodoro').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                console.log('뽀모도로 업데이트')
+                res.status(200).send({ message : '뽀모 업데이트 성공했습니다'});
             })
+        }else{
+            console.log('로그인을 해주세요');
         }
     })
     //투두리스트 생성코드
     app.post('/insertTodoList', function(req, res){
         if(navId !== 'log in'){
-            db.collection('todolist').findOne({ id: navId }, function (err, result) {
-                if(err){
-                    console.log(err);
-                }
-                if(result == null){ //아이디가 없을 때 생성
-                    db.collection('todolist').insertOne(req.body, function(err, result){
-                        if(err){
-                            console.log(err);
-                        }
-                        console.log('투두리스트 생성')
-                    })
-                }else{//아이디가 있을 때 수정
-                    db.collection('todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
-                        if(err){
-                            console.log(err);
-                        }
-                        console.log('투두리스트 업데이트')
-                    })
-                }
+            db.collection('todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                console.log('투두리스트 업데이트')
+                res.status(200).send({ message : '투두 업데이트 성공했습니다'});
             })
         }else{
-            console.log('로그인해주세요');
+            console.log('로그인을 해주세요');
         }
     })
     //낫투두리스트 생성하기
     app.post('/insertNotTodoList', function(req, res){
         if(navId !== 'log in'){
-            db.collection('not-todolist').findOne({ id: navId }, function (err, result) {
-                if(result == null){ //아이디가 없을 때 생성
-                    db.collection('not-todolist').insertOne(req.body, function(err, result){
-                        console.log('낫투두리스트 생성')
-                    })
-                }else{//아이디가 있을 때 수정
-                    db.collection('not-todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
-                        console.log('낫투두리스트 업데이트')
-                    })
-                }
+            db.collection('not-todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
+                console.log('낫투두리스트 업데이트')
+                res.status(200).send({ message : '낫투두 업데이트 성공했습니다'});
             })
+        }else{
+            console.log('로그인을 해주세요');
         }
     })
     //포모도로 기록 서버에서 불러오기 
@@ -306,9 +250,6 @@ let notTodoResult;
     app.get('/deleteUser', function(req, res) {
         if(navId !== 'log in'){
             db.collection('users').deleteOne({ id: navId }, function (err, result) {
-                if(err){
-                    console.log(err)
-                }
                 console.log('유저 삭제')
             })
             db.collection('pomodoro').deleteOne({ id: navId }, function (err, result) {
@@ -324,42 +265,22 @@ let notTodoResult;
         navId = 'log in';
         res.redirect('/');
     })
-    // 폼 예외처리 추후에마무리하기 (211201)
-    // let idCheck
-    // idCheck = '123';
-    // app.post('/signup-id-check', function(req, res){
-    //     // console.log(req.body.id);
-    //     db.collection('users').findOne({id: req.body.id}, function(err,result){
-    //         if(result == null){
-    //             idCheck = '가입가능합니다'
-    //             console.log(idCheck)
-    //             res.render('signup.ejs', { idCheckResult :'가입가능'});
-    //         }else{
-    //             idCheck = '중복된아이디입니다'
-    //             console.log(idCheck)
-    //             res.render('signup.ejs', { idCheckResult : '가입불가능'});
-    //         }
-    //         // res.render('signup.ejs');
-    //         // console.log(req.body.id)
-    //     })
-    // })
-    // app.post('/signup-id-check', function(req, res){
-    //     db.collection('users').findOne({id: req.body.id}, function(err,result){
-    //         if(result == null){
-    //             let idCheckResult;
-    //             let idCheck = '가입';
-    //             // idCheck = '가입가능합니다'
-    //             // console.log(idCheck)
-    //             res.render('signup.ejs', { idCheckResult : `${idCheck}`});
-    //         }else{
-    //             let idCheckResult = '';
-    //             idCheck = '중복된아이디입니다'
-    //             console.log(idCheck)
-    //             res.render('signup.ejs', { idCheckResult : '가입불가능'});
-    //         }
-    //     })
-
-    // })
+    // ------------------------------------------------------------------------------
+    app.post('/signup-id-check', function(req, res){
+        db.collection('users').findOne({id: req.body.id}, function(err,result){
+            if(result == null){
+                idCheck = '';
+                // res.redirect('/signup');
+            }else{
+                idCheck = '가입불가능';
+                // res.redirect('/signup');
+            }
+        })
+    })
+    app.get('/signup-id-check', function(req, res){
+        res.redirect('/signup');
+        //온블러할때마다 리다이렉트하므로 다음폼입력이 불가능한상황임
+    })
 })
 
 

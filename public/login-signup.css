@@ -314,3 +314,8 @@ label {
 #birthday-message-count {
   left: 28%;
 }
+
+.validate-id {
+  /* display: none; */
+  display: block;
+}
