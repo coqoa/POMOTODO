@@ -270,15 +270,15 @@ let notTodoResult;
     app.post('/signup-id-check', function(req, res){
         db.collection('users').findOne({id: req.body.id}, function(err,result){
             if(result == null){
-                idCheck = '가입가능';
+                idCheck = '';
                 // res.redirect('/signup');
                 // res.status(200).send("<script>alert('가입가능.');</script>");
             }else{
-                idCheck = '가입불가능';
+                idCheck = '가입할 수 없는 ID입니다';
                 // res.status(200).send("<script>alert('가입불가능.');</script>");
                 // res.redirect('/signup');
             }
-        res.status(200).send({ message : '아이디체크'});
+        res.status(200).send({ message : idCheck});
         })
     })
 })

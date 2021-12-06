@@ -41,37 +41,6 @@ function signup(){
 }
 
 
-// 폼 예외처리 나중에
-let idBlur = document.querySelector("#signupId");
-let validatdId = document.querySelector(".validate-id");
-idBlur.onblur = function (e) {
-    let signupForm = document.signupForm;
-    let idValue= signupForm.loginId.value;
-    $.ajax({
-        method : 'POST',
-        url : '/signup-id-check',
-        data : {id : idValue},
-        success : function() {
-            console.log(validatdId.style.display);
-            if(validatdId.style.display == 'none'){
-                validatdId.style.display = 'block';
-            }
-            // }else{
-            //     validatdId.style.display = block;
-            // }
-        },
-        error : function(xhr, status, error) {
-            console.log('아이디체크 실패');
-        }
-    })
-}
-let inputId = document.querySelector('#signupId');
-inputId.addEventListener(onfocus, validate);
-function validate(){
-    validatdId.style.display = 'none';
-}
-
-
 let isPasswordCheck;
 let passwordBlur = document.querySelector("#signupPasswordCheck");
 let passwordMessageMatch = document.getElementById('password-message-match');
@@ -168,3 +137,34 @@ function numberBlur2(e) {
 }
 // 1. 서버에서 id체크해서 있을때 / 없을때 메시지출력하도록
 // 2. 유효성검사를 끝내면 서버에 값을 전송하도록 코드 구현해야함 왜? 유효성겁사가 안끝난상태로 서버로 값이 전송하는것을 막기위해? - 이메일, 번호, 생년월일에는 제한없이 받고있었음.
+
+// ---------------------------------------------------------------------------------------
+
+// 폼 예외처리 나중에
+let idBlur = document.querySelector("#signupId");
+let validatdId = document.querySelector(".validate-id");
+idBlur.onblur = function (e) {
+    let signupForm = document.signupForm;
+    let idValue= signupForm.loginId.value;
+    $.ajax({
+        method : 'POST',
+        url : '/signup-id-check',
+        data : {id : idValue},
+        success : function(data) {
+            if(validatdId.style.display == 'none'){
+                validatdId.style.display = 'block';
+            }
+            $(validatdId).html (data.message)
+        },
+        error : function(xhr, status, error) {
+            console.log('아이디체크 실패');
+        }
+    })
+}
+let inputId = document.querySelector('#signupId');
+inputId.addEventListener(onfocus, validate);
+function validate(){
+    validatdId.style.display = 'none';
+}
+
+// ---------------------------------------------------------------------------------------

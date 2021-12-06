@@ -140,7 +140,8 @@ a {
   color: red;
 } */
 #loginButton:active,
-#logoutButton:active {
+#logoutButton:active,
+#signup-login-modal {
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 #unregister:hover {
