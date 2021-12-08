@@ -1,3 +1,6 @@
+// $(function(){
+//     $("#navi").load("header.html")
+// });
 //네비 날짜
 function setClock(){
     let dateObject = new Date();
@@ -18,6 +21,61 @@ window.onload = function(){
     setClock();
     setInterval(setClock,1000);
 }
+// // 네비게이션 바 로그인 출력 부분
+// let modalButton = document.getElementById('modal-button-id-check');
+// let modalWindow = document.getElementById('modal-window-id-check');
+// let loginButton = document.getElementById('loginButton');
+// let logoutButton = document.getElementById('logoutButton');
+// let unregister = document.getElementById('unregister');
+// let unregisterCheck = document.getElementById('unregister-check');
+// let unregisterOk = document.getElementById('unregister-ok');
+// let unregisterNo = document.getElementById('unregister-no');
+// let signupLoginModal = document.getElementById('signup-login-modal');
+// let hello = document.getElementById('hello');
+// let helloUser = document.getElementById('hello-user');
+
+// modalButton.addEventListener("click", e=>{
+//     if(modalWindow.style.display == 'flex')
+//         modalWindow.style.display = "none"
+//     else
+//         modalWindow.style.display = "flex"
+//         if(modalButton.innerText == "log in"){
+            
+//             loginButton.style.display = "flex"
+//             signupLoginModal.style.display = "flex"
+//             hello.style.display="inline-block"
+//         }
+//         else{
+//             logoutButton.style.display = "flex"
+//             unregister.style.display = "flex"
+//             helloUser.style.display="inline-block"
+//         }
+// })
+// loginButton.addEventListener("click", e=>{
+//     location.href='/login';
+// })
+// logoutButton.addEventListener("click", e=>{
+//     location.href='/logout';
+// })
+
+// unregister.addEventListener("click", e=>{
+//     unregisterCheck.style.display = "inline-block"
+// })
+// unregisterOk.addEventListener("click", e=>{
+//     location.href='/deleteUser';
+// })
+// unregisterNo.addEventListener("click", e=>{
+//     unregisterCheck.style.display = "none"
+// })
+// signupLoginModal.addEventListener("click", e=>{
+//     location.href='/signup';
+// })
+
+// -------------------------------------네비게이션------------------------------------------
+
+
+
+
 
 //뽀모도로타이머
 let redMinutes = 25;
@@ -761,58 +819,7 @@ function modalClick(){
         modalAudio.style.display = "none"
     })
 }
-// 네비게이션 바 로그인 출력 부분
-let modalButton = document.getElementById('modal-button-id-check');
-let modalWindow = document.getElementById('modal-window-id-check');
-let loginButton = document.getElementById('loginButton');
-let logoutButton = document.getElementById('logoutButton');
-let unregister = document.getElementById('unregister');
-let unregisterCheck = document.getElementById('unregister-check');
-let unregisterOk = document.getElementById('unregister-ok');
-let unregisterNo = document.getElementById('unregister-no');
-let signupLoginModal = document.getElementById('signup-login-modal');
-let hello = document.getElementById('hello');
-let helloUser = document.getElementById('hello-user');
 
-modalButton.addEventListener("click", e=>{
-    if(modalWindow.style.display == 'flex')
-        modalWindow.style.display = "none"
-    else
-        modalWindow.style.display = "flex"
-        if(modalButton.innerText == "log in"){
-            
-            loginButton.style.display = "flex"
-            signupLoginModal.style.display = "flex"
-            hello.style.display="inline-block"
-            // logoutButton.style.display = "none"
-        }
-        else{
-            logoutButton.style.display = "flex"
-            unregister.style.display = "flex"
-            helloUser.style.display="inline-block"
-            // loginButton.style.display = "none"
-        }
-})
-loginButton.addEventListener("click", e=>{
-    location.href='/login';
-    // testReplace.style.display = "none"
-})
-logoutButton.addEventListener("click", e=>{
-    location.href='/logout';
-})
-
-unregister.addEventListener("click", e=>{
-    unregisterCheck.style.display = "inline-block"
-})
-unregisterOk.addEventListener("click", e=>{
-    location.href='/deleteUser';
-})
-unregisterNo.addEventListener("click", e=>{
-    unregisterCheck.style.display = "none"
-})
-signupLoginModal.addEventListener("click", e=>{
-    location.href='/signup';
-})
 // ----------------------------------------------------------------------
 function ajaxPomo(){
     $.ajax({

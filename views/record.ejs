@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoMoToDo-record</title>
+    <link rel="stylesheet" href="record.css" />
+    <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <script defer src="record.js"></script>
+</head>
+<body class="body">
+    <header>
+        <nav class="top-bar">
+            <div class="POMOTODO__logo">
+            <a href="/"><i class="fas fa-mountain"></i>POMOTODO</a>
+            </div>
+            <!-- <span id="testReplace">aaa</span> -->
+            <div id="id-check">
+            
+            <!-- 아이디출력 -->
+            <span id="modal-button-id-check"><%= posts %></span>
+            <!-- 모달창 출력 -->
+            <span id="modal-window-id-check">
+                <!-- 로그인/로그아웃 버튼 -->
+                <!-- <span>1</span> -->
+                <span id="hello">Hello!</span>
+                <span id="hello-user">Hello ! <%= posts %></span>
+                <button id="loginButton">Log in </button>
+                <button id="logoutButton">Log out</button>
+                <button id="signup-login-modal">Sign up</button>
+                <button id="unregister">Delete ID</button>
+                <div id="unregister-check">
+                회원탈퇴하시겠습니까?<br>
+                <button id="unregister-ok">네</button>
+                <button id="unregister-no">아니요</button>
+                </div>
+                <div id="contact-me-title">
+                contact-developer 
+                <ul class="POMOTODO__contact-me">
+                    <li>
+                    <a href="https://coqoa.tistory.com/" title="tistory blog" target="blank" ><i class="fas fa-bold"></i></a>
+                    </li>
+                    <li>
+                    <a href="https://github.com/coqoa" title="github" target="blank"><i class="fab fa-github"></i></a>
+                    </li>
+                    <li id="mail-btn"><i class="far fa-envelope" title="E-mail"></i></li>
+                </ul>
+                </div>
+                <div id="modal" class="modal-overlay">
+                <div class="mail-modal-window">
+                    <div class="close-area"><i class="fas fa-times"></i></div>
+                    <div class="content"><i class="fas fa-paper-plane">ﾠcoqoa28@gmail.com</i></div>
+                </div>
+                </div>
+            </span>
+            </div>
+            <ul class="POMOTODO__menu">
+            <li>
+                <a href="/" title="Desktop-ver" ><i class="fas fa-desktop"></i></a>
+            </li>
+            <li>
+                <a href="/record" title="Record" ><i class="far fa-calendar-alt"></i><a>
+            </li>
+            <li>
+                <a href="PoMoToDo-side.html" title="Mobile-ver" ><i class="fas fa-mobile-alt"></i><a>
+            </li>
+            </ul>
+            <div id="POMOTODO__clock">시계</div>
+            <!--이메일 모달창-->
+        </nav>
+    </header>
+
+    <!--------------⬆︎ 네비게이션공통 ------------------>
+    <section class="big-layout" id="mainLayout">
+        <div class="small-layout" id="calendar">
+            <div class="record-content" id="calendar-content">
+                <svg width="400" height="110">
+                    <rect width="10" height="10" x="100" y="0"/>
+                    <rect width="10" height="10" x="100" y="20"/>
+                    <rect width="10" height="10" x="100" y="40"/>
+                    <rect width="10" height="10" x="100" y="60"/>
+                    <rect width="10" height="10" x="100" y="80"/>
+                    <rect width="10" height="10" x="100" y="100"/>
+                    
+                </svg>
+                
+
+            </div>
+        </div>
+        <div class="small-layout" id="pomo-record">
+            <h2>Pomodoro</h2>
+            <div class="record-content" id="pomo-record-content">
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda
+                sdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+            </div>
+            </div>
+        </div>
+        <div class="small-layout" id="todo-record">
+            <h2>ToDoList</h2>
+            <div class="record-content" id="todo-record-content">
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+            </div>
+        </div>
+        <div class="small-layout" id="not-todo-record">
+            <h2>Not-ToDoList</h2>
+            <div class="record-content" id="not-todo-record-content">
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+                asdasdasdasdasdasdasdasdasdasdasdasdasdasdas
+                dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

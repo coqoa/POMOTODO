@@ -108,7 +108,7 @@ label {
   margin-top: 20px;
   width: 260px;
   height: 50px;
-  color: var(--redtext);
+  color: var(--bluetext);
   background-color: transparent;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
   border-radius: 15px;
@@ -124,12 +124,12 @@ label {
 /* 플래시 메세지 */
 .id-check {
   position: absolute;
-  top: 200px;
+  top: 210px;
   font-family: "Ubuntu", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   font-style: italic;
-  color: var(--bluetext);
+  color: var(--redtext);
 }
 #login-toHome,
 #login-toSignup,
@@ -256,10 +256,10 @@ label {
   color: black;
 }
 
-/* ---------_---------_---------_---------_---------_---------_---------_---------_---------_ */
+/* 회원가입 입력값체크*/
 .validate-id {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   position: absolute;
   top: 60px;
   left: 115px;
@@ -317,9 +317,25 @@ label {
 }
 #birthday-message,
 #birthday-message-count {
-  top: 355px;
+  top: 352px;
   left: 35%;
 }
 #birthday-message-count {
   left: 28%;
+}
+
+/* @media screen and (min-width: 1850px) {
+  .container {
+    zoom: 200%;
+  }
+} */
+@media screen and (min-height: 1150px) {
+  .container {
+    zoom: 130%;
+  }
+}
+@media screen and (max-width: 1800px) {
+  .container {
+    zoom: 100%;
+  }
 }

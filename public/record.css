@@ -1,0 +1,359 @@
+/* button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+button:active {
+  box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
+} */
+
+/* body {
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 870px;
+  margin: 0px;
+  background-color: #e9f0fa;
+} */
+header nav {
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #f4f8fb;
+  color: #5e5e5e;
+  z-index: 999;
+}
+a {
+  text-decoration: none;
+  color: #5e5e5e;
+}
+.POMOTODO__logo a {
+  position: absolute;
+  bottom: 4px;
+  left: 10px;
+
+  padding: 0px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+}
+.POMOTODO__logo a:hover {
+  background-color: transparent;
+  color: black;
+}
+.POMOTODO__logo i {
+  position: relative;
+  bottom: 1px;
+  padding-right: 5px;
+  color: #ff8585;
+}
+#id-check {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  color: gray;
+}
+#modal-button-id-check {
+  position: absolute;
+  right: 155px;
+  bottom: 0px;
+  height: 20px;
+  width: 120px;
+  padding-bottom: 3px;
+  border-radius: 7px;
+  color: gray;
+}
+#modal-button-id-check:hover {
+  cursor: pointer;
+  color: black;
+}
+#modal-button-id-check:active {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+#modal-window-id-check {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 45px;
+  right: 120px;
+  height: 220px;
+  width: 150px;
+  font-family: "Ubuntu", sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  padding: 5px 5px 10px 5px;
+  z-index: 99;
+}
+#hello,
+#hello-user,
+#loginButton,
+#logoutButton,
+#unregister,
+#signup-login-modal {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: gray;
+  display: none;
+  justify-content: center;
+  margin: 13px 0px;
+  border: 0;
+  background-color: transparent;
+}
+#loginButton:hover {
+  opacity: 1;
+  color: #8ab36f;
+}
+#logoutButton:hover {
+  opacity: 1;
+  color: #e24747;
+}
+#signup-login-modal:hover {
+  opacity: 1;
+  color: #5140eb;
+}
+#loginButton:active,
+#logoutButton:active,
+#signup-login-modal {
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+#unregister:hover {
+  opacity: 1;
+  color: #f0942c;
+}
+#unregister:active {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+#unregister-check {
+  position: relative;
+  top: 100px;
+  left: -25px;
+  display: none;
+  padding-top: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 200px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+#unregister-ok,
+#unregister-no {
+  font-size: 18px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+  margin: 10px;
+  padding: 10px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+#unregister-ok:hover,
+#unregister-no:hover {
+  color: black;
+}
+#unregister-ok:active,
+#unregister-no:active {
+  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
+}
+#contact-me-title {
+  position: absolute;
+  top: 150px;
+  left: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.POMOTODO__contact-me {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.POMOTODO__contact-me li {
+  margin-top: 2px;
+  padding: 2px 12px;
+}
+.POMOTODO__contact-me li:hover {
+  color: black;
+}
+#mail-btn {
+  cursor: pointer;
+}
+#modal.modal-overlay {
+  position: relative;
+  top: 100px;
+  left: -10px;
+  width: 210px;
+  height: 65px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 6px 6px 9px #c8ced7;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+}
+#modal .content {
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+#modal .close-area {
+  display: inline;
+  float: right;
+  padding-right: 3px;
+  cursor: pointer;
+  color: gray;
+}
+.POMOTODO__menu {
+  position: relative;
+  right: 0.5%;
+  display: flex;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.POMOTODO__menu li {
+  padding: 2px 12px;
+  margin: 0px;
+}
+.POMOTODO__menu li:hover {
+  opacity: 0.5;
+}
+#POMOTODO__clock {
+  display: inline;
+  font-family: "Ubuntu", sans-serif;
+  position: absolute;
+  right: 30px;
+  top: 4px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #5e5e5e;
+}
+
+/* ⬆︎ --------------네비게이션 공통--------------- ⬆︎ */
+#mainLayout {
+  zoom: 100%;
+  display: row;
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  width: 550px;
+  height: 850px;
+  /* justify-content: space-between; */
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 7px 7px 7px #c8ced7, -5px -5px 20px #ffffff;
+}
+h2 {
+  position: relative;
+  top: 7px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.small-layout {
+  position: relative;
+  left: 25px;
+  width: 500px;
+  margin-top: 15px;
+  text-align: center;
+  /* padding: 10px 10px 10px 10px; */
+  border-radius: 10px;
+  box-shadow: 4px 4px 7px #c8ced7, -2px -2px 3px #ffffff;
+}
+#calendar {
+  height: 150px;
+}
+#pomo-record {
+  height: 200px;
+}
+#todo-record {
+  height: 280px;
+}
+#not-todo-record {
+  height: 150px;
+}
+.record-content {
+  position: relative;
+  border: 1px solid lightgray;
+  overflow: auto;
+  margin: 15px;
+}
+#calendar-content {
+  top: 10px;
+  height: 135px;
+}
+#pomo-record-content {
+  height: 145px;
+}
+#todo-record-content {
+  height: 220px;
+}
+#not-todo-record-content {
+  height: 100px;
+}
+.sample {
+  width: 30px;
+  height: 30px;
+  border: 1px solid gray;
+  margin: 1px;
+  display: flex;
+}
+.record-content::-webkit-scrollbar {
+  width: 7px;
+  background-color: transparent;
+}
+.record-content::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-top: 0px solid lightgray;
+  border-bottom: 0px solid lightgray;
+  border-radius: 30px;
+  background-color: lightgray;
+}
+#calendar-content::-webkit-scrollbar {
+  height: 7px;
+  background-color: transparent;
+}
+#calendar-content::-webkit-scrollbar-thumb {
+  border-left: 0px solid lightgray;
+  border-right: 0px solid lightgray;
+  border-radius: 30px;
+}
+
+/* ---------------반응형------------------ */
+@media screen and (min-height: 1150px) {
+  #mainLayout,
+  .top-bar {
+    zoom: 120%;
+  }
+}
+@media screen and (max-width: 1800px) {
+  #mainLayout,
+  .top-bar {
+    zoom: 100%;
+  }
+}

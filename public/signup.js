@@ -135,12 +135,7 @@ function numberBlur2(e) {
         isBirthdayCheck = false;
     }
 }
-// 1. 서버에서 id체크해서 있을때 / 없을때 메시지출력하도록
-// 2. 유효성검사를 끝내면 서버에 값을 전송하도록 코드 구현해야함 왜? 유효성겁사가 안끝난상태로 서버로 값이 전송하는것을 막기위해? - 이메일, 번호, 생년월일에는 제한없이 받고있었음.
-
-// ---------------------------------------------------------------------------------------
-
-// 폼 예외처리 나중에
+// id중복체크 ajax요청
 let idBlur = document.querySelector("#signupId");
 let validatdId = document.querySelector(".validate-id");
 idBlur.onblur = function (e) {
@@ -166,5 +161,3 @@ inputId.addEventListener(onfocus, validate);
 function validate(){
     validatdId.style.display = 'none';
 }
-
-// ---------------------------------------------------------------------------------------

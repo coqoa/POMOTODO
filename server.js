@@ -12,11 +12,6 @@ let flash = require('connect-flash');
 let bkfd2Password = require('pbkdf2-password')
 let hasher = bkfd2Password();
 
-// hasher({password:'비밀번호'}, function(err, pass, salt, hash){
-//     console.log(err, pass, salt, hash);
-//     // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
-// })
-
 MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
     //db지정하는코드
     db = client.db('pomotodo');
@@ -74,13 +69,6 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                 
             }
         });
-        
-        
-        
-
-
-
-    
     })
 let pomoResult;
 let todoResult;
@@ -170,7 +158,7 @@ let notTodoResult;
             //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
             if (!user) {
                 console.log('아이디가 없습니다')
-                return done(null, false, { message: 'incorrect id' })
+                return done(null, false, { message: '존재하지 않는 ID입니다' })
 
             }
             if(user){
@@ -183,7 +171,7 @@ let notTodoResult;
                         return done(null, user)
                     } else {
                         console.log('비밀번호 틀렸어요');
-                        return done(null, false, { message: 'incorrect password' })
+                        return done(null, false, { message: '잘못된 비밀번호입니다' })
                     }
                 })
             }
@@ -194,7 +182,6 @@ let notTodoResult;
     //user 파라미터로 아이디/비밀번호 검증 결과가 들어간다
     passport.serializeUser(function (user, done) {
         done(null, user.id); // 세션데이터안에 passport의 user값으로 사용자의 아이디가 들어간다
-        // console.log(user.id); // 로그인한 정보를 콘솔로그로 찍어주는 코드임 밑에 user.id를 확인하기 위해 작성한 코드
         navId = user.id; // navId라는 변수에 입력한 id를 담아서 화면에 출력해주도록 하기위한 코드
     });
     // 세션데이터를 가진 사람을 db에서 찾아주는 코드
@@ -202,7 +189,6 @@ let notTodoResult;
         done(null, {})
     });
     app.get('/logout', function(req, res){
-        // res.render('logout.ejs')
         req.session.destroy(() => {
             res.clearCookie('connect.sid');
             navId = 'log in';
@@ -210,7 +196,7 @@ let notTodoResult;
         });
     })
 
-    // Pomodoro 기록 서버저장코드
+    // Pomodoro 기록 업데이트
     app.post('/insertPomodoro', function(req, res){
         if(navId !== 'log in'){ //로그인 했을때만 db에 저장하도록 하는 코드
             db.collection('pomodoro').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
@@ -221,7 +207,7 @@ let notTodoResult;
             console.log('로그인을 해주세요');
         }
     })
-    //투두리스트 생성코드
+    //투두리스트 업데이트
     app.post('/insertTodoList', function(req, res){
         if(navId !== 'log in'){
             db.collection('todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
@@ -232,7 +218,7 @@ let notTodoResult;
             console.log('로그인을 해주세요');
         }
     })
-    //낫투두리스트 생성하기
+    //낫투두리스트 업데이트
     app.post('/insertNotTodoList', function(req, res){
         if(navId !== 'log in'){
             db.collection('not-todolist').updateOne({id : navId}, { $set : req.body }, function(err, result){ 
@@ -243,10 +229,7 @@ let notTodoResult;
             console.log('로그인을 해주세요');
         }
     })
-    //포모도로 기록 서버에서 불러오기 
-    //투두리스트 서버에서 기록 불러오기
-    //낫투두리스트 서버에서 기록 불러오기
-    // 이 세가지는 위의 app.get('/',function(req, res)에서 처리한다
+    // 회원탈퇴
     app.get('/deleteUser', function(req, res) {
         if(navId !== 'log in'){
             db.collection('users').deleteOne({ id: navId }, function (err, result) {
@@ -265,22 +248,29 @@ let notTodoResult;
         navId = 'log in';
         res.redirect('/');
     })
-    // ------------------------------------------------------------------------------
-
+    // 서버에서 id중복체크하는 ajax요청
     app.post('/signup-id-check', function(req, res){
         db.collection('users').findOne({id: req.body.id}, function(err,result){
             if(result == null){
+                // 서버에 id가 없는경우
                 idCheck = '';
-                // res.redirect('/signup');
-                // res.status(200).send("<script>alert('가입가능.');</script>");
             }else{
                 idCheck = '가입할 수 없는 ID입니다';
-                // res.status(200).send("<script>alert('가입불가능.');</script>");
-                // res.redirect('/signup');
             }
         res.status(200).send({ message : idCheck});
         })
     })
+    
+    app.get('/record',function(req, res){
+        console.log(navId);
+            // pomodoro 기록 출력하는 코드
+        if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
+            res.render('record.ejs', { posts : `${navId}`}); //todoList  <%- todolist.todoListHTML %>
+                
+        }else{ // 아이디가 없을경우는 빈공백
+            res.render('record.ejs', { posts : `${navId}`}); // 아이디없는경우 꼭 추가해줘야함
+        }
+    });
 })
 
 
