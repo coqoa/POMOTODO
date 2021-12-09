@@ -1,3 +1,4 @@
+/* ------------------------------------------------(header.css로 이동시켰음 211208)------------------------------------------------------------ */
 /* button:hover {
   opacity: 0.6;
   cursor: pointer;
@@ -14,7 +15,7 @@ button:active {
   margin: 0px;
   background-color: #e9f0fa;
 } */
-header nav {
+/* header nav {
   font-family: "Ubuntu", sans-serif;
   display: flex;
   justify-content: center;
@@ -252,9 +253,9 @@ a {
   margin-right: 10px;
   font-size: 14px;
   color: #5e5e5e;
-}
-
+} */
 /* ⬆︎ --------------네비게이션 공통--------------- ⬆︎ */
+/* ------------------------------------------------(header.css로 이동시켰음 211208)------------------------------------------------------------ */
 #mainLayout {
   zoom: 100%;
   display: row;
@@ -264,7 +265,6 @@ a {
   transform: translate(-50%, -48%);
   width: 550px;
   height: 850px;
-  /* justify-content: space-between; */
   align-items: center;
   border-radius: 10px;
   box-shadow: 7px 7px 7px #c8ced7, -5px -5px 20px #ffffff;
@@ -281,7 +281,6 @@ h2 {
   width: 500px;
   margin-top: 15px;
   text-align: center;
-  /* padding: 10px 10px 10px 10px; */
   border-radius: 10px;
   box-shadow: 4px 4px 7px #c8ced7, -2px -2px 3px #ffffff;
 }
@@ -342,6 +341,12 @@ h2 {
   border-left: 0px solid lightgray;
   border-right: 0px solid lightgray;
   border-radius: 30px;
+}
+
+.선이생기는버튼 {
+  position: absolute;
+  top: 250px;
+  left: -100px;
 }
 
 /* ---------------반응형------------------ */

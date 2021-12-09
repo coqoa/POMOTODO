@@ -21,7 +21,8 @@ window.onload = function(){
     setClock();
     setInterval(setClock,1000);
 }
-// // 네비게이션 바 로그인 출력 부분
+// // 네비게이션 바 로그인 출력 부분 
+// ------------------------------------------------(header.js로 이동시켰음 211208)------------------------------------------------------------
 // let modalButton = document.getElementById('modal-button-id-check');
 // let modalWindow = document.getElementById('modal-window-id-check');
 // let loginButton = document.getElementById('loginButton');
@@ -70,9 +71,10 @@ window.onload = function(){
 // signupLoginModal.addEventListener("click", e=>{
 //     location.href='/signup';
 // })
-
+// 파일이 다른데 사용하고 싶은 요소가 있으면 새로 정의해줘야함
+// 외부파일로 뺀 것중에 사용하는 요소가 있는지 체크해야함
 // -------------------------------------네비게이션------------------------------------------
-
+// ------------------------------------------------(header.js로 이동시켰음 211208)------------------------------------------------------------
 
 
 

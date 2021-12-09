@@ -11,10 +11,8 @@
     <!--웹폰트-->
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
     <!--제이쿼리-->
-    <!-- ajax 서버문제시 아래코드 활성화허면 됨 -->
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>  -->
-    <!-- sortable이상하게 작동해서 jquery ui 변경 -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
@@ -23,7 +21,7 @@
   </head>
 
   <body class="body">
-    <!--네비게이션바-->
+    <!--네비게이션바 외부 ejs파일로 뺴서 include-->
     <%- include ('header.ejs') %>
     <div id="mainLayout">
       <section class="Pomodoro">
