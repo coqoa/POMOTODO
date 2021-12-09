@@ -8,18 +8,33 @@
     <link rel="stylesheet" href="record.css" />
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
-    <script defer src="record.js"></script>
+    <script defer src="/record.js"></script>
 </head>
 <body class="body">
     <%- include ('header.ejs') %>
     <!--------------⬆︎ 네비게이션공통 ------------------>
     <section class="big-layout" id="mainLayout">
-
-        <div class="small-layout" id="calendar">
+        <div class="small-layout" id="calendar-layout">
             <div class="record-content" id="calendar-content">
-                
+                <table class="calendar-layout" id="calendar" border="3" align="center">
+                    <tr><!-- label은 마우스로 클릭을 편하게 해줌 -->
+                        <td class="prev"><label onclick="prevCalendar()"><i class="fas fa-angle-left"></i></label></td>
+                        <td class="year-month" align="center" id="tbCalendarYM" colspan="5">yyyy- m</td>
+                        <td class="next"><label onclick="nextCalendar()"><i class="fas fa-angle-right"></i></label></td>
+                    </tr>
+                    <tr>
+                        <td class="day" align="center"><font color ="#F79DC2">Sun</td>
+                        <td class="day" align="center">Mon</td>
+                        <td class="day" align="center">Tue</td>
+                        <td class="day" align="center">Wed</td>
+                        <td class="day" align="center">Thur</td>
+                        <td class="day" align="center">Fri</td>
+                        <td class="day" align="center"><font color ="skyblue">Sat</td>
+                    </tr>
+                </table>
             </div>
         </div>
+        <!-- 달력 -->
         <div class="small-layout" id="pomo-record">
             <h2>Pomodoro</h2>
             <div class="record-content" id="pomo-record-content">
@@ -36,7 +51,7 @@
         <div class="small-layout" id="not-todo-record">
             <h2>Not-ToDoList</h2>
             <div class="record-content" id="not-todo-record-content">
-               
+
             </div>
         </div>
     </section>
