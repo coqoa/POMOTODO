@@ -324,7 +324,6 @@ h2 {
   top: 5px;
   height: 340px;
 }
-
 #pomo-record-content {
   height: 390px;
 }
@@ -333,13 +332,6 @@ h2 {
 }
 #not-todo-record-content {
   height: 240px;
-}
-.sample {
-  width: 30px;
-  height: 30px;
-  border: 1px solid gray;
-  margin: 1px;
-  display: flex;
 }
 .record-content::-webkit-scrollbar {
   width: 7px;

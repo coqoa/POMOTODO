@@ -862,4 +862,36 @@ function ajaxNotTodo(){
         }
     })
 }
-    
+let dateObject = new Date();
+let year = dateObject.getFullYear();
+let month = dateObject.getMonth()+1;
+let createBtn = document.querySelector('.createBtn');
+createBtn.onclick = function(){
+    $.ajax({ 
+        method : 'POST',
+        url : '/createBtn',
+        // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
+        data : {id : modalButton.innerHTML, year : year, month : month , pomoRecord : ' ' , todoRecord: ' ', notTodoRecord : ' '},
+        success : function(data) {
+            console.log('DB Record 빈값 생성 성공 ')
+        },
+        error : function(xhr, status, error) {
+            console.log('DB Record 빈값 생성 실패');
+        }
+    })
+};
+let saveBtn = document.querySelector('.saveBtn');
+saveBtn.onclick = function(){
+    $.ajax({ 
+        method : 'POST',
+        url : '/saveBtn',
+        // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
+        data : {id : modalButton.innerHTML, year : year, month : month , pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
+        success : function(data) {
+            console.log('DB Record 빈값 수정 성공 ')
+        },
+        error : function(xhr, status, error) {
+            console.log('DB Record 빈값 수정 실패');
+        }
+    })
+};
