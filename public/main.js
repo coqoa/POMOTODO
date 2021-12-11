@@ -889,6 +889,12 @@ createBtn.onclick = function(){
 };
 let saveBtn = document.querySelector('.saveBtn');
 saveBtn.onclick = function(){
+    let dateObject = new Date();
+    let year = dateObject.getFullYear();
+    let month = dateObject.getMonth()+1;
+    let date = dateObject.getDate();
+    let hour = addStringZero(dateObject.getHours());
+    let min = addStringZero(dateObject.getMinutes());
     $.ajax({ 
         method : 'POST',
         url : '/saveBtn',
@@ -924,27 +930,4 @@ function checkTime(){
 }
 setInterval(checkTime,55100);
 
-// let ymdBtn = document.querySelector('.ymdBtn');
-// ymdBtn.onclick = function(){
-//     let dateObject = new Date();
-//     let year = dateObject.getFullYear();
-//     let month = dateObject.getMonth()+1;
-//     // let month = dateObject.getMonth()-10;
-//     let date = dateObject.getDate()-1;
-//     // 오늘날짜에서 1일 뺀 값을 ajax로 넘겨준다
-//     // 만약 1을 뺏을때 0이라면 전달 말일로 바꿔주는데 1월1일에 1을뺀다면 1년-,11월+,해당달의 말일 을 데이터로 보내준다
-//     if(date==0){
-//         if(month == 1){
-//             year = year-1;
-//             month = month+11;
-//             // date = ymd; month의 말일을 구하는 코드
-//             date = new Date(year, month, 0).getDate();
-//         }else if(month !== 1){
-//             month = month-1;
-//             date = new Date(year, month, 0).getDate();
-//         }
-//     }
-    // console.log(year);
-    // console.log(month);
-    // console.log(date)
-// }
+

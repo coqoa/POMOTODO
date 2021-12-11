@@ -34,27 +34,21 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                     // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
         
                     //서버에 자료 저장하기
-                    //db의 컬렉션 지정하기
+                        //db의 컬렉션 지정하기
                     db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
                         console.log('db user create')
-                        
                     })
-
                     db.collection('pomodoro').insertOne({ id : req.body.loginId, content: '', contentHTML:''}, function(err, result){
                         console.log('db pomodoro create')
-                        
                     })
                     db.collection('todolist').insertOne({ id : req.body.loginId, todoList: '', todoListHTML:''}, function(err, result){
                         console.log('db todolist create')
-                        
                     })
                     db.collection('not-todolist').insertOne({ id : req.body.loginId, notTodoList: '', notTodoListHTML:''}, function(err, result){
                         console.log('db not-todolist create')
-                        
                     })
                     res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
                 })
-                
                 // console.log('회원가입정보');
                 // console.log(req.body) : bodyParser를 통해 요청값을 분석한 정보(객체형식으로 반환하는 값)
                 // console.log("id = "+ req.body.loginId);
@@ -66,7 +60,6 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
             }else{
                 console.log('아이디가 있음')
                 res.send("<script>alert('이미 사용중인 아이디입니다');location.href='/signup';</script>");
-                
             }
         });
     })
@@ -79,17 +72,15 @@ let notTodoResult;
         if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
             db.collection('pomodoro').findOne({id:navId}, function(err, pomodoroResult){
                 pomoResult = pomodoroResult.contentHTML;
-                // console.log('pomoResult:' + pomoResult);
 
                 db.collection('todolist').findOne({id : navId}, function(err, todolistResult){
                     todoResult = todolistResult.todoListHTML;
-                    // console.log('todoResult:' +todoResult);
 
                     db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
                             notTodoResult = nottodolistResult.notTodoListHTML;
-                            // console.log('notTodoResult:' +notTodoResult);
 
-                            res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
+                            res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); 
+                            //todoList  <%- todolist.todoListHTML %>
                     })
                 })
             })
@@ -266,16 +257,13 @@ let notTodoResult;
         let dateObject = new Date();
         let years = dateObject.getFullYear();
         let months = dateObject.getMonth()+1;
-        // let month = dateObject.getMonth()-10;
         let dates = dateObject.getDate()-1;
-        // 오늘날짜에서 1일 뺀 값을 ajax로 넘겨준다
         // 만약 1을 뺏을때 0이라면 전달 말일로 바꿔주는데 1월1일에 1을뺀다면 1년-,11월+,해당달의 말일 을 데이터로 보내준다
-        if(dates==0){
+        if(dates == 0){
             if(months == 1){
                 years = years-1;
                 months = months+11;
-                //month의 말일을 구하는 코드
-                dates = new Date(years, months, 0).getDate();
+                dates = new Date(years, months, 0).getDate(); //month의 말일을 구하는 코드
             }else if(months !== 1){
                 months = months-1;
                 dates = new Date(years, months, 0).getDate();
@@ -284,17 +272,16 @@ let notTodoResult;
         years = String(years);
         months = String(months);
         dates = String(dates);
-        // console.log(years);
         if(navId !== 'log in'){
             db.collection('pomodoro-record').findOne({'id':navId, 'year':years, 'month':months, 'date':dates}, function(err, pomodoroRecordResult){
                 pomoRecordRes = pomodoroRecordResult.pomoRecord;
-
+                // console.log("pomoRecordRes"+pomoRecordRes);
                 db.collection('todolist-record').findOne({'id' : navId, 'year':years, 'month':months, 'date':dates}, function(err, todolistRecordResult){
                     todoRecordRes = todolistRecordResult.todoRecord;
-
+                    // console.log("todoRecordRes"+todoRecordRes);
                     db.collection('not-todolist-record').findOne({'id' : navId, 'year':years, 'month':months, 'date':dates}, function(err, nottodolistRecordResult){
-                            notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
-
+                        notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
+                        // console.log("notTodoRecordRes"+notTodoRecordRes);
                             res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : pomoRecordRes, 'todos' : todoRecordRes, 'notTodos' : notTodoRecordRes});
                     })
                 })

@@ -99,7 +99,7 @@
             <!--투두리스트 입력값을 위한 인풋태그, 버튼태그-->
             <form onsubmit="return false;">
               <!-- index.html 임시로 지정, onsubmit을 막아서 엔터키를 내가원하는데로 지정-->
-              <input type="text" class="input-text"id="todo-input-text" maxlength="45" onkeydown="if(window.event.keyCode==13){addItem()}" autocomplete="off"/>
+              <input type="text" class="input-text"id="todo-input-text" maxlength="44" onkeydown="if(window.event.keyCode==13){addItem()}" autocomplete="off"/>
               <!--onkeydown속성으로 버튼눌렀을때 키코드확인, 메서드 실행 211009-->
               <button type="button" class="input-button" id="todo-input-button"><i class="fas fa-greater-than"></i> </button>
             </form>
@@ -139,7 +139,7 @@
           <div id="nottodo-write">
             <!--낫투두리스트 입력값을 위한 인풋태그, 버튼태그-->
             <form onsubmit="return false;">
-              <input type="text" class="ntd-input-text" maxlength="45" onkeydown="if(window.event.keyCode==13){ntdAddItem()}"/>
+              <input type="text" class="ntd-input-text" maxlength="44" onkeydown="if(window.event.keyCode==13){ntdAddItem()}"/>
               <button type="button" class="ntd-input-button"> <i class="fas fa-greater-than"></i> </button>
             </form>
           </div>

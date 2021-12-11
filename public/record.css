@@ -314,7 +314,10 @@ h2 {
   height: 290px;
   margin-bottom: 20px;
 }
-.record-content {
+.record-calendar-content,
+.record-pomo-content,
+.record-todo-content,
+.record-nottodo-content {
   position: relative;
   border: 1px solid lightgray;
   overflow: auto;
@@ -326,6 +329,7 @@ h2 {
 }
 #pomo-record-content {
   height: 390px;
+  text-align: left;
 }
 #todo-record-content {
   height: 450px;
@@ -333,11 +337,17 @@ h2 {
 #not-todo-record-content {
   height: 240px;
 }
-.record-content::-webkit-scrollbar {
+.record-calendar-content::-webkit-scrollbar,
+.record-pomo-content::-webkit-scrollbar,
+.record-todo-content::-webkit-scrollbar,
+.record-nottodo-content::-webkit-scrollbar {
   width: 7px;
   background-color: transparent;
 }
-.record-content::-webkit-scrollbar-thumb {
+.record-calendar-content::-webkit-scrollbar-thumb,
+.record-pomo-content::-webkit-scrollbar-thumb,
+.record-todo-content::-webkit-scrollbar-thumb,
+.record-nottodo-content::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border-top: 0px solid lightgray;
   border-bottom: 0px solid lightgray;
@@ -345,11 +355,6 @@ h2 {
   background-color: lightgray;
 }
 
-.선이생기는버튼 {
-  position: absolute;
-  top: 250px;
-  left: -100px;
-}
 /* ---------------달력------------------ */
 
 td {
@@ -399,6 +404,47 @@ i:hover {
   border: 0;
 }
 
+/* pomo부분 */
+.record-content {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 7px;
+  border: 0;
+  background-color: transparent;
+  /* 마우스클릭금지 */
+  pointer-events: none;
+}
+.record-text {
+  border: 0;
+  background-color: transparent;
+}
+/* 투두, 낫투두 화면에 표시되면 안되는 부분 처리*/
+.draggable {
+  list-style-type: none;
+}
+.fa-arrows-alt-v,
+.todo-list-delete,
+.ntd-todo-list-delete {
+  color: transparent;
+  background-color: transparent;
+  border: 0;
+  pointer-events: none;
+}
+/* 투두, 낫투두 화면에 표시될 부분 처리 */
+.todo-list-content,
+.ntd-todo-list-content {
+  font-family: "Ubuntu", sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+  left: 0px;
+  border: 0px;
+  background-color: transparent;
+  margin: 10px;
+  pointer-events: none;
+}
 /* ---------------반응형------------------ */
 @media screen and (min-height: 1150px) {
   #mainLayout,
