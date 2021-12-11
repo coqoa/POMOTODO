@@ -79,15 +79,15 @@ let notTodoResult;
         if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
             db.collection('pomodoro').findOne({id:navId}, function(err, pomodoroResult){
                 pomoResult = pomodoroResult.contentHTML;
-                console.log('pomoResult:' + pomoResult);
+                // console.log('pomoResult:' + pomoResult);
 
                 db.collection('todolist').findOne({id : navId}, function(err, todolistResult){
                     todoResult = todolistResult.todoListHTML;
-                    console.log('todoResult:' +todoResult);
+                    // console.log('todoResult:' +todoResult);
 
                     db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
                             notTodoResult = nottodolistResult.notTodoListHTML;
-                            console.log('notTodoResult:' +notTodoResult);
+                            // console.log('notTodoResult:' +notTodoResult);
 
                             res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); //todoList  <%- todolist.todoListHTML %>
                     })
@@ -263,26 +263,57 @@ let notTodoResult;
     
     app.get('/record',function(req, res){
         console.log(navId);
-            // pomodoro 기록 출력하는 코드
-        if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
-            res.render('record.ejs', { posts : `${navId}`}); //todoList  <%- todolist.todoListHTML %>
-                
-        }else{ // 아이디가 없을경우는 빈공백
-            res.render('record.ejs', { posts : `${navId}`}); // 아이디없는경우 꼭 추가해줘야함
+        let dateObject = new Date();
+        let years = dateObject.getFullYear();
+        let months = dateObject.getMonth()+1;
+        // let month = dateObject.getMonth()-10;
+        let dates = dateObject.getDate()-1;
+        // 오늘날짜에서 1일 뺀 값을 ajax로 넘겨준다
+        // 만약 1을 뺏을때 0이라면 전달 말일로 바꿔주는데 1월1일에 1을뺀다면 1년-,11월+,해당달의 말일 을 데이터로 보내준다
+        if(dates==0){
+            if(months == 1){
+                years = years-1;
+                months = months+11;
+                //month의 말일을 구하는 코드
+                dates = new Date(years, months, 0).getDate();
+            }else if(months !== 1){
+                months = months-1;
+                dates = new Date(years, months, 0).getDate();
+            }
+        }
+        years = String(years);
+        months = String(months);
+        dates = String(dates);
+        // console.log(years);
+        if(navId !== 'log in'){
+            db.collection('pomodoro-record').findOne({'id':navId, 'year':years, 'month':months, 'date':dates}, function(err, pomodoroRecordResult){
+                pomoRecordRes = pomodoroRecordResult.pomoRecord;
+
+                db.collection('todolist-record').findOne({'id' : navId, 'year':years, 'month':months, 'date':dates}, function(err, todolistRecordResult){
+                    todoRecordRes = todolistRecordResult.todoRecord;
+
+                    db.collection('not-todolist-record').findOne({'id' : navId, 'year':years, 'month':months, 'date':dates}, function(err, nottodolistRecordResult){
+                            notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
+
+                            res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : pomoRecordRes, 'todos' : todoRecordRes, 'notTodos' : notTodoRecordRes});
+                    })
+                })
+            })
+        }else{
+            res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : '', 'todos' : '', 'notTodos' : ''});
         }
     });
-
     //---------------------------------서버에 기록 생성 , 수정 코드--------------------------
     app.post('/createBtn', function(req, res){
         if(navId !== 'log in'){
-            db.collection('pomodoro-record').insertOne({ id : req.body.id, year : req.body.year, month : req.body.month ,pomoRecord : req.body.pomoRecord }, function(err, result){
+            db.collection('pomodoro-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'pomoRecord' : req.body.pomoRecord }, function(err, result){
                 console.log('db pomodoro-record create')
                 
             })
-            db.collection('todolist-record').insertOne({ id : req.body.id, year : req.body.year, month : req.body.month ,todoRecord : req.body.todoRecord }, function(err, result){
+            db.collection('todolist-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'todoRecord' : req.body.todoRecord }, function(err, result){
                 console.log('db todolist create')  
             })
-            db.collection('not-todolist-record').insertOne({ id : req.body.id, year : req.body.year, month : req.body.month ,notTodoRecord : req.body.notTodoRecord }, function(err, result){
+            db.collection('not-todolist-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'notTodoRecord' : req.body.notTodoRecord }, function(err, result){
                 console.log('db not-todolist create')    
             })
             res.status(200).send({ message : 'DB Record 생성성공'});
@@ -299,13 +330,13 @@ let notTodoResult;
     })
     app.post('/saveBtn', function(req, res){
         if(navId !== 'log in'){
-            db.collection('pomodoro-record').update({ id : req.body.id, year : req.body.year, month : req.body.month} ,{$set: {pomoRecord : req.body.pomoRecord}}, function(err, result){
+            db.collection('pomodoro-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'pomoRecord' : req.body.pomoRecord}}, function(err, result){
                 console.log('db pomodoro-record save')
             });
-            db.collection('todolist-record').update({ id : req.body.id, year : req.body.year, month : req.body.month} ,{$set: {todoRecord : req.body.todoRecord}}, function(err, result){
+            db.collection('todolist-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'todoRecord' : req.body.todoRecord}}, function(err, result){
                 console.log('db todolist save')
             });
-            db.collection('not-todolist-record').update({ id : req.body.id, year : req.body.year, month : req.body.month} ,{$set: {notTodoRecord : req.body.notTodoRecord}}, function(err, result){
+            db.collection('not-todolist-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'notTodoRecord' : req.body.notTodoRecord}}, function(err, result){
                 console.log('db not-todolistsave')
             });
             res.status(200).send({ message : 'DB Record 수정성공'});
@@ -313,7 +344,6 @@ let notTodoResult;
             console.log('로그인을 해주세요');
         }
     })
-
     
 })
 

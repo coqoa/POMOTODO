@@ -11,6 +11,7 @@ function setClock(){
     let min = addStringZero(dateObject.getMinutes());
     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + "ﾠ " + hour+ " : " + min ; 
 }
+
 function addStringZero(time){
     if(parseInt(time)<10)
         return "0"+time;
@@ -21,6 +22,7 @@ window.onload = function(){
     setClock();
     setInterval(setClock,1000);
 }
+
 // // 네비게이션 바 로그인 출력 부분 
 // ------------------------------------------------(header.js로 이동시켰음 211208)------------------------------------------------------------
 // let modalButton = document.getElementById('modal-button-id-check');
@@ -862,16 +864,21 @@ function ajaxNotTodo(){
         }
     })
 }
-let dateObject = new Date();
-let year = dateObject.getFullYear();
-let month = dateObject.getMonth()+1;
+    
 let createBtn = document.querySelector('.createBtn');
 createBtn.onclick = function(){
+    let dateObject = new Date();
+    let year = dateObject.getFullYear();
+    let month = dateObject.getMonth()+1;
+    let date = dateObject.getDate();
+    let hour = addStringZero(dateObject.getHours());
+    let min = addStringZero(dateObject.getMinutes());
+
     $.ajax({ 
         method : 'POST',
         url : '/createBtn',
         // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
-        data : {id : modalButton.innerHTML, year : year, month : month , pomoRecord : ' ' , todoRecord: ' ', notTodoRecord : ' '},
+        data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : ' ' , todoRecord: ' ', notTodoRecord : ' '},
         success : function(data) {
             console.log('DB Record 빈값 생성 성공 ')
         },
@@ -886,7 +893,7 @@ saveBtn.onclick = function(){
         method : 'POST',
         url : '/saveBtn',
         // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
-        data : {id : modalButton.innerHTML, year : year, month : month , pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
+        data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
         success : function(data) {
             console.log('DB Record 빈값 수정 성공 ')
         },
@@ -895,3 +902,49 @@ saveBtn.onclick = function(){
         }
     })
 };
+function checkTime(){
+    let dateObject = new Date();
+    let year = dateObject.getFullYear();
+    let month = dateObject.getMonth()+1;
+    let date = dateObject.getDate();
+    let hour = addStringZero(dateObject.getHours());
+    let min = addStringZero(dateObject.getMinutes());
+    // if(hour === 17 && min === 27){
+    if(hour === 23 && min === 58){
+        // console.log(year);
+        // console.log(month);
+        // console.log(hour);
+        // console.log(min);
+        // console.log(min==24)
+        console.log('record기록')
+    }
+    if(hour === 23 && min ===59){
+        console.log('서버데이터초기화')
+    }
+}
+setInterval(checkTime,55100);
+
+// let ymdBtn = document.querySelector('.ymdBtn');
+// ymdBtn.onclick = function(){
+//     let dateObject = new Date();
+//     let year = dateObject.getFullYear();
+//     let month = dateObject.getMonth()+1;
+//     // let month = dateObject.getMonth()-10;
+//     let date = dateObject.getDate()-1;
+//     // 오늘날짜에서 1일 뺀 값을 ajax로 넘겨준다
+//     // 만약 1을 뺏을때 0이라면 전달 말일로 바꿔주는데 1월1일에 1을뺀다면 1년-,11월+,해당달의 말일 을 데이터로 보내준다
+//     if(date==0){
+//         if(month == 1){
+//             year = year-1;
+//             month = month+11;
+//             // date = ymd; month의 말일을 구하는 코드
+//             date = new Date(year, month, 0).getDate();
+//         }else if(month !== 1){
+//             month = month-1;
+//             date = new Date(year, month, 0).getDate();
+//         }
+//     }
+    // console.log(year);
+    // console.log(month);
+    // console.log(date)
+// }
