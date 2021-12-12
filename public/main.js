@@ -865,46 +865,75 @@ function ajaxNotTodo(){
     })
 }
     
-let createBtn = document.querySelector('.createBtn');
-createBtn.onclick = function(){
-    let dateObject = new Date();
-    let year = dateObject.getFullYear();
-    let month = dateObject.getMonth()+1;
-    let date = dateObject.getDate();
-    let hour = addStringZero(dateObject.getHours());
-    let min = addStringZero(dateObject.getMinutes());
+// let createBtn = document.querySelector('.createBtn');
+// createBtn.onclick = function(){
+//     let dateObject = new Date();
+//     let year = dateObject.getFullYear();
+//     let month = dateObject.getMonth()+1;
+//     let date = dateObject.getDate();
+//     let hour = addStringZero(dateObject.getHours());
+//     let min = addStringZero(dateObject.getMinutes());
 
+//     $.ajax({ 
+//         method : 'POST',
+//         url : '/createBtn',
+//         // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
+//         data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : ' ' , todoRecord: ' ', notTodoRecord : ' '},
+//         success : function(data) {
+//             console.log('DB Record 빈값 생성 성공 ')
+//         },
+//         error : function(xhr, status, error) {
+//             console.log('DB Record 빈값 생성 실패');
+//         }
+//     })
+// };
+let createBtn = document.querySelector('.createBtn');
+let recordLists = document.getElementById("record-list");
+let itemLists = document.querySelector(".item-list")
+let ntdItemLists = document.querySelector(".ntd-item-list")
+createBtn.onclick = function(){
+    // let dateObject = new Date();
+    // let year = dateObject.getFullYear();
+    // let month = dateObject.getMonth()+1;
+    // let date = dateObject.getDate();
+    // let hour = addStringZero(dateObject.getHours());
+    // let min = addStringZero(dateObject.getMinutes());
+    console.log(yyyymmdd());
     $.ajax({ 
         method : 'POST',
         url : '/createBtn',
-        // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
-        data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : ' ' , todoRecord: ' ', notTodoRecord : ' '},
+        // data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
+        data : {id : modalButton.innerHTML, yyyymmdd : yyyymmdd(), pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
         success : function(data) {
-            console.log('DB Record 빈값 생성 성공 ')
+            console.log('DB Record 저장 성공 ')
         },
         error : function(xhr, status, error) {
-            console.log('DB Record 빈값 생성 실패');
+            console.log('DB Record 저장 실패');
         }
     })
+    // recordLists.innerHTML = "";
+    // itemLists.innerHTML = "";
+    // ntdItemLists.innerHTML = "";
+    // //그냥 데이터를 삭제하자?
 };
-let saveBtn = document.querySelector('.saveBtn');
-saveBtn.onclick = function(){
+function yyyymmdd(){
     let dateObject = new Date();
     let year = dateObject.getFullYear();
     let month = dateObject.getMonth()+1;
     let date = dateObject.getDate();
-    let hour = addStringZero(dateObject.getHours());
-    let min = addStringZero(dateObject.getMinutes());
+    return year +"."+ month+"."+date;
+}
+let saveBtn = document.querySelector('.saveBtn');
+saveBtn.onclick = function(){
     $.ajax({ 
         method : 'POST',
         url : '/saveBtn',
-        // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
-        data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
+        data : {empty : ''},
         success : function(data) {
-            console.log('DB Record 빈값 수정 성공 ')
+            console.log('empty ')
         },
         error : function(xhr, status, error) {
-            console.log('DB Record 빈값 수정 실패');
+            console.log('empty 실패');
         }
     })
 };

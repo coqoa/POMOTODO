@@ -11,6 +11,7 @@ app.set('view engine', 'ejs');
 let flash = require('connect-flash');
 let bkfd2Password = require('pbkdf2-password')
 let hasher = bkfd2Password();
+var util = require('util');
 
 MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
     //db지정하는코드
@@ -94,6 +95,7 @@ let notTodoResult;
     app.get('/signup',function(req, res){
         res.render('signup.ejs', { idCheckResult : idCheck});
     });
+    
 
     // 로그인 페이지(세션,쿠키)
     const passport = require('passport');
@@ -291,45 +293,72 @@ let notTodoResult;
         }
     });
     //---------------------------------서버에 기록 생성 , 수정 코드--------------------------
+    // app.post('/createBtn', function(req, res){
+    //     if(navId !== 'log in'){
+    //         db.collection('pomodoro-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'pomoRecord' : req.body.pomoRecord }, function(err, result){
+    //             console.log('db pomodoro-record create')
+                
+    //         })
+    //         db.collection('todolist-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'todoRecord' : req.body.todoRecord }, function(err, result){
+    //             console.log('db todolist create')  
+    //         })
+    //         db.collection('not-todolist-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'notTodoRecord' : req.body.notTodoRecord }, function(err, result){
+    //             console.log('db not-todolist create')    
+    //         })
+    //         res.status(200).send({ message : 'DB Record 생성성공'});
+    //     }else{
+    //         console.log('로그인을 해주세요');
+    //     }
+    //     // console.log(req.body); // 값 받아서 출력까진 완성, id조건넣고, 서버에 저장하도록 구현하기
+    //     // console.log(req.body.id); 
+    //     // console.log(req.body.year); 
+    //     // console.log(req.body.month); 
+    //     // console.log(req.body.pomoRecord); 
+    //     // console.log(req.body.todoRecord); 
+    //     // console.log(req.body.notTodoRecord); 
+    // })
     app.post('/createBtn', function(req, res){
+        // db.collection(pomodoroRecord).find({yyyymmdd : req.body.yyyymmdd}).toArray(function(err,result){
+        //     console.log(result);
+        // })
         if(navId !== 'log in'){
-            db.collection('pomodoro-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'pomoRecord' : req.body.pomoRecord }, function(err, result){
+            db.collection('pomodoro-record').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'pomoRecord' : req.body.pomoRecord }, function(err, result){
                 console.log('db pomodoro-record create')
                 
             })
-            db.collection('todolist-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'todoRecord' : req.body.todoRecord }, function(err, result){
+            db.collection('todolist-record').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'todoRecord' : req.body.todoRecord }, function(err, result){
                 console.log('db todolist create')  
             })
-            db.collection('not-todolist-record').insertOne({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date ,'notTodoRecord' : req.body.notTodoRecord }, function(err, result){
+            db.collection('not-todolist-record').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'notTodoRecord' : req.body.notTodoRecord }, function(err, result){
                 console.log('db not-todolist create')    
             })
             res.status(200).send({ message : 'DB Record 생성성공'});
         }else{
             console.log('로그인을 해주세요');
         }
-        // console.log(req.body); // 값 받아서 출력까진 완성, id조건넣고, 서버에 저장하도록 구현하기
-        // console.log(req.body.id); 
-        // console.log(req.body.year); 
-        // console.log(req.body.month); 
-        // console.log(req.body.pomoRecord); 
-        // console.log(req.body.todoRecord); 
-        // console.log(req.body.notTodoRecord); 
     })
     app.post('/saveBtn', function(req, res){
-        if(navId !== 'log in'){
-            db.collection('pomodoro-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'pomoRecord' : req.body.pomoRecord}}, function(err, result){
-                console.log('db pomodoro-record save')
-            });
-            db.collection('todolist-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'todoRecord' : req.body.todoRecord}}, function(err, result){
-                console.log('db todolist save')
-            });
-            db.collection('not-todolist-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'notTodoRecord' : req.body.notTodoRecord}}, function(err, result){
-                console.log('db not-todolistsave')
-            });
-            res.status(200).send({ message : 'DB Record 수정성공'});
-        }else{
-            console.log('로그인을 해주세요');
-        }
+        // console.log(req.body);
+        db.collection('pomodoro').find({'contentHTML':req.body.empty}).toArray(function(err,result){
+        // db.collection('pomodoro').find().toArray(function(err,result){
+            // console.log("result : " + result)
+            console.log(util.inspect(result, {depth: 2}));
+        })
+    
+        // if(navId !== 'log in'){
+        //     db.collection('pomodoro-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'pomoRecord' : req.body.pomoRecord}}, function(err, result){
+        //         console.log('db pomodoro-record save')
+        //     });
+        //     db.collection('todolist-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'todoRecord' : req.body.todoRecord}}, function(err, result){
+        //         console.log('db todolist save')
+        //     });
+        //     db.collection('not-todolist-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'notTodoRecord' : req.body.notTodoRecord}}, function(err, result){
+        //         console.log('db not-todolistsave')
+        //     });
+        //     res.status(200).send({ message : 'DB Record 수정성공'});
+        // }else{
+        //     console.log('로그인을 해주세요');
+        // }
     })
     
 })
