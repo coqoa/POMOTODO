@@ -337,14 +337,61 @@ let notTodoResult;
             console.log('로그인을 해주세요');
         }
     })
-    app.post('/saveBtn', function(req, res){
-        // console.log(req.body);
-        db.collection('pomodoro').find({'contentHTML':req.body.empty}).toArray(function(err,result){
-        // db.collection('pomodoro').find().toArray(function(err,result){
-            // console.log("result : " + result)
-            console.log(util.inspect(result, {depth: 2}));
-        })
     
+    function yyyymmdd(){
+        let dateObject = new Date();
+        let year = dateObject.getFullYear();
+        let month = dateObject.getMonth()+1;
+        let date = dateObject.getDate();
+        return year +"."+ month+"."+date;
+    }
+    
+    app.post('/saveBtn', function(req, res){
+        db.collection('pomodoro').find().toArray(function(err,result){
+            // console.log(result[0].id);
+            // console.log(result[i].contentHTML.length>0);
+            for(let i = 0; i < result.length; i++){
+                if(result[i].contentHTML.length>0){
+                    //contentHTML이 존재할때 값을넘길코드
+                    // result[i].id
+                    // yyyymmdd
+                    // result[i].contentHTML
+                    db.collection('pomodoro-record').insertOne({ 'id' : result[i].id, 'yyyymmdd' : yyyymmdd() ,'pomoRecord' : result[i].contentHTML }, function(err, result){
+                        console.log('db pomodoro-record create')
+                    })
+                    db.collection('pomodoro').update({'id' : result[i].id},{$set: {'contentHTML' : ''}})
+                }else{
+                    console.log('pomo result내용없음 : '+result[i].id)
+                }
+            }
+        });
+        
+        
+        db.collection('todolist').find().toArray(function(err,result){
+            for(let i = 0; i < result.length; i++){
+                if(result[i].todoListHTML.length>0){
+                    db.collection('todolist-record').insertOne({ 'id' : result[i].id, 'yyyymmdd' : yyyymmdd() ,'todoRecord' : result[i].todoListHTML }, function(err, result){
+                        console.log('db todo-record create')
+                    })
+                    db.collection('todolist').update({'id' : result[i].id},{$set: {'todoListHTML' : ''}})
+                }else{
+                    console.log('todo result내용없음 : '+result[i].id)
+                }
+            }
+        });
+        db.collection('not-todolist').find().toArray(function(err,result){
+            for(let i = 0; i < result.length; i++){
+                if(result[i].notTodoListHTML.length>0){
+                    db.collection('not-todolist-record').insertOne({ 'id' : result[i].id, 'yyyymmdd' : yyyymmdd() ,'notTodoRecord' : result[i].notTodoListHTML }, function(err, result){
+                        console.log('db not-todo-record create')
+                    })
+                    db.collection('not-todolist').update({'id' : result[i].id},{$set: {'notTodoListHTML' : ''}})
+                }else{
+                    console.log('nottodo result내용없음 : '+result[i].id)
+                }
+            }
+        });
+        
         // if(navId !== 'log in'){
         //     db.collection('pomodoro-record').update({ 'id' : req.body.id, 'year' : req.body.year, 'month' : req.body.month, 'date' : req.body.date} ,{$set: {'pomoRecord' : req.body.pomoRecord}}, function(err, result){
         //         console.log('db pomodoro-record save')

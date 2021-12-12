@@ -923,12 +923,14 @@ function yyyymmdd(){
     let date = dateObject.getDate();
     return year +"."+ month+"."+date;
 }
+
+
 let saveBtn = document.querySelector('.saveBtn');
 saveBtn.onclick = function(){
     $.ajax({ 
         method : 'POST',
         url : '/saveBtn',
-        data : {empty : ''},
+        // data : {empty : ''},
         success : function(data) {
             console.log('empty ')
         },
