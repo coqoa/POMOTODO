@@ -131,25 +131,62 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
      }
     /*달력 출력*/
      for (i=1; i<=lastDate.getDate(); i++) { 
-     //1일부터 마지막 일까지 돌림
-          cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
-          cell.innerHTML = "<button class='day-button' id='"+i+"' onclick='clickButton(this.id)'>"+i+"</button>";//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
-          cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
-          if (cnt % 7 == 1) {/*일요일 계산*/
-            //1주일이 7일 이므로 일요일 구하기
-            //월화수목금토일을 7로 나눴을때 나머지가 1이면 cnt가 1번째에 위치함을 의미한다
-            // cell.innerHTML = "<font color=#F79DC2>" + i
-            cell.innerHTML = "<button class='day-button' id='"+i+"' onclick='clickButton(this.id)'>"+i+"</button>";//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
-            //1번째의 cell에만 색칠
-        }    
-        if (cnt%7 == 0){/* 1주일이 7일 이므로 토요일 구하기*/
-            //월화수목금토일을 7로 나눴을때 나머지가 0이면 cnt가 7번째에 위치함을 의미한다
-            // cell.innerHTML = "<font color=skyblue>" + i
-            cell.innerHTML = "<button class='day-button' id='"+i+"' onclick='clickButton(this.id)'>"+i+"</button>";//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
-          //7번째의 cell에만 색칠
-           row = calendar.insertRow();
-           //토요일 다음에 올 셀을 추가
-      }
+      let year = today.getFullYear();
+      let month = ((today.getMonth()+1));
+      let day = (i);
+      let yyyymmdd = year+"."+month+"."+day;
+      //1일부터 마지막 일까지 돌림
+      cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
+      cell.innerHTML = "<button class='day-button' id='"+i+"' onclick='clickButton(this.id)' style='background-color:transparent'>"+i+"</button>";//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
+      cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
+      //   if (cnt % 7 == 1) {/*일요일 계산*/
+      //     //1주일이 7일 이므로 일요일 구하기
+      //     //월화수목금토일을 7로 나눴을때 나머지가 1이면 cnt가 1번째에 위치함을 의미한다
+      //     // cell.innerHTML = "<font color=#F79DC2>" + i
+      //     cell.innerHTML = "<button class='day-button' id='"+i+"' onclick='clickButton(this.id)'>"+i+"</button>";//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
+      //     //1번째의 cell에만 색칠
+      // }
+      if (cnt%7 == 0){/* 1주일이 7일 이므로 토요일 구하기*/
+        //월화수목금토일을 7로 나눴을때 나머지가 0이면 cnt가 7번째에 위치함을 의미한다
+        // cell.innerHTML = "<font color=skyblue>" + i
+        cell.innerHTML = "<button class='day-button' id='"+i+"' onclick='clickButton(this.id)' style='background-color:transparent'>"+i+"</button>";//셀을 1부터 마지막 day까지 HTML 문법에 넣어줌
+      //7번째의 cell에만 색칠
+       row = calendar.insertRow();
+       //토요일 다음에 올 셀을 추가
+    }
+      let countI = document.getElementById(i);
+          $.ajax({
+          method : 'POST',
+          url : '/buttonColor',
+          data : {'count' : yyyymmdd},
+          success : function(data) {
+            // $(pomoRecordContent).html (data.pomoMessage);
+              function pomoCount(){
+                if(data.message < 400){
+                  // console.log('0')
+                  // countI.style.backgroundColor="transparent";
+                }else if (data.message > 400 && data.message<1000){
+                  // console.log('1~2')
+                  countI.style.backgroundColor="yellow";
+                }else if (data.message > 999 && data.message<2000){
+                  // console.log('3~5')
+                  countI.style.backgroundColor="orange";
+                }
+                else if (data.message > 1999 && data.message<4000){
+                  // console.log('5~10')
+                  countI.style.backgroundColor="red";
+                }else if (data.message > 3999){
+                  // console.log('10이상')
+                  countI.style.backgroundColor="blue";
+                }
+              }
+              pomoCount();
+            },
+            error : function(xhr, status, error) {
+              console.log(data.message)
+            }
+          })   
+        
       /*오늘의 날짜에 노란색 칠하기*/
     if (today.getFullYear() == date.getFullYear()
          && today.getMonth() == date.getMonth()
@@ -202,3 +239,20 @@ buildCalendar();
 // console.log('a');
 // }
 // 달력
+// let pomoCount = document.getElementById('pomo-record-content');
+// console.log(pomoCount.childElementCount/2);
+// function buttonBackgroundColor(){
+
+// }
+// $.ajax({
+//   method : 'POST',
+//   url : '/buttonColor',
+//   // data : {'clickedButton' : yyyymmdd},
+//   success : function(data) {
+//     // $(pomoRecordContent).html (data.pomoMessage);
+//       console.log('데이버튼클릭 성공')
+//   },
+//   error : function(xhr, status, error) {
+//       console.log('데이버튼 클릭실패');
+//   }
+// })

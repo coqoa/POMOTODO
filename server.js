@@ -11,7 +11,6 @@ app.set('view engine', 'ejs');
 let flash = require('connect-flash');
 let bkfd2Password = require('pbkdf2-password')
 let hasher = bkfd2Password();
-var util = require('util');
 
 MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
     //db지정하는코드
@@ -400,6 +399,18 @@ let notTodoResult;
         }else{
             res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : '', 'todos' : '', 'notTodos' : ''});
         }
+    })
+    app.post('/buttonColor', function(req, res){
+        db.collection('pomodoro-record').findOne({'id':navId, 'yyyymmdd':req.body.count},function(err,result){
+            // res.status(200).send({ message : result});
+        if(result !== null){
+
+            res.status(200).send({ message : result.pomoRecord.length});
+        }else{
+            res.status(200).send({ message : ''});
+        }
+        })
+
     })
 })
 

@@ -382,7 +382,7 @@ td.day {
   font-size: 10px;
   font-family: 굴림;
   border: 1px solid lightgray;
-  background-color: transparent;
+  /* background-color: transparent; */
   border-radius: 8px;
   cursor: pointer;
 }
