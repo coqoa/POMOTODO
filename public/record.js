@@ -171,16 +171,17 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
                   countI.style.color="white";
                 }else if (data.message > 999 && data.message<2000){
                   // console.log('3~5')
-                  countI.style.backgroundColor="#ff8164";
+                  countI.style.backgroundColor="#ff6242";
                   countI.style.color="white";
                 }
                 else if (data.message > 1999 && data.message<4000){
                   // console.log('5~10')
-                  countI.style.backgroundColor="#ff4122";
+                  countI.style.backgroundColor="#fb3b1e";
                   countI.style.color="white";
                 }else if (data.message > 3999){
                   // console.log('10이상')
-                  countI.style.backgroundColor="#df2c14";
+                  console.log(data.message)
+                  countI.style.backgroundColor="#ed3419";
                   countI.style.color="white";
                 }
               }
