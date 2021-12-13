@@ -167,17 +167,21 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
                   // countI.style.backgroundColor="transparent";
                 }else if (data.message > 400 && data.message<1000){
                   // console.log('1~2')
-                  countI.style.backgroundColor="yellow";
+                  countI.style.backgroundColor="#ffa590";
+                  countI.style.color="white";
                 }else if (data.message > 999 && data.message<2000){
                   // console.log('3~5')
-                  countI.style.backgroundColor="orange";
+                  countI.style.backgroundColor="#ff8164";
+                  countI.style.color="white";
                 }
                 else if (data.message > 1999 && data.message<4000){
                   // console.log('5~10')
-                  countI.style.backgroundColor="red";
+                  countI.style.backgroundColor="#ff4122";
+                  countI.style.color="white";
                 }else if (data.message > 3999){
                   // console.log('10이상')
-                  countI.style.backgroundColor="blue";
+                  countI.style.backgroundColor="#df2c14";
+                  countI.style.color="white";
                 }
               }
               pomoCount();
@@ -192,7 +196,7 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
          && today.getMonth() == date.getMonth()
          && i+1 == date.getDate()) {//어제날짜에 칠해야하므로
           //달력에 있는 년,달과 내 컴퓨터의 로컬 년,달이 같고, 일이 오늘의 일과 같으면
-        cell.style.border = "1px solid gray";//셀의 배경색을 노랑으로 
+        countI.style.border = "3px solid gray";//셀의 배경색을 노랑으로 
     }
 }
 }  
@@ -211,7 +215,7 @@ function clickButton(clicked_id){
     buttonBorder[i].style.border = "1px solid #dadada";
   //클릭한 버튼 테두리색
   let clickedButton = document.getElementById(clicked_id);
-  clickedButton.style.border = "4px solid #FF8000";
+  clickedButton.style.border = "3px solid gray";
       
     // 이거랑 navId로 서버에서 자료찾아서 화면에 뿌려주도록 ajax 있으면 뿌려주고 없으면 빈값으로 출력
   $.ajax({

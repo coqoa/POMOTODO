@@ -365,7 +365,7 @@ td {
   height: 25px;
   text-align: center;
   font-size: 10px;
-  font-family: 굴림;
+  /* font-family: 굴림; */
   border: 1px solid transparent;
   border-radius: 10px; /*모서리 둥글게*/
 }
@@ -375,13 +375,16 @@ td.day {
 }
 /* 일 버튼(요일버튼제외) */
 .day-button {
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
   margin: 0px;
   padding: 0px;
   width: 50px;
   height: 40px;
-  font-size: 10px;
-  font-family: 굴림;
-  border: 1px solid lightgray;
+  font-size: 13px;
+  /* font-family: 굴림; */
+  color: gray;
+  border: 1px solid rgb(231, 229, 229);
   /* background-color: transparent; */
   border-radius: 8px;
   cursor: pointer;
