@@ -824,7 +824,7 @@ function modalClick(){
     })
 }
 
-// ----------------------------------------------------------------------
+// --------------------------------------------------ajax--------------------------------------------------------
 function ajaxPomo(){
     $.ajax({
         method : 'POST',
@@ -864,67 +864,7 @@ function ajaxNotTodo(){
         }
     })
 }
-    
-// let createBtn = document.querySelector('.createBtn');
-// createBtn.onclick = function(){
-//     let dateObject = new Date();
-//     let year = dateObject.getFullYear();
-//     let month = dateObject.getMonth()+1;
-//     let date = dateObject.getDate();
-//     let hour = addStringZero(dateObject.getHours());
-//     let min = addStringZero(dateObject.getMinutes());
-
-//     $.ajax({ 
-//         method : 'POST',
-//         url : '/createBtn',
-//         // data : {id : modalButton.innerHTML, pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML, notTodoRecord : ntdItemList.innerHTML},
-//         data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : ' ' , todoRecord: ' ', notTodoRecord : ' '},
-//         success : function(data) {
-//             console.log('DB Record 빈값 생성 성공 ')
-//         },
-//         error : function(xhr, status, error) {
-//             console.log('DB Record 빈값 생성 실패');
-//         }
-//     })
-// };
-let createBtn = document.querySelector('.createBtn');
-let recordLists = document.getElementById("record-list");
-let itemLists = document.querySelector(".item-list")
-let ntdItemLists = document.querySelector(".ntd-item-list")
-createBtn.onclick = function(){
-    // let dateObject = new Date();
-    // let year = dateObject.getFullYear();
-    // let month = dateObject.getMonth()+1;
-    // let date = dateObject.getDate();
-    // let hour = addStringZero(dateObject.getHours());
-    // let min = addStringZero(dateObject.getMinutes());
-    console.log(yyyymmdd());
-    $.ajax({ 
-        method : 'POST',
-        url : '/createBtn',
-        // data : {id : modalButton.innerHTML, year : year, month : month, date : date , pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
-        data : {id : modalButton.innerHTML, yyyymmdd : yyyymmdd(), pomoRecord : recordList.innerHTML , todoRecord: itemList.innerHTML , notTodoRecord : ntdItemList.innerHTML},
-        success : function(data) {
-            console.log('DB Record 저장 성공 ')
-        },
-        error : function(xhr, status, error) {
-            console.log('DB Record 저장 실패');
-        }
-    })
-    // recordLists.innerHTML = "";
-    // itemLists.innerHTML = "";
-    // ntdItemLists.innerHTML = "";
-    // //그냥 데이터를 삭제하자?
-};
-function yyyymmdd(){
-    let dateObject = new Date();
-    let year = dateObject.getFullYear();
-    let month = dateObject.getMonth()+1;
-    let date = dateObject.getDate();
-    return year +"."+ month+"."+date;
-}
-
-
+    // 조건에 맞으면 서버저장/ 초기화하도록
 let saveBtn = document.querySelector('.saveBtn');
 saveBtn.onclick = function(){
     $.ajax({ 
@@ -939,6 +879,7 @@ saveBtn.onclick = function(){
         }
     })
 };
+// 시간체크 ( 23시59분에 저장/초기화하도록)
 function checkTime(){
     let dateObject = new Date();
     let year = dateObject.getFullYear();

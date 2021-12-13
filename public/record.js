@@ -155,18 +155,46 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
          && today.getMonth() == date.getMonth()
          && i+1 == date.getDate()) {//어제날짜에 칠해야하므로
           //달력에 있는 년,달과 내 컴퓨터의 로컬 년,달이 같고, 일이 오늘의 일과 같으면
-        cell.bgColor = "#FAF58C";//셀의 배경색을 노랑으로 
+        cell.style.border = "1px solid gray";//셀의 배경색을 노랑으로 
     }
 }
 }  
-
 function clickButton(clicked_id){
-    let month = ((today.getMonth()+1));
-    let day = (clicked_id);
-    console.log(month+"월"+day+"일");
+  let year = today.getFullYear();
+  let month = ((today.getMonth()+1));
+  let day = (clicked_id);
+  let yyyymmdd = year+"."+month+"."+day;
+  console.log(yyyymmdd);
+  // 클릭제외버튼 테두리색 초기화
+  let buttonBorder = document.querySelectorAll('.day-button');
+  for (let i = 0; i < buttonBorder.length; i++)
+    buttonBorder[i].style.border = "1px solid #dadada";
+  //클릭한 버튼 테두리색
+  let clickedButton = document.getElementById(clicked_id);
+
+  clickedButton.style.border = "4px solid #FF8000";
+
+
+      
+    // 이거랑 navId로 서버에서 자료찾아서 화면에 뿌려주도록 ajax 있으면 뿌려주고 없으면 빈값으로 출력
+    // function ajaxPomo(){
+    //   $.ajax({
+    //       method : 'POST',
+    //       url : '/dayButton',
+    //       data : {'clickedButton' : yyyymmdd},
+    //       success : function() {
+    //           console.log('데이버튼클릭 성공')
+    //       },
+    //       error : function(xhr, status, error) {
+    //           console.log('데이버튼 클릭실패');
+    //       }
+    //   })
+    // }
 }
 
 buildCalendar();
+
+
 // // 버튼.addEventListener("click",e=>{
 // 버튼.onclick = function(){
 // // console.log(e.target.id);

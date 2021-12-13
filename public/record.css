@@ -325,7 +325,7 @@ h2 {
 }
 #calendar-content {
   top: 5px;
-  height: 340px;
+  height: 350px;
 }
 #pomo-record-content {
   height: 390px;
@@ -358,16 +358,20 @@ h2 {
 /* ---------------달력------------------ */
 
 td {
+  padding: 0px;
+  box-sizing: border-box;
   width: 50px;
   height: 25px;
   text-align: center;
   font-size: 10px;
   font-family: 굴림;
   border: 1px solid transparent;
-  border-radius: 8px; /*모서리 둥글게*/
+  border-radius: 10px; /*모서리 둥글게*/
 }
 /* 일 버튼(요일버튼제외) */
 .day-button {
+  margin: 0px;
+  padding: 0px;
   width: 50px;
   height: 40px;
   font-size: 10px;

@@ -132,6 +132,7 @@ function numberBlur2(e) {
     }else{
         birthdayMessageCount.style.display = "none";
         birthdayMessage.style.display = "inline";
+    
         isBirthdayCheck = false;
     }
 }
