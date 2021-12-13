@@ -676,10 +676,6 @@ div.audio {
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
 }
-
-.todo-list-content {
-  font-weight: 600;
-}
 .todo-modal-content > #check {
   background-color: lightgray;
   color: white;
@@ -906,16 +902,17 @@ ol li.checked:active {
   padding: 1px;
 
   font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
   width: 530px;
   height: 40px;
-  color: #5e5e5e;
+  /* color: #5e5e5e; */
 }
-.ntd-todo-list-content {
+/* .ntd-todo-list-content {
   color: #f36164;
-}
+} */
 .todo-list-content:hover,
 .ntd-todo-list-content:hover {
   opacity: 0.6;
@@ -969,7 +966,8 @@ ol li.checked:active {
     right: 155px;
   }
 } */
-@media screen and (max-width: 960px) {
+
+@media screen and (max-width: 1350px) {
   #mainLayout {
     top: 450px;
   }
@@ -1010,6 +1008,15 @@ ol li.checked:active {
   #mainLayout,
   .top-bar {
     zoom: 100%;
+  }
+}
+@media screen and (max-width: 730px) {
+  #mainLayout,
+  .top-bar {
+    zoom: 38%;
+  }
+  .body {
+    height: 730px;
   }
 }
 /* @media screen and (min-width: 900px) {

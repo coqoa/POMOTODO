@@ -146,12 +146,24 @@ label {
   color: black;
 }
 /*------------------------------------------------ ⬇︎ signup ------------------------------------------------ */
+/* 라벨위치 미세조정 */
+.label-email {
+  right: 115px;
+}
+.label-number {
+  right: 106px;
+}
+.label-birthday {
+  right: 104px;
+}
+
 .signup-title {
+  top: 0px;
   right: 70px;
 }
 .signup-title-underline {
   position: relative;
-  top: -125px;
+  top: -150px;
   left: 42px;
   height: 5px;
   width: 130px;
@@ -324,9 +336,9 @@ label {
   left: 28%;
 }
 
-/* @media screen and (min-width: 1850px) {
+/* @media screen and (max-width: 760px) {
   .container {
-    zoom: 200%;
+    zoom: 1%;
   }
 } */
 @media screen and (min-height: 1150px) {
@@ -337,5 +349,10 @@ label {
 @media screen and (max-width: 1800px) {
   .container {
     zoom: 100%;
+  }
+}
+@media screen and (max-width: 730px) {
+  .container {
+    zoom: 70%;
   }
 }

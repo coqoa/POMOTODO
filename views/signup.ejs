@@ -28,19 +28,19 @@
                 <div class="message" id="password-message-length">비밀번호는 5~20자로 입력해주세요</div>
             </div>
             <div class="form-list">
-                <label for="email">email</label><br>
+                <label for="email" class="label-email">email</label><br>
                 <input type="email" class="form-list" id="signupEmail" name="email" placeholder="email" autocomplete="off" onblur="mailCheck()">
                 <div class="message" id="email-check-match">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
                 <div class="message" id="email-check-unmatch">이메일 형식으로 입력해주세요</div>
             </div>
             <div class="form-list">
-                <label for="number">number</label><br>
+                <label for="number" class="label-number">number</label><br>
                 <input type="text" class="form-list" id="signupNumber" name="number" placeholder="( - ) 제외 11자" autocomplete='off' maxlength="11" onkeyup="onlyNumber1(this)" onchange="numberBlur(this)">
                 <div class="message" id="number-message-count">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
                 <div class="message" id="number-message">숫자 11자를 입력해주세요</div>
             </div>
             <div class="form-list">
-                <label for="birthday">birthday</label><br>
+                <label for="birthday" class="label-birthday">birthday</label><br>
                 <input type="text" class="form-list" id="signupBirthday" name="birthday" placeholder="ex.910208" maxlength='6' autocomplete='off' onkeyup="onlyNumber2(this)" onblur="numberBlur2(this)">
                 <div class="message" id="birthday-message-count">ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ✔︎ﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠﾠ</div>
                 <div class="message" id="birthday-message">숫자 6자를 입력해주세요</div>

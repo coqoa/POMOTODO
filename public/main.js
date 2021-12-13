@@ -595,7 +595,7 @@ function addItem() {
 
     if(item.length !== 0 ){ //빈값이면 출력안되도록 구현 
         itemList.innerHTML += "<li class = 'draggable' draggable = 'true' >"
-                                +" <button type= ='button' class='todo-list-content' >"+ item +"</button>"
+                                +" <button type= ='button' class='todo-list-content' style='color: #5e5e5e;'>"+ item +"</button>"
                                 +"<i class='fas fa-arrows-alt-v'></i>"
                                 +"<button type ='button' class='todo-list-delete' onclick='deleteItem(this)'><i class='fas fa-times'></i></button></li>"
         document.querySelector(".input-text").value = "";
@@ -695,12 +695,11 @@ function ntdAddItem() {
     let ntdItem = document.querySelector(".ntd-input-text").value;
     if(ntdItem.length !== 0 ){ //빈값이면 출력안되도록 구현 
         ntdItemList.innerHTML += "<li class = 'draggable' draggable = 'true' >"
-                                    +" <button type= ='button' class='ntd-todo-list-content' >"+ ntdItem +"</button>"
+                                    +" <button type= ='button' class='ntd-todo-list-content' style='color: #f36164;' >"+ ntdItem +"</button>"
                                     +"<i class='fas fa-arrows-alt-v'></i>"
                                     +"<button type ='button' class='ntd-todo-list-delete' onclick='ntdDeleteItem(this)'><i class='fas fa-times'></i></button></li>"
         document.querySelector(".ntd-input-text").value = "";
         document.querySelector(".ntd-input-text").focus();
-
         ajaxNotTodo();
     }
 }

@@ -305,7 +305,8 @@ h2 {
   height: 355px;
 }
 #pomo-record {
-  height: 440px;
+  height: 435px;
+  margin-bottom: 30px;
 }
 #todo-record {
   height: 500px;
@@ -368,6 +369,10 @@ td {
   border: 1px solid transparent;
   border-radius: 10px; /*모서리 둥글게*/
 }
+td.day {
+  position: relative;
+  top: 3px;
+}
 /* 일 버튼(요일버튼제외) */
 .day-button {
   margin: 0px;
@@ -413,8 +418,8 @@ i:hover {
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 14px;
-  margin: 10px;
+  font-size: 18px;
+  margin: 8px;
   border: 0;
   background-color: transparent;
   /* 마우스클릭금지 */
@@ -428,11 +433,12 @@ i:hover {
 /* 투두, 낫투두 화면에 표시되면 안되는 부분 처리*/
 .draggable {
   list-style-type: none;
+  opacity: 0.8;
 }
 .fa-circle {
   position: relative;
-  top: -1px;
-  font-size: 10px;
+  top: -3px;
+  font-size: 12px;
   opacity: 0.7;
 }
 .fa-arrows-alt-v,
@@ -444,19 +450,24 @@ i:hover {
   pointer-events: none;
 }
 /* 투두, 낫투두 화면에 표시될 부분 처리 */
+/* .todo-list-content,
+.ntd-todo-list-content { */
+.draggable {
+  pointer-events: none;
+}
 .todo-list-content,
 .ntd-todo-list-content {
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
   /* font-family: "Nanum Gothic", sans-serif; */
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 18px;
   position: relative;
+  top: 10px;
   left: 8px;
   border: 0px;
   background-color: transparent;
   margin: 10px;
-  pointer-events: none;
 }
 /* -----------------------------------반응형------------------------------------ */
 @media screen and (min-height: 1150px) {
@@ -484,5 +495,18 @@ i:hover {
     position: absolute;
     top: 520px;
     left: 550px;
+  }
+}
+@media screen and (max-width: 730px) {
+  #mainLayout,
+  .top-bar {
+    zoom: 45%;
+  }
+  #mainLayout {
+    left: 365px;
+    top: 607px;
+  }
+  .body {
+    height: 500px;
   }
 }

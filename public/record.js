@@ -164,32 +164,33 @@ function clickButton(clicked_id){
   let month = ((today.getMonth()+1));
   let day = (clicked_id);
   let yyyymmdd = year+"."+month+"."+day;
-  console.log(yyyymmdd);
+  // console.log(yyyymmdd);
+  let pomoRecordContent = document.querySelector(".record-pomo-content");
+  let todoRecordContent = document.querySelector(".record-todo-content");
+  let notTodoRecordContent = document.querySelector(".record-nottodo-content");
   // 클릭제외버튼 테두리색 초기화
   let buttonBorder = document.querySelectorAll('.day-button');
   for (let i = 0; i < buttonBorder.length; i++)
     buttonBorder[i].style.border = "1px solid #dadada";
   //클릭한 버튼 테두리색
   let clickedButton = document.getElementById(clicked_id);
-
   clickedButton.style.border = "4px solid #FF8000";
-
-
       
     // 이거랑 navId로 서버에서 자료찾아서 화면에 뿌려주도록 ajax 있으면 뿌려주고 없으면 빈값으로 출력
-    // function ajaxPomo(){
-    //   $.ajax({
-    //       method : 'POST',
-    //       url : '/dayButton',
-    //       data : {'clickedButton' : yyyymmdd},
-    //       success : function() {
-    //           console.log('데이버튼클릭 성공')
-    //       },
-    //       error : function(xhr, status, error) {
-    //           console.log('데이버튼 클릭실패');
-    //       }
-    //   })
-    // }
+  $.ajax({
+      method : 'POST',
+      url : '/dayButton',
+      data : {'clickedButton' : yyyymmdd},
+      success : function(data) {
+        $(pomoRecordContent).html (data.pomoMessage);
+        $(todoRecordContent).html (data.todoMessage);
+        $(notTodoRecordContent).html (data.notTodoMessage);
+          console.log('데이버튼클릭 성공')
+      },
+      error : function(xhr, status, error) {
+          console.log('데이버튼 클릭실패');
+      }
+  })
 }
 
 buildCalendar();

@@ -363,7 +363,44 @@ let notTodoResult;
             }
         });
     })
-    
+    app.post('/dayButton', function(req, res){
+        console.log(req.body.clickedButton)
+        if(navId !== 'log in'){
+            db.collection('pomodoro-record').findOne({'id':navId, 'yyyymmdd':req.body.clickedButton}, function(err, pomodoroRecordResult){
+                if(pomodoroRecordResult ==null){
+                    console.log('pomodoro-record-error');
+                    pomoRecordRes = '';
+                }else{
+                    pomoRecordRes = pomodoroRecordResult.pomoRecord;
+                    // console.log("pomoRecordRes"+pomoRecordRes);
+                }
+                // res.status(200).send({ pomoMessage : pomoRecordRes});
+                db.collection('todolist-record').findOne({'id' : navId, 'yyyymmdd':req.body.clickedButton}, function(err, todolistRecordResult){
+                    if(todolistRecordResult==null){
+                        console.log('todolist-record-error');
+                        todoRecordRes = '';
+                    }else{
+                        todoRecordRes = todolistRecordResult.todoRecord;
+                        // console.log("todoRecordRes"+todoRecordRes);
+                    }
+                    // res.status(200).send({ todoMessage : todoRecordRes});
+                    db.collection('not-todolist-record').findOne({'id' : navId, 'yyyymmdd':req.body.clickedButton}, function(err, nottodolistRecordResult){
+                        if(nottodolistRecordResult==null){
+                            console.log('not-todolist-record-error');
+                            notTodoRecordRes = '';
+                        }else{
+                            notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
+                            // console.log("notTodoRecordRes"+notTodoRecordRes);
+                        }
+                    res.status(200).send({pomoMessage : pomoRecordRes, todoMessage : todoRecordRes , notTodoMessage : notTodoRecordRes});
+                            // res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : pomoRecordRes, 'todos' : todoRecordRes, 'notTodos' : notTodoRecordRes});
+                    })
+                })
+            })
+        }else{
+            res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : '', 'todos' : '', 'notTodos' : ''});
+        }
+    })
 })
 
 
