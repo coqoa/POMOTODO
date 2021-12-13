@@ -305,7 +305,7 @@ let notTodoResult;
                             notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
                             // console.log("notTodoRecordRes"+notTodoRecordRes);
                         }
-                            // res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : pomoRecordRes, 'todos' : todoRecordRes, 'notTodos' : notTodoRecordRes});
+                            res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : pomoRecordRes, 'todos' : todoRecordRes, 'notTodos' : notTodoRecordRes});
                     })
                 })
             })
