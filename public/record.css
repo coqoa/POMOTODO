@@ -288,7 +288,7 @@ a {
 }
 h2 {
   position: relative;
-  top: 7px;
+  top: 13px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -336,9 +336,11 @@ h2 {
 }
 #todo-record-content {
   height: 450px;
+  left: 4px;
 }
 #not-todo-record-content {
   height: 240px;
+  left: 4px;
 }
 .record-calendar-content::-webkit-scrollbar,
 .record-pomo-content::-webkit-scrollbar,
@@ -363,10 +365,13 @@ table {
   position: relative;
   top: 10px;
 }
+#tbCalendarYM {
+  top: 0px;
+}
 .fa-angle-left,
 .fa-angle-right {
   position: relative;
-  top: -5px;
+  top: -2px;
 }
 td {
   padding: 0px;
@@ -474,7 +479,7 @@ i:hover {
   font-style: italic;
   /* font-family: "Nanum Gothic", sans-serif; */
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
   position: relative;
   top: 10px;
   left: 8px;
