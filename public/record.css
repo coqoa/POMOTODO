@@ -359,7 +359,15 @@ h2 {
 }
 
 /* ---------------달력------------------ */
-
+table {
+  position: relative;
+  top: 10px;
+}
+.fa-angle-left,
+.fa-angle-right {
+  position: relative;
+  top: -5px;
+}
 td {
   padding: 0px;
   box-sizing: border-box;
