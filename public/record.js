@@ -162,26 +162,27 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
           success : function(data) {
             // $(pomoRecordContent).html (data.pomoMessage);
               function pomoCount(){
-                if(data.message < 400){
+                console.log(data.message/800)
+                if(data.message/800 < 0.5){
                   // console.log('0')
                   // countI.style.backgroundColor="transparent";
-                }else if (data.message > 400 && data.message<1000){
+                }else if (data.message/800 > 0.5 && data.message/800<4){
                   // console.log('1~2')
                   countI.style.backgroundColor="#ffa590";
                   countI.style.color="white";
-                }else if (data.message > 999 && data.message<2000){
+                }else if (data.message/800 > 3.999 && data.message/800<8){
                   // console.log('3~5')
-                  countI.style.backgroundColor="#ff6242";
+                  countI.style.backgroundColor="#ff8164";
                   countI.style.color="white";
                 }
-                else if (data.message > 1999 && data.message<4000){
+                else if (data.message/800 > 7.999 && data.message/800<12){
                   // console.log('5~10')
-                  countI.style.backgroundColor="#fb3b1e";
+                  countI.style.backgroundColor="#ff6242";
                   countI.style.color="white";
-                }else if (data.message > 3999){
+                }else if (data.message/800 > 11.999){
                   // console.log('10이상')
-                  console.log(data.message)
-                  countI.style.backgroundColor="#ed3419";
+                  // console.log(data.message)
+                  countI.style.backgroundColor="#ff4122";
                   countI.style.color="white";
                 }
               }

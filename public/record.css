@@ -268,7 +268,7 @@ a {
   left: 50%;
   transform: translate(-50%, -48%);
   width: 550px;
-  height: 840px;
+  height: 870px;
   align-items: center;
   border-radius: 10px;
   box-shadow: 7px 7px 7px #c8ced7, -5px -5px 20px #ffffff;
@@ -296,23 +296,25 @@ h2 {
   position: relative;
   left: 25px;
   width: 500px;
-  margin-top: 15px;
+  margin-top: 25px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 4px 4px 7px #c8ced7, -2px -2px 3px #ffffff;
 }
 #calendar-layout {
-  height: 355px;
+  height: 360px;
 }
 #pomo-record {
   height: 435px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 #todo-record {
+  margin-top: 25px;
   height: 500px;
 }
 #not-todo-record {
-  height: 290px;
+  height: 295px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 .record-calendar-content,

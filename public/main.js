@@ -866,6 +866,14 @@ function ajaxNotTodo(){
     // 조건에 맞으면 서버저장/ 초기화하도록
 let saveBtn = document.querySelector('.saveBtn');
 saveBtn.onclick = function(){
+    // let dateObject = new Date();
+    // let year = dateObject.getFullYear();
+    // let month = dateObject.getMonth()+1;
+    // let date = dateObject.getDate();
+    // let hour = addStringZero(dateObject.getHours());
+    // let min = addStringZero(dateObject.getMinutes());
+    // console.log(hour);
+    // console.log(min);
     $.ajax({ 
         method : 'POST',
         url : '/saveBtn',
@@ -887,7 +895,7 @@ function checkTime(){
     let hour = addStringZero(dateObject.getHours());
     let min = addStringZero(dateObject.getMinutes());
     // if(hour === 17 && min === 27){
-    if(hour === 23 && min === 58){
+    if(hour === 01 && min === 45){
         // console.log(year);
         // console.log(month);
         // console.log(hour);
@@ -895,9 +903,11 @@ function checkTime(){
         // console.log(min==24)
         console.log('record기록')
     }
-    if(hour === 23 && min ===59){
-        console.log('서버데이터초기화')
-    }
+    // if(hour === 01 && min === 50){
+    //     console.log(hour);
+    //     console.log(min);
+    // }
+    //왜 적용이 안되지... 다시 작성해보자
 }
 setInterval(checkTime,55100);
 
