@@ -23,6 +23,14 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     console.log('8080포트 접속성공')
     });
 
+    function yyyymmdd(){
+        let dateObject = new Date();
+        let year = dateObject.getFullYear();
+        let month = dateObject.getMonth()+1;
+        let date = dateObject.getDate();
+        return year +"."+ month+"."+date;
+    }
+
     app.post('/signupResult',function(req, res){
         db.collection('users').findOne({id: req.body.loginId}, function(err,result){
             // console.log(result)
@@ -77,9 +85,30 @@ let notTodoResult;
                     todoResult = todolistResult.todoListHTML;
 
                     db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
-                            notTodoResult = nottodolistResult.notTodoListHTML;
+                        notTodoResult = nottodolistResult.notTodoListHTML;
 
-                            res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); 
+                        db.collection('pomodoro-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, pomoRecCheck) {
+                            if(pomoRecCheck==null){
+                                db.collection('pomodoro-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'pomoRecord' : '' }, function(err, result){
+                                    console.log('db pomodoro-record create')
+                                })
+                            }
+                        })
+                        db.collection('todolist-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, todoRecCheck) {
+                            if(todoRecCheck==null){
+                                db.collection('todolist-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'todoRecord' : '' }, function(err, result){
+                                    console.log('db todo-record create')
+                                })
+                            }
+                        })
+                        db.collection('not-todolist-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, notTodoRecCheck) {
+                            if(notTodoRecCheck==null){
+                                db.collection('not-todolist-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'notTodoRecord' : '' }, function(err, result){
+                                    console.log('db not-todo-record create')
+                                })
+                            }
+                        })
+                        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); 
                             //todoList  <%- todolist.todoListHTML %>
                     })
                 })
@@ -314,17 +343,17 @@ let notTodoResult;
     });
     //---------------------------------서버에 기록 생성 , 수정 코드--------------------------
     
-    function yyyymmdd(){
-        let dateObject = new Date();
-        let year = dateObject.getFullYear();
-        let month = dateObject.getMonth()+1;
-        let date = dateObject.getDate();
-        return year +"."+ month+"."+date;
-    }
+    // function yyyymmdd(){
+    //     let dateObject = new Date();
+    //     let year = dateObject.getFullYear();
+    //     let month = dateObject.getMonth()+1;
+    //     let date = dateObject.getDate();
+    //     return year +"."+ month+"."+date;
+    // }
     
-    app.post('/saveBtn', function(req, res){
+    app.post('/saveData', function(req, res){
         db.collection('pomodoro').find().toArray(function(err,result){
-            // console.log(result[0].id);
+             // console.log(result[0].id);
             // console.log(result[i].contentHTML.length>0);
             for(let i = 0; i < result.length; i++){
                 if(result[i].contentHTML.length>0){
@@ -341,6 +370,12 @@ let notTodoResult;
                 }
             }
         });
+        
+        // 포모도로컬렉션의 내용을 찾아서 반복문으로 출력한다
+        // (포모도로리스트에 id와 날짜데이터가 없으면 생성해주고 있으면 업데이트해준다 초기화메서드는 따로관리한다 00시00분이되면)
+        // contentHTML이 0자 이상인애들은 인서트시키고 초기화시켜준다(업데이트)
+
+
         db.collection('todolist').find().toArray(function(err,result){
             for(let i = 0; i < result.length; i++){
                 if(result[i].todoListHTML.length>0){
@@ -351,6 +386,9 @@ let notTodoResult;
                 }
             }
         });
+
+
+
         db.collection('not-todolist').find().toArray(function(err,result){
             for(let i = 0; i < result.length; i++){
                 if(result[i].notTodoListHTML.length>0){
@@ -362,6 +400,10 @@ let notTodoResult;
             }
         });
     })
+
+
+
+
     app.post('/dayButton', function(req, res){
         console.log(req.body.clickedButton)
         if(navId !== 'log in'){

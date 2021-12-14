@@ -876,7 +876,7 @@ saveBtn.onclick = function(){
     // console.log(min);
     $.ajax({ 
         method : 'POST',
-        url : '/saveBtn',
+        url : '/saveData',
         // data : {empty : ''},
         success : function(data) {
             console.log('empty ')
@@ -895,20 +895,31 @@ function checkTime(){
     let hour = addStringZero(dateObject.getHours());
     let min = addStringZero(dateObject.getMinutes());
     // if(hour === 17 && min === 27){
-    if(hour === 01 && min === 45){
+    if(hour === 13 && min === 17){
         // console.log(year);
         // console.log(month);
         // console.log(hour);
         // console.log(min);
+        console.log(hour,min);
         // console.log(min==24)
-        console.log('record기록')
+        // console.log('record기록')
+    }else if(hour === 13 && min === 27){
+        console.log(hour,min);
+        // $.ajax({ 
+        //     method : 'POST',
+        //     url : '/saveData',
+        //     // data : {empty : ''},
+        //     success : function(data) {
+        //         console.log('empty ')
+        //     },
+        //     error : function(xhr, status, error) {
+        //         console.log('empty 실패');
+        //     }
+        // })
     }
-    // if(hour === 01 && min === 50){
-    //     console.log(hour);
-    //     console.log(min);
-    // }
-    //왜 적용이 안되지... 다시 작성해보자
+    //적용은 됬는데 브라우저가 안열려있으면 저장이 안됨
 }
+// checkTime();
 setInterval(checkTime,55100);
 
 
