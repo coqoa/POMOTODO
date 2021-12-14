@@ -1,6 +1,4 @@
-// $(function(){
-//     $("#navi").load("header.html")
-// });
+
 //네비 날짜
 function setClock(){
     let dateObject = new Date();
@@ -22,64 +20,6 @@ window.onload = function(){
     setClock();
     setInterval(setClock,1000);
 }
-
-// // 네비게이션 바 로그인 출력 부분 
-// ------------------------------------------------(header.js로 이동시켰음 211208)------------------------------------------------------------
-// let modalButton = document.getElementById('modal-button-id-check');
-// let modalWindow = document.getElementById('modal-window-id-check');
-// let loginButton = document.getElementById('loginButton');
-// let logoutButton = document.getElementById('logoutButton');
-// let unregister = document.getElementById('unregister');
-// let unregisterCheck = document.getElementById('unregister-check');
-// let unregisterOk = document.getElementById('unregister-ok');
-// let unregisterNo = document.getElementById('unregister-no');
-// let signupLoginModal = document.getElementById('signup-login-modal');
-// let hello = document.getElementById('hello');
-// let helloUser = document.getElementById('hello-user');
-
-// modalButton.addEventListener("click", e=>{
-//     if(modalWindow.style.display == 'flex')
-//         modalWindow.style.display = "none"
-//     else
-//         modalWindow.style.display = "flex"
-//         if(modalButton.innerText == "log in"){
-            
-//             loginButton.style.display = "flex"
-//             signupLoginModal.style.display = "flex"
-//             hello.style.display="inline-block"
-//         }
-//         else{
-//             logoutButton.style.display = "flex"
-//             unregister.style.display = "flex"
-//             helloUser.style.display="inline-block"
-//         }
-// })
-// loginButton.addEventListener("click", e=>{
-//     location.href='/login';
-// })
-// logoutButton.addEventListener("click", e=>{
-//     location.href='/logout';
-// })
-
-// unregister.addEventListener("click", e=>{
-//     unregisterCheck.style.display = "inline-block"
-// })
-// unregisterOk.addEventListener("click", e=>{
-//     location.href='/deleteUser';
-// })
-// unregisterNo.addEventListener("click", e=>{
-//     unregisterCheck.style.display = "none"
-// })
-// signupLoginModal.addEventListener("click", e=>{
-//     location.href='/signup';
-// })
-// 파일이 다른데 사용하고 싶은 요소가 있으면 새로 정의해줘야함
-// 외부파일로 뺀 것중에 사용하는 요소가 있는지 체크해야함
-// -------------------------------------네비게이션------------------------------------------
-// ------------------------------------------------(header.js로 이동시켰음 211208)------------------------------------------------------------
-
-
-
 
 //뽀모도로타이머
 let redMinutes = 25;
@@ -828,7 +768,7 @@ function ajaxPomo(){
     $.ajax({
         method : 'POST',
         url : '/insertPomodoro',
-        data : {id : modalButton.innerHTML, content: recordList.innerText, contentHTML : recordList.innerHTML},
+        data : {id : modalButton.innerHTML, contentHTML : recordList.innerHTML},
         success : function() {
             console.log('포모도로 ajax 성공')
         },
@@ -841,7 +781,7 @@ function ajaxTodo(){
     $.ajax({ 
         type : 'post',
         url : '/insertTodoList',
-        data : {id : modalButton.innerHTML, todoList: itemList.innerText, todoListHTML : itemList.innerHTML},
+        data : {id : modalButton.innerHTML, todoListHTML : itemList.innerHTML},
         success : function() {
             console.log('투두 ajax 성공')
         },
@@ -854,7 +794,7 @@ function ajaxNotTodo(){
     $.ajax({ 
         method : 'POST',
         url : '/insertNotTodoList',
-        data : {id : modalButton.innerHTML, notTodoList: ntdItemList.innerText, notTodoListHTML : ntdItemList.innerHTML},
+        data : {id : modalButton.innerHTML, notTodoListHTML : ntdItemList.innerHTML},
         success : function() {
             console.log('낫투두 ajax 성공')
         },
@@ -863,63 +803,51 @@ function ajaxNotTodo(){
         }
     })
 }
-    // 조건에 맞으면 서버저장/ 초기화하도록
-let saveBtn = document.querySelector('.saveBtn');
-saveBtn.onclick = function(){
-    // let dateObject = new Date();
-    // let year = dateObject.getFullYear();
-    // let month = dateObject.getMonth()+1;
-    // let date = dateObject.getDate();
-    // let hour = addStringZero(dateObject.getHours());
-    // let min = addStringZero(dateObject.getMinutes());
-    // console.log(hour);
-    // console.log(min);
+
+// 시간체크 ( 10초마다 서버에 저장
+function checkTimeSave(){
+    
+        // console.log(year);
+        // console.log(month);
+        // console.log(hour);
+        // console.log(min);
     $.ajax({ 
         method : 'POST',
         url : '/saveData',
         // data : {empty : ''},
         success : function(data) {
-            console.log('empty ')
+            console.log('투두레코드10초마다업데이트')
         },
         error : function(xhr, status, error) {
             console.log('empty 실패');
         }
     })
-};
-// 시간체크 ( 23시59분에 저장/초기화하도록)
-function checkTime(){
+    //적용은 됬는데 브라우저가 안열려있으면 저장이 안됨
+}
+// checkTime();
+setInterval(checkTimeSave,10100);
+//화면초기화하고 record필드만들어주는 코드작성(컬렉션에 존재하면 만들지않고 존재하지 않으면 만들도록)
+function checkTimeInitialization(){
     let dateObject = new Date();
     let year = dateObject.getFullYear();
     let month = dateObject.getMonth()+1;
     let date = dateObject.getDate();
     let hour = addStringZero(dateObject.getHours());
     let min = addStringZero(dateObject.getMinutes());
-    // if(hour === 17 && min === 27){
-    if(hour === 13 && min === 17){
-        // console.log(year);
-        // console.log(month);
-        // console.log(hour);
-        // console.log(min);
-        console.log(hour,min);
-        // console.log(min==24)
-        // console.log('record기록')
-    }else if(hour === 13 && min === 27){
-        console.log(hour,min);
-        // $.ajax({ 
-        //     method : 'POST',
-        //     url : '/saveData',
-        //     // data : {empty : ''},
-        //     success : function(data) {
-        //         console.log('empty ')
-        //     },
-        //     error : function(xhr, status, error) {
-        //         console.log('empty 실패');
-        //     }
-        // })
+    if(hour == 00 && min == 00){
+        $.ajax({ 
+            method : 'POST',
+            url : '/initialization',
+            // data : {empty : ''},
+            success : function(data) {
+                console.log(data.message)
+            },
+            error : function(xhr, status, error) {
+                console.log('empty 실패');
+            }
+        })
     }
-    //적용은 됬는데 브라우저가 안열려있으면 저장이 안됨
-}
-// checkTime();
-setInterval(checkTime,55100);
 
+}
+setInterval(checkTimeInitialization,55100);
 

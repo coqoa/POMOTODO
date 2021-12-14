@@ -196,7 +196,7 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
       /*오늘의 날짜에 노란색 칠하기*/
     if (today.getFullYear() == date.getFullYear()
          && today.getMonth() == date.getMonth()
-         && i+1 == date.getDate()) {//어제날짜에 칠해야하므로
+         && i == date.getDate()) {//어제날짜에 칠해야하므로
           //달력에 있는 년,달과 내 컴퓨터의 로컬 년,달이 같고, 일이 오늘의 일과 같으면
         countI.style.border = "3px solid gray";//셀의 배경색을 노랑으로 
     }

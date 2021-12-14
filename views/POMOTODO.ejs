@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/POMOTODO icon/mountain-solid.svg" />
     <title>POMOTODO</title>
+    <!-- css -->
     <link rel="stylesheet" href="style.css" />
-
     <!--웹폰트-->
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
-    <!--제이쿼리-->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>  -->
+    <!--제이쿼리(ajax)-->
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- 제이쿼리(sortable) -->
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
@@ -23,6 +23,7 @@
   <body class="body">
     <!--네비게이션바 외부 ejs파일로 뺴서 include-->
     <%- include ('header.ejs') %>
+    
     <div id="mainLayout">
       <section class="Pomodoro">
         <!-- 뽀모도로타이머  -->
@@ -71,9 +72,6 @@
             <br />
             <button type="button" class="start-audio" id="start-button" style="display: flex"></button>
             <button type="button" class="pause-audio" id="pause-button" style="display: none"></button>
-            <!-- <button class="createBtn">생성버튼</button> -->
-            <button class="saveBtn">저장버튼</button>
-            <!-- <button class="ymdBtn">날짜버튼</button> -->
           </div>
         </article>
         <!--포모도로 레이아웃-->
