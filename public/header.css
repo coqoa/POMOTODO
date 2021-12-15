@@ -80,6 +80,16 @@ a {
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 /* 생성된 모달창 */
+.modal-close {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  display: none;
+  width: 3000px;
+  height: 3000px;
+  background-color: #ffffff20;
+  z-index: 90;
+}
 #modal-window-id-check {
   display: none;
   flex-direction: column;

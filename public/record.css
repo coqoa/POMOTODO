@@ -169,8 +169,7 @@ i:hover {
 .calendar-layout {
   border: 0;
 }
-/* ------------------------------------------------------------------ */
-/* pomo부분 */
+/* ------------------------- pomo부분---------------------------------- */
 .record-content {
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
@@ -179,7 +178,6 @@ i:hover {
   margin: 8px;
   border: 0;
   background-color: transparent;
-  /* 마우스클릭금지 */
   pointer-events: none;
   color: rgb(78, 78, 78);
 }

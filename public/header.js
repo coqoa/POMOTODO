@@ -29,30 +29,63 @@ let unregisterNo = document.getElementById('unregister-no');
 let signupLoginModal = document.getElementById('signup-login-modal');
 let hello = document.getElementById('hello');
 let helloUser = document.getElementById('hello-user');
+let emailModal = document.querySelector('.modal-overlay');
+let loginModalClose = document.querySelector('.modal-close');
 
 modalButton.addEventListener("click", e=>{
-    if(modalWindow.style.display == 'flex')
+    if(modalWindow.style.display == 'flex'){
         modalWindow.style.display = "none"
-    else
+        loginModalClose.style.display = "none"
+    }else{
+        loginModalClose.style.display = "inline"
         modalWindow.style.display = "flex"
         if(modalButton.innerText == "log in"){
-            
             loginButton.style.display = "flex"
             signupLoginModal.style.display = "flex"
             hello.style.display="inline-block"
-            // logoutButton.style.display = "none"
         }
         else{
             logoutButton.style.display = "flex"
             unregister.style.display = "flex"
             helloUser.style.display="inline-block"
-            // loginButton.style.display = "none"
         }
+    }
+})
+//개발자 이메일 확인 모달창 구현
+let modal = document.getElementById("modal");
+let btnModal = document.getElementById("mail-btn");
+btnModal.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+    if (modal.style.display == "flex"){
+        modal.style.display = "none";
+        unregisterCheck.style.display = "none"
+    }
+    else{
+        modal.style.display = "flex";
+        unregisterCheck.style.display = "none"
+    }
+})
+let closeBtn = modal.querySelector(".close-area") //X버튼 눌러서 모달창 종료
+closeBtn.addEventListener("click", e => {
+    modal.style.display = "none";
+})
+window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
+    if(modal.style.display === "flex" && e.key === "Escape") 
+        modal.style.display = "none";
+        modalWindow.style.display = "none"
+    loginModalClose.style.display = "none"
+    emailModal.style.display = "none"
+    unregisterCheck.style.display = "none"
+})
+//모달창 밖을 클릭하면 모달창종료
+loginModalClose.addEventListener("click", e=>{
+    modalWindow.style.display = "none"
+    loginModalClose.style.display = "none"
+    emailModal.style.display = "none"
+    unregisterCheck.style.display = "none"
 })
 
 loginButton.addEventListener("click", e=>{
     location.href='/login';
-    // testReplace.style.display = "none"
 })
 logoutButton.addEventListener("click", e=>{
     location.href='/logout';
@@ -60,6 +93,7 @@ logoutButton.addEventListener("click", e=>{
 
 unregister.addEventListener("click", e=>{
     unregisterCheck.style.display = "inline-block"
+    emailModal.style.display = "none"
 })
 unregisterOk.addEventListener("click", e=>{
     location.href='/deleteUser';

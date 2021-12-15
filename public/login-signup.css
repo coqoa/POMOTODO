@@ -12,7 +12,6 @@ body {
   background-color: #e9f0fa;
 }
 .container {
-  /* 수직/수평 가운데정렬 */
   background-color: #e9f0fa;
   position: absolute;
   top: 50%;
@@ -315,16 +314,6 @@ label {
     zoom: 130%;
   }
 }
-/* @media screen and (max-width: 1800px) {
-  .container {
-    zoom: 100%;
-  }
-} */
-/* @media screen and (max-width: 730px) {
-  .container {
-    zoom: 100%;
-  }
-} */
 @media screen and (min-width: 730px) {
   .container {
     zoom: 120%;

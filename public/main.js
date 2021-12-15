@@ -9,7 +9,6 @@ function setClock(){
     let min = addStringZero(dateObject.getMinutes());
     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + "ﾠ " + hour+ " : " + min ; 
 }
-
 function addStringZero(time){
     if(parseInt(time)<10)
         return "0"+time;
@@ -25,17 +24,13 @@ window.onload = function(){
 let redMinutes = 25;
 let greenMinutes = 5;
 let minutes = redMinutes;
-
 let redSeconds = 0;
 let greenSeconds = 0;
 let seconds = redSeconds;
-
 const appendMinutes = document.getElementById("minute");
 const appendSeconds = document.getElementById("second");
-
 const buttonStart = document.getElementById("btn__start");
 const buttonStop = document.getElementById("btn__stop");
-
 const buttonMinute1Plus = document.getElementById("minute1__plus");
 const buttonMinute2Plus = document.getElementById("minute2__plus");
 const buttonSecond1Plus = document.getElementById("second1__plus");
@@ -48,29 +43,26 @@ const buttonSecond2Minus = document.getElementById("second2__minus");
 //뽀모도로 타이머 게이지 채우는 코드
 let intervalID;
 let func1;
-
 let pomodoroDelayRed=1500; //25분은 1500초
 let pomodoroDelayGreen=300; 
 let pomodoroDelay = pomodoroDelayRed;
-
 let pieChart = document.getElementById("pie-chart1")
 let PomodoroGuage
-
 let pomodoroColor;
 pomodoroColor = '#FF6F71';
-let pomodoroGuageColor = 1; // pomodoroGuageColor 가 1이면 pomodoroColor = ff6f71, 2면 초록색 출력 - 토글버튼을 위한 변수
+let pomodoroGuageColor = 1; // pomodoroGuageColor 가 1이면 빨간색, 2면 초록색 출력
 
 //뽀모도로 게이지 구현부분 draw함수를 호출해서 애니메이션을 시각화
 function draw(classname){
 
-    PomodoroGuage = 100; //100%여서 고정
+    PomodoroGuage = 100;
     func1 = setInterval(function(){
        if(PomodoroGuage >= 0){ //0%일때까지 반복
         color1(PomodoroGuage ,classname);
         PomodoroGuage -= 0.1;
         } else 
             clearInterval(func1);      
-    },pomodoroDelay); // 5가 최소값이라서 뽀모도로 초 변경부분 5초씩 늘리도록 구현했음
+    },pomodoroDelay);
 }
 function color1(PomodoroGuage, classname){
     $(classname).css({
@@ -110,7 +102,7 @@ buttonStop.onclick = function(){
     clearInterval(intervalID); 
 }
 
-function operateTimer(){ //1초씩 감소시키기
+function operateTimer(){
     seconds--; 
     appendSeconds.textContent = seconds;
     if(minutes<10)
@@ -139,21 +131,20 @@ function operateTimer(){ //1초씩 감소시키기
 
 //record 시간기록 
 let recordList = document.getElementById("record-list");
-
 let now;
 let startHours;
 let startMins;
 let stopHours;
 let stopMins;
-
-function startRecodList(){ // 스타트버튼 누를때 
+// 포모도로타이머 시작할때 시간기록 
+function startRecodList(){ 
     now = new Date();
     startHours = addStringZero(now.getHours());
     startMins = addStringZero(now.getMinutes());
-    draw(pieChart); // 타이머 애니메이션 적용,
+    draw(pieChart);
 };
-
-function stopRecordList(){ // 00분00초돌때, 정지버튼 누를때,
+//포모도로타이머 끝날때(00분00초돌때, 정지버튼 누를때,) 시간기록 및 출력 / 텍스트입력창 출력
+function stopRecordList(){ 
     // 재생, 일시정지, 정지버튼을 원래대로 되돌리는 코드
     buttonStart.style.display = "inline";
     buttonStop.style.display = "none";
@@ -161,7 +152,6 @@ function stopRecordList(){ // 00분00초돌때, 정지버튼 누를때,
     buttonStop.classList.remove('active');
 
     PomodoroGuage = 0; // 애니메이션 종료시키기
-    // pomodoroDelay = 1500; // 초기값으로 초기화;
 
     now = new Date();
     stopHours = addStringZero(now.getHours());
@@ -321,7 +311,6 @@ buttonMinute2Minus.onclick = function(){ //1분 감소
         }
     }
 }
-//
 //seconds 증감 버튼
 buttonSecond1Plus.onclick = function(){ //10초 증가
     if(seconds<50 && buttonStart.style.display !== "none"){
@@ -505,42 +494,19 @@ buttonSecond2Minus.onclick = function(){ //5초감소
         } 
     }
 }
-
-//모달창 구현
-let modal = document.getElementById("modal");
-let btnModal = document.getElementById("mail-btn");
-btnModal.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
-    if (modal.style.display == "flex")
-        modal.style.display = "none";
-    else
-        modal.style.display = "flex";
-})
-let closeBtn = modal.querySelector(".close-area") //X버튼 눌러서 모달창 종료
-closeBtn.addEventListener("click", e => {
-    modal.style.display = "none";
-})
-window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
-    if(modal.style.display === "flex" && e.key === "Escape") 
-        modal.style.display = "none";
-})
-
 //투두 
-
 let itemList = document.querySelector(".item-list")
 let inputButton = document.querySelector(".input-button");
 inputButton.addEventListener("click", addItem); 
-
 function addItem() {
     let item = document.querySelector(".input-text").value;
-
-    if(item.length !== 0 ){ //빈값이면 출력안되도록 구현 
-        itemList.innerHTML += "<li class = 'draggable' draggable = 'true' >"
+    if(item.length !== 0 ){ //투두리스트 입력창이 빈값이면 출력안되도록 구현 
+        itemList.innerHTML += "<li class = 'element.style {'>"
+                                +"<i class='fas fa-arrows-alt-v' id='ntdArrow'></i>"
                                 +" <button type= ='button' class='todo-list-content' style='color: #5e5e5e;'>"+ item +"</button>"
-                                +"<i class='fas fa-arrows-alt-v'></i>"
                                 +"<button type ='button' class='todo-list-delete' onclick='deleteItem(this)'><i class='fas fa-times'></i></button></li>"
         document.querySelector(".input-text").value = "";
         document.querySelector(".input-text").focus();
-        
         ajaxTodo();
     }
 }
@@ -554,6 +520,15 @@ $(function(){
             ajaxTodo();
         }
     });
+    $("#ntd-sortable").sortable({
+        start:function(event, ui){
+            console.log('낫투두드래그시작');
+        },   
+        stop:function(event, ui){
+            ajaxNotTodo();
+        }     
+    });
+    $("#ntd-sortable").disableSelection();
     $("#sortable").disableSelection();
 })
 
@@ -562,16 +537,31 @@ function deleteItem(txt) {
     ajaxTodo();
 }
 
-//투두 모달창 구현
+
+
+let colorClose = document.querySelector(".color-close");
+colorClose.addEventListener("click", e=>{
+    todoModal.style.display = "none";
+    notTodoModal.style.display = "none";
+    colorClose.style.display = "none"
+})
+
+
+
+
+//투두 색상지정 모달창 구현
 let todoModal = document.getElementById("todo-modal");
 let setColorList;
-itemList.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
+itemList.addEventListener("click", e => { // 누르면 투두리스트 색상지정 모달창 실행, 한번 더 누르면 모달창 종료
     if(e.target.tagName !== "SPAN" && e.target.className=='todo-list-content'){
-        if (todoModal.style.display == "flex")
+        if (todoModal.style.display == "flex"){
             todoModal.style.display = "none";
+            colorClose.style.display = "none"
+        }
         else{
             setColorList = e.target;
             todoModal.style.display = "flex";
+            colorClose.style.display = "inline"
         }
     }
 })
@@ -620,72 +610,58 @@ modalTodoColor.addEventListener("click", e =>{
     else if(e.target.value == "olive")
         setColorList.style.color="#B7BE54";
     
-    todoModal.style.display = "none"; //공통사항
+    todoModal.style.display = "none"; 
+    colorClose.style.display = "none"//공통사항
     ajaxTodo();
 })
 
-
 // 낫투두
-
 let ntdItemList = document.querySelector(".ntd-item-list")
 let ntdInputButton = document.querySelector(".ntd-input-button");
 ntdInputButton.addEventListener("click", ntdAddItem);
-
 function ntdAddItem() {
     let ntdItem = document.querySelector(".ntd-input-text").value;
     if(ntdItem.length !== 0 ){ //빈값이면 출력안되도록 구현 
-        ntdItemList.innerHTML += "<li class = 'draggable' draggable = 'true' >"
-                                    +" <button type= ='button' class='ntd-todo-list-content' style='color: #f36164;' >"+ ntdItem +"</button>"
+        ntdItemList.innerHTML += "<li class = 'draggable'>"
                                     +"<i class='fas fa-arrows-alt-v'></i>"
+                                    +" <button type= ='button' class='ntd-todo-list-content' style='color: #f36164;' >"+ ntdItem +"</button>"
                                     +"<button type ='button' class='ntd-todo-list-delete' onclick='ntdDeleteItem(this)'><i class='fas fa-times'></i></button></li>"
         document.querySelector(".ntd-input-text").value = "";
         document.querySelector(".ntd-input-text").focus();
         ajaxNotTodo();
     }
 }
-
 function ntdDeleteItem(txt) {
     txt.parentNode.remove();
     ajaxNotTodo();
 }
-
-$(function(){
-    // $("#sortable").sortable(
-    $("#ntd-sortable").sortable({
-        start:function(event, ui){
-            console.log('낫투두드래그시작');
-        },   
-        stop:function(event, ui){
-            ajaxNotTodo();
-        }     
-    });
-    $("#sortable").disableSelection();
-})
 
 //낫투두 모달창 구현
 let notTodoModal = document.getElementById("not-todo-modal"); 
 let ntdSetColorList;
 ntdItemList.addEventListener("click", e => { // 누르면 모달창 생성, 한번 더 누르면 모달창 종료
     if(e.target.tagName !== "SPAN"  && e.target.className=='ntd-todo-list-content'){
-        if (notTodoModal.style.display == "flex")
+        if (notTodoModal.style.display == "flex"){
             notTodoModal.style.display = "none";
+            colorClose.style.display = "none"
+        }
         else{
             ntdSetColorList = e.target;
             notTodoModal.style.display = "flex";
+            colorClose.style.display = "inline"
         }
     }
 })
-
 let ModalNotTodoColor = document.getElementById("not-todo-modal-content");
 ModalNotTodoColor.addEventListener("click", e =>{
-    // console.log(e.target.value) // 클릭한 요소의 태그를 콘솔에 찍어줌다 10월 28일 2시 여기까지완료
     if(e.target.value == "ntd-close"){
         
     }else if(e.target.value == "ntd-check")
         ntdSetColorList.style.color="#5C8A3D";
     else if(e.target.value == "ntd-red")
         ntdSetColorList.style.color="#f36164";
-    notTodoModal.style.display = "none"; //공통사항
+    notTodoModal.style.display = "none"; 
+    colorClose.style.display = "none"//공통사항
     ajaxNotTodo();
 })
 
@@ -696,10 +672,7 @@ let selectAudio = document.getElementById("select-audio");
 let modalAudio = document.getElementById("modal-audio");
 let start = document.getElementById("start-button");
 let stop = document.getElementById("pause-button")
-
-// selectAudio.innerText = audio1.innerText;
 selectAudio.innerText = 'Farm Morning with Sheep';
-
 start.addEventListener("click", function(){
     audio.play();
     start.style.display = "none";
@@ -711,7 +684,6 @@ stop.addEventListener("click", function(){
     stop.style.display = "none";
 });
 
-
 // 클릭시 모달창 나오는 코드
 selectAudio.addEventListener("click", modalClick);
 function modalClick(){
@@ -719,7 +691,7 @@ function modalClick(){
         modalAudio.style.display = "flex";
     else if(modalAudio.style.display == "flex")
         modalAudio.style.display = "none"
-    // 오디오 선택 버튼 상호작용 구현
+    // 오디오 선택 기능 구현
     modalAudio.addEventListener("click", e =>{
         selectAudio.innerText = '';
         console.log(e.target.className);
@@ -803,18 +775,11 @@ function ajaxNotTodo(){
         }
     })
 }
-
 // 시간체크 ( 10초마다 서버에 저장
 function checkTimeSave(){
-    
-        // console.log(year);
-        // console.log(month);
-        // console.log(hour);
-        // console.log(min);
     $.ajax({ 
         method : 'POST',
         url : '/saveData',
-        // data : {empty : ''},
         success : function(data) {
             console.log('투두레코드10초마다업데이트')
         },
@@ -822,11 +787,8 @@ function checkTimeSave(){
             console.log('empty 실패');
         }
     })
-    //적용은 됬는데 브라우저가 안열려있으면 저장이 안됨
 }
-// checkTime();
 setInterval(checkTimeSave,10100);
-//화면초기화하고 record필드만들어주는 코드작성(컬렉션에 존재하면 만들지않고 존재하지 않으면 만들도록)
 function checkTimeInitialization(){
     let dateObject = new Date();
     let year = dateObject.getFullYear();
@@ -838,7 +800,6 @@ function checkTimeInitialization(){
         $.ajax({ 
             method : 'POST',
             url : '/initialization',
-            // data : {empty : ''},
             success : function(data) {
                 console.log(data.message)
             },
@@ -847,7 +808,6 @@ function checkTimeInitialization(){
             }
         })
     }
-
 }
 setInterval(checkTimeInitialization,55100);
 

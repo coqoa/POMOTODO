@@ -16,7 +16,6 @@ h2 {
   font-weight: 700;
   font-size: 35px;
   text-align: center;
-
   margin: 0px 0px 20px;
   padding: 7px;
   opacity: 0.7;
@@ -50,22 +49,20 @@ section.todonottodo {
   left: 10px;
   width: 650px;
 }
-article.todolist {
-  height: 500px;
+article.todolist,
+article.nottodolist {
   padding: 10px;
-  margin-bottom: 20px;
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
   overflow: auto;
 }
+article.todolist {
+  height: 500px;
+  margin-bottom: 20px;
+}
 article.nottodolist {
   height: 280px;
-  padding: 10px;
-  border-radius: 30px;
-  background: #e9f0fa;
-  box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
-  overflow: auto;
 }
 /* 투두, 낫투두 스크롤 바 */
 article.todolist::-webkit-scrollbar,
@@ -89,7 +86,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   width: 215px;
   height: 215px;
   border: 1px solid black;
-  z-index: ;
   border-radius: 50%;
   border: 20px solid #ebf3fb;
   box-shadow: 3px 3px 6px #949da6, -3px -3px 6px #ffffff;
@@ -182,7 +178,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
 .clock__updown:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
-
 button:hover {
   opacity: 0.6;
   cursor: pointer;
@@ -235,7 +230,6 @@ div.record::-webkit-scrollbar-thumb {
   font-size: 15px;
   color: gray;
   background-color: transparent;
-
   padding: 5px;
   border-radius: 8px;
 }
@@ -369,7 +363,6 @@ div.audio {
   background-image: url("POMOTODO icon/play-solid.svg");
   left: 230px;
 }
-
 .pause-audio {
   display: none;
   background-image: url("POMOTODO icon/pause-solid.svg");
@@ -387,6 +380,17 @@ div.audio {
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
 }
+.color-close {
+  display: none;
+  position: absolute;
+  top: -30px;
+  left: -200px;
+  width: 1700px;
+  height: 1030px;
+  background-color: #ffffff20;
+  z-index: 90;
+}
+
 .todo-modal-content > #check {
   background-color: lightgray;
   color: white;
@@ -485,6 +489,7 @@ div.audio {
   box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
   border-radius: 10px;
   overflow: auto;
+  z-index: 99;
 }
 
 #todo-modal.todo-modal-overlay::-webkit-scrollbar {
@@ -497,19 +502,27 @@ div.audio {
   border-bottom: 30px solid transparent;
   background-color: lightgray;
 }
-.color-button {
+.color-button,
+.ntd-color-button {
   position: relative;
-  top: 140px;
   display: flex;
   justify-content: space-around;
-  background-color: #e9f0fa;
   padding: 8px;
   margin: 5px;
   width: 65px;
   height: 30px;
   border: 0px;
-  border-radius: 7px;
+  border-radius: 9px;
   box-shadow: 1px 1px 2px #c8ced7;
+  z-index: 999;
+}
+.color-button {
+  top: 140px;
+  background-color: #e9f0fa;
+}
+.ntd-color-button {
+  top: 0px;
+  left: -2px;
 }
 /* 낫투두모달창 */
 #not-todo-modal.not-todo-modal-overlay {
@@ -524,19 +537,7 @@ div.audio {
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
   border-radius: 10px;
-}
-.ntd-color-button {
-  position: relative;
-  top: -20px;
-  display: flex;
-  justify-content: space-around;
-  padding: 8px;
-  margin: 5px;
-  width: 65px;
-  height: 30px;
-  border: 0px;
-  border-radius: 7px;
-  box-shadow: 1px 1px 2px #c8ced7;
+  z-index: 99;
 }
 
 /* 투두리스트, 낫투두 입력시 생겨나는 리스트들 */
@@ -559,10 +560,16 @@ ol li {
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
   color: lightgray;
 }
-ol li > i {
+.fa-arrows-alt-v {
+  font-size: 18px;
+  width: 25px;
+  height: 30px;
   position: relative;
-  top: 2px;
+  top: 6px;
+  text-align: center;
+  justify-content: center;
 }
+
 button > i {
   position: relative;
   top: 1px;
@@ -632,7 +639,11 @@ ol li:hover {
   transition: 0.1s;
 }
 /* 반응형 */
-/* min은 ~이상, max는 ~이하 */
+@media screen and (min-width: 1650px) {
+  .top-bar {
+    zoom: 130%;
+  }
+}
 @media screen and (max-width: 1350px) {
   #mainLayout {
     top: 450px;
@@ -659,26 +670,16 @@ ol li:hover {
   #nottodo-write {
     left: 31px;
   }
-  ol li {
-    left: 11px;
-  }
-}
-@media screen and (min-height: 1150px) {
-  #mainLayout,
-  .top-bar {
-    zoom: 120%;
-  }
-}
-@media screen and (max-width: 1800px) {
-  #mainLayout,
-  .top-bar {
-    zoom: 100%;
+  .item-list,
+  .ntd-item-list {
+    position: relative;
+    left: 10px;
   }
 }
 @media screen and (max-width: 730px) {
   #mainLayout,
   .top-bar {
-    zoom: 38%;
+    zoom: 45%;
   }
   .body {
     height: 730px;

@@ -33,16 +33,14 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
 
     app.post('/signupResult',function(req, res){
         db.collection('users').findOne({id: req.body.loginId}, function(err,result){
-            // console.log(result)
             if(result == null){
-                console.log('아이디가 없음') 
+                // console.log('아이디가 없음') 
                 //서버에 아이디가 없으면 if, 있으면 else 출력 -> 없으면 가입을 진행해주고 있으면 얼럿창띄운다음에 회원가입페이지로 보내기
                 hasher({password: req.body.password}, function(err, pass, salt, hash){
                     // console.log(err, pass, salt, hash);
                     // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
         
-                    //서버에 자료 저장하기
-                        //db의 컬렉션 지정하기
+                    // db의 컬렉션 만들어서 데이터 저장하기
                     db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
                         console.log('db user create')
                     })
@@ -57,16 +55,8 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                     })
                     res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
                 })
-                // console.log('회원가입정보');
-                // console.log(req.body) : bodyParser를 통해 요청값을 분석한 정보(객체형식으로 반환하는 값)
-                // console.log("id = "+ req.body.loginId);
-                // console.log("password = "+ req.body.password);
-                // console.log("email = "+ req.body.email);
-                // console.log("number = "+ req.body.num₩ber);
-                // console.log("gender = "+ req.body.gender);
-                // console.log("birthday = "+ req.body.birthday);
             }else{
-                console.log('아이디가 있음')
+                // console.log('아이디가 있음')
                 res.send("<script>alert('이미 사용중인 아이디입니다');location.href='/signup';</script>");
             }
         });
@@ -87,6 +77,7 @@ let notTodoResult;
                     db.collection('not-todolist').findOne({id : navId}, function(err, nottodolistResult){
                         notTodoResult = nottodolistResult.notTodoListHTML;
 
+                        //record컬렉션을 조회해서 없으면 만들어주는 코드
                         db.collection('pomodoro-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, pomoRecCheck) {
                             if(pomoRecCheck==null){
                                 db.collection('pomodoro-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'pomoRecord' : '' }, function(err, result){
@@ -109,12 +100,11 @@ let notTodoResult;
                             }
                         })
                         res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); 
-                            //todoList  <%- todolist.todoListHTML %>
                     })
                 })
             })
-        }else{ // 아이디가 없을경우는 빈공백
-            res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : ' ', todoListRecord : ' ', notTodoListRecord : ' ' }); // 아이디없는경우 꼭 추가해줘야함
+        }else{ // 아이디가 없을경우는 빈공백 이 코드가 없을 때 ejs파일에러가 났음
+            res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : ' ', todoListRecord : ' ', notTodoListRecord : ' ' });
         }
     });
     // 누군가가 /signup으로 방문을 하면..signup관련 안내문을 띄워주자.
@@ -123,7 +113,6 @@ let notTodoResult;
     app.get('/signup',function(req, res){
         res.render('signup.ejs', { idCheckResult : idCheck});
     });
-    
 
     // 로그인 페이지(세션,쿠키)
     const passport = require('passport');
@@ -141,12 +130,10 @@ let notTodoResult;
     // 누군가가 /login으로 방문을 하면..login관련 안내문을 띄워주자.
     app.get('/login',function(req, res){
         let fmsg = req.flash(); // 로그인 실패시 출려되는 플래시메세지
-        // console.log(fmsg); // 아이디가 없는지 , 비밀번호가 틀렸는지 검사해서 작성해놓은 message를 출력해준다 125번, 132번줄
         let feedback= '';
         if(fmsg.error){
             feedback = fmsg.error[0]
         }
-
         res.render('login.ejs', {loginFeedback : feedback})
     });
     //passport라이브러리 사용
@@ -156,7 +143,6 @@ let notTodoResult;
         //실패시 /fail페이지로 이동시켜주세요
         }), function(req, res){
             res.redirect('/') // 성공시 redirect해서 홈페이지로 보내주기
-            // res.send("<script>location.href='/';</script>");
         });
         app.get('/fail', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
             res.redirect('/login')
@@ -175,12 +161,10 @@ let notTodoResult;
         db.collection('users').findOne({ id: inputId }, function (err, user) {
             //입력한 id에 대한 정보를 결과에 담아옴
             if (err) return done(err) //에러처리문법
-
-            //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
             if (!user) {
                 console.log('아이디가 없습니다')
                 return done(null, false, { message: '존재하지 않는 ID입니다' })
-
+                //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
             }
             if(user){
                 console.log('아이디가 존재합니다')
@@ -226,6 +210,7 @@ let notTodoResult;
             })
         }else{
             console.log('로그인을 해주세요');
+            res.status(200).send({ message : '로그인을 해주세요'});
         }
     })
     //투두리스트 업데이트
@@ -237,6 +222,7 @@ let notTodoResult;
             })
         }else{
             console.log('로그인을 해주세요');
+            res.status(200).send({ message : '로그인을 해주세요'});
         }
     })
     //낫투두리스트 업데이트
@@ -248,6 +234,7 @@ let notTodoResult;
             })
         }else{
             console.log('로그인을 해주세요');
+            res.status(200).send({ message : '로그인을 해주세요'});
         }
     })
     // 회원탈퇴
@@ -352,30 +339,16 @@ let notTodoResult;
     });
     //---------------------------------서버에 기록 생성 , 수정 코드--------------------------
     
-    // function yyyymmdd(){
-    //     let dateObject = new Date();
-    //     let year = dateObject.getFullYear();
-    //     let month = dateObject.getMonth()+1;
-    //     let date = dateObject.getDate();
-    //     return year +"."+ month+"."+date;
-    // }
-    
     app.post('/saveData', function(req, res){
         db.collection('pomodoro').find().toArray(function(err,result){
-             // console.log(result[0].id);
-            // console.log(result[i].contentHTML.length>0);
             for(let i = 0; i < result.length; i++){
                 if(result[i].contentHTML.length>0){
                     //contentHTML이 존재할때 값을넘길코드
                     // result[i].id
                     // yyyymmdd
                     // result[i].contentHTML
-                            // db.collection('pomodoro-record').insertOne({ 'id' : result[i].id, 'yyyymmdd' : yyyymmdd() ,'pomoRecord' : result[i].contentHTML }, function(err, result){
-                            //     console.log('db pomodoro-record create')
-                            // })
                     db.collection('pomodoro-record').updateOne({'id' : result[i].id, 'yyyymmdd' : yyyymmdd()},{$set: {'pomoRecord' : result[i].contentHTML}},function(){
                         console.log('뽀모레코드 업데이트')
-                        // res.status(200).send({ message : '뽀모레코드 업데이트 성공했습니다'});
                     })
                 }
             }
@@ -404,6 +377,7 @@ let notTodoResult;
         res.status(200).send({ message : '저장 성공했습니다'});
         
     })
+    // 00시00분이 되면 초기화, 로그인 중이라면 바로 기록페이지에 필드생성해줌
     app.post('/initialization', function(req, res){
         db.collection('pomodoro').find().toArray(function(err,result){
             for(let i = 0; i < result.length; i++){
@@ -451,9 +425,7 @@ let notTodoResult;
         }
         res.status(200).send({ message : 'record 초기화 / 빈값생성 했습니다'});
     })
-
-
-
+    //달력버튼 눌러서 해당 데이터 출력하는 코드
     app.post('/dayButton', function(req, res){
         console.log(req.body.clickedButton)
         if(navId !== 'log in'){
@@ -463,28 +435,22 @@ let notTodoResult;
                     pomoRecordRes = '';
                 }else{
                     pomoRecordRes = pomodoroRecordResult.pomoRecord;
-                    // console.log("pomoRecordRes"+pomoRecordRes);
                 }
-                // res.status(200).send({ pomoMessage : pomoRecordRes});
                 db.collection('todolist-record').findOne({'id' : navId, 'yyyymmdd':req.body.clickedButton}, function(err, todolistRecordResult){
                     if(todolistRecordResult==null){
                         console.log('todolist-record-error');
                         todoRecordRes = '';
                     }else{
                         todoRecordRes = todolistRecordResult.todoRecord;
-                        // console.log("todoRecordRes"+todoRecordRes);
                     }
-                    // res.status(200).send({ todoMessage : todoRecordRes});
                     db.collection('not-todolist-record').findOne({'id' : navId, 'yyyymmdd':req.body.clickedButton}, function(err, nottodolistRecordResult){
                         if(nottodolistRecordResult==null){
                             console.log('not-todolist-record-error');
                             notTodoRecordRes = '';
                         }else{
                             notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
-                            // console.log("notTodoRecordRes"+notTodoRecordRes);
                         }
                     res.status(200).send({pomoMessage : pomoRecordRes, todoMessage : todoRecordRes , notTodoMessage : notTodoRecordRes});
-                            // res.render('record.ejs', { 'posts' : `${navId}`, 'pomos' : pomoRecordRes, 'todos' : todoRecordRes, 'notTodos' : notTodoRecordRes});
                     })
                 })
             })
@@ -494,7 +460,6 @@ let notTodoResult;
     })
     app.post('/buttonColor', function(req, res){
         db.collection('pomodoro-record').findOne({'id':navId, 'yyyymmdd':req.body.count},function(err,result){
-            // res.status(200).send({ message : result});
         if(result !== null){
 
             res.status(200).send({ message : result.pomoRecord.length});
@@ -502,7 +467,6 @@ let notTodoResult;
             res.status(200).send({ message : ''});
         }
         })
-
     })
 })
 

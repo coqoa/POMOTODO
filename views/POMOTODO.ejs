@@ -23,8 +23,9 @@
   <body class="body">
     <!--네비게이션바 외부 ejs파일로 뺴서 include-->
     <%- include ('header.ejs') %>
-
+    
     <div id="mainLayout">
+      <span class="color-close"></span>
       <section class="Pomodoro">
         <!-- 뽀모도로타이머  -->
         <article class="Pomodoro-timer">
@@ -124,8 +125,7 @@
               <button type="button" class="ntd-input-button"> <i class="fas fa-greater-than"></i> </button>
             </form>
           </div>
-          <ol class="ntd-item-list" id="ntd-sortable"> <%- notTodoListRecord %> </ol>
-
+            <ol class="ntd-item-list" id="ntd-sortable"> <%- notTodoListRecord %> </ol>
           <div id="not-todo-modal" class="not-todo-modal-overlay">
             <div class="not-todo-modal-content" id="not-todo-modal-content">
               <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"> <b> < </b> </button>
