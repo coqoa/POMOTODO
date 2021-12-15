@@ -22,6 +22,7 @@ body {
   height: 600px;
   box-shadow: 8px 8px 25px #c1c7d0, -5px -5px 25px #ffffff;
   border-radius: 15px;
+  zoom: 80%;
 }
 /* #signupForm, */
 /* 로그인폼 레이아웃 */
@@ -314,13 +315,23 @@ label {
     zoom: 130%;
   }
 }
-@media screen and (max-width: 1800px) {
+/* @media screen and (max-width: 1800px) {
   .container {
     zoom: 100%;
   }
-}
-@media screen and (max-width: 730px) {
+} */
+/* @media screen and (max-width: 730px) {
   .container {
-    zoom: 70%;
+    zoom: 100%;
+  }
+} */
+@media screen and (min-width: 730px) {
+  .container {
+    zoom: 120%;
+  }
+}
+@media screen and (min-width: 2200px) {
+  .container {
+    zoom: 150%;
   }
 }
