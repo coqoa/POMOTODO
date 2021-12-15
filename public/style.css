@@ -12,7 +12,6 @@ body {
   margin: 0px;
   background-color: #e9f0fa;
 }
-
 h2 {
   font-weight: 700;
   font-size: 35px;
@@ -23,10 +22,7 @@ h2 {
   opacity: 0.7;
 }
 .section-title {
-  /*뽀모도로, 투두리스트, 낫투두리스트 타이틀의 폰트스타일*/
   font-style: italic;
-  /* opacity: 1;
-  color: #221974; */
 }
 #mainLayout {
   zoom: 100%;
@@ -35,9 +31,7 @@ h2 {
   top: 49%;
   left: 50%;
   transform: translate(-50%, -53%);
-  /* justify-content: space-between; */
   align-items: center;
-  /* height: 1200px; */
 }
 section.Pomodoro {
   position: relative;
@@ -46,24 +40,20 @@ section.Pomodoro {
   width: 650px;
   height: 830px;
   padding: 10px;
-  /* margin-right: 15px; */
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 20px #ffffff;
 }
-
 section.todonottodo {
   position: relative;
   top: 50px;
   left: 10px;
   width: 650px;
-  /* margin-left: 15px; */
 }
 article.todolist {
   height: 500px;
   padding: 10px;
   margin-bottom: 20px;
-
   border-radius: 30px;
   background: #e9f0fa;
   box-shadow: 11px 11px 9px #c8ced7, -5px -5px 22px #ffffff;
@@ -108,10 +98,8 @@ article.nottodolist::-webkit-scrollbar-thumb {
 /* 게이지 구현  */
 .Pomodoro-timer-guage {
   position: absolute;
-  /* padding: 0px;
-  margin: 0px; */
 }
-/* 시간은 컨트롤하는 타이머 커버영역 */
+/* 시간을 컨트롤하는 타이머 커버영역 */
 .Pomodoro-timer-container {
   position: relative;
   left: 239px;
@@ -122,17 +110,12 @@ article.nottodolist::-webkit-scrollbar-thumb {
   border-radius: 50%;
   background: #ebf3fb;
 }
-
 .Pomodoro-timer-container > h2 {
   /*시간, :, 버튼 모두 포함하는 부분*/
   position: relative;
   opacity: 0.6;
   font-size: 44px;
   margin: 0px 1px;
-  /* margin-top: 0px;
-  margin-left: 1px;
-  margin-right: 1px;
-  margin-bottom: 0px; */
   padding: 0px;
 }
 .Pomodoro-timer-container > h2 > span {
@@ -142,7 +125,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   top: 35px;
   width: 75px;
 }
-
 .Pomodoro-timer-container > .clock__updown {
   position: relative;
   top: 38px;
@@ -173,7 +155,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   margin-top: 0px;
   margin-left: 18px;
 }
-
 .Pomodoro-timer-container > .clock__btn {
   position: relative;
   top: 35px;
@@ -184,7 +165,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: transparent;
 }
-
 #btn__start {
   display: inline;
   color: #ff6f71;
@@ -193,7 +173,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   display: none;
   padding: 7px;
 }
-
 .clock__btn:hover,
 .clock__updown:hover {
   opacity: 0.9;
@@ -211,7 +190,6 @@ button:hover {
 button:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
-
 /* record , 스크롤 구현 */
 div.record {
   position: relative;
@@ -276,9 +254,8 @@ div.record::-webkit-scrollbar-thumb {
 #record-time:active {
   opacity: 0.3;
   color: black;
-  box-shadow: inset 0px 0px 0px #949da6, 0px 0px 0px #ffffff; /*버튼클릭애니메이션을 없애기 위해 작성한 코드*/
+  box-shadow: inset 0px 0px 0px #949da6, 0px 0px 0px #ffffff;
 }
-
 /* 뽀모도로 기록 타입확인용 아이콘 (빨강/초록)*/
 span > i {
   position: relative;
@@ -288,7 +265,6 @@ span > i {
   bottom: 2px;
   font-size: 2px;
 }
-
 /* 오디오 */
 div.audio {
   position: relative;
@@ -305,14 +281,12 @@ div.audio {
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
-
   position: relative;
   left: 125px;
   top: 30px;
   width: 250px;
   height: 25px;
   text-align: center;
-
   padding-top: 10px;
   border: 0;
   border-radius: 8px;
@@ -337,7 +311,6 @@ div.audio {
   top: 20px;
   left: 115px;
   align-items: center;
-
   background: rgba(255, 255, 255);
   width: 260px;
   height: 95px;
@@ -358,18 +331,15 @@ div.audio {
   border-bottom: 10px solid transparent;
   background-color: lightgray;
 }
-
 .audio-list {
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
   color: #808080;
-
   width: 250px;
   height: 30px;
   margin: 5px 0px 0px 0px;
-
   border: 0;
   border-radius: 5px;
   background: #e9f0fa;
@@ -380,15 +350,12 @@ div.audio {
   opacity: 1;
 }
 
-.start-audio {
-  display: flex;
-  background-image: url("POMOTODO icon/play-solid.svg");
+.start-audio,
+.pause-audio {
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center center;
-
   position: relative;
-  left: 230px;
   top: 35px;
   width: 45px;
   height: 45px;
@@ -397,23 +364,16 @@ div.audio {
   background-color: transparent;
   border-radius: 10px;
 }
+.start-audio {
+  display: flex;
+  background-image: url("POMOTODO icon/play-solid.svg");
+  left: 230px;
+}
 
 .pause-audio {
   display: none;
   background-image: url("POMOTODO icon/pause-solid.svg");
-  background-size: 25px;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  position: relative;
   left: 229px;
-  top: 45px;
-  width: 45px;
-  height: 45px;
-  opacity: 0.5;
-  border: 0px;
-  background-color: transparent;
-  border-radius: 10px;
 }
 
 /* 투두, 낫투두 */
@@ -422,7 +382,6 @@ div.audio {
   position: relative;
   left: 20px;
   width: 590px;
-  /* margin: 0px 18px 5px; */
   border-radius: 11px;
   height: 40px;
   background: #e9f0fa;
@@ -477,7 +436,6 @@ div.audio {
 .todo-modal-content > #olive {
   background-color: #b7be54;
 }
-
 .not-todo-modal-content > #ntdCheck {
   background-color: #5c8a3d;
   color: white;
@@ -485,7 +443,6 @@ div.audio {
 .not-todo-modal-content > #ntdRed {
   background-color: #f36164;
 }
-
 .input-text,
 .ntd-input-text {
   width: 540px;
@@ -496,10 +453,7 @@ div.audio {
   border: 0;
   outline: 0;
   border-radius: 9px;
-  /* padding: 0px 16px 0px; */
-  /* margin-right: 2px; */
 }
-
 .input-button,
 .ntd-input-button {
   width: 40px;
@@ -548,7 +502,6 @@ div.audio {
   top: 140px;
   display: flex;
   justify-content: space-around;
-  /* padding-top: 100px; */
   background-color: #e9f0fa;
   padding: 8px;
   margin: 5px;
@@ -558,17 +511,7 @@ div.audio {
   border-radius: 7px;
   box-shadow: 1px 1px 2px #c8ced7;
 }
-
-/* #todo-modal.todo-modal-close {
-  display: inline;
-  float: right;
-  padding-right: 3px;
-  cursor: pointer;
-  color: gray;
-} */
-
 /* 낫투두모달창 */
-
 #not-todo-modal.not-todo-modal-overlay {
   width: 75px;
   height: 110px;
@@ -582,7 +525,6 @@ div.audio {
   box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
   border-radius: 10px;
 }
-
 .ntd-color-button {
   position: relative;
   top: -20px;
@@ -596,19 +538,11 @@ div.audio {
   border-radius: 7px;
   box-shadow: 1px 1px 2px #c8ced7;
 }
-/* #not-todo-modal.not-todo-modal-close {
-  display: inline;
-  float: right;
-  padding-right: 3px;
-  cursor: pointer;
-  color: gray;
-} */
 
 /* 투두리스트, 낫투두 입력시 생겨나는 리스트들 */
 ol {
   margin: 0px;
   padding: 20px;
-  /* width: 100px; */
 }
 ol li {
   position: relative;
@@ -642,17 +576,10 @@ ol li > i:active {
 ol li:hover {
   cursor: pointer;
 }
-/* ol li:active,
-ol li.checked:active {
-  border: 1px solid lightgray;
-  box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
-} */
-
 /* 리스트 내용부분 버튼태그 (클릭시 색깔지정 모달창 뜨는 버튼) */
 .todo-list-content,
 .ntd-todo-list-content {
   padding: 1px;
-
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
   border: 0px;
@@ -660,11 +587,7 @@ ol li.checked:active {
   background-color: transparent;
   width: 530px;
   height: 40px;
-  /* color: #5e5e5e; */
 }
-/* .ntd-todo-list-content {
-  color: #f36164;
-} */
 .todo-list-content:hover,
 .ntd-todo-list-content:hover {
   opacity: 0.6;
@@ -685,7 +608,6 @@ ol li.checked:active {
   background-color: transparent;
   font-size: 15px;
   color: lightgray;
-  /* background-color: black; */
 }
 .todo-list-delete:hover,
 .ntd-todo-list-delete:hover {
@@ -698,7 +620,6 @@ ol li.checked:active {
   cursor: pointer;
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
-
 /* 뽀모도로 애니메이션 게이지 */
 #pie-chart1 {
   position: absolute;
@@ -710,15 +631,8 @@ ol li.checked:active {
   border-radius: 50%;
   transition: 0.1s;
 }
-
 /* 반응형 */
 /* min은 ~이상, max는 ~이하 */
-/* @media screen and (max-width: 655px) {
-  #modal-button-id-check {
-    right: 155px;
-  }
-} */
-
 @media screen and (max-width: 1350px) {
   #mainLayout {
     top: 450px;
@@ -728,7 +642,6 @@ ol li.checked:active {
     top: 60px;
     right: 1px;
   }
-
   section.todonottodo {
     position: absolute;
     top: 940px;
@@ -771,8 +684,3 @@ ol li.checked:active {
     height: 730px;
   }
 }
-/* @media screen and (min-width: 900px) {
-  #mainLayout {
-    zoom: 150%;
-  }
-} */

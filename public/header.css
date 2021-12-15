@@ -5,7 +5,6 @@ button:hover {
 button:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
-
 body {
   font-family: "Ubuntu", sans-serif;
   display: flex;
@@ -17,7 +16,6 @@ body {
 header nav {
   font-family: "Ubuntu", sans-serif;
   display: flex;
-  /* justify-content: space-between; */
   justify-content: center;
   align-items: center;
   padding: 8px 12px;
@@ -38,7 +36,6 @@ a {
   position: absolute;
   bottom: 4px;
   left: 10px;
-
   padding: 0px;
   font-family: "Ubuntu", sans-serif;
   font-size: 17px;
@@ -48,7 +45,6 @@ a {
 .POMOTODO__logo a:hover {
   background-color: transparent;
   color: black;
-  /* font-weight: bold; */
 }
 .POMOTODO__logo i {
   /* 로고 아이콘 */

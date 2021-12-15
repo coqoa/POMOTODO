@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 /* font-family: 'Nanum Gothic', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+/* font-family: 'Ubuntu', sans-serif; */
 
 #mainLayout {
   zoom: 100%;
@@ -64,7 +65,6 @@ h2 {
 .record-todo-content,
 .record-nottodo-content {
   position: relative;
-  /* border: 1px solid lightgray; */
   overflow: auto;
   margin: 15px;
 }
@@ -122,9 +122,8 @@ td {
   height: 25px;
   text-align: center;
   font-size: 10px;
-  /* font-family: 굴림; */
   border: 1px solid transparent;
-  border-radius: 10px; /*모서리 둥글게*/
+  border-radius: 10px;
 }
 td.day {
   position: relative;
@@ -139,10 +138,8 @@ td.day {
   width: 50px;
   height: 40px;
   font-size: 13px;
-  /* font-family: 굴림; */
   color: gray;
   border: 1px solid rgb(231, 229, 229);
-  /* background-color: transparent; */
   border-radius: 8px;
   cursor: pointer;
 }
@@ -210,8 +207,6 @@ i:hover {
   pointer-events: none;
 }
 /* 투두, 낫투두 화면에 표시될 부분 처리 */
-/* .todo-list-content,
-.ntd-todo-list-content { */
 .draggable {
   pointer-events: none;
 }
@@ -219,7 +214,6 @@ i:hover {
 .ntd-todo-list-content {
   font-family: "Ubuntu", sans-serif;
   font-style: italic;
-  /* font-family: "Nanum Gothic", sans-serif; */
   font-weight: 500;
   font-size: 15px;
   position: relative;

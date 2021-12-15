@@ -83,9 +83,9 @@ buttonStart.onclick = function(){
     if(minutes >0 || seconds>0){
         if(buttonStart.className === 'clock__btn'){
             startRecodList();
-            timeAudio = new Audio('POMOTODO audio/Beep Short .mp3');
-            timeAudio.volume = 0.1;
-            // timeAudio.play();
+            timeAudio = new Audio('POMOTODO audio/beep.mp3');
+            timeAudio.volume = 0.2;
+            timeAudio.play();
             pieChart.style.background = pomodoroColor;
         }
         buttonStart.classList.add('active');
@@ -177,9 +177,9 @@ function stopRecordList(){ // 00분00초돌때, 정지버튼 누를때,
                             +' </button>'
                             
     //스탑버튼 누르면 출력하는 오디오
-    timeAudio = new Audio('POMOTODO audio/Beep Short .mp3');
-    timeAudio.volume = 0.1;
-    // timeAudio.play();
+    timeAudio = new Audio('POMOTODO audio/Beep2.mp3');
+    timeAudio.volume = 0.2;
+    timeAudio.play();
 
     // 스탑버튼 누르면 색깔, 분 변경하는 코드
     if(pomodoroGuageColor == 1){ // 스탑버튼을 눌렀을 때 빨강이면 초록으로+05분으로+게이지도 초록으로 + 토글변수인 포모도로게이지컬러도 2로변경
@@ -726,11 +726,11 @@ function modalClick(){
         audio.pause();
         if(e.target.value == 'Farm Morning with Sheep'){
             audio = new Audio('POMOTODO audio/Farm Morning with Sheep.mp3');
-            audio.volume = 0.5;
+            audio.volume = 1;
         }
         else if(e.target.value == 'Fire'){
             audio = new Audio('POMOTODO audio/Fire.mp3');
-            audio.volume = 0.5;
+            audio.volume = 1;
         }
         else if(e.target.value == 'Outdoor Summer Ambience'){
             audio = new Audio('POMOTODO audio/Outdoor Summer Ambience.mp3');
@@ -742,7 +742,7 @@ function modalClick(){
         }
         else if(e.target.value == 'Rain On Rooftop'){
             audio = new Audio('POMOTODO audio/Rain On Rooftop.mp3');
-            audio.volume = 0.6;
+            audio.volume = 1;
         }
         else if(e.target.value == 'Valley Night'){
             audio = new Audio('POMOTODO audio/Valley Night.mp3');

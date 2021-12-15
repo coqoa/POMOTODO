@@ -259,11 +259,20 @@ let notTodoResult;
             db.collection('pomodoro').deleteOne({ id: navId }, function (err, result) {
                 console.log('포모도로 삭제')
             })
+            db.collection('pomodoro-record').deleteOne({ id: navId }, function (err, result) {
+                console.log('포모도로기록 삭제')
+            })
             db.collection('todolist').deleteOne({ id: navId }, function (err, result) {
                 console.log('투두리스트 삭제')
             })
+            db.collection('todolist-record').deleteOne({ id: navId }, function (err, result) {
+                console.log('투두리스트기록 삭제')
+            })
             db.collection('not-todolist').deleteOne({ id: navId }, function (err, result) {
                 console.log('낫투두리스트 삭제')
+            })
+            db.collection('not-todolist-record').deleteOne({ id: navId }, function (err, result) {
+                console.log('낫투두리스트 기록 삭제')
             })
         }
         navId = 'log in';

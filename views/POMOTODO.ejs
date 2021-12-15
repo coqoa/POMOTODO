@@ -23,7 +23,7 @@
   <body class="body">
     <!--네비게이션바 외부 ejs파일로 뺴서 include-->
     <%- include ('header.ejs') %>
-    
+
     <div id="mainLayout">
       <section class="Pomodoro">
         <!-- 뽀모도로타이머  -->
@@ -31,7 +31,7 @@
           <h2 class="section-title">Pomodoro</h2>
           <div>
             <!--타이머, 기록 구현-->
-            <!-- 타이머 -->
+              <!-- 타이머 -->
             <div class="Pomodoro-timer-cover"></div>
             <canvas class="Pomodoro-timer-guage" id="guage" width="200px" height="200px" ></canvas>
             <div class="pie-chart pie-chart1" id="pie-chart1">
@@ -52,6 +52,7 @@
               <button class="clock__btn" id="btn__start" style="display: inline" ><i class="fas fa-play"></i></button>
               <button class="clock__btn" id="btn__stop"> <i class="fas fa-stop"></i> </button>
             </div>
+              <!-- 기록 -->
             <div class="record" overflow:auto;>
               <ul class="record-list" id="record-list"> <%- pomodoroRecord %> </ul> 
             </div>
@@ -74,42 +75,27 @@
             <button type="button" class="pause-audio" id="pause-button" style="display: none"></button>
           </div>
         </article>
-        <!--포모도로 레이아웃-->
-        <!-- <ul id="sortable">
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>11111</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>22222</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>33333</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>44444</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>55555</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>66666</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>77777</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>88888</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>99999</li>
-          <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>10101</li>
-        </ul> -->
       </section>
 
       <section class="todonottodo">
-        <!-- todolist-->
+        <!-- 투두리스트-->
+          <!-- 입력부분 -->
         <article class="todolist">
           <div class="section-title"><h2>ToDoList</h2></div>
           <div id="todo-write">
-            <!--투두리스트 입력값을 위한 인풋태그, 버튼태그-->
+            <!--리스트 입력할 때 엔터키를 통해 input 태그가 아닌 button태그가 작동하려면 추가해야할 코드-->
             <form onsubmit="return false;">
-              <!-- index.html 임시로 지정, onsubmit을 막아서 엔터키를 내가원하는데로 지정-->
               <input type="text" class="input-text"id="todo-input-text" maxlength="45" onkeydown="if(window.event.keyCode==13){addItem()}" autocomplete="off"/>
-              <!--onkeydown속성으로 버튼눌렀을때 키코드확인, 메서드 실행 211009-->
               <button type="button" class="input-button" id="todo-input-button"><i class="fas fa-greater-than"></i> </button>
             </form>
           </div>
+            <!-- 출력부분 -->
           <ol class="item-list" id="sortable"> <%- todoListRecord %> </ol>
           <!-- 컬러지정을 위한 모달창 -->
           <div id="todo-modal" class="todo-modal-overlay">
             <span class="todo-modal-content" id="todo-modal-content">ﾠ
-              <!-- <button type="button" class="color-button" id="close" value="close"> <i class="fas fa-angle-left"></i> </button> -->
               <button type="button" class="color-button" id="close" value="close"> <b> < </b>  </button>
               <button type="button" class="color-button" id="check" value="check"> ✔︎ </button>
-              <!-- <button type="button" class="color-button" id="check" value="check"><i class="fas fa-check"></i> </button> -->
 
               <button type="button" class="color-button" id="red" value="red"></button>
               <button type="button" class="color-button" id="light-orange" value="light-orange"></button>
@@ -129,13 +115,10 @@
             </span>
           </div>
         </article>
-        <!--투두리스트-->
-
         <!--Not-ToDoList-->
         <article class="nottodolist">
           <div class="section-title"><h2>NotToDoList</h2></div>
           <div id="nottodo-write">
-            <!--낫투두리스트 입력값을 위한 인풋태그, 버튼태그-->
             <form onsubmit="return false;">
               <input type="text" class="ntd-input-text" maxlength="45" onkeydown="if(window.event.keyCode==13){ntdAddItem()}"/>
               <button type="button" class="ntd-input-button"> <i class="fas fa-greater-than"></i> </button>
@@ -145,20 +128,13 @@
 
           <div id="not-todo-modal" class="not-todo-modal-overlay">
             <div class="not-todo-modal-content" id="not-todo-modal-content">
-              ﾠ
-              <!-- <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"> <i class="fas fa-angle-left"></i> </button>
-              <button type="button" class="ntd-color-button" id="ntdCheck" value="ntd-check"> <i class="fas fa-check"></i> </button> -->
               <button type="button" class="ntd-color-button" id="ntdClose" value="ntd-close"> <b> < </b> </button>
               <button type="button" class="ntd-color-button" id="ntdCheck" value="ntd-check"> ✔︎ </button>
               <button type="button" class="ntd-color-button" id="ntdRed" value="ntd-red"></button>
             </div>
           </div>
         </article>
-        <!--낫투두리스트-->
       </section>
     </div>
-    <footer>
-      <!--  -->
-    </footer>
   </body>
 </html>

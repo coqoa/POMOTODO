@@ -12,12 +12,12 @@
 </head>
 <body class="body">
     <%- include ('header.ejs') %>
-    <!--------------⬆︎ 네비게이션공통 ------------------>
     <section class="big-layout" id="mainLayout">
         <div class="small-layout" id="calendar-layout">
             <div class="record-calendar-content" id="calendar-content">
+                <!-- 달력 -->
                 <table class="calendar-layout" id="calendar" border="3" align="center">
-                    <tr><!-- label은 마우스로 클릭을 편하게 해줌 -->
+                    <tr>
                         <td class="prev"><label onclick="prevCalendar()"><i class="fas fa-angle-left"></i></label></td>
                         <td class="year-month" align="center" id="tbCalendarYM" colspan="5">yyyy- m</td>
                         <td class="next"><label onclick="nextCalendar()"><i class="fas fa-angle-right"></i></label></td>
@@ -34,7 +34,6 @@
                 </table>
             </div>
         </div>
-        <!-- 달력 -->
         <div class="small-layout" id="pomo-record">
             <h2>Pomodoro</h2>
             <div class="record-pomo-content" id="pomo-record-content">
@@ -58,53 +57,3 @@
     
 </body>
 </html>
-
-<!-- pomoRecordRes
-    <br>
-    <button type="button" class="record-content" id="record-time" onclick="appearInputText(this)">
-        <span style="color:#FF6F71"><i class="fas fa-circle" aria-hidden="true"></i>ㅤ</span>
-        22 : 26 ~ 22 : 26
-        <input type="text" class="record-text" id="record-text" style="display: none;" value="" onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26" autocomplete="off"> 
-        <span>12월9일</span>
-    </button>
-    <br>
-    <button type="button" class="record-content" id="record-time" onclick="appearInputText(this)">
-        <span style="color:#56D69C"><i class="fas fa-circle" aria-hidden="true"></i>ㅤㅤ</span>
-        22 : 26 ~ 22 : 26ㅤㅤㅤ
-        <input type="text" class="record-text" id="record-text" style="display: inline" value="" onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="26" autocomplete="off"> 
-    </button>
-
-------------------
-todoRecordRes
-    <li class="draggable ui-sortable-handle" draggable="true"> 
-        <button type="='button'" class="todo-list-content">12월9일</button>
-        <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
-        <button type="button" class="todo-list-delete" onclick="deleteItem(this)">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-    </li> 
-    <li class="draggable" draggable="true"> 
-        <button type="='button'" class="todo-list-content">12월10일</button>
-        <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
-        <button type="button" class="todo-list-delete" onclick="deleteItem(this)">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-    </li> 
-
-------------------
-
-notTodoRecordRes
-    <li class="draggable ui-sortable-handle" draggable="true"> 
-        <button type="='button'" class="ntd-todo-list-content">12월9일</button>
-        <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
-        <button type="button" class="ntd-todo-list-delete" onclick="ntdDeleteItem(this)">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-    </li> 
-    <li class="draggable" draggable="true"> 
-        <button type="='button'" class="ntd-todo-list-content">12월10일</button>
-        <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
-        <button type="button" class="ntd-todo-list-delete" onclick="ntdDeleteItem(this)">
-            <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-    </li> -->
