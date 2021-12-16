@@ -468,6 +468,10 @@ let notTodoResult;
         }
         })
     })
+    function checkT(){
+        console.log('1초마다 체크')
+    }
+    setInterval(checkT,1000);
 })
 
 

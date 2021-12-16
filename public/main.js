@@ -75,8 +75,8 @@ buttonStart.onclick = function(){
     if(minutes >0 || seconds>0){
         if(buttonStart.className === 'clock__btn'){
             startRecodList();
-            timeAudio = new Audio('POMOTODO audio/beep.mp3');
-            timeAudio.volume = 0.2;
+            timeAudio = new Audio('POMOTODO audio/beep1.mp3');
+            timeAudio.volume = 0.1;
             timeAudio.play();
             pieChart.style.background = pomodoroColor;
         }
@@ -167,8 +167,8 @@ function stopRecordList(){
                             +' </button>'
                             
     //스탑버튼 누르면 출력하는 오디오
-    timeAudio = new Audio('POMOTODO audio/Beep2.mp3');
-    timeAudio.volume = 0.2;
+    timeAudio = new Audio('POMOTODO audio/beep2.mp3');
+    timeAudio.volume = 0.3;
     timeAudio.play();
 
     // 스탑버튼 누르면 색깔, 분 변경하는 코드
