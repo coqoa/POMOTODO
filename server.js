@@ -339,7 +339,8 @@ let notTodoResult;
     });
     //---------------------------------서버에 기록 생성 , 수정 코드--------------------------
     
-    app.post('/saveData', function(req, res){
+    function checkTimeSave(){
+    // app.post('/saveData', function(req, res){
         db.collection('pomodoro').find().toArray(function(err,result){
             for(let i = 0; i < result.length; i++){
                 if(result[i].contentHTML.length>0){
@@ -374,57 +375,80 @@ let notTodoResult;
                 }
             }
         });
-        res.status(200).send({ message : '저장 성공했습니다'});
-        
-    })
+    // })
+    }
+    setInterval(checkTimeSave,10100);
+    
+    function addStringZero(time){
+        if(parseInt(time)<10)
+            return "0"+time;
+        else
+            return time;
+    }
     // 00시00분이 되면 초기화, 로그인 중이라면 바로 기록페이지에 필드생성해줌
-    app.post('/initialization', function(req, res){
-        db.collection('pomodoro').find().toArray(function(err,result){
-            for(let i = 0; i < result.length; i++){
-                if(result[i].contentHTML.length>0){
-                    db.collection('pomodoro').update({'id' : result[i].id},{$set: {'contentHTML' : ''}})
+    function checkTimeInitialization(){
+        let dateObject = new Date();
+        let year = dateObject.getFullYear();
+        let month = dateObject.getMonth()+1;
+        let date = dateObject.getDate();
+        let hour = addStringZero(dateObject.getHours());
+        let min = addStringZero(dateObject.getMinutes());
+        if(hour == 00 && min == 00){
+            
+        // app.post('/initialization', function(req, res){
+            db.collection('pomodoro').find().toArray(function(err,result){
+                for(let i = 0; i < result.length; i++){
+                    if(result[i].contentHTML.length>0){
+                        db.collection('pomodoro').update({'id' : result[i].id},{$set: {'contentHTML' : ''}})
+                    }
                 }
+            });
+            db.collection('todolist').find().toArray(function(err,result){
+                for(let i = 0; i < result.length; i++){
+                    if(result[i].todoListHTML.length>0){
+                        db.collection('todolist').update({'id' : result[i].id},{$set: {'todoListHTML' : ''}})
+                    }
+                }
+            });
+            db.collection('not-todolist').find().toArray(function(err,result){
+                for(let i = 0; i < result.length; i++){
+                    if(result[i].notTodoListHTML.length>0){
+                        db.collection('not-todolist').update({'id' : result[i].id},{$set: {'notTodoListHTML' : ''}})
+                    }
+                }
+            });
+            if(navId !== 'log in'){
+                db.collection('pomodoro-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, pomoRecCheck) {
+                    if(pomoRecCheck==null){
+                        db.collection('pomodoro-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'pomoRecord' : '' }, function(err, result){
+                            console.log('db pomodoro-record create')
+                        })
+                    }
+                })
+                db.collection('todolist-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, todoRecCheck) {
+                    if(todoRecCheck==null){
+                        db.collection('todolist-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'todoRecord' : '' }, function(err, result){
+                            console.log('db todo-record create')
+                        })
+                    }
+                })
+                db.collection('not-todolist-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, notTodoRecCheck) {
+                    if(notTodoRecCheck==null){
+                        db.collection('not-todolist-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'notTodoRecord' : '' }, function(err, result){
+                            console.log('db not-todo-record create')
+                        })
+                    }
+                })
             }
-        });
-        db.collection('todolist').find().toArray(function(err,result){
-            for(let i = 0; i < result.length; i++){
-                if(result[i].todoListHTML.length>0){
-                    db.collection('todolist').update({'id' : result[i].id},{$set: {'todoListHTML' : ''}})
-                }
-            }
-        });
-        db.collection('not-todolist').find().toArray(function(err,result){
-            for(let i = 0; i < result.length; i++){
-                if(result[i].notTodoListHTML.length>0){
-                    db.collection('not-todolist').update({'id' : result[i].id},{$set: {'notTodoListHTML' : ''}})
-                }
-            }
-        });
-        if(navId !== 'log in'){
-            db.collection('pomodoro-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, pomoRecCheck) {
-                if(pomoRecCheck==null){
-                    db.collection('pomodoro-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'pomoRecord' : '' }, function(err, result){
-                        console.log('db pomodoro-record create')
-                    })
-                }
-            })
-            db.collection('todolist-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, todoRecCheck) {
-                if(todoRecCheck==null){
-                    db.collection('todolist-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'todoRecord' : '' }, function(err, result){
-                        console.log('db todo-record create')
-                    })
-                }
-            })
-            db.collection('not-todolist-record').findOne({ id: navId, 'yyyymmdd' : yyyymmdd() }, function (err, notTodoRecCheck) {
-                if(notTodoRecCheck==null){
-                    db.collection('not-todolist-record').insertOne({ 'id' : navId, 'yyyymmdd' : yyyymmdd() ,'notTodoRecord' : '' }, function(err, result){
-                        console.log('db not-todo-record create')
-                    })
-                }
-            })
+            // res.status(200).send({ message : 'record 초기화 / 빈값생성 했습니다'});
+        // })
         }
-        res.status(200).send({ message : 'record 초기화 / 빈값생성 했습니다'});
-    })
+        console.log(hour);
+        console.log(min);
+    }
+    setInterval(checkTimeInitialization,55100);
+
+    
     //달력버튼 눌러서 해당 데이터 출력하는 코드
     app.post('/dayButton', function(req, res){
         console.log(req.body.clickedButton)
@@ -468,10 +492,7 @@ let notTodoResult;
         }
         })
     })
-    function checkT(){
-        console.log('1초마다 체크')
-    }
-    setInterval(checkT,1000);
+    
 })
 
 

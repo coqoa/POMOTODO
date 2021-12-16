@@ -775,39 +775,4 @@ function ajaxNotTodo(){
         }
     })
 }
-// 시간체크 ( 10초마다 서버에 저장
-function checkTimeSave(){
-    $.ajax({ 
-        method : 'POST',
-        url : '/saveData',
-        success : function(data) {
-            console.log('투두레코드10초마다업데이트')
-        },
-        error : function(xhr, status, error) {
-            console.log('empty 실패');
-        }
-    })
-}
-setInterval(checkTimeSave,10100);
-function checkTimeInitialization(){
-    let dateObject = new Date();
-    let year = dateObject.getFullYear();
-    let month = dateObject.getMonth()+1;
-    let date = dateObject.getDate();
-    let hour = addStringZero(dateObject.getHours());
-    let min = addStringZero(dateObject.getMinutes());
-    if(hour == 00 && min == 00){
-        $.ajax({ 
-            method : 'POST',
-            url : '/initialization',
-            success : function(data) {
-                console.log(data.message)
-            },
-            error : function(xhr, status, error) {
-                console.log('empty 실패');
-            }
-        })
-    }
-}
-setInterval(checkTimeInitialization,55100);
 
