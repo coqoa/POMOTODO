@@ -4,7 +4,7 @@
 /* font-family: 'Ubuntu', sans-serif; */
 
 #mainLayout {
-  zoom: 100%;
+  zoom: 120%;
   display: row;
   position: absolute;
   top: 49%;
@@ -30,10 +30,12 @@
   background-color: rgba(206, 204, 204, 0.945);
 }
 h2 {
+  font-style: italic;
   position: relative;
   top: 13px;
   margin-top: 0px;
   margin-bottom: 0px;
+  font-size: 30px;
 }
 .small-layout {
   position: relative;
@@ -222,14 +224,12 @@ i:hover {
   margin: 10px;
 }
 /* -----------------------------------반응형------------------------------------ */
-@media screen and (min-height: 1150px) {
-  #mainLayout,
+@media screen and (min-width: 2200px) {
   .top-bar {
-    zoom: 120%;
+    zoom: 130%;
   }
 }
 @media screen and (max-width: 1800px) {
-  #mainLayout,
   .top-bar {
     zoom: 100%;
   }

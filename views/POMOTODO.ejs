@@ -86,7 +86,8 @@
           <div id="todo-write">
             <!--리스트 입력할 때 엔터키를 통해 input 태그가 아닌 button태그가 작동하려면 추가해야할 코드-->
             <form onsubmit="return false;">
-              <input type="text" class="input-text"id="todo-input-text" maxlength="45" onkeydown="if(window.event.keyCode==13){addItem()}" autocomplete="off"/>
+              <div class="text-background"></div>
+              <input type="text" class="input-text"id="todo-input-text" maxlength="33" onkeydown="if(window.event.keyCode==13){addItem()}" autocomplete="off"/>
               <button type="button" class="input-button" id="todo-input-button"><i class="fas fa-greater-than"></i> </button>
             </form>
           </div>
@@ -118,10 +119,11 @@
         </article>
         <!--Not-ToDoList-->
         <article class="nottodolist">
-          <div class="section-title"><h2>NotToDoList</h2></div>
+          <div class="section-title"><h2>Not-ToDoList</h2></div>
           <div id="nottodo-write">
             <form onsubmit="return false;">
-              <input type="text" class="ntd-input-text" maxlength="45" onkeydown="if(window.event.keyCode==13){ntdAddItem()}"/>
+              <div class="ntd-text-background"></div>
+              <input type="text" class="ntd-input-text" maxlength="3" onkeydown="if(window.event.keyCode==13){ntdAddItem()}"/>
               <button type="button" class="ntd-input-button"> <i class="fas fa-greater-than"></i> </button>
             </form>
           </div>

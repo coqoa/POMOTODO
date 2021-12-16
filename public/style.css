@@ -18,7 +18,7 @@ h2 {
   text-align: center;
   margin: 0px 0px 20px;
   padding: 7px;
-  opacity: 0.7;
+  opacity: 1;
 }
 .section-title {
   font-style: italic;
@@ -133,7 +133,7 @@ article.nottodolist::-webkit-scrollbar-thumb {
 #pomo-timer {
   position: relative;
   top: 35px;
-  opacity: 0.5;
+  opacity: 1;
 }
 #minute,
 #second {
@@ -387,7 +387,7 @@ div.audio {
   left: -200px;
   width: 1700px;
   height: 1030px;
-  background-color: #ffffff20;
+  background-color: #ffffff00;
   z-index: 90;
 }
 
@@ -449,21 +449,38 @@ div.audio {
 }
 .input-text,
 .ntd-input-text {
-  width: 540px;
-  height: 33px;
+  font-size: 16px;
+  width: 510px;
+  height: 32px;
   position: relative;
+  left: 33px;
+  top: 3px;
+  border: 0;
+  outline: 0;
+  border-radius: 9px;
+  text-align: center;
+  z-index: 11;
+}
+.text-background,
+.ntd-text-background {
+  width: 550px;
+  height: 34px;
+  position: absolute;
   left: 3px;
   top: 3px;
   border: 0;
   outline: 0;
   border-radius: 9px;
+  background-color: white;
+  z-index: 10;
 }
+
 .input-button,
 .ntd-input-button {
   width: 40px;
   height: 34px;
   position: relative;
-  right: px;
+  right: -30px;
   top: 3px;
   color: #5e5e5e;
   border: 0;
@@ -474,6 +491,7 @@ div.audio {
   padding: 0px;
   margin: 0px;
 }
+
 /* 투두 모달창 */
 #todo-modal.todo-modal-overlay {
   width: 85px;
@@ -485,7 +503,7 @@ div.audio {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   box-shadow: 3px 3px 5px #c8ced7, -3px -3px 5px #ffffff;
   border-radius: 10px;
   overflow: auto;
@@ -589,6 +607,7 @@ ol li:hover {
   padding: 1px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
+  font-size: 18px;
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
@@ -608,7 +627,7 @@ ol li:hover {
 .ntd-todo-list-delete {
   position: relative;
   right: 5px;
-  top: -1px;
+  top: -2px;
   padding-top: 3px;
   margin-left: 10px;
   border: 0px;
@@ -639,7 +658,7 @@ ol li:hover {
   transition: 0.1s;
 }
 /* 반응형 */
-@media screen and (min-width: 1650px) {
+@media screen and (min-width: 2200px) {
   .top-bar {
     zoom: 130%;
   }

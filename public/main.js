@@ -501,7 +501,7 @@ inputButton.addEventListener("click", addItem);
 function addItem() {
     let item = document.querySelector(".input-text").value;
     if(item.length !== 0 ){ //투두리스트 입력창이 빈값이면 출력안되도록 구현 
-        itemList.innerHTML += "<li class = 'element.style {'>"
+        itemList.innerHTML += "<li class = 'draggable'>"
                                 +"<i class='fas fa-arrows-alt-v' id='ntdArrow'></i>"
                                 +" <button type= ='button' class='todo-list-content' style='color: #5e5e5e;'>"+ item +"</button>"
                                 +"<button type ='button' class='todo-list-delete' onclick='deleteItem(this)'><i class='fas fa-times'></i></button></li>"
