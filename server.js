@@ -19,8 +19,8 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     if (err) return console.log(err);
 
     // 서버를 띄우기 위한 코드(데이터베이스 내부에 배치해서 디비와 연결되면 서버를 띄우도록)
-    app.listen('8080', function(){
-    console.log('8080포트 접속성공')
+    app.listen('5501', function(){
+    console.log('5501포트 접속성공')
     });
 
     function yyyymmdd(){
@@ -340,7 +340,6 @@ let notTodoResult;
     //---------------------------------서버에 기록 생성 , 수정 코드--------------------------
     
     function checkTimeSave(){
-    // app.post('/saveData', function(req, res){
         db.collection('pomodoro').find().toArray(function(err,result){
             for(let i = 0; i < result.length; i++){
                 if(result[i].contentHTML.length>0){
@@ -375,7 +374,6 @@ let notTodoResult;
                 }
             }
         });
-    // })
     }
     setInterval(checkTimeSave,10100);
     
@@ -394,8 +392,6 @@ let notTodoResult;
         let hour = addStringZero(dateObject.getHours());
         let min = addStringZero(dateObject.getMinutes());
         if(hour == 00 && min == 00){
-            
-        // app.post('/initialization', function(req, res){
             db.collection('pomodoro').find().toArray(function(err,result){
                 for(let i = 0; i < result.length; i++){
                     if(result[i].contentHTML.length>0){
@@ -440,11 +436,7 @@ let notTodoResult;
                     }
                 })
             }
-            // res.status(200).send({ message : 'record 초기화 / 빈값생성 했습니다'});
-        // })
         }
-        console.log(hour);
-        console.log(min);
     }
     setInterval(checkTimeInitialization,55100);
 
