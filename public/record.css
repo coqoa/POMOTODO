@@ -2,7 +2,8 @@
 /* font-family: 'Nanum Gothic', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 /* font-family: 'Ubuntu', sans-serif; */
-
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
+/* font-family: 'IBM Plex Sans KR', sans-serif; */
 #mainLayout {
   zoom: 120%;
   display: row;
@@ -133,7 +134,7 @@ td.day {
 }
 /* 일 버튼(요일버튼제외) */
 .day-button {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-style: italic;
   margin: 0px;
   padding: 0px;
@@ -162,7 +163,7 @@ i:hover {
   opacity: 0.7;
 }
 .year-month {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-weight: 700;
   font-style: italic;
   font-size: 28px;
@@ -173,7 +174,7 @@ i:hover {
 }
 /* ------------------------- pomo부분---------------------------------- */
 .record-content {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-style: italic;
   font-weight: 400;
   font-size: 18px;
@@ -212,7 +213,7 @@ i:hover {
 }
 .todo-list-content,
 .ntd-todo-list-content {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-style: italic;
   font-weight: 500;
   font-size: 15px;

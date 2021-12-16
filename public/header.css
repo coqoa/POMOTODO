@@ -6,7 +6,7 @@ button:active {
   box-shadow: inset 1px 1px 2px #949da6, -1px -1px 3px #ffffff;
 }
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   display: flex;
   justify-content: center;
   height: 870px;
@@ -14,7 +14,7 @@ body {
   background-color: #e9f0fa;
 }
 header nav {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +37,7 @@ a {
   bottom: 4px;
   left: 10px;
   padding: 0px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-size: 17px;
   font-weight: 500;
   font-style: italic;
@@ -54,7 +54,7 @@ a {
   color: #ff8585;
 }
 #id-check {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-size: 17px;
   font-weight: 500;
   font-style: italic;
@@ -98,7 +98,7 @@ a {
   right: 120px;
   height: 220px;
   width: 150px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 6px 6px 9px #c8ced7;
   backdrop-filter: blur(1.5px);
@@ -259,7 +259,7 @@ a {
 /* 네비게이션 시계 */
 #POMOTODO__clock {
   display: inline;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   position: absolute;
   right: 30px;
   top: 4px;

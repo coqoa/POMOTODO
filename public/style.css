@@ -2,10 +2,12 @@
 /* font-family: 'Nanum Gothic', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 /* font-family: 'Ubuntu', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
+/* font-family: 'IBM Plex Sans KR', sans-serif; */
 
 /* 본문 */
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   display: flex;
   justify-content: center;
   height: 870px;
@@ -326,7 +328,7 @@ div.audio {
   background-color: lightgray;
 }
 .audio-list {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
@@ -605,7 +607,7 @@ ol li:hover {
 .todo-list-content,
 .ntd-todo-list-content {
   padding: 1px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-weight: 500;
   font-size: 18px;
   border: 0px;
@@ -620,6 +622,7 @@ ol li:hover {
 }
 .todo-list-content:active,
 .ntd-todo-list-content:active {
+  opacity: 1;
   box-shadow: inset 0px 0px 0px #949da6, -0px -0px 0px #ffffff;
 }
 /* 리스트 삭제 버튼 */
