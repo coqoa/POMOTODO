@@ -669,7 +669,7 @@ ol li:hover {
   transition: 0.1s;
 }
 /* 반응형 */
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1350px) {
   #mainLayout {
     top: 320px;
   }
