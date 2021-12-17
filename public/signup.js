@@ -83,6 +83,17 @@ function onlyNumber1(loc) {
         isNumberCheck = false;
     }
 }
+function numberBlur(e) {
+    if(e.value.length>10){
+        numberMessageCount.style.display = "inline";
+        numberMessage.style.display = "none";
+        isNumberCheck = true;
+    }else{
+        numberMessageCount.style.display = "none";
+        numberMessage.style.display = "inline";  
+        isNumberCheck = false;
+    }
+}
 let isBirthdayCheck;
 let birthdayMessage = document.getElementById('birthday-message');
 let birthdayMessageCount = document.getElementById('birthday-message-count');
@@ -95,6 +106,19 @@ function onlyNumber2(loc) {
         isBirthdayCheck = false;
     }
 }
+function numberBlur2(e) {
+    if(e.value.length>5){
+        birthdayMessageCount.style.display = "inline";
+        birthdayMessage.style.display = "none";
+        isBirthdayCheck = true;
+    }else{
+        birthdayMessageCount.style.display = "none";
+        birthdayMessage.style.display = "inline";
+    
+        isBirthdayCheck = false;
+    }
+}
+
 // id중복체크 ajax요청
 let idBlur = document.querySelector("#signupId");
 let validatdId = document.querySelector(".validate-id");

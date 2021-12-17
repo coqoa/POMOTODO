@@ -10,17 +10,20 @@ body {
   font-family: "Ubuntu", "IBM Plex Sans KR";
   display: flex;
   justify-content: center;
-  height: 870px;
+  height: 370px;
   margin: 0px;
   background-color: #e9f0fa;
 }
 h2 {
   font-weight: 700;
-  font-size: 35px;
+  font-size: 25px;
   text-align: center;
-  margin: 0px 0px 20px;
+  margin: 0px 0px 5px;
   padding: 7px;
   opacity: 1;
+}
+h2.section-title {
+  margin-bottom: 20px;
 }
 .section-title {
   font-style: italic;
@@ -29,7 +32,7 @@ h2 {
   zoom: 100%;
   display: flex;
   position: absolute;
-  top: 49%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -53%);
   align-items: center;
@@ -38,8 +41,8 @@ section.Pomodoro {
   position: relative;
   right: 20px;
   top: 50px;
-  width: 650px;
-  height: 830px;
+  width: 450px;
+  height: 630px;
   padding: 10px;
   border-radius: 30px;
   background: #e9f0fa;
@@ -48,8 +51,8 @@ section.Pomodoro {
 section.todonottodo {
   position: relative;
   top: 50px;
-  left: 10px;
-  width: 650px;
+  left: 0px;
+  width: 450px;
 }
 article.todolist,
 article.nottodolist {
@@ -60,11 +63,11 @@ article.nottodolist {
   overflow: auto;
 }
 article.todolist {
-  height: 500px;
+  height: 400px;
   margin-bottom: 20px;
 }
 article.nottodolist {
-  height: 280px;
+  height: 200px;
 }
 /* 투두, 낫투두 스크롤 바 */
 article.todolist::-webkit-scrollbar,
@@ -83,10 +86,10 @@ article.nottodolist::-webkit-scrollbar-thumb {
 /* 뽀모도로 타이머  */
 .Pomodoro-timer-cover {
   position: absolute;
-  top: 75px;
-  left: 208px;
-  width: 215px;
-  height: 215px;
+  top: 65px;
+  left: 129px;
+  width: 175px;
+  height: 175px;
   border: 1px solid black;
   border-radius: 50%;
   border: 20px solid #ebf3fb;
@@ -100,10 +103,10 @@ article.nottodolist::-webkit-scrollbar-thumb {
 /* 시간을 컨트롤하는 타이머 커버영역 */
 .Pomodoro-timer-container {
   position: relative;
-  left: 239px;
-  top: 31px;
-  width: 175px;
-  height: 175px;
+  left: 154px;
+  top: 27px;
+  width: 145px;
+  height: 145px;
   text-align: center;
   border-radius: 50%;
   background: #ebf3fb;
@@ -112,7 +115,7 @@ article.nottodolist::-webkit-scrollbar-thumb {
   /*시간, :, 버튼 모두 포함하는 부분*/
   position: relative;
   opacity: 0.6;
-  font-size: 44px;
+  font-size: 35px;
   margin: 0px 1px;
   padding: 0px;
 }
@@ -120,21 +123,22 @@ article.nottodolist::-webkit-scrollbar-thumb {
   /*오직 시간만 표현하는 부분*/
   display: inline-block;
   position: relative;
-  top: 35px;
-  width: 75px;
+  top: 20px;
+  width: 55px;
 }
 .Pomodoro-timer-container > .clock__updown {
   position: relative;
-  top: 38px;
+  font-size: 20px;
+  top: 20px;
   opacity: 0.1;
   border: 0;
-  padding: 2px 6px 4px;
+  padding: 2px 1px 4px;
   border-radius: 40%;
   background-color: transparent;
 }
 #pomo-timer {
   position: relative;
-  top: 35px;
+  top: 18px;
   opacity: 1;
 }
 #minute,
@@ -146,16 +150,16 @@ article.nottodolist::-webkit-scrollbar-thumb {
 #minute2__minus,
 #minute2__plus {
   margin-top: 0px;
-  margin-right: 18px;
+  margin-right: 14px;
 }
 #second1__minus,
 #second1__plus {
   margin-top: 0px;
-  margin-left: 18px;
+  margin-left: 14px;
 }
 .Pomodoro-timer-container > .clock__btn {
   position: relative;
-  top: 35px;
+  top: 12px;
   opacity: 0.5;
   font-size: 15px;
   padding: 7px 9px 7px;
@@ -190,10 +194,10 @@ button:active {
 /* record , 스크롤 구현 */
 div.record {
   position: relative;
-  top: 100px;
-  left: 75px;
-  height: 275px;
-  width: 480px;
+  top: 80px;
+  left: 15px;
+  height: 175px;
+  width: 400px;
   padding: 10px;
   margin-right: 0px;
   border-radius: 25px;
@@ -214,7 +218,7 @@ div.record::-webkit-scrollbar-thumb {
 /* record 자동입력 부분 */
 .record-list {
   /*레이아웃*/
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
   color: #5e5e5e;
   position: relative;
@@ -222,14 +226,15 @@ div.record::-webkit-scrollbar-thumb {
   width: 300px;
   display: inline;
   border-radius: 5px;
+  /* border: 1px solid gray; */
 }
 #record-time {
   /*시간 자동입력*/
   border: 0px;
   position: relative;
-  left: 10px;
+  left: 0px;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 13px;
   color: gray;
   background-color: transparent;
   padding: 5px;
@@ -259,15 +264,15 @@ span > i {
   margin: 0px;
   left: 10px;
   bottom: 2px;
-  font-size: 2px;
+  font-size: 1px;
 }
 /* 오디오 */
 div.audio {
   position: relative;
-  top: 120px;
-  left: 75px;
-  height: 150px;
-  width: 500px;
+  top: 94px;
+  left: 15px;
+  height: 130px;
+  width: 420px;
   border-radius: 25px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
@@ -276,10 +281,10 @@ div.audio {
 #select-audio {
   font-style: italic;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   position: relative;
-  left: 125px;
-  top: 30px;
+  left: 85px;
+  top: 20px;
   width: 250px;
   height: 25px;
   text-align: center;
@@ -304,8 +309,8 @@ div.audio {
 #modal-audio {
   flex-direction: column;
   position: absolute;
-  top: 20px;
-  left: 115px;
+  top: 40px;
+  left: 75px;
   align-items: center;
   background: rgba(255, 255, 255);
   width: 260px;
@@ -352,7 +357,7 @@ div.audio {
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
-  top: 35px;
+  top: 20px;
   width: 45px;
   height: 45px;
   opacity: 0.5;
@@ -363,21 +368,21 @@ div.audio {
 .start-audio {
   display: flex;
   background-image: url("POMOTODO icon/play-solid.svg");
-  left: 230px;
+  left: 190px;
 }
 .pause-audio {
   display: none;
   background-image: url("POMOTODO icon/pause-solid.svg");
-  left: 229px;
+  left: 190px;
 }
 
 /* 투두, 낫투두 */
 #todo-write,
 #nottodo-write {
   position: relative;
-  left: 20px;
-  width: 590px;
-  border-radius: 11px;
+  left: 10px;
+  width: 410px;
+  border-radius: 6px;
   height: 40px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
@@ -385,12 +390,14 @@ div.audio {
 .color-close {
   display: none;
   position: absolute;
-  top: -30px;
-  left: -200px;
+  top: -100px;
+  left: -400px;
   width: 1700px;
   height: 1030px;
   background-color: #ffffff00;
   z-index: 90;
+  /* display: inline;
+  background-color: black; */
 }
 
 .todo-modal-content > #check {
@@ -451,8 +458,8 @@ div.audio {
 }
 .input-text,
 .ntd-input-text {
-  font-size: 16px;
-  width: 510px;
+  font-size: 13px;
+  width: 330px;
   height: 32px;
   position: relative;
   left: 33px;
@@ -465,7 +472,7 @@ div.audio {
 }
 .text-background,
 .ntd-text-background {
-  width: 550px;
+  width: 370px;
   height: 34px;
   position: absolute;
   left: 3px;
@@ -496,7 +503,7 @@ div.audio {
 
 /* 투두 모달창 */
 #todo-modal.todo-modal-overlay {
-  width: 85px;
+  width: 80px;
   height: 300px;
   position: absolute;
   right: 20px;
@@ -529,7 +536,7 @@ div.audio {
   justify-content: space-around;
   padding: 8px;
   margin: 5px;
-  width: 65px;
+  width: 55px;
   height: 30px;
   border: 0px;
   border-radius: 9px;
@@ -550,7 +557,7 @@ div.audio {
   height: 110px;
   position: absolute;
   right: 20px;
-  top: 680px;
+  top: 530px;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -567,25 +574,26 @@ ol {
 }
 ol li {
   position: relative;
-  left: 0px;
+  left: -10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 585px;
+  width: 406px;
+  height: 35px;
   list-style: none;
   padding-left: 5px;
-  margin-bottom: 10px;
-  border-radius: 11px;
+  margin-bottom: 7px;
+  border-radius: 6px;
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #949da6, -2px -2px 6px #ffffff;
   color: lightgray;
 }
 .fa-arrows-alt-v {
-  font-size: 18px;
+  font-size: 14px;
   width: 25px;
   height: 30px;
   position: relative;
-  top: 6px;
+  top: 8px;
   text-align: center;
   justify-content: center;
 }
@@ -608,8 +616,8 @@ ol li:hover {
 .ntd-todo-list-content {
   padding: 1px;
   font-family: "Ubuntu", "IBM Plex Sans KR";
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 11px;
   border: 0px;
   border-radius: 10px;
   background-color: transparent;
@@ -630,12 +638,12 @@ ol li:hover {
 .ntd-todo-list-delete {
   position: relative;
   right: 5px;
-  top: -2px;
+  top: 0px;
   padding-top: 3px;
   margin-left: 10px;
   border: 0px;
   background-color: transparent;
-  font-size: 15px;
+  font-size: 12px;
   color: lightgray;
 }
 .todo-list-delete:hover,
@@ -652,23 +660,18 @@ ol li:hover {
 /* 뽀모도로 애니메이션 게이지 */
 #pie-chart1 {
   position: absolute;
-  top: 95px;
-  left: 228px;
+  top: 85px;
+  left: 149px;
   display: iline-block;
-  width: 215px;
-  height: 215px;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   transition: 0.1s;
 }
 /* 반응형 */
-@media screen and (min-width: 2200px) {
-  .top-bar {
-    zoom: 130%;
-  }
-}
 @media screen and (max-width: 1350px) {
   #mainLayout {
-    top: 450px;
+    top: 320px;
   }
   section.Pomodoro {
     position: relative;
@@ -677,16 +680,16 @@ ol li:hover {
   }
   section.todonottodo {
     position: absolute;
-    top: 940px;
+    top: 730px;
     left: 0px;
-    width: 670px;
+    width: 470px;
   }
   article.nottodolist {
     position: relative;
     top: 0px;
     left: 0px;
-    width: 650px;
-    margin-bottom: 30px;
+    width: 450px;
+    margin-bottom: 20px;
   }
   #todo-write,
   #nottodo-write {
@@ -697,12 +700,16 @@ ol li:hover {
     position: relative;
     left: 10px;
   }
+  #todo-write,
+  #nottodo-write {
+    left: 20px;
+    box-shadow: 2px 2px 10px #949da6, -2px -2px 3px #ffffff;
+  }
+  .draggable {
+    box-shadow: 2px 2px 10px #949da6, -2px -2px 3px #ffffff;
+  }
 }
 @media screen and (max-width: 730px) {
-  #mainLayout,
-  .top-bar {
-    zoom: 45%;
-  }
   .body {
     height: 730px;
   }

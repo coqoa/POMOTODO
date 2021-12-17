@@ -197,7 +197,7 @@ label {
 #signupEmail,
 #signupNumber,
 #signupBirthday {
-  font-size: 11px;
+  font-size: 15px;
   position: relative;
   width: 250px;
   height: 15px;
@@ -269,7 +269,7 @@ label {
 #email-check-match,
 #email-check-unmatch {
   position: absolute;
-  top: 160px;
+  top: 165px;
   left: 28%;
 }
 #password-message-unmatch {
@@ -290,7 +290,7 @@ label {
 }
 #email-check-match,
 #email-check-unmatch {
-  top: 225px;
+  top: 235px;
   left: 31%;
 }
 #email-check-match {
@@ -298,7 +298,7 @@ label {
 }
 #number-message,
 #number-message-count {
-  top: 290px;
+  top: 305px;
   left: 34%;
 }
 #number-message-count {
@@ -306,13 +306,13 @@ label {
 }
 #birthday-message,
 #birthday-message-count {
-  top: 352px;
+  top: 372px;
   left: 35%;
 }
 #birthday-message-count {
   left: 28%;
 }
-@media screen and (min-height: 1150px) {
+/* @media screen and (min-height: 1150px) {
   .container {
     zoom: 130%;
   }
@@ -326,4 +326,4 @@ label {
   .container {
     zoom: 150%;
   }
-}
+} */

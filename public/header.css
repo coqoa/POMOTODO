@@ -1,3 +1,6 @@
+.top-bar {
+  zoom: 80%;
+}
 button:hover {
   opacity: 0.6;
   cursor: pointer;
@@ -9,7 +12,7 @@ body {
   font-family: "Ubuntu", "IBM Plex Sans KR";
   display: flex;
   justify-content: center;
-  height: 870px;
+  height: 670px;
   margin: 0px;
   background-color: #e9f0fa;
 }
@@ -95,7 +98,7 @@ a {
   flex-direction: column;
   position: absolute;
   top: 45px;
-  right: 120px;
+  right: 130px;
   height: 220px;
   width: 150px;
   font-family: "Ubuntu", "IBM Plex Sans KR";
@@ -124,6 +127,11 @@ a {
   border: 0;
   background-color: transparent;
 }
+#hello,
+#hello-user {
+  color: #221974;
+}
+
 #loginButton:hover {
   opacity: 1;
   color: #8ab36f;
@@ -243,7 +251,7 @@ a {
 /* 네비게이션아이콘 */
 .POMOTODO__menu {
   position: relative;
-  right: 0.5%;
+  right: 1%;
   display: flex;
   list-style: none;
   padding: 0px;
@@ -266,4 +274,9 @@ a {
   margin-right: 10px;
   font-size: 14px;
   color: #5e5e5e;
+}
+@media screen and (max-width: 520px) {
+  .POMOTODO__menu {
+    right: 2%;
+  }
 }

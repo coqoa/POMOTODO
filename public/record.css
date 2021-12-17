@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 /* font-family: 'IBM Plex Sans KR', sans-serif; */
 #mainLayout {
-  zoom: 120%;
+  zoom: 80%;
   display: row;
   position: absolute;
   top: 49%;
@@ -225,16 +225,6 @@ i:hover {
   margin: 10px;
 }
 /* -----------------------------------반응형------------------------------------ */
-@media screen and (min-width: 2200px) {
-  .top-bar {
-    zoom: 130%;
-  }
-}
-@media screen and (max-width: 1800px) {
-  .top-bar {
-    zoom: 100%;
-  }
-}
 @media screen and (min-width: 1200px) {
   #mainLayout {
     width: 1070px;
@@ -251,15 +241,9 @@ i:hover {
   }
 }
 @media screen and (max-width: 730px) {
-  #mainLayout,
-  .top-bar {
-    zoom: 45%;
-  }
   #mainLayout {
-    left: 365px;
-    top: 607px;
-  }
-  .body {
-    height: 500px;
+    /* zoom: 80%; */
+    top: 880px;
+    height: 1720px;
   }
 }
