@@ -19,8 +19,8 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
     if (err) return console.log(err);
 
     // 서버를 띄우기 위한 코드(데이터베이스 내부에 배치해서 디비와 연결되면 서버를 띄우도록)
-    app.listen('80', function(){
-    console.log('80포트 접속성공')
+    app.listen('5501', function(){
+    console.log('5501포트 접속성공')
     });
 
     function yyyymmdd(){
