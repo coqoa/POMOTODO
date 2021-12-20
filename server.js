@@ -65,15 +65,7 @@ let pomoResult;
 let todoResult;
 let notTodoResult;
     app.get('/',function(req, res){
-        navId = 'log in';
-        res.render('POMOTODO.ejs', { posts : `${navId}`, pomodoroRecord : ' ', todoListRecord : ' ', notTodoListRecord : ' ' })
-    })
-    app.post('/',function(req, res){
-        console.log(req.body.loginId);
-        console.log(req.body.loginId);
-        console.log(req.body.loginId);
-        console.log(req.body.loginId);
-        // console.log(navId);
+        console.log(navId);
             // pomodoro 기록 출력하는 코드
         if(navId !== 'log in'){ // 아이디가 있을경우 서버에 저장된 결과
             db.collection('pomodoro').findOne({id:navId}, function(err, pomodoroResult){
@@ -150,7 +142,7 @@ let notTodoResult;
         failureFlash : true
         //실패시 /fail페이지로 이동시켜주세요
         }), function(req, res){
-            res.redirect('/success-login') // 성공시 redirect해서 홈페이지로 보내주기
+            res.redirect('/') // 성공시 redirect해서 홈페이지로 보내주기
         });
         app.get('/fail', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
             res.redirect('/login')
@@ -201,7 +193,6 @@ let notTodoResult;
     passport.deserializeUser(function (아이디, done) { //로그인하면 페이지에 방문할 때 마다 콜백함수가 호출, 사용자의 실제 데이터를 조회해서 가져옴
         done(null, {})
     });
-
     app.get('/logout', function(req, res){
         req.session.destroy(() => {
             res.clearCookie('connect.sid');
