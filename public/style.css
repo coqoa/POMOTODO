@@ -204,6 +204,7 @@ div.record {
   background: #e9f0fa;
   box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
   overflow: auto;
+  text-align: left;
 }
 div.record::-webkit-scrollbar {
   width: 7px;
@@ -231,6 +232,7 @@ div.record::-webkit-scrollbar-thumb {
 #record-time {
   /*시간 자동입력*/
   border: 0px;
+  height: 30px;
   position: relative;
   left: 0px;
   font-weight: 400;
@@ -238,12 +240,15 @@ div.record::-webkit-scrollbar-thumb {
   color: gray;
   background-color: transparent;
   padding: 5px;
+  text-align: left;
   border-radius: 8px;
 }
 .record-text {
   /*텍스트 자동입력*/
   position: relative;
-  width: 250px;
+  top: 0px;
+  left: 0px;
+  width: 200px;
   background-color: #e9f0fa;
   border: 1px solid #e9f0fa;
   border-bottom: 1px solid #dbe2eb;

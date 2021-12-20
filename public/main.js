@@ -163,7 +163,7 @@ function stopRecordList(){
                                 + startHours +' : '+ startMins 
                                 +' ~ '+ stopHours +' : '+ stopMins +'ㅤㅤㅤ'
                                 +'<input type="text" class="record-text" id="record-text" style ="display: inline" value=""'
-                                +'onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="20"  autocomplete=off></input>'
+                                +'onkeydown=" if(window.event.keyCode==13){changeText(this)}" maxlength="19"  autocomplete=off></input>'
                             +' </button>'
                             
     //스탑버튼 누르면 출력하는 오디오

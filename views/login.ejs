@@ -13,15 +13,15 @@
     <div class="container">
       <h1>log in</h1>
       <div class="login-title-underline"></div>
-      <form method="post" name="loginForm" id="authForm" action="/login">
+      <form method="post" name="loginForm" id="authForm" action="/loginPost">
           <div class="form-list">
             <input type="text" class="form-list" id="loginId" name="loginId" placeholder="username" minlength="5" maxlength="10" autocomplete='off' autofocus>
           </div>
           <div class="form-list">
-            <input type="password" class="form-list" id="loginPw" name="loginPassword" placeholder="password" minlength="5" maxlength="20" autocomplete='off' onkeydown="if(window.event.keyCode==13){printName()}">
+            <input type="password" class="form-list" id="loginPw" name="loginPassword" placeholder="password" minlength="5" maxlength="20" autocomplete='off'onkeydown="if(window.event.keyCode==13){printName()}">
           </div>
           <div class="id-check"><%= loginFeedback %></div>
-          <button type="button" class="form-list" id="form-login" onclick='printName()'>login</button>
+          <button type="button" class="form-list" id="form-login" onclick='printName()' >login</button>
           <button type="button" class="form-list" id="login-toHome" onclick="location.href='/'">home</button>
           <button type="button" class="form-list" id="login-toSignup" onclick="location.href='/signup'">sign up</button>
           <button type="button" class="form-list" id="form-pomotodo" onclick="window.open('https://github.com/coqoa')">what is POMOTODO?</button>
