@@ -155,6 +155,8 @@ td.day {
 }
 .prev,
 .next {
+  position: relative;
+  top: 2px;
   font-size: 18px;
   border: 0;
 }
