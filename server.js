@@ -231,10 +231,12 @@ let notTodoResult;
 
     // Pomodoro 기록 업데이트
     app.post('/insertPomodoro', function(req, res){
-        console.log(req.user.id);
-        console.log(req.user.id);
-        console.log(req.user.id);
         if(req.user.id !== 'log in'){ //로그인 했을때만 db에 저장하도록 하는 코드
+            console.log('235라인');
+            console.log(req.user.id);
+            console.log(req.user.id);
+            console.log(req.user.id);
+            console.log('235라인');
             db.collection('pomodoro').updateOne({id : req.user.id}, { $set : req.body }, function(err, result){ 
                 console.log('뽀모도로 업데이트')
                 res.status(200).send({ message : '뽀모 업데이트 성공했습니다'});
