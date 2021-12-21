@@ -318,7 +318,7 @@ let notTodoResult;
         if(req.user){
             next();
         }else{
-            res.send('recordLoginCheck 320 line')
+            res.send("<script>alert('로그인해주세요.');location.href='/login';</script>")
         }
     }
     app.get('/record',recordLoginCheck,function(req, res){
