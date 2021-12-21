@@ -4,6 +4,9 @@
 /* font-family: 'IBM Plex Sans KR', sans-serif; */
 
 :root {
+  --backgroundColor: rgb(235, 240, 255);
+  --blackShadow: #dde2e9;
+  --whiteShadow: #f6f8fa;
   --bluetext: #221974;
   --redtext: #ff8585;
   --hoverredtext: #f75858;
@@ -12,17 +15,19 @@
   --greentext: #76c576;
 }
 body {
-  background-color: #e9f0fa;
+  /* background-color: #e9f0fa; */
+  background-color: var(--backgroundColor);
 }
 .container {
-  background-color: #e9f0fa;
+  /* background-color: #e9f0fa; */
+  background-color: var(--backgroundColor);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 350px;
   height: 600px;
-  box-shadow: 8px 8px 25px #c1c7d0, -5px -5px 25px #ffffff;
+  box-shadow: 8px 8px 10px var(--blackShadow), -3px -3px 10px var(--whiteShadow);
   border-radius: 15px;
   zoom: 80%;
 }
@@ -40,7 +45,7 @@ body {
 }
 /* 로그인 폼 내 각 요소에 관한 코드 */
 .form-list {
-  font-family: "Ubuntu", "IBM Plex Sans KR"
+  font-family: "Ubuntu", "IBM Plex Sans KR";
   font-size: 15px;
   font-weight: 400;
   font-style: italic;
@@ -105,7 +110,7 @@ label {
   height: 50px;
   color: var(--bluetext);
   background-color: transparent;
-  box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
+  box-shadow: 3px 3px 6px var(--blackShadow), -2px -2px 3px #ffffff;
   border-radius: 15px;
 }
 #form-login:hover {
@@ -113,7 +118,7 @@ label {
   color: var(--hoverredtext);
 }
 #form-login:active {
-  box-shadow: inset 2px 2px 3px #949da6, inset -2px -2px 2px #ffffff;
+  box-shadow: inset 2px 2px 3px var(--blackShadow), inset -2px -2px 2px #ffffff;
 }
 
 /* 플래시 메세지 */
@@ -217,13 +222,15 @@ label {
   height: 35px;
   color: var(--bluetext);
   background-color: transparent;
-  box-shadow: 3px 3px 6px #c1c7d0, -3px -3px 6px #ffffff;
+  box-shadow: 3px 3px 6px var(--blackShadow), -2px -2px 3px #ffffff;
   border-radius: 8px;
   cursor: pointer;
 }
-
+#form-signup:hover {
+  color: var(--redtext);
+}
 #form-signup:active {
-  box-shadow: inset 2px 2px 3px #949da6, inset -2px -2px 2px #ffffff;
+  box-shadow: inset 2px 2px 3px var(--blackShadow), inset -2px -2px 2px #ffffff;
 }
 #signup-toHome,
 #signup-toLogin {
@@ -269,11 +276,8 @@ label {
 #email-check-match,
 #email-check-unmatch {
   position: absolute;
-  top: 165px;
+  top: 155px;
   left: 28%;
-}
-#password-message-unmatch {
-  left: 29%;
 }
 #password-message-match,
 #number-message-count,
@@ -290,27 +294,24 @@ label {
 }
 #email-check-match,
 #email-check-unmatch {
-  top: 235px;
-  left: 31%;
-}
-#email-check-match {
-  left: 28%;
+  top: 225px;
+  left: 30%;
 }
 #number-message,
 #number-message-count {
-  top: 305px;
+  top: 290px;
   left: 34%;
-}
-#number-message-count {
-  left: 28%;
 }
 #birthday-message,
 #birthday-message-count {
-  top: 372px;
+  top: 352px;
   left: 35%;
 }
-#birthday-message-count {
-  left: 28%;
+#number-message-count,
+#birthday-message-count,
+#email-check-match,
+#password-message-match {
+  left: 49%;
 }
 /* @media screen and (min-height: 1150px) {
   .container {

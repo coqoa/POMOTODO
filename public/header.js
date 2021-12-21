@@ -6,7 +6,7 @@ function setClock(){
     let date = dateObject.getDate();
     let hour = addStringZero(dateObject.getHours());
     let min = addStringZero(dateObject.getMinutes());
-    document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + "ﾠ " + hour+ " : " + min ; 
+    document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + " . " + hour+ " : " + min ; 
 }
 function addStringZero(time){
     if(parseInt(time)<10)
