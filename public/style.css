@@ -89,13 +89,15 @@ article.todolist::-webkit-scrollbar,
 article.nottodolist::-webkit-scrollbar {
   width: 7px;
   background-color: transparent;
+  border-radius: 10px;
 }
 article.todolist::-webkit-scrollbar-thumb,
 article.nottodolist::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  background-color: var(--blackShadow);
+  border-top: 0px solid lightgray;
+  border-bottom: 0px solid lightgray;
+  border-radius: 30px;
+  background-color: rgba(206, 204, 204, 0.45);
 }
 
 /* 뽀모도로 타이머  */
@@ -233,12 +235,14 @@ div.record {
 div.record::-webkit-scrollbar {
   width: 7px;
   background-color: transparent;
+  border-radius: 10px;
 }
 div.record::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  background-color: var(--blackShadow);
+  border-top: 0px solid lightgray;
+  border-bottom: 0px solid lightgray;
+  border-radius: 30px;
+  background-color: rgba(206, 204, 204, 0.45);
 }
 /* record 자동입력 부분 */
 .record-list {
@@ -545,7 +549,7 @@ div.audio {
 
 /* 투두 모달창 */
 #todo-modal.todo-modal-overlay {
-  width: 80px;
+  width: 65px;
   height: 300px;
   position: absolute;
   right: 20px;
@@ -579,7 +583,7 @@ div.audio {
   justify-content: space-around;
   padding: 8px;
   margin: 5px;
-  width: 55px;
+  width: 45px;
   height: 30px;
   border: 0px;
   border-radius: 9px;
@@ -593,15 +597,15 @@ div.audio {
 }
 .ntd-color-button {
   top: 0px;
-  left: -2px;
+  left: 0px;
 }
 /* 낫투두모달창 */
 #not-todo-modal.not-todo-modal-overlay {
-  width: 75px;
+  width: 55px;
   height: 110px;
-  position: absolute;
-  right: 20px;
-  top: 530px;
+  position: relative;
+  left: 350px;
+  top: -120px;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -760,24 +764,26 @@ ol li:hover {
       -2px -2px 3px var(--whiteShadow);
   }
 }
-@media screen and (max-width: 730px) {
+/* @media screen and (max-width: 730px) {
   .body {
     height: 730px;
   }
-}
+} */
 @media screen and (max-width: 490px) {
-  .Pomodoro {
-    zoom: 90%;
-    /* top: 50%; */
-    /* left: 10%; */
-    /* transform: translate(-15%, 0%); */
-  }
-}
-@media screen and (max-width: 300px) {
-  .Pomodoro {
+  #mainLayout {
     zoom: 80%;
     /* top: 50%; */
     /* left: 10%; */
     /* transform: translate(-15%, 0%); */
+  }
+}
+@media screen and (max-width: 400px) {
+  #mainLayout {
+    zoom: 70%;
+  }
+}
+@media screen and (max-width: 330px) {
+  #mainLayout {
+    zoom: 60%;
   }
 }

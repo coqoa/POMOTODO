@@ -250,3 +250,18 @@ i:hover {
     height: 1720px;
   }
 }
+@media screen and (max-width: 490px) {
+  #mainLayout {
+    zoom: 70%;
+  }
+}
+@media screen and (max-width: 400px) {
+  #mainLayout {
+    zoom: 60%;
+  }
+}
+@media screen and (max-width: 330px) {
+  #mainLayout {
+    zoom: 50%;
+  }
+}
