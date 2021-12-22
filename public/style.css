@@ -22,8 +22,6 @@ body {
   justify-content: center;
   height: 370px;
   margin: 0px;
-  /* background-color: #e9f0fa; */
-  background-color: var(--backgroundColor);
 }
 h2 {
   font-weight: 700;
@@ -57,9 +55,10 @@ section.Pomodoro {
   padding: 10px;
   border-radius: 10px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
-  /* box-shadow: 7px 7px 11px var(--blackShadow), -5px -5px 13px var(--whiteShadow); */
-  box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 5px var(--whiteShadow);
+  background-color: var(--contentColor);
+  /* box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 5px var(--whiteShadow); */
+  box-shadow: 4px 5px 6px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
 }
 section.todonottodo {
   position: relative;
@@ -72,9 +71,10 @@ article.nottodolist {
   padding: 10px;
   border-radius: 10px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
+  background-color: var(--contentColor);
   /* box-shadow: 7px 7px 11px var(--blackShadow), -5px -5px 13px var(--whiteShadow); */
-  box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
+  box-shadow: 4px 5px 6px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
   overflow: auto;
 }
 article.todolist {
@@ -87,34 +87,29 @@ article.nottodolist {
 /* 투두, 낫투두 스크롤 바 */
 article.todolist::-webkit-scrollbar,
 article.nottodolist::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
   background-color: transparent;
-  border-radius: 10px;
 }
 article.todolist::-webkit-scrollbar-thumb,
 article.nottodolist::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  border-top: 0px solid lightgray;
-  border-bottom: 0px solid lightgray;
-  border-radius: 30px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
   background-color: rgba(206, 204, 204, 0.45);
 }
 
 /* 뽀모도로 타이머  */
 .Pomodoro-timer-cover {
   position: absolute;
-  top: 65px;
-  left: 129px;
-  width: 175px;
-  height: 175px;
+  top: 77px;
+  left: 142px;
+  width: 180px;
+  height: 180px;
   border: 1px solid black;
+  border: 3px solid white;
   border-radius: 50%;
-  /* border: 20px solid #ebf3fb; */
-  border: 20px solid var(--backgroundColor);
-  /* box-shadow: 2px 5px 13px var(--blackShadow), -3px -3px 2px var(--whiteShadow); */
-  /* box-shadow: 2px 5px 13px var(--blackShadow), -3px -3px 12px var(--whiteShadow); */
-  box-shadow: 3px 3px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
-  background-color: white;
+  background: #eef1f590;
+  box-shadow: 3px 3px 6px var(--blackShadow), -1px -1px 4px #e7ebee;
 }
 /* 게이지 구현  */
 .Pomodoro-timer-guage {
@@ -123,14 +118,13 @@ article.nottodolist::-webkit-scrollbar-thumb {
 /* 시간을 컨트롤하는 타이머 커버영역 */
 .Pomodoro-timer-container {
   position: relative;
-  left: 154px;
-  top: 27px;
+  left: 152px;
+  top: 24px;
   width: 145px;
   height: 145px;
   text-align: center;
   border-radius: 50%;
-  /* border: 1px solid lightgray; */
-  background: var(--backgroundColor);
+  background: white;
 }
 .Pomodoro-timer-container > h2 {
   /*시간, :, 버튼 모두 포함하는 부분*/
@@ -149,12 +143,14 @@ article.nottodolist::-webkit-scrollbar-thumb {
 }
 .Pomodoro-timer-container > .clock__updown {
   position: relative;
-  font-size: 20px;
+  font-size: 18px;
   top: 20px;
+  left: 0px;
   color: #777777;
-  opacity: 0.1;
+  opacity: 0.2;
   border: 0;
-  padding: 2px 1px 4px;
+  /* border: 1px solid gray; */
+  padding: 2px;
   border-radius: 40%;
   background-color: transparent;
 }
@@ -172,21 +168,22 @@ article.nottodolist::-webkit-scrollbar-thumb {
 #minute2__minus,
 #minute2__plus {
   margin-top: 0px;
-  margin-right: 14px;
+  margin-right: 12px;
 }
 #second1__minus,
 #second1__plus {
   margin-top: 0px;
-  margin-left: 14px;
+  margin-left: 12px;
 }
 .Pomodoro-timer-container > .clock__btn {
   position: relative;
   top: 12px;
   opacity: 0.5;
   font-size: 15px;
-  padding: 7px 9px 7px;
+  padding: 5px 6px 6px 8px;
   border: none;
-  border-radius: 5px;
+  /* border: 1px solid gray; */
+  border-radius: 10px;
   background: transparent;
 }
 #btn__start {
@@ -195,26 +192,28 @@ article.nottodolist::-webkit-scrollbar-thumb {
 }
 #btn__stop {
   display: none;
-  padding: 7px;
+  padding: 5px 6px 6px 6px;
 }
 .clock__btn:hover,
 .clock__updown:hover {
-  opacity: 0.9;
+  opacity: 0.7;
   cursor: pointer;
 }
 .clock__btn:active,
 .clock__updown:active {
-  box-shadow: inset 1px 1px 2px var(--blackShadow),
-    -1px -1px 3px var(--whiteShadow);
+  opacity: 0.9;
+  box-shadow: inset 0px 0px 0px var(--blackShadow),
+    -0px -0px 0px var(--whiteShadow);
 }
+
 button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
-button:active {
+/* button:active {
   box-shadow: inset 1px 1px 2px var(--blackShadow),
     -1px -1px 3px var(--whiteShadow);
-}
+} */
 /* record , 스크롤 구현 */
 div.record {
   position: relative;
@@ -226,22 +225,21 @@ div.record {
   margin-right: 0px;
   border-radius: 10px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
-  /* box-shadow: 3px 3px 6px var(--blackShadow), -3px -3px 13px var(--whiteShadow); */
-  box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
+  background-color: var(--contentColor);
+  /* box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
+  box-shadow: 3px 3px 4px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
   overflow: auto;
   text-align: left;
 }
 div.record::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
   background-color: transparent;
-  border-radius: 10px;
 }
 div.record::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  border-top: 0px solid lightgray;
-  border-bottom: 0px solid lightgray;
-  border-radius: 30px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
   background-color: rgba(206, 204, 204, 0.45);
 }
 /* record 자동입력 부분 */
@@ -310,9 +308,10 @@ div.audio {
   width: 442px;
   border-radius: 10px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
-  /* box-shadow: 3px 3px 6px var(--blackShadow), -3px -3px 13px var(--whiteShadow); */
-  box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
+  background-color: var(--contentColor);
+  /* box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
+  box-shadow: 3px 3px 4px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
 }
 /* 오디오 선택 버튼 */
 #select-audio {
@@ -329,19 +328,19 @@ div.audio {
   border: 0;
   border-radius: 7px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
-  /* box-shadow: 2px 2px 2px var(--blackShadow), -2px -2px 13px var(--whiteShadow); */
-  box-shadow: 2px 2px 3px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
+  background-color: var(--contentColor);
+  /* box-shadow: 2px 2px 3px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
+  box-shadow: 2px 2px 3px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
 }
 #select-audio:hover {
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
-  box-shadow: 2px 2px 3px gray, -3px -3px 6px var(--whiteShadow);
+  background-color: var(--contentColor);
+  box-shadow: 2px 2px 3px gray, -1px -1px 2px var(--lightgrayShadow);
   cursor: pointer;
 }
 #select-audio:active {
-  /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
+  background-color: var(--contentColor);
   box-shadow: inset 1px 1px 2px var(--blackShadow),
     -1px -1px 2px var(--whiteShadow);
   cursor: pointer;
@@ -361,7 +360,8 @@ div.audio {
   border-radius: 10px;
   overflow: auto;
   /* box-shadow: 2px 2px 12px var(--blackShadow), -2px -2px 12px var(--whiteShadow); */
-  box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
+  box-shadow: 4px 4px 6px var(--blackShadow),
+    -5px -5px 10px var(--lightgrayShadow);
   z-index: 99;
 }
 /* 오디오 선택 모달창 스크롤 */
@@ -373,21 +373,22 @@ div.audio {
   background-clip: padding-box;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  background-color: var(--blackShadow);
+  background-color: var(--lightgrayShadow);
 }
+
 .audio-list {
   font-family: "Ubuntu", "IBM Plex Sans KR";
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
-  color: #808080;
+  color: gray;
   width: 250px;
   height: 30px;
   margin: 5px 0px 0px 0px;
   border: 0;
   border-radius: 5px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
+  background-color: rgba(244, 244, 244);
   box-shadow: 1px 1px 1px lavender, -3px -3px 14px var(--whiteShadow);
 }
 .audio-list:hover {
@@ -419,6 +420,14 @@ div.audio {
   background-image: url("POMOTODO icon/pause-solid.svg");
   left: 200px;
 }
+.start-audio:hover,
+.pause-audio:hover {
+  opacity: 0.7;
+}
+.start-audio:active,
+.pause-audio:active {
+  opacity: 0.9;
+}
 
 /* 투두, 낫투두 */
 #todo-write,
@@ -429,9 +438,9 @@ div.audio {
   border-radius: 8px;
   height: 40px;
   /* background: #e9f0fa; */
-  background-color: var(--backgroundColor);
-  /* box-shadow: 3px 3px 5px var(--blackShadow), -2px -2px 5px var(--whiteShadow); */
-  box-shadow: 5px 5px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow);
+  background-color: var(--contentColor);
+  box-shadow: 3px 4px 6px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
 }
 .color-close {
   display: none;
@@ -572,9 +581,9 @@ div.audio {
 }
 #todo-modal.todo-modal-overlay::-webkit-scrollbar-thumb {
   background-clip: padding-box;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  background-color: var(--blackShadow);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  background-color: var(--lightgrayShadow);
 }
 .color-button,
 .ntd-color-button {
@@ -593,7 +602,7 @@ div.audio {
 .color-button {
   top: 140px;
   /* background-color: #e9f0fa; */
-  background-color: var(--backgroundColor);
+  background-color: var(--contentColor);
 }
 .ntd-color-button {
   top: 0px;
@@ -637,7 +646,8 @@ ol li {
   background: rgba(255, 255, 255, 0.753);
   border: 2px solid white;
   /* background-color: var(--backgroundColor); */
-  box-shadow: 3px 3px 4px var(--blackShadow), -1px -1px 3px var(--whiteShadow);
+  box-shadow: 2px 2px 2px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
   color: lightgray;
 }
 .fa-arrows-alt-v {
@@ -662,7 +672,8 @@ ol li > i:active {
 }
 ol li:hover {
   cursor: pointer;
-  box-shadow: 2px 3px 1px var(--blackShadow), -3px -3px 5px var(--whiteShadow);
+  box-shadow: 2px 2px 4px rgb(147, 147, 147),
+    -1px -1px 2px var(--lightgrayShadow);
 }
 /* 리스트 내용부분 버튼태그 (클릭시 색깔지정 모달창 뜨는 버튼) */
 .todo-list-content,
@@ -713,13 +724,16 @@ ol li:hover {
 /* 뽀모도로 애니메이션 게이지 */
 #pie-chart1 {
   position: absolute;
-  top: 85px;
-  left: 149px;
+  top: 80px;
+  left: 145px;
   display: iline-block;
-  width: 175px;
-  height: 175px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   transition: 0.1s;
+  background-color: #eef1f590;
+  /* box-shadow: inset 0px 1px 2px var(--blackShadow),
+    0px 0px 1px var(--lightgrayShadow); */
 }
 /* 반응형 */
 @media screen and (max-width: 950px) {
@@ -772,9 +786,6 @@ ol li:hover {
 @media screen and (max-width: 490px) {
   #mainLayout {
     zoom: 80%;
-    /* top: 50%; */
-    /* left: 10%; */
-    /* transform: translate(-15%, 0%); */
   }
 }
 @media screen and (max-width: 400px) {
@@ -785,5 +796,10 @@ ol li:hover {
 @media screen and (max-width: 330px) {
   #mainLayout {
     zoom: 60%;
+  }
+}
+@media screen and (max-width: 300px) {
+  #mainLayout {
+    zoom: 50%;
   }
 }

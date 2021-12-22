@@ -66,7 +66,7 @@ function draw(classname){
 }
 function color1(PomodoroGuage, classname){
     $(classname).css({
-        "background":"conic-gradient("+pomodoroColor+" 0% "+PomodoroGuage+"%, #ffffff "+PomodoroGuage+"% 0%)"
+        "background":"conic-gradient("+pomodoroColor+" 0% "+PomodoroGuage+"%, #eef1f590 "+PomodoroGuage+"% 0%)"
     });
 }
 

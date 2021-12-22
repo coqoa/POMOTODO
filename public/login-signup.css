@@ -4,15 +4,17 @@
 /* font-family: 'IBM Plex Sans KR', sans-serif; */
 
 :root {
-  --backgroundColor: rgb(235, 240, 255);
-  --blackShadow: #dde2e9;
+  --backgroundColor: #f0f6f9;
+  --blackShadow: #c1c7d0;
   --whiteShadow: #f6f8fa;
+  --lightgrayShadow: rgb(228, 228, 228);
   --bluetext: #221974;
   --redtext: #ff8585;
   --hoverredtext: #f75858;
   --graytext: #c7c8ca;
   --beigetext: #f5f5dc;
   --greentext: #76c576;
+  /* --contentColor: #f0f6f9; */
 }
 body {
   /* background-color: #e9f0fa; */
@@ -20,14 +22,15 @@ body {
 }
 .container {
   /* background-color: #e9f0fa; */
-  background-color: var(--backgroundColor);
+  background-color: var(--contentColor);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 350px;
   height: 600px;
-  box-shadow: 8px 8px 10px var(--blackShadow), -3px -3px 10px var(--whiteShadow);
+  box-shadow: 8px 8px 10px var(--blackShadow),
+    -3px -3px 10px var(--lightgrayShadow);
   border-radius: 15px;
   zoom: 80%;
 }
@@ -46,14 +49,14 @@ body {
 /* 로그인 폼 내 각 요소에 관한 코드 */
 .form-list {
   font-family: "Ubuntu", "IBM Plex Sans KR";
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   font-style: italic;
   color: var(--bluetext);
   padding: 5px;
   margin: 3px;
   border: 0;
-  border-radius: 15px;
+  border-radius: 1px;
   text-align: center;
   background-color: transparent;
 }
@@ -78,6 +81,7 @@ label {
 
 /* ⬇︎ 개별적용 */
 /*------------------------------------------------ ⬇︎ login ------------------------------------------------ */
+
 .login-title-underline {
   position: relative;
   top: -125px;
@@ -94,8 +98,9 @@ label {
   height: 40px;
   border: 0;
   margin-bottom: 30px;
-  background-color: white;
-  border: 1px solid white;
+  background-color: var(--contentColor);
+  border: 1px solid var(--contentColor);
+  border-bottom: 1px solid lightgray;
 }
 #loginPw {
   top: 26px;
@@ -110,7 +115,8 @@ label {
   height: 50px;
   color: var(--bluetext);
   background-color: transparent;
-  box-shadow: 3px 3px 6px var(--blackShadow), -2px -2px 3px #ffffff;
+  box-shadow: 3px 3px 6px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
   border-radius: 15px;
 }
 #form-login:hover {
@@ -146,6 +152,13 @@ label {
   color: black;
 }
 /*------------------------------------------------ ⬇︎ signup ------------------------------------------------ */
+#signup-container {
+  height: 650px;
+}
+/* .form-list label {
+  color: gray;
+} */
+
 /* 라벨위치 미세조정 */
 .label-email {
   right: 115px;
@@ -168,7 +181,7 @@ label {
   height: 5px;
   width: 130px;
   border-bottom: 3px solid var(--bluetext);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 .gender-label input[type="radio"] {
   display: none;
@@ -176,13 +189,14 @@ label {
 .gender-label input[type="radio"] + span {
   position: relative;
   width: 50px;
+  top: 15px;
   left: 101px;
   display: inline-block;
   background: none;
   border: 1px solid lightgray;
   border-radius: 10px;
   padding: 0px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
   height: 35px;
   line-height: 33px;
@@ -202,27 +216,28 @@ label {
 #signupEmail,
 #signupNumber,
 #signupBirthday {
-  font-size: 15px;
+  font-size: 14px;
   position: relative;
-  width: 250px;
+  width: 230px;
   height: 15px;
   border: 0;
-  background-color: white;
-  border: 1px solid white;
-  border-radius: 7px;
+  background-color: var(--contentColor);
+  border: 1px solid var(--contentColor);
+  border-bottom: 1px solid lightgray;
   margin: 3px;
 }
 #form-signup {
   font-size: 18px;
   font-weight: 500;
   position: relative;
-  top: -25px;
+  top: -20px;
   margin-top: 20px;
   width: 260px;
   height: 35px;
   color: var(--bluetext);
   background-color: transparent;
-  box-shadow: 3px 3px 6px var(--blackShadow), -2px -2px 3px #ffffff;
+  box-shadow: 3px 3px 6px var(--blackShadow),
+    -1px -1px 2px var(--lightgrayShadow);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -239,12 +254,12 @@ label {
   color: var(--graytext);
 }
 #signup-toHome {
-  top: -26px;
-  left: 60px;
+  top: -12px;
+  left: -40px;
 }
 #signup-toLogin {
-  top: -58px;
-  left: 110px;
+  top: -45px;
+  left: 39px;
 }
 #signup-toHome:hover,
 #signup-toLogin:hover {
@@ -276,7 +291,7 @@ label {
 #email-check-match,
 #email-check-unmatch {
   position: absolute;
-  top: 155px;
+  top: 168px;
   left: 28%;
 }
 #password-message-match,
@@ -294,17 +309,17 @@ label {
 }
 #email-check-match,
 #email-check-unmatch {
-  top: 225px;
+  top: 240px;
   left: 30%;
 }
 #number-message,
 #number-message-count {
-  top: 290px;
+  top: 310px;
   left: 34%;
 }
 #birthday-message,
 #birthday-message-count {
-  top: 352px;
+  top: 375px;
   left: 35%;
 }
 #number-message-count,

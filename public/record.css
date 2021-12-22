@@ -15,7 +15,8 @@
   height: 870px;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 7px 7px 6px var(--blackShadow), -1px -1px 5px var(--blackShadow);
+  box-shadow: 6px 6px 6px var(--blackShadow),
+    -1px -1px 5px var(--lightgrayShadow);
   overflow: auto;
 }
 #mainLayout::-webkit-scrollbar {
@@ -45,7 +46,8 @@ h2 {
   margin-top: 25px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 7px 7px 6px var(--blackShadow), -1px -1px 5px var(--blackShadow);
+  box-shadow: 4px 4px 6px var(--blackShadow),
+    -1px -1px 5px var(--lightgrayShadow);
 }
 #calendar-layout {
   height: 360px;
