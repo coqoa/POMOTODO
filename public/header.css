@@ -1,11 +1,10 @@
 :root {
-  /* --backgroundColor: #f0f6f9;
-  --contentColor: #f0f6f9; */
-  --backgroundColor: #ffffff;
-  --contentColor: #ffffff;
-  --blackShadow: #c1c7d0;
-  --whiteShadow: #f6f8fa;
-  --lightgrayShadow: rgb(228, 228, 228);
+  /* --backgroundColor: #f3f3f3; */
+  --backgroundColor: rgb(240, 240, 240);
+  --contentColor: #f5f5f5;
+  --blackShadow: #cfcfcf;
+  --whiteShadow: #f2f2f2;
+  --lightgrayShadow: #d9d9d9;
   --bluetext: #221974;
   --redtext: #ff8585;
   --hoverredtext: #f75858;

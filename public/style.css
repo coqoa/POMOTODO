@@ -57,8 +57,7 @@ section.Pomodoro {
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
   /* box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 5px var(--whiteShadow); */
-  box-shadow: 4px 5px 6px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
 }
 section.todonottodo {
   position: relative;
@@ -73,8 +72,7 @@ article.nottodolist {
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
   /* box-shadow: 7px 7px 11px var(--blackShadow), -5px -5px 13px var(--whiteShadow); */
-  box-shadow: 4px 5px 6px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
   overflow: auto;
 }
 article.todolist {
@@ -109,7 +107,7 @@ article.nottodolist::-webkit-scrollbar-thumb {
   border: 3px solid white;
   border-radius: 50%;
   background: #eef1f590;
-  box-shadow: 3px 3px 6px var(--blackShadow), -1px -1px 4px #e7ebee;
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
 }
 /* 게이지 구현  */
 .Pomodoro-timer-guage {
@@ -227,8 +225,7 @@ div.record {
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
   /* box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
-  box-shadow: 3px 3px 4px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
   overflow: auto;
   text-align: left;
 }
@@ -276,9 +273,9 @@ div.record::-webkit-scrollbar-thumb {
   left: 0px;
   width: 200px;
   /* background-color: #e9f0fa; */
-  background-color: var(--backgroundColor);
+  background-color: var(--contentColor);
   /* border: 1px solid #e9f0fa; */
-  border: 1px solid var(--backgroundColor);
+  border: 1px solid var(--contentColor);
   border-bottom: 1px solid #dbe2eb;
 }
 #record-time:hover {
@@ -310,8 +307,7 @@ div.audio {
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
   /* box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
-  box-shadow: 3px 3px 4px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
 }
 /* 오디오 선택 버튼 */
 #select-audio {
@@ -330,8 +326,7 @@ div.audio {
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
   /* box-shadow: 2px 2px 3px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
-  box-shadow: 2px 2px 3px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 4px 4px 6px var(--blackShadow), -3px -3px 5px var(--whiteShadow);
 }
 #select-audio:hover {
   /* background: #e9f0fa; */
@@ -439,8 +434,7 @@ div.audio {
   height: 40px;
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
-  box-shadow: 3px 4px 6px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
 }
 .color-close {
   display: none;
@@ -646,8 +640,7 @@ ol li {
   background: rgba(255, 255, 255, 0.753);
   border: 2px solid white;
   /* background-color: var(--backgroundColor); */
-  box-shadow: 2px 2px 2px var(--blackShadow),
-    -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 2px 2px 2px var(--blackShadow), -1px -1px 2px var(--whiteShadow);
   color: lightgray;
 }
 .fa-arrows-alt-v {
