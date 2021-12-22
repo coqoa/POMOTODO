@@ -543,7 +543,8 @@ let colorClose = document.querySelector(".color-close");
 colorClose.addEventListener("click", e=>{
     todoModal.style.display = "none";
     notTodoModal.style.display = "none";
-    colorClose.style.display = "none"
+    colorClose.style.display = "none";
+    modalAudio.style.display = "none";
 })
 
 
@@ -687,8 +688,10 @@ stop.addEventListener("click", function(){
 // 클릭시 모달창 나오는 코드
 selectAudio.addEventListener("click", modalClick);
 function modalClick(){
-    if(modalAudio.style.display == "none")
+    if(modalAudio.style.display == "none"){
         modalAudio.style.display = "flex";
+        colorClose.style.display = "inline";
+    }
     else if(modalAudio.style.display == "flex")
         modalAudio.style.display = "none"
     // 오디오 선택 기능 구현

@@ -333,14 +333,10 @@ div.audio {
   padding-top: 10px;
   border: 0;
   border-radius: 7px;
-  /* background: #e9f0fa; */
-  background-color: var(--contentColor);
-  /* box-shadow: 2px 2px 3px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
+  background-color: #ffffff;
   box-shadow: 4px 4px 6px var(--blackShadow), -3px -3px 5px var(--whiteShadow);
 }
 #select-audio:hover {
-  /* background: #e9f0fa; */
-  background-color: var(--contentColor);
   box-shadow: 2px 2px 3px gray, -1px -1px 2px var(--lightgrayShadow);
   cursor: pointer;
 }
@@ -449,10 +445,10 @@ div.audio {
 .color-close {
   display: none;
   position: absolute;
-  top: -100px;
-  left: -400px;
-  width: 1700px;
-  height: 1030px;
+  top: 0px;
+  left: 0px;
+  width: 920px;
+  height: 740px;
   background-color: #ffffff00;
   z-index: 90;
 }
@@ -733,8 +729,6 @@ ol li:hover {
   border-radius: 50%;
   transition: 0.1s;
   background-color: #eef1f590;
-  /* box-shadow: inset 0px 1px 2px var(--blackShadow),
-    0px 0px 1px var(--lightgrayShadow); */
 }
 /* 반응형 */
 @media screen and (max-width: 950px) {
@@ -782,14 +776,10 @@ ol li:hover {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 940px;
+    width: 490px;
+    height: 1400px;
   }
 }
-/* @media screen and (max-width: 730px) {
-  .body {
-    height: 730px;
-  }
-} */
 @media screen and (max-width: 490px) {
   #mainLayout {
     zoom: 80%;
@@ -805,12 +795,6 @@ ol li:hover {
   #mainLayout {
     zoom: 70%;
   }
-  .color-close {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 390px;
-  }
 }
 @media screen and (max-width: 330px) {
   #mainLayout {
@@ -820,17 +804,11 @@ ol li:hover {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 320px;
+    width: 400px;
   }
 }
 @media screen and (max-width: 300px) {
   #mainLayout {
     zoom: 50%;
-  }
-  .color-close {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 290px;
   }
 }
