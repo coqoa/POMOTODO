@@ -46,6 +46,16 @@ h2.section-title {
   transform: translate(-50%, -53%);
   align-items: center;
 }
+/* .big-layout {
+  position: absolute;
+  top: 30px;
+  left: -40px;
+  width: 980px;
+  height: 690px;
+  border-radius: 25px;
+  background-color: var(--contentColor);
+  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+} */
 section.Pomodoro {
   position: relative;
   right: 20px;
@@ -53,9 +63,10 @@ section.Pomodoro {
   width: 450px;
   height: 630px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
   /* background: #e9f0fa; */
-  background-color: var(--contentColor);
+  /* background-color: var(--contentColor); */
+  background-color: #ffffff;
   /* box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 5px var(--whiteShadow); */
   box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
 }
@@ -68,9 +79,10 @@ section.todonottodo {
 article.todolist,
 article.nottodolist {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
   /* background: #e9f0fa; */
-  background-color: var(--contentColor);
+  /* background-color: var(--contentColor); */
+  background-color: #ffffff;
   /* box-shadow: 7px 7px 11px var(--blackShadow), -5px -5px 13px var(--whiteShadow); */
   box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
   overflow: auto;
@@ -221,10 +233,9 @@ div.record {
   width: 422px;
   padding: 10px;
   margin-right: 0px;
-  border-radius: 10px;
-  /* background: #e9f0fa; */
-  background-color: var(--contentColor);
-  /* box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
+  border-radius: 20px;
+  /* background-color: var(--contentColor); */
+  background-color: #ffffff;
   box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
   overflow: auto;
   text-align: left;
@@ -303,10 +314,9 @@ div.audio {
   left: 4px;
   height: 130px;
   width: 442px;
-  border-radius: 10px;
-  /* background: #e9f0fa; */
-  background-color: var(--contentColor);
-  /* box-shadow: 4px 4px 6px var(--blackShadow), -5px -5px 10px var(--whiteShadow); */
+  border-radius: 20px;
+  /* background-color: var(--contentColor); */
+  background-color: #ffffff;
   box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
 }
 /* 오디오 선택 버튼 */
