@@ -4,7 +4,7 @@
 /* font-family: 'IBM Plex Sans KR', sans-serif; */
 
 :root {
-  --backgroundColor: #f0f6f9;
+  --backgroundColor: rgb(255, 255, 255);
   --blackShadow: #c1c7d0;
   --whiteShadow: #f6f8fa;
   --lightgrayShadow: rgb(228, 228, 228);
@@ -22,7 +22,7 @@ body {
 }
 .container {
   /* background-color: #e9f0fa; */
-  background-color: var(--contentColor);
+  background-color: var(--backgroundColor);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -98,9 +98,10 @@ label {
   height: 40px;
   border: 0;
   margin-bottom: 30px;
-  background-color: var(--contentColor);
-  border: 1px solid var(--contentColor);
+  background-color: white;
+  border: 1px solid white;
   border-bottom: 1px solid lightgray;
+  border-radius: 3px;
 }
 #loginPw {
   top: 26px;
@@ -221,8 +222,9 @@ label {
   width: 230px;
   height: 15px;
   border: 0;
-  background-color: var(--contentColor);
-  border: 1px solid var(--contentColor);
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 3px;
   border-bottom: 1px solid lightgray;
   margin: 3px;
 }
@@ -291,7 +293,7 @@ label {
 #email-check-match,
 #email-check-unmatch {
   position: absolute;
-  top: 168px;
+  top: 158px;
   left: 28%;
 }
 #password-message-match,
@@ -309,17 +311,17 @@ label {
 }
 #email-check-match,
 #email-check-unmatch {
-  top: 240px;
+  top: 232px;
   left: 30%;
 }
 #number-message,
 #number-message-count {
-  top: 310px;
+  top: 300px;
   left: 34%;
 }
 #birthday-message,
 #birthday-message-count {
-  top: 375px;
+  top: 365px;
   left: 35%;
 }
 #number-message-count,
