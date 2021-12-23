@@ -17,8 +17,7 @@
   border-radius: 20px;
   background-color: var(--contentColor);
   /* box-shadow: 7px 7px 10px var(--blackShadow), -1px -2px 2px rgb(238, 238, 238); */
-  box-shadow: 7px 7px 10px var(--blackShadow),
-    -10px -10px 10px var(--whiteShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -8px -8px 8px var(--whiteShadow);
   overflow: auto;
 }
 #mainLayout::-webkit-scrollbar {
@@ -48,9 +47,10 @@ h2 {
   margin-top: 25px;
   text-align: center;
   border-radius: 20px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: var(--contentColor);
   /* box-shadow: 7px 7px 10px var(--blackShadow), -1px -2px 2px rgb(238, 238, 238); */
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 2px var(--whiteShadow);
+  box-shadow: 5px 5px 8px var(--blackShadow), -6px -6px 6px var(--whiteShadow);
 }
 #calendar-layout {
   height: 360px;

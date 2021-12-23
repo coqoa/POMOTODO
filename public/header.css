@@ -1,9 +1,14 @@
 :root {
   /* --backgroundColor: #f3f3f3; */
-  --backgroundColor: #f0f0f0;
-  --contentColor: rgb(250, 250, 250);
+  /* --backgroundColor: #f0f0f0; */
+  /* --backgroundColor: #e9f0fa; */
+  --backgroundColor: #eef1f5;
+  /* --backgroundColor: #eef1f590; */
+  /* --contentColor: rgb(250, 250, 250); */
+  --contentColor: #eef1f5;
   --blackShadow: #cfcfcf;
-  --whiteShadow: #f2f2f2;
+  /* --whiteShadow: #f2f2f2; */
+  --whiteShadow: #ffffff8b;
   --lightgrayShadow: #d9d9d9;
   --bluetext: #221974;
   --redtext: #ff8585;

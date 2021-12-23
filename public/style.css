@@ -65,10 +65,10 @@ section.Pomodoro {
   padding: 10px;
   border-radius: 20px;
   /* background: #e9f0fa; */
-  /* background-color: var(--contentColor); */
-  background-color: #ffffff;
+  background-color: var(--contentColor);
+  /* background-color: #ffffff; */
   /* box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 5px var(--whiteShadow); */
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -8px -8px 8px var(--whiteShadow);
 }
 section.todonottodo {
   position: relative;
@@ -81,10 +81,10 @@ article.nottodolist {
   padding: 10px;
   border-radius: 20px;
   /* background: #e9f0fa; */
-  /* background-color: var(--contentColor); */
-  background-color: #ffffff;
+  background-color: var(--contentColor);
+  /* background-color: #ffffff; */
   /* box-shadow: 7px 7px 11px var(--blackShadow), -5px -5px 13px var(--whiteShadow); */
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+  box-shadow: 7px 7px 10px var(--blackShadow), -8px -8px 8px var(--whiteShadow);
   overflow: auto;
 }
 article.todolist {
@@ -118,8 +118,8 @@ article.nottodolist::-webkit-scrollbar-thumb {
   border: 1px solid black;
   border: 3px solid white;
   border-radius: 50%;
-  background: #eef1f590;
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+  background: var(--contentColor);
+  box-shadow: 5px 5px 8px var(--blackShadow), -6px -6px 6px var(--whiteShadow);
 }
 /* 게이지 구현  */
 .Pomodoro-timer-guage {
@@ -234,9 +234,9 @@ div.record {
   padding: 10px;
   margin-right: 0px;
   border-radius: 20px;
-  /* background-color: var(--contentColor); */
-  background-color: #ffffff;
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+  /* background-color: #ffffff; */
+  background-color: var(--contentColor);
+  box-shadow: 5px 5px 8px var(--blackShadow), -6px -6px 6px var(--whiteShadow);
   overflow: auto;
   text-align: left;
 }
@@ -315,9 +315,9 @@ div.audio {
   height: 130px;
   width: 442px;
   border-radius: 20px;
-  /* background-color: var(--contentColor); */
-  background-color: #ffffff;
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+  /* background-color: #ffffff; */
+  background-color: var(--contentColor);
+  box-shadow: 5px 5px 8px var(--blackShadow), -6px -6px 6px var(--whiteShadow);
 }
 /* 오디오 선택 버튼 */
 #select-audio {
@@ -333,11 +333,12 @@ div.audio {
   padding-top: 10px;
   border: 0;
   border-radius: 7px;
-  background-color: #ffffff;
-  box-shadow: 4px 4px 6px var(--blackShadow), -3px -3px 5px var(--whiteShadow);
+  /* background-color: #ffffff; */
+  background-color: var(--contentColor);
+  box-shadow: 4px 4px 4px var(--blackShadow), -4px -4px 4px var(--whiteShadow);
 }
 #select-audio:hover {
-  box-shadow: 2px 2px 3px gray, -1px -1px 2px var(--lightgrayShadow);
+  box-shadow: 2px 2px 3px gray, -1px -1px 4px var(--whiteShadow);
   cursor: pointer;
 }
 #select-audio:active {
@@ -440,7 +441,7 @@ div.audio {
   height: 40px;
   /* background: #e9f0fa; */
   background-color: var(--contentColor);
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
+  box-shadow: 4px 4px 6px var(--blackShadow), -4px -4px 6px var(--whiteShadow);
 }
 .color-close {
   display: none;
@@ -641,10 +642,10 @@ ol li {
   padding-left: 5px;
   margin-bottom: 7px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.753);
   border: 2px solid white;
   /* background-color: var(--backgroundColor); */
-  box-shadow: 2px 2px 2px var(--blackShadow), -1px -1px 2px var(--whiteShadow);
+  background: rgba(255, 255, 255, 0.753);
+  box-shadow: 3px 3px 3px var(--blackShadow), -2px -2px 2px var(--whiteShadow);
   color: lightgray;
 }
 .fa-arrows-alt-v {
