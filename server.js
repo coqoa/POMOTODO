@@ -426,10 +426,13 @@ let notTodoResult;
         let hour = addStringZero(dateObject.getHours());
         let min = addStringZero(dateObject.getMinutes());
 
-        if(hour == 14 && min == 01){
-            console.log(hour);
-            console.log(min);
-        }
+        // if(hour == 20 && min == 09){
+        //     db.collection('pomodoro').find().toArray(function(err,result){
+        //         for(let i = 0; i < result.length; i++){
+        //             console.log("POMODOROID = "+ result[i].id)
+        //         }
+        //     });
+        // }
         if(hour == 00 && min == 00){
             db.collection('pomodoro').find().toArray(function(err,result){
                 for(let i = 0; i < result.length; i++){
