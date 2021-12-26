@@ -622,7 +622,7 @@ div.audio {
   box-shadow: 5px 5px 6px var(--blackShadow), -1px -1px 3px var(--blackShadow);
   border: 2px solid white;
   border-radius: 10px;
-  z-index: 99;
+  z-index: 999;
 }
 
 /* 투두리스트, 낫투두 입력시 생겨나는 리스트들 */
@@ -731,8 +731,8 @@ ol li:hover {
   transition: 0.1s;
   background-color: #eef1f590;
 }
-/* 반응형 */
-@media screen and (max-width: 950px) {
+/*------------------------------------- 반응형 -------------------------------------*/
+@media screen and (max-width: 1023px) {
   #mainLayout {
     top: 320px;
   }
@@ -777,39 +777,79 @@ ol li:hover {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 490px;
+    width: 100%;
     height: 1400px;
+    /* background-color: black;
+    display: inline;
+    opacity: 0.5; */
   }
 }
-@media screen and (max-width: 490px) {
-  #mainLayout {
-    zoom: 80%;
+@media screen and (max-width: 551px) {
+  /* 모바일 */
+  section.Pomodoro {
+    top: -100px;
+    zoom: 65%;
   }
+  section.todonottodo {
+    top: 375px;
+    width: 305px;
+  }
+  article.nottodolist {
+    width: 285px;
+  }
+  #todo-write,
+  #nottodo-write {
+    left: 7px;
+    width: 270px;
+  }
+  .text-background,
+  .ntd-text-background {
+    width: 240px;
+  }
+  .input-text,
+  .ntd-input-text {
+    left: 20px;
+    width: 195px;
+  }
+  #record-time {
+    font-size: 15px;
+  }
+  ol li {
+    /* left: -22px; */
+    width: 260px;
+    height: 30px;
+  }
+  .item-list,
+  .ntd-item-list {
+    position: relative;
+    left: -2px;
+  }
+  #not-todo-modal.not-todo-modal-overlay {
+    top: -80px;
+    left: 210px;
+  }
+  /* ol li {
+    position: relative;
+    left: -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 401px;
+    height: 35px;
+    list-style: none;
+    padding-left: 5px;
+    margin-bottom: 7px;
+    border-radius: 8px;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.753);
+    box-shadow: 3px 3px 3px var(--blackShadow), -2px -2px 2px var(--whiteShadow);
+    color: lightgray;
+  } */
+
   .color-close {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 480px;
-  }
-}
-@media screen and (max-width: 400px) {
-  #mainLayout {
-    zoom: 70%;
-  }
-}
-@media screen and (max-width: 330px) {
-  #mainLayout {
-    zoom: 60%;
-  }
-  .color-close {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 400px;
-  }
-}
-@media screen and (max-width: 300px) {
-  #mainLayout {
-    zoom: 50%;
+    width: 100%;
   }
 }
