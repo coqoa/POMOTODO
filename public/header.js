@@ -104,3 +104,54 @@ unregisterNo.addEventListener("click", e=>{
 signupLoginModal.addEventListener("click", e=>{
     location.href='/signup';
 })
+
+
+// 검색창 관련
+let query = document.querySelector('.query')
+let searchBtn = document.querySelector('.searchBtn')
+let searchBarBtn = document.querySelector('.searchBarBtn')
+let bodyClass = document.querySelector('.body')
+
+let isShift, isEnter;
+document.onkeyup = function(e){
+    if(e.which == 16) isShift = false;
+    if(e.which == 13) isEnter = false;
+}
+document.onkeydown = function(e){
+    if(e.which == 16) isShift = true;
+    if(e.which == 13) isEnter = true;
+
+    console.log(isShift, isEnter)
+    if(isShift==true && isEnter == true){
+        query.style.display = "inline";
+        query.value = "";
+        query.focus();
+        searchBarBtn.style.display = "none";
+        return false;
+    }
+}
+function search(){
+    if(query.value.length>0){
+        let url = 'http://www.google.com/search?q='+query.value; 
+        window.open(url)
+    }
+    query.value = "";
+    isEnter = false;
+    isShift = false;
+    
+}
+searchBarBtn.onclick = function(){
+    query.style.display = "inline";
+    query.value = "";
+    query.focus();
+    
+    searchBarBtn.style.display = "none";
+    isEnter = false;
+    isShift = false;
+}
+query.onblur = function(){
+    query.style.display = "none";
+    searchBarBtn.style.display = "inline";
+    isEnter = false;
+    isShift = false;
+}

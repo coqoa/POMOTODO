@@ -526,7 +526,6 @@ let notTodoResult;
         }
         })
     })
-    
 })
 
 

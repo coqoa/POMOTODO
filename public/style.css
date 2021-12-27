@@ -731,6 +731,24 @@ ol li:hover {
   transition: 0.1s;
   background-color: #eef1f590;
 }
+
+/* .search-bar {
+  position: relative;
+  top: -130px;
+  left: -250px;
+}
+.query {
+  height: 20px;
+  width: 200px;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+}
+.searchBtn {
+  border: 0;
+  color: lightgray;
+} */
 /*------------------------------------- 반응형 -------------------------------------*/
 @media screen and (max-width: 1023px) {
   #mainLayout {
