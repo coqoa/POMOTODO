@@ -299,7 +299,7 @@ a {
   font-size: 14px;
   color: #5e5e5e;
 }
-
+/* 검색창 구현 */
 .search-bar {
   position: absolute;
   /* top: 50px;
@@ -319,7 +319,6 @@ a {
   border-bottom: 1px solid gray;
   text-align: center;
 }
-/* .searchBtn, */
 .searchBarBtn {
   position: relative;
   top: 1px;
@@ -330,6 +329,15 @@ a {
 }
 .searchBarBtn {
   color: lightgray;
+}
+
+/* 네비게이션 크기변경 바 */
+.desktop-mode {
+  position: relative;
+  top: -1px;
+  border: 0;
+  background-color: transparent;
+  color: #5e5e5e;
 }
 
 @media screen and (max-width: 520px) {

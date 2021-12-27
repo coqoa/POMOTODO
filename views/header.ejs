@@ -17,7 +17,7 @@
 <body>
     <header>
         <nav class="top-bar">
-            <div class="POMOTODO__logo">
+            <div class="POMOTODO__logo" title="Home">
                 <a href="/"><i class="fas fa-mountain"></i>POMOTODO</a>
             </div>
             <div id="id-check">
@@ -61,13 +61,14 @@
             </div>
             <ul class="POMOTODO__menu">
             <li>
-                <a href="/" title="Desktop-ver" ><i class="fas fa-desktop"></i></a>
+                <!-- <button class="desktop-mode"><i class="fas fa-desktop"></i></button> -->
+                <a href="/" title="Home" ><i class="fas fa-desktop"></i></a>
             </li>
             <li>
                 <a href="/record" title="Record" ><i class="far fa-calendar-alt"></i><a>
             </li>
             <li>
-                <a href="PoMoToDo-side.html" title="Mobile-ver" ><i class="fas fa-mobile-alt"></i><a>
+                <a href="/크롬익스텐션" title="Chrome-Extension" ><i class="fas fa-puzzle-piece"></i><a>
             </li>
             </ul>
             <div id="POMOTODO__clock">시계</div>
@@ -75,7 +76,7 @@
         <span class="search-bar">
             <input type="text" class="query" value="" style="display: inline;" placeholder="google search bar" autofocus="true" onkeydown="if(window.event.keyCode==13){search()}">
             <!-- <button type="button" class="searchBtn" style="display : inline"><i class="fas fa-search"></i></button> -->
-            <button type="button" class="searchBarBtn" style="display : none"><i class="fas fa-search"></i></button>
+            <button type="button" class="searchBarBtn" style="display : none" title="Search"><i class="fas fa-search"></i></button>
           </span>
     </header>
 </body>
