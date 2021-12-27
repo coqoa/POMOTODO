@@ -6,7 +6,7 @@
   "version": "1.0",
    
   "browser_action": {
-    "default_icon": "/public/POMOTODO icon/icon.png",
+    "default_icon": "/icon.png",
     "default_popup": "CE-popup.html"
   },
   "permissions": [

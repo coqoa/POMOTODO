@@ -138,13 +138,12 @@ function search(){
     query.value = "";
     isEnter = false;
     isShift = false;
-    
 }
 searchBarBtn.onclick = function(){
     query.style.display = "inline";
     query.value = "";
     query.focus();
-    
+
     searchBarBtn.style.display = "none";
     isEnter = false;
     isShift = false;
