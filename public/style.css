@@ -756,13 +756,13 @@ ol li:hover {
   }
   section.Pomodoro {
     position: relative;
-    top: 60px;
-    right: 1px;
+    top: 90px;
+    right: -10px;
   }
   section.todonottodo {
     position: absolute;
-    top: 730px;
-    left: 0px;
+    top: 760px;
+    left: 10px;
     width: 470px;
   }
   article.nottodolist {
@@ -805,11 +805,11 @@ ol li:hover {
 @media screen and (max-width: 551px) {
   /* 모바일 */
   section.Pomodoro {
-    top: -100px;
+    top: -60px;
     zoom: 65%;
   }
   section.todonottodo {
-    top: 375px;
+    top: 405px;
     width: 305px;
   }
   article.nottodolist {

@@ -17,6 +17,10 @@
 <body>
     <header>
         <nav class="top-bar">
+            <div class="search-bar">
+                <input type="text" class="query" value="" style="display: inline;" placeholder="google search" autofocus="true" onkeydown="if(window.event.keyCode==13){search()}">
+                <button type="button" class="searchBarBtn" style="display : none" title="Google Search : Shift + Enter"><i class="fas fa-search"></i></button>
+            </div>
             <div class="POMOTODO__logo" title="Home">
                 <a href="/"><i class="fas fa-mountain"></i>POMOTODO</a>
             </div>
@@ -59,25 +63,22 @@
                     </div>
                 </span>
             </div>
+            
             <ul class="POMOTODO__menu">
-            <li>
-                <!-- <button class="desktop-mode"><i class="fas fa-desktop"></i></button> -->
-                <a href="/" title="Home" ><i class="fas fa-desktop"></i></a>
-            </li>
-            <li>
-                <a href="/record" title="Record" ><i class="far fa-calendar-alt"></i><a>
-            </li>
-            <li>
-                <a href="/크롬익스텐션" title="Chrome-Extension" ><i class="fas fa-puzzle-piece"></i><a>
-            </li>
+                <li>
+                    <!-- <button class="desktop-mode"><i class="fas fa-desktop"></i></button> -->
+                    <a href="/" title="Home" ><i class="fas fa-desktop"></i></a>
+                </li>
+                <li>
+                    <a href="/record" title="Record" ><i class="far fa-calendar-alt"></i><a>
+                </li>
+                <li>
+                    <a href="/크롬익스텐션" title="Chrome-Extension" ><i class="fas fa-puzzle-piece"></i><a>
+                </li>
             </ul>
             <div id="POMOTODO__clock">시계</div>
         </nav>
-        <span class="search-bar">
-            <input type="text" class="query" value="" style="display: inline;" placeholder="google search bar" autofocus="true" onkeydown="if(window.event.keyCode==13){search()}">
-            <!-- <button type="button" class="searchBtn" style="display : inline"><i class="fas fa-search"></i></button> -->
-            <button type="button" class="searchBarBtn" style="display : none" title="Google Search : Shift + Enter , Address Bar : Ctrl(Cmd) + L "><i class="fas fa-search"></i></button>
-          </span>
+        
     </header>
 </body>
 </html>

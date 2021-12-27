@@ -8,9 +8,9 @@
   zoom: 80%;
   display: row;
   position: absolute;
-  top: 49%;
-  left: 50%;
-  transform: translate(-50%, -48%);
+  top: 51%;
+  left: 51%;
+  transform: translate(-51%, -48%);
   width: 550px;
   height: 870px;
   align-items: center;
@@ -251,7 +251,7 @@ i:hover {
 @media screen and (max-width: 730px) {
   #mainLayout {
     /* zoom: 80%; */
-    top: 880px;
+    top: 890px;
     height: 1720px;
   }
 }
