@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="shortcut icon" href="/public/POMOTODO icon/mountain-solid.svg"/> -->
+
+    <link rel="shortcut icon" href="tomato(0).png">
+
     <title>POMOTODO</title>
     <link rel="stylesheet" href="header.css" />
     <script src="https://kit.fontawesome.com/65f55f4509.js" crossorigin="anonymous"></script>
@@ -17,12 +19,16 @@
 <body>
     <header>
         <nav class="top-bar">
+            
             <div class="search-bar">
                 <input type="text" class="query" value="" style="display: inline;" placeholder="google search" autofocus="true" onkeydown="if(window.event.keyCode==13){search()}">
-                <button type="button" class="searchBarBtn" style="display : none" title="Google Search : Shift + Enter"><i class="fas fa-search"></i></button>
             </div>
             <div class="POMOTODO__logo" title="Home">
-                <a href="/"><i class="fas fa-mountain"></i>POMOTODO</a>
+                <a href="/">
+                    <img src="/POMOTODO icon/tomato(0).png" alt="logo Image">
+                    <!-- <i class="fas fa-mountain"></i> -->
+                    POMOTODO
+                </a>
             </div>
             <div id="id-check">
                 <!-- 아이디출력 -->
@@ -66,14 +72,30 @@
             
             <ul class="POMOTODO__menu">
                 <li>
+                    <button type="button" class="searchBarBtn" title="Google Search : Shift + Enter">
+                    <i class="fas fa-search"></i>
+                    </button>
+                </li>
+                <li>
                     <!-- <button class="desktop-mode"><i class="fas fa-desktop"></i></button> -->
-                    <a href="/" title="Home" ><i class="fas fa-desktop"></i></a>
+                    <a href="/" title="Home" class="homeBtn">
+                        <!-- <img src="/POMOTODO icon/home.png" alt="logo Image"> -->
+                        <!-- <i class="fas fa-desktop"></i> -->
+                        <i class="fas fa-home"></i>
+                    </a>
                 </li>
                 <li>
-                    <a href="/record" title="Record" ><i class="far fa-calendar-alt"></i><a>
+                    <a href="/record" title="Record" class="calendarBtn">
+                        <!-- <i class="far fa-calendar-alt"></i> -->
+                        <i class="fas fa-calendar-alt"></i>
+                        <!-- <img src="/POMOTODO icon/calendar1.png" alt="logo Image"> -->
+                        <a>
                 </li>
                 <li>
-                    <a href="/크롬익스텐션" title="Chrome-Extension" ><i class="fas fa-puzzle-piece"></i><a>
+                    <a href="/크롬익스텐션" title="Chrome-Extension" class="puzzleBtn" >
+                        <!-- <img src="/POMOTODO icon/puzzle.png" alt="logo Image"> -->
+                        <i class="fas fa-puzzle-piece"></i>
+                        <a>
                 </li>
             </ul>
             <div id="POMOTODO__clock">시계</div>

@@ -275,18 +275,19 @@ a {
 /* 네비게이션아이콘 */
 .POMOTODO__menu {
   position: relative;
-  right: -0.5%;
+  right: 0.8%;
   display: flex;
   list-style: none;
   padding: 0px;
   margin: 0px;
+  font-size: 18px;
 }
 .POMOTODO__menu li {
   padding: 2px 12px;
   margin: 0px;
 }
 .POMOTODO__menu li:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 /* 네비게이션 시계 */
 #POMOTODO__clock {
@@ -299,6 +300,19 @@ a {
   font-size: 14px;
   color: #5e5e5e;
 }
+.searchBarBtn:hover {
+  opacity: 1;
+  color: rgb(59, 59, 214);
+}
+.homeBtn:hover {
+  color: rgb(246, 94, 39);
+}
+.calendarBtn:hover {
+  color: rgb(18, 147, 18);
+}
+.puzzleBtn:hover {
+  color: rgb(210, 93, 210);
+}
 /* 검색창 구현 */
 .search-bar {
   position: absolute;
@@ -308,27 +322,28 @@ a {
 }
 .query {
   font-family: "Ubuntu", "IBM Plex Sans KR";
+  font-weight: 500;
   font-style: italic;
   font-size: 18px;
   height: 30px;
   width: 560px;
-  /* border: 0; */
+  border: 0;
   border-radius: 10px;
   background-color: white;
-  /* border: 1px solid lightgray; */
+  /* border: 1px solid gray; */
   text-align: center;
+  color: black;
+  box-shadow: 5px 8px 10px #7e7e7e;
+  /* box-shadow: 5px 8px 10px var(--blackShadow); */
 }
 .searchBarBtn {
   position: relative;
-  top: -28px;
-  left: -73px;
-  font-size: 16px;
+  top: -1px;
+  left: 10px;
+  font-size: 17px;
   border: 0;
   color: #5e5e5e;
   background-color: transparent;
-}
-.searchBarBtn:hover {
-  color: lightskyblue;
 }
 
 /* 네비게이션 크기변경 바 */
@@ -342,25 +357,18 @@ a {
 
 @media screen and (max-width: 520px) {
   .POMOTODO__menu {
-    right: 2%;
+    right: 10%;
   }
   .query {
     width: 430px;
   }
-  .searchBarBtn {
-    /* top: -23px; */
-    left: -95px;
-  }
-  /* :root {
-    --backgroundColor: #eef1f5;
-  } */
 }
 @media screen and (max-width: 490px) {
   .top-bar {
     zoom: 60%;
   }
   .POMOTODO__menu {
-    /* right: 11%; */
+    right: 3%;
   }
   #modal-button-id-check {
     right: 5%;

@@ -126,7 +126,7 @@ document.onkeydown = function(e){
         query.style.display = "inline";
         query.value = "";
         query.focus();
-        searchBarBtn.style.display = "none";
+        // searchBarBtn.style.display = "none";
         return false;
     }
 }
@@ -144,13 +144,13 @@ searchBarBtn.onclick = function(){
     query.value = "";
     query.focus();
 
-    searchBarBtn.style.display = "none";
+    // searchBarBtn.style.display = "none";
     isEnter = false;
     isShift = false;
 }
 query.onblur = function(){
     query.style.display = "none";
-    searchBarBtn.style.display = "inline";
+    // searchBarBtn.style.display = "inline";
     isEnter = false;
     isShift = false;
 }

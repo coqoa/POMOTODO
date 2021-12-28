@@ -536,6 +536,13 @@ div.audio {
   border-radius: 8px;
   background-color: white;
   z-index: 10;
+  background-image: url("/POMOTODO icon/list.png");
+  /* background-position: 5px left; */
+  background-size: 18px, 18px;
+  background-repeat: no-repeat;
+  background-position-x: 2px;
+  background-position-y: 9px;
+  color: lightgray;
 }
 
 .input-button,
@@ -826,7 +833,7 @@ ol li:hover {
   }
   .input-text,
   .ntd-input-text {
-    left: 20px;
+    left: 35px;
     width: 195px;
   }
   #record-time {

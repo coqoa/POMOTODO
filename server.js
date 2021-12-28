@@ -13,6 +13,7 @@ let bkfd2Password = require('pbkdf2-password')
 let hasher = bkfd2Password();
 
 MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
+    
     //db지정하는코드
     db = client.db('pomotodo');
 
@@ -316,7 +317,7 @@ let notTodoResult;
         if(req.user){
             next();
         }else{
-            res.send("<script>alert('로그인해주세요.');location.href='/login';</script>")
+            res.send("<script>alert('Please log in.');location.href='/login';</script>")
         }
     }
     app.get('/record',recordLoginCheck,function(req, res){
@@ -526,6 +527,10 @@ let notTodoResult;
         }
         })
     })
+
+    // var favicon = require('serve-favicon'); 
+    // var path = require('path')
+    // app.use(favicon(path.join(__dirname, 'public', 'icon.ico')));
 })
 
 
