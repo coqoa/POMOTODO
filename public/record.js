@@ -77,9 +77,9 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
           success : function(data) {
               function pomoCount(){
                 console.log(data.message/800)
-                if(data.message/800 < 0.5){
+                if(data.message/800 < 0.6){
                   // console.log('0개')
-                }else if (data.message/800 > 0.5 && data.message/800<4){
+                }else if (data.message/800 > 0.6 && data.message/800<4){
                   // console.log('1~2')
                   countI.style.backgroundColor="#ffa590";
                   countI.style.color="white";

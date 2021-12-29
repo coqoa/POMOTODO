@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="tomato(0).png">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <title>POMOTODO</title>
     <link rel="stylesheet" href="header.css" />
@@ -19,7 +25,13 @@
 <body>
     <header>
         <nav class="top-bar">
-            
+            <button class="copyright"><i class="far fa-copyright"></i></button>
+            <div class="copyright-modal" style="display: none;">
+                <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                
+                <div>Icons made by <a href="" title="th studio">th studio</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+            </div>
             <div class="search-bar">
                 <input type="text" class="query" value="" style="display: inline;" placeholder="google search" autofocus="true" onkeydown="if(window.event.keyCode==13){search()}">
             </div>
@@ -58,13 +70,15 @@
                             <li>
                             <a href="https://github.com/coqoa" title="github" target="blank"><i class="fab fa-github"></i></a>
                             </li>
-                            <li id="mail-btn"><i class="far fa-envelope" title="E-mail"></i></li>
+                            <li id="mail-btn">
+                                
+                                <i class="far fa-envelope" title="E-mail"></i>
+                            </li>
                         </ul>
                     </div>
                     <div id="modal" class="modal-overlay">
                         <div class="mail-modal-window">
-                            <div class="close-area"><i class="fas fa-times"></i></div>
-                            <div class="content"><i class="fas fa-paper-plane">ﾠcoqoa28@gmail.com</i></div>
+                            <div class="content">coqoa28@gmail.com</div>
                         </div>
                     </div>
                 </span>

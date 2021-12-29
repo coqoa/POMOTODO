@@ -64,10 +64,6 @@ btnModal.addEventListener("click", e => { // 누르면 모달창 생성, 한번 
         unregisterCheck.style.display = "none"
     }
 })
-let closeBtn = modal.querySelector(".close-area") //X버튼 눌러서 모달창 종료
-closeBtn.addEventListener("click", e => {
-    modal.style.display = "none";
-})
 window.addEventListener("keyup", e => { //esc키 눌렀을 때 모달창 종료
     if(modal.style.display === "flex" && e.key === "Escape") 
         modal.style.display = "none";
@@ -82,6 +78,7 @@ loginModalClose.addEventListener("click", e=>{
     loginModalClose.style.display = "none"
     emailModal.style.display = "none"
     unregisterCheck.style.display = "none"
+    copyrightModal.style.display = 'none'
 })
 
 loginButton.addEventListener("click", e=>{
@@ -153,4 +150,16 @@ query.onblur = function(){
     // searchBarBtn.style.display = "inline";
     isEnter = false;
     isShift = false;
+}
+let copyrightBtn = document.querySelector(".copyright");
+let copyrightModal = document.querySelector(".copyright-modal");
+copyrightBtn.onclick = function(){
+    // copyrightModal.style.display = none;
+    console.log(copyrightModal.style.display == 'none');
+    if(copyrightModal.style.display == 'none'){
+        copyrightModal.style.display = 'inline'
+        loginModalClose.style.display = "inline"
+    }else{
+        copyrightModal.style.display = 'none'
+    }
 }

@@ -247,7 +247,7 @@ a {
 #modal.modal-overlay {
   position: relative;
   top: 100px;
-  left: -10px;
+  left: -30px;
   width: 210px;
   height: 65px;
   display: none;
@@ -261,16 +261,7 @@ a {
   border-radius: 10px;
 }
 #modal .content {
-  padding-bottom: 10px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-}
-#modal .close-area {
-  display: inline;
-  float: right;
-  padding-right: 3px;
-  cursor: pointer;
-  color: gray;
+  position: relative;
 }
 /* 네비게이션아이콘 */
 .POMOTODO__menu {
@@ -353,6 +344,27 @@ a {
   border: 0;
   background-color: transparent;
   color: #5e5e5e;
+}
+.copyright {
+  position: absolute;
+  font-size: 20px;
+  right: 30px;
+  top: 30px;
+  border: 0;
+  color: lightgray;
+}
+.copyright-modal {
+  display: none;
+  position: absolute;
+  right: 40px;
+  top: 60px;
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.574);
+  box-shadow: 5px 8px 10px var(--blackShadow);
+  z-index: 999;
 }
 
 @media screen and (max-width: 520px) {
