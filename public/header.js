@@ -163,3 +163,20 @@ copyrightBtn.onclick = function(){
         copyrightModal.style.display = 'none'
     }
 }
+let loginPlzModal = document.querySelector('.login-check-modal');
+let goToLoginPage = document.querySelector('.loginplz-button');
+let goToSignupPage = document.querySelector('.loginplz-signup-button');
+let closeLoginPlz = document.querySelector('.close-loginplz');
+// console.log(modalButton.innerText)
+if(modalButton.innerText !== 'log in'){
+    loginPlzModal.style.display = 'none';
+} 
+goToLoginPage.onclick = function(){
+    location.href='/login';
+}
+goToSignupPage.onclick = function(){
+    location.href='/signup';
+}
+closeLoginPlz.onclick = function(){
+    loginPlzModal.style.display = 'none';
+}

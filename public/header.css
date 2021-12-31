@@ -366,6 +366,69 @@ a {
   box-shadow: 5px 8px 10px var(--blackShadow);
   z-index: 999;
 }
+.login-check-modal {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translate(-51%, 0px);
+  width: 360px;
+  height: 350px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 5px 8px 10px var(--blackShadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Ubuntu", "IBM Plex Sans KR";
+  font-weight: 500;
+  color: #5e5e5e;
+  border: 1px solid var(--graytext);
+}
+.login-check-modal > div {
+  height: 30px;
+}
+.loginplz {
+  font-size: 40px;
+  margin: 30px 0px 50px 0px;
+}
+.warning {
+  color: var(--hoverredtext);
+}
+.loginplz-button,
+.close-loginplz,
+.loginplz-signup-button {
+  position: relative;
+  top: 35px;
+  left: 80px;
+  width: 200px;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 10px 0px 0px 0px;
+  /* border: 1px solid var(--graytext); */
+  box-shadow: 1px 1px 12px lightgray;
+  margin-top: 13px;
+}
+.loginplz-button:hover,
+.loginplz-signup-button:hover,
+.close-loginplz:hover {
+  cursor: pointer;
+}
+.loginplz-button:hover {
+  color: var(--redtext);
+}
+.loginplz-signup-button:hover {
+  color: rgb(88, 184, 244);
+}
+.close-loginplz:hover {
+  color: lightslategray;
+}
+
+.loginplz-button:active,
+.loginplz-signup-button:active,
+.close-loginplz:active {
+  box-shadow: inset 1px 1px 2px var(--blackShadow),
+    -1px -1px 2px var(--whiteShadow);
+}
 
 @media screen and (max-width: 520px) {
   .POMOTODO__menu {

@@ -160,6 +160,9 @@ label {
 } */
 
 /* 라벨위치 미세조정 */
+.label-id {
+  right: 128px;
+}
 .label-email {
   right: 115px;
 }
@@ -283,19 +286,6 @@ label {
   font-size: 12px;
 }
 #password-message-match,
-#password-message-unmatch,
-#password-message-length,
-#number-message,
-#number-message-count,
-#birthday-message,
-#birthday-message-count,
-#email-check-match,
-#email-check-unmatch {
-  position: absolute;
-  top: 175px;
-  left: 29%;
-}
-#password-message-match,
 #number-message-count,
 #birthday-message-count,
 #email-check-match {
@@ -308,20 +298,37 @@ label {
 #email-check-unmatch {
   color: var(--redtext);
 }
+#password-message-match,
+#password-message-unmatch,
+#password-message-length,
+#number-message,
+#number-message-count,
+#birthday-message,
+#birthday-message-count,
+#email-check-match,
+#email-check-unmatch {
+  position: absolute;
+  top: 175px;
+  left: 26%;
+}
+#password-message-unmatch {
+  left: 30%;
+}
+
 #email-check-match,
 #email-check-unmatch {
   top: 250px;
-  left: 31%;
+  left: 28%;
 }
 #number-message,
 #number-message-count {
   top: 320px;
-  left: 34%;
+  left: 27%;
 }
 #birthday-message,
 #birthday-message-count {
   top: 385px;
-  left: 35%;
+  left: 27%;
 }
 #number-message-count,
 #birthday-message-count,

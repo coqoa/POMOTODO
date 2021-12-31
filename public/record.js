@@ -77,9 +77,9 @@ function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
           success : function(data) {
               function pomoCount(){
                 console.log(data.message/800)
-                if(data.message/800 < 0.6){
+                if(data.message/800 < 0.2){
                   // console.log('0개')
-                }else if (data.message/800 > 0.6 && data.message/800<4){
+                }else if (data.message/800 > 0.2 && data.message/800<4){
                   // console.log('1~2')
                   countI.style.backgroundColor="#ffa590";
                   countI.style.color="white";
@@ -139,10 +139,10 @@ function clickButton(clicked_id){
         $(pomoRecordContent).html (data.pomoMessage);
         $(todoRecordContent).html (data.todoMessage);
         $(notTodoRecordContent).html (data.notTodoMessage);
-          console.log('데이버튼클릭 성공')
+          // console.log('데이버튼클릭 성공')
       },
       error : function(xhr, status, error) {
-          console.log('데이버튼 클릭실패');
+          // console.log('데이버튼 클릭실패');
       }
   })
 }

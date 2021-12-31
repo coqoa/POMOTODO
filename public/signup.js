@@ -8,19 +8,19 @@ function signup(){
     var birthday = signupForm.birthday.value;
     var gender = signupForm.gender.value;    
     if(loginId == '' || password == '' || passwordCheck == '' || email == '' || number == '' || birthday == '' || gender == ''){
-        alert("항목을 모두 입력해주세요.");
+        alert("Please enter all fields");
     }else{
         if(isPasswordCheck && isMailCheck && isNumberCheck && isBirthdayCheck){
             signupForm.submit();
         }else{
             if(!isPasswordCheck)
-                    alert('비밀번호를 확인해주세요')
+                    alert('check password')
             if(!isMailCheck)
-                alert('이메일을 확인해주세요')
+                alert('check e-mail')
             if(!isNumberCheck)
-                alert('전화번호를 확인해주세요')
+                alert('check number')
             if(!isBirthdayCheck)
-                alert('생년월일을 확인해주세요')
+                alert('check birthday')
         }
     }
 }
@@ -136,7 +136,7 @@ idBlur.onblur = function (e) {
             $(validatdId).html (data.message)
         },
         error : function(xhr, status, error) {
-            console.log('아이디체크 실패');
+            // console.log('아이디체크 실패');
         }
     })
 }

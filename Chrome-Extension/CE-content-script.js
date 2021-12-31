@@ -1,1 +1,1 @@
-window.open('http://15.165.176.175:5501/',"_self");
+window.open('http://POMOTODO.kr/',"_self");

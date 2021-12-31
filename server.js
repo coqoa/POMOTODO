@@ -68,7 +68,7 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
          //실패시 /fail페이지로 이동시켜주세요
         }), function(req, res){
             req.session.save(function(){
-                console.log('세션저장')
+                // console.log('세션저장')
                  res.redirect('/') // 성공시 redirect해서 홈페이지로 보내주기
             })
         }
@@ -94,12 +94,12 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
              //입력한 id에 대한 정보를 결과에 담아옴
              if (err) return done(err) //에러처리문법
             if (!user) {
-                console.log('아이디가 없습니다')
-                return done(null, false, { message: '존재하지 않는 ID입니다' })
+                // console.log('아이디가 없습니다')
+                return done(null, false, { message: 'ID does not exist' })
                  //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
             }
             if(user){
-                console.log('아이디가 존재합니다')
+                // console.log('아이디가 존재합니다')
                 hasher({password:inputPw, salt: user.saltPassword}, function(err, pass, salt, hash){
                      // console.log(err, pass, salt, hash);
                      // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
@@ -107,8 +107,8 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                     if (hash == user.hashPassword) {
                         return done(null, user)
                     } else {
-                        console.log('비밀번호 틀렸어요');
-                        return done(null, false, { message: '잘못된 비밀번호입니다' })
+                        // console.log('비밀번호 틀렸어요');
+                        return done(null, false, { message: 'password incorrect' })
                     }
                 })
             }
@@ -125,9 +125,9 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
      passport.deserializeUser(function(아이디, done) { //로그인하면 페이지에 방문할 때 마다 콜백함수가 호출, 사용자의 실제 데이터를 조회해서 가져옴
          // console.log('디시리얼라이즈')
          // console.log(id)
-        db.collection('users').findOne({ id: 아이디 }, function (에러, 결과) {
+        db.collection('users').findOne({ id: 아이디 }, function (err, result) {
              // console.log(결과);
-            done(null, 결과);
+            done(null, result);
         })
          // done(null, 'id')
     });
@@ -153,11 +153,11 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                     db.collection('not-todolist').insertOne({ id : req.body.loginId, notTodoList: '', notTodoListHTML:''}, function(err, result){
                         console.log('db not-todolist create')
                     })
-                    res.send("<script>alert('회원가입하셨습니다.');location.href='/login';</script>");
+                    res.send("<script>alert('WELCOME !');location.href='/login';</script>");
                 })
             }else{
                 // console.log('아이디가 있음')
-                res.send("<script>alert('이미 사용중인 아이디입니다');location.href='/signup';</script>");
+                res.send("<script>alert('this id is already in use.');location.href='/signup';</script>");
             }
         });
     })
@@ -176,9 +176,9 @@ let notTodoResult;
         } 
     } 
     app.get('/',homeLoginCheck,function(req, res){
-        console.log('----get-req----');
-        console.log(req.user.id);
-        console.log('----get-req----');
+        // console.log('----get-req----');
+        // console.log(req.user.id);
+        // console.log('----get-req----');
         // pomodoro 기록 출력하는 코드
         db.collection('pomodoro').findOne({id:req.user.id}, function(err, pomodoroResult){
             pomoResult = pomodoroResult.contentHTML;
@@ -301,7 +301,7 @@ let notTodoResult;
                 // 서버에 id가 없는경우
                 idCheck = '';
             }else{
-                idCheck = '가입할 수 없는 ID입니다';
+                idCheck = 'this id is already in use.';
             }
         res.status(200).send({ message : idCheck});
         })

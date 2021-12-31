@@ -25,7 +25,7 @@
         <div class="signup-title-underline"></div>
         <form id="authForm" name="signupForm" action="/signupResult" method="post">
             <div class="form-list">
-                <label for="id">username</label><br>
+                <label for="id" class="label-id">id</label><br>
                 <input type="text" class="form-list" id="signupId" name="loginId" placeholder="id (5~10)" minlength="5" maxlength="10" autocomplete='off' onfocus="validate()" autofocus>
                 <div class="validate-id"> <%- idCheckResult %> </div>
             </div>
@@ -34,26 +34,26 @@
                 <input type="password" class="form-list" id="signupPassword" name="password" placeholder="password (5~20)" minlength="5" maxlength="20" autocomplete='off'>
                 <input type="password" class="form-list" id="signupPasswordCheck" name="passwordCheck" placeholder="password reapeat" minlength="5" maxlength="20" autocomplete='off'>
                 <div class="message" id="password-message-match"><i class="fas fa-check"></i></div>
-                <div class="message" id="password-message-unmatch">비밀번호가 일치하지 않습니다</div>
-                <div class="message" id="password-message-length">비밀번호는 5~20자로 입력해주세요</div>
+                <div class="message" id="password-message-unmatch">The password doesn't match</div>
+                <div class="message" id="password-message-length">input in 5 to 20 characters please</div>
             </div>
             <div class="form-list">
                 <label for="email" class="label-email">email</label><br>
                 <input type="email" class="form-list" id="signupEmail" name="email" placeholder="email" autocomplete="off" onblur="mailCheck()">
                 <div class="message" id="email-check-match"><i class="fas fa-check"></i></div>
-                <div class="message" id="email-check-unmatch">이메일 형식으로 입력해주세요</div>
+                <div class="message" id="email-check-unmatch">input in 'e-mail format' please</div>
             </div>
             <div class="form-list">
                 <label for="number" class="label-number">number</label><br>
-                <input type="text" class="form-list" id="signupNumber" name="number" placeholder="( - ) 제외 11자" autocomplete='off' maxlength="11" onkeyup="onlyNumber1(this)" onchange="numberBlur(this)">
+                <input type="text" class="form-list" id="signupNumber" name="number" placeholder="only 11 numbers. (ex. 01012345678)" autocomplete='off' maxlength="11" onkeyup="onlyNumber1(this)" onchange="numberBlur(this)">
                 <div class="message" id="number-message-count"><i class="fas fa-check"></i></div>
-                <div class="message" id="number-message">숫자 11자를 입력해주세요</div>
+                <div class="message" id="number-message">input in only 11 'number' please</div>
             </div>
             <div class="form-list">
                 <label for="birthday" class="label-birthday">birthday</label><br>
-                <input type="text" class="form-list" id="signupBirthday" name="birthday" placeholder="ex.910208" maxlength='6' autocomplete='off' onkeyup="onlyNumber2(this)" onblur="numberBlur2(this)">
+                <input type="text" class="form-list" id="signupBirthday" name="birthday" placeholder="only 6 numbers. (ex.910208)" maxlength='6' autocomplete='off' onkeyup="onlyNumber2(this)" onblur="numberBlur2(this)">
                 <div class="message" id="birthday-message-count"><i class="fas fa-check"></i></div>
-                <div class="message" id="birthday-message">숫자 6자를 입력해주세요</div>
+                <div class="message" id="birthday-message">input in only 6 'number' please</div>
             </div>
             <div class="form-list">
                 <div class="gender">
