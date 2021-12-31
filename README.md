@@ -80,10 +80,14 @@
 </br> 
  
 ### 6. 집중에 도움이 되는 생활 소음
+
+###### 오디오파일
 <img width="400" alt="스크린샷 2021-12-31 오후 5 32 28" src="https://user-images.githubusercontent.com/81023768/147816227-0380a92b-f577-4591-b9eb-89c697b5e068.png">
 
+###### 오디오파일 리스트 
 <img width="400" alt="스크린샷 2021-12-31 오후 5 32 41" src="https://user-images.githubusercontent.com/81023768/147816224-3ced3d96-1fbd-4b52-a6e5-448a731c9733.png">
 
+###### 오디오파일 재생 
 <img width="400" alt="스크린샷 2021-12-31 오후 5 32 48" src="https://user-images.githubusercontent.com/81023768/147816222-71f2c3be-57db-4dcf-a3f6-e6227bca2900.png">
 
 ###### 집중에 도움이 되는 생활소음을 재생할 수 있습니다
