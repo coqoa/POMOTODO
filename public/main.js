@@ -1,24 +1,24 @@
 
-//네비 날짜
-function setClock(){
-    let dateObject = new Date();
-    let year = dateObject.getFullYear();
-    let month = dateObject.getMonth()+1;
-    let date = dateObject.getDate();
-    let hour = addStringZero(dateObject.getHours());
-    let min = addStringZero(dateObject.getMinutes());
-    document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + "ﾠ " + hour+ " : " + min ; 
-}
-function addStringZero(time){
-    if(parseInt(time)<10)
-        return "0"+time;
-    else
-        return time;
-}
-window.onload = function(){
-    setClock();
-    setInterval(setClock,1000);
-}
+// //네비 날짜
+// function setClock(){
+//     let dateObject = new Date();
+//     let year = dateObject.getFullYear();
+//     let month = dateObject.getMonth()+1;
+//     let date = dateObject.getDate();
+//     let hour = addStringZero(dateObject.getHours());
+//     let min = addStringZero(dateObject.getMinutes());
+//     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + "ﾠ " + hour+ " : " + min ; 
+// }
+// function addStringZero(time){
+//     if(parseInt(time)<10)
+//         return "0"+time;
+//     else
+//         return time;
+// }
+// window.onload = function(){
+//     setClock();
+//     setInterval(setClock,1000);
+// }
 
 //뽀모도로타이머
 let redMinutes = 25;
@@ -58,10 +58,12 @@ function draw(classname){
     PomodoroGuage = 100;
     func1 = setInterval(function(){
        if(PomodoroGuage >= 0){ //0%일때까지 반복
-        color1(PomodoroGuage ,classname);
-        PomodoroGuage -= 0.1;
-        } else 
-            clearInterval(func1);      
+            color1(PomodoroGuage ,classname);
+            PomodoroGuage -= 0.1;
+            console.log(pomodoroDelay)
+        } else {
+            clearInterval(func1);
+        }      
     },pomodoroDelay);
 }
 function color1(PomodoroGuage, classname){

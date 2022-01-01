@@ -3,7 +3,7 @@
    
   "name": "POMOTODO",
   "description": "Pomodoro Timer + To Do List + Not To Do List",
-  "version": "1.0",
+  "version": "1.1",
    
   "browser_action": {
     "default_icon": "/icon.png",
