@@ -19,6 +19,13 @@
 //     setClock();
 //     setInterval(setClock,1000);
 // }
+// 웹워커
+// if (typeof(Worker) == "undefined") { 
+//     alert("Web Worker를 지원하지 않습니다."); 
+// }else if(typeof(Worker) == "function"){
+//     alert('Web Worker를 지원합니다.')
+// } 
+let worker = new Worker('worker.js');
 
 //뽀모도로타이머
 let redMinutes = 25;
@@ -60,7 +67,7 @@ function draw(classname){
        if(PomodoroGuage >= 0){ //0%일때까지 반복
             color1(PomodoroGuage ,classname);
             PomodoroGuage -= 0.1;
-            console.log(pomodoroDelay)
+            // console.log(pomodoroDelay)
         } else {
             clearInterval(func1);
         }      
@@ -74,25 +81,26 @@ function color1(PomodoroGuage, classname){
 
 //Pomo  Start버튼
 buttonStart.onclick = function(){ 
-    if(minutes >0 || seconds>0){
-        if(buttonStart.className === 'clock__btn'){
+    // if(minutes >0 || seconds>0){
+    //     if(buttonStart.className === 'clock__btn'){
             startRecodList();
-            timeAudio = new Audio('POMOTODO audio/sound2-1.mp3');
-            timeAudio.volume = 0.1;
-            timeAudio.play();
-            pieChart.style.background = pomodoroColor;
-        }
-        buttonStart.classList.add('active');
-        buttonStop.classList.add('active');
-        buttonStart.style.display = "none";
-        buttonStop.style.display = "inline";
-        clearInterval(intervalID); 
-    }else if (minutes == 0 && seconds == 0)
-        alert('시간은 0 이상이여야함 JS line 105')
-    intervalID = setInterval(operateTimer, 1000);
+    //         timeAudio = new Audio('POMOTODO audio/sound2-1.mp3');
+    //         timeAudio.volume = 0.1;
+    //         timeAudio.play();
+    //         pieChart.style.background = pomodoroColor;
+    //     }
+    //     buttonStart.classList.add('active');
+    //     buttonStop.classList.add('active');
+    //     buttonStart.style.display = "none";
+    //     buttonStop.style.display = "inline";
+    //     // clearInterval(intervalID); 
+    // }else if (minutes == 0 && seconds == 0)
+    //     alert('시간은 0 이상이여야함 JS line 105')
+    // intervalID = setInterval(operateTimer, 1000);
 
-    console.log(pomodoroGuageColor+'타입 '+minutes+'분 '+seconds+'초 '+'애니메이션 시간 = '+pomodoroDelay);
-    // 콘솔 출력내용 : 현재타입, 분, 초, 애니메이션시간
+    // console.log(pomodoroGuageColor+'타입 '+minutes+'분 '+seconds+'초 '+'애니메이션 시간 = '+pomodoroDelay);
+    // // 콘솔 출력내용 : 현재타입, 분, 초, 애니메이션시간
+    
 }
 
 //Pomo stop버튼
@@ -107,6 +115,8 @@ buttonStop.onclick = function(){
 function operateTimer(){
     seconds--; 
     appendSeconds.textContent = seconds;
+    console.log(minutes);
+    console.log(seconds);
     if(minutes<10)
         appendMinutes.textContent="0"+minutes;
     if(seconds<10)
@@ -140,11 +150,19 @@ let stopHours;
 let stopMins;
 // 포모도로타이머 시작할때 시간기록 
 function startRecodList(){ 
-    now = new Date();
-    startHours = addStringZero(now.getHours());
-    startMins = addStringZero(now.getMinutes());
-    draw(pieChart);
+    // now = new Date();
+    // startHours = addStringZero(now.getHours());
+    // startMins = addStringZero(now.getMinutes());
+    // draw(pieChart);
+    worker.postMessage(pomodoroDelay);
+    worker.onmessage = function(e){
+        console.log(e.data);
+        appendMinutes.textContent = parseInt(e.data/60);
+        appendSeconds.textContent = parseInt(e.data%60);
+    }
+    
 };
+
 //포모도로타이머 끝날때(00분00초돌때, 정지버튼 누를때,) 시간기록 및 출력 / 텍스트입력창 출력
 function stopRecordList(){ 
     // 재생, 일시정지, 정지버튼을 원래대로 되돌리는 코드
