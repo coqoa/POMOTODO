@@ -373,7 +373,7 @@ a {
   left: 50%;
   transform: translate(-51%, 0px);
   width: 360px;
-  height: 350px;
+  height: 410px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 5px 8px 10px gray;
@@ -399,7 +399,8 @@ a {
 }
 .loginplz-button,
 .close-loginplz,
-.loginplz-signup-button {
+.loginplz-signup-button,
+.WIP-loginplz {
   position: relative;
   top: 35px;
   left: 80px;
@@ -413,21 +414,26 @@ a {
 }
 .loginplz-button:hover,
 .loginplz-signup-button:hover,
-.close-loginplz:hover {
+.close-loginplz:hover,
+.WIP-loginplz:hover {
   cursor: pointer;
 }
 .loginplz-button:hover {
-  color: var(--redtext);
+  color: var(--greentext);
 }
 .loginplz-signup-button:hover {
-  color: rgb(88, 184, 244);
+  color: #58b8f4;
 }
 .close-loginplz:hover {
-  color: lightslategray;
+  color: lightgrey;
+}
+.WIP-loginplz:hover {
+  color: var(--redtext);
 }
 .loginplz-button:active,
 .loginplz-signup-button:active,
-.close-loginplz:active {
+.close-loginplz:active,
+.WIP-loginplz:active {
   box-shadow: inset 1px 1px 2px var(--blackShadow),
     -1px -1px 2px var(--whiteShadow);
 }
