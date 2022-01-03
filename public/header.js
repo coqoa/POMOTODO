@@ -164,12 +164,14 @@ copyrightBtn.onclick = function(){
     }
 }
 let loginPlzModal = document.querySelector('.login-check-modal');
+let loginPlzBackground = document.querySelector('.login-check-background');
 let goToLoginPage = document.querySelector('.loginplz-button');
 let goToSignupPage = document.querySelector('.loginplz-signup-button');
 let closeLoginPlz = document.querySelector('.close-loginplz');
 // console.log(modalButton.innerText)
 if(modalButton.innerText !== 'log in'){
     loginPlzModal.style.display = 'none';
+    loginPlzBackground.style.display = 'none';
 } 
 goToLoginPage.onclick = function(){
     location.href='/login';
@@ -179,4 +181,9 @@ goToSignupPage.onclick = function(){
 }
 closeLoginPlz.onclick = function(){
     loginPlzModal.style.display = 'none';
+    loginPlzBackground.style.display = 'none';
 }
+loginPlzBackground.addEventListener("click", e => {
+    loginPlzModal.style.display = 'none';
+    loginPlzBackground.style.display = 'none';
+})

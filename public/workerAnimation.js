@@ -17,6 +17,7 @@ self.onmessage = function(e){
     }else if(e.data == 'stop'){
         // console.log('스탑메소드');
         clearInterval(timeAnimation);
+        t=100;
         postMessage('stop worker-animation method');
     }
 }

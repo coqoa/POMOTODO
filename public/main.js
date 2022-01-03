@@ -1,30 +1,3 @@
-
-// //네비 날짜
-// function setClock(){
-//     let dateObject = new Date();
-//     let year = dateObject.getFullYear();
-//     let month = dateObject.getMonth()+1;
-//     let date = dateObject.getDate();
-//     let hour = addStringZero(dateObject.getHours());
-//     let min = addStringZero(dateObject.getMinutes());
-//     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + "ﾠ " + hour+ " : " + min ; 
-// }
-// function addStringZero(time){
-//     if(parseInt(time)<10)
-//         return "0"+time;
-//     else
-//         return time;
-// }
-// window.onload = function(){
-//     setClock();
-//     setInterval(setClock,1000);
-// }
-// 웹워커
-// if (typeof(Worker) == "undefined") { 
-//     alert("Web Worker를 지원하지 않습니다."); 
-// }else if(typeof(Worker) == "function"){
-//     alert('Web Worker를 지원합니다.')
-// } 
 let worker = new Worker('worker.js');
 let animationWorker = new Worker('workerAnimation.js');
 
@@ -64,26 +37,19 @@ let pomodoroGuageColor = 1; // pomodoroGuageColor 가 1이면 빨간색, 2면 �
 
 //Pomo  Start버튼
 buttonStart.onclick = function(){ 
-    // if(minutes >0 || seconds>0){
-    //     if(buttonStart.className === 'clock__btn'){
+    if(minutes >0 || seconds>0){
+        if(buttonStart.className === 'clock__btn'){
             startRecodList();
             timeAudio = new Audio('POMOTODO audio/sound2-1.mp3');
             timeAudio.volume = 0.1;
             timeAudio.play();
             pieChart.style.background = pomodoroColor;
-    //     }
-        buttonStart.classList.add('active');
-        buttonStop.classList.add('active');
-        buttonStart.style.display = "none";
-        buttonStop.style.display = "inline";
-    //     // clearInterval(intervalID); 
-    // }else if (minutes == 0 && seconds == 0)
-    //     alert('시간은 0 이상이여야함 JS line 105')
-    // intervalID = setInterval(operateTimer, 1000);
-
-    // console.log(pomodoroGuageColor+'타입 '+minutes+'분 '+seconds+'초 '+'애니메이션 시간 = '+pomodoroDelay);
-    // // 콘솔 출력내용 : 현재타입, 분, 초, 애니메이션시간
-    
+            buttonStart.classList.add('active');
+            buttonStop.classList.add('active');
+            buttonStart.style.display = "none";
+            buttonStop.style.display = "inline";
+        }
+    }
 }
 
 //Pomo stop버튼
@@ -92,38 +58,18 @@ buttonStop.onclick = function(){
         if(buttonStop.className === 'clock__btn active')
             stopRecordList();
     }
-
-    // clearInterval(intervalID); 
 }
 
-function operateTimer(){
-    // seconds--; 
-    // appendSeconds.textContent = seconds;
-    // console.log(minutes);
-    // console.log(seconds);
-    // if(minutes<10)
-    //     appendMinutes.textContent="0"+minutes;
-    // if(seconds<10)
-    //     appendSeconds.textContent="0"+seconds;
-    // if(seconds<0){
-    //     minutes--;
-    //     appendMinutes.textContent = minutes;
-    //     seconds = 59;
-    //     appendSeconds.textContent = seconds;
-    //     if(minutes<10)
-    //         appendMinutes.textContent="0"+minutes;
-    // }
-    if(minutes === 00 && seconds === 00){
-        // clearInterval(intervalID);
-        stopRecordList();
-    }
-    if(minutes < 00){
-        // clearInterval(intervalID);
-        minutes = 0; seconds = 0;
-        appendMinutes.textContent = "00";
-        appendSeconds.textContent = "00";
-    }
-}
+// function operateTimer(){
+//     if(minutes === 00 && seconds === 00){
+//         stopRecordList();
+//     }
+//     if(minutes < 00){
+//         minutes = 0; seconds = 0;
+//         appendMinutes.textContent = "00";
+//         appendSeconds.textContent = "00";
+//     }
+// }
 
 //record 시간기록 
 let recordList = document.getElementById("record-list");
@@ -141,23 +87,18 @@ function startRecodList(){
     // 타이머관련 웹 워커 
     worker.postMessage(pomodoroDelay);
     worker.onmessage = function(e){
-        // console.log(e.data);
-
         let workerMinutes;
         if(parseInt(e.data/60) > 9)
             workerMinutes = parseInt(e.data/60);
         else
             workerMinutes = "0"+parseInt(e.data/60);
-
         let workerSeconds;
         if(parseInt(e.data%60) > 9)
             workerSeconds = parseInt(e.data%60);
         else
             workerSeconds = "0"+parseInt(e.data%60);
-
         appendMinutes.textContent = workerMinutes;
         appendSeconds.textContent = workerSeconds;
-
         if(workerMinutes == '00'&&workerSeconds == '00'){
             stopRecordList();
         }
@@ -165,7 +106,7 @@ function startRecodList(){
     // 애니메이션 관련 웹 워커
     animationWorker.postMessage(pomodoroDelay);
     animationWorker.onmessage = function(e){
-        console.log(e.data)
+        // console.log(e.data)
         color1(e.data ,pieChart);
     }
 };

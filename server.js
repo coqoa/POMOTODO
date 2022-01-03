@@ -482,40 +482,33 @@ let notTodoResult;
         }
     }
     setInterval(checkTimeInitialization,55100);
-
-    
     //달력버튼 눌러서 해당 데이터 출력하는 코드
     app.post('/dayButton', function(req, res){
-        console.log(req.body.clickedButton)
-        // if(req.user.id !== 'log in'){
-            db.collection('pomodoro-record').findOne({'id':req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, pomodoroRecordResult){
-                if(pomodoroRecordResult ==null){
-                    console.log('pomodoro-record-error');
-                    pomoRecordRes = '';
+        db.collection('pomodoro-record').findOne({'id':req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, pomodoroRecordResult){
+            if(pomodoroRecordResult ==null){
+                console.log('pomodoro-record-error');
+                pomoRecordRes = '';
+            }else{
+                pomoRecordRes = pomodoroRecordResult.pomoRecord;
+            }
+            db.collection('todolist-record').findOne({'id' : req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, todolistRecordResult){
+                if(todolistRecordResult==null){
+                    console.log('todolist-record-error');
+                    todoRecordRes = '';
                 }else{
-                    pomoRecordRes = pomodoroRecordResult.pomoRecord;
+                    todoRecordRes = todolistRecordResult.todoRecord;
                 }
-                db.collection('todolist-record').findOne({'id' : req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, todolistRecordResult){
-                    if(todolistRecordResult==null){
-                        console.log('todolist-record-error');
-                        todoRecordRes = '';
+                db.collection('not-todolist-record').findOne({'id' : req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, nottodolistRecordResult){
+                    if(nottodolistRecordResult==null){
+                        console.log('not-todolist-record-error');
+                        notTodoRecordRes = '';
                     }else{
-                        todoRecordRes = todolistRecordResult.todoRecord;
+                        notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
                     }
-                    db.collection('not-todolist-record').findOne({'id' : req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, nottodolistRecordResult){
-                        if(nottodolistRecordResult==null){
-                            console.log('not-todolist-record-error');
-                            notTodoRecordRes = '';
-                        }else{
-                            notTodoRecordRes = nottodolistRecordResult.notTodoRecord;
-                        }
-                    res.status(200).send({pomoMessage : pomoRecordRes, todoMessage : todoRecordRes , notTodoMessage : notTodoRecordRes});
-                    })
+                res.status(200).send({pomoMessage : pomoRecordRes, todoMessage : todoRecordRes , notTodoMessage : notTodoRecordRes});
                 })
             })
-        // }else{
-            // res.render('record.ejs', { 'posts' : req.user.id, 'pomos' : '', 'todos' : '', 'notTodos' : ''});
-        // }
+        })
     })
     app.post('/buttonColor', function(req, res){
         db.collection('pomodoro-record').findOne({'id':req.user.id, 'yyyymmdd':req.body.count},function(err,result){
@@ -528,9 +521,6 @@ let notTodoResult;
         })
     })
 
-    // var favicon = require('serve-favicon'); 
-    // var path = require('path')
-    // app.use(favicon(path.join(__dirname, 'public', 'icon.ico')));
 })
 
 
