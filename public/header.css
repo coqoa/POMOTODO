@@ -369,14 +369,15 @@ a {
 }
 .login-check-modal {
   position: absolute;
-  top: 130px;
-  left: 50%;
-  transform: translate(-51%, 0px);
-  width: 360px;
+  top: 60px;
+  right: 60px;
+  /* left: 50%;
+  transform: translate(-51%, 0px); */
+  width: 260px;
   height: 410px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  box-shadow: 5px 8px 10px gray;
+  /* box-shadow: 5px 8px 10px gray; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -390,12 +391,17 @@ a {
   height: 30px;
 }
 .loginplz {
-  font-size: 40px;
-  margin: 30px 0px 50px 0px;
+  font-size: 30px;
+  margin: 30px 0px 30px 0px;
   color: var(--bluetext);
 }
 .warning {
-  /* color: var(--bluetext); */
+  color: var(--redtext);
+  margin-bottom: 20px;
+}
+.loginplz-content {
+  font-size: 15px;
+  margin-bottom: 40px;
 }
 .loginplz-button,
 .close-loginplz,
@@ -403,7 +409,7 @@ a {
 .WIP-loginplz {
   position: relative;
   top: 35px;
-  left: 80px;
+  left: 30px;
   width: 200px;
   border-radius: 10px;
   justify-content: center;
@@ -412,10 +418,16 @@ a {
   box-shadow: 1px 1px 12px lightgray;
   margin-top: 13px;
 }
+.close-loginplz-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 .loginplz-button:hover,
 .loginplz-signup-button:hover,
 .close-loginplz:hover,
-.WIP-loginplz:hover {
+.WIP-loginplz:hover,
+.close-loginplz-icon {
   cursor: pointer;
 }
 .loginplz-button:hover {
@@ -424,7 +436,8 @@ a {
 .loginplz-signup-button:hover {
   color: #58b8f4;
 }
-.close-loginplz:hover {
+.close-loginplz:hover,
+.close-loginplz-icon:hover {
   color: lightgrey;
 }
 .WIP-loginplz:hover {

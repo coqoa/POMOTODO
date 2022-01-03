@@ -50,6 +50,7 @@ modalButton.addEventListener("click", e=>{
             helloUser.style.display="inline-block"
         }
     }
+    loginPlzModal.style.display = 'none';
 })
 //개발자 이메일 확인 모달창 구현
 let modal = document.getElementById("modal");
@@ -162,16 +163,18 @@ copyrightBtn.onclick = function(){
     }else{
         copyrightModal.style.display = 'none'
     }
+    loginPlzModal.style.display = 'none';
 }
 let loginPlzModal = document.querySelector('.login-check-modal');
-let loginPlzBackground = document.querySelector('.login-check-background');
+// let loginPlzBackground = document.querySelector('.login-check-background');
 let goToLoginPage = document.querySelector('.loginplz-button');
 let goToSignupPage = document.querySelector('.loginplz-signup-button');
 let closeLoginPlz = document.querySelector('.close-loginplz');
+let closeLoginPlzIcon = document.querySelector('.close-loginplz-icon');
 // console.log(modalButton.innerText)
 if(modalButton.innerText !== 'log in'){
     loginPlzModal.style.display = 'none';
-    loginPlzBackground.style.display = 'none';
+    // loginPlzBackground.style.display = 'none';
 } 
 goToLoginPage.onclick = function(){
     location.href='/login';
@@ -181,9 +184,13 @@ goToSignupPage.onclick = function(){
 }
 closeLoginPlz.onclick = function(){
     loginPlzModal.style.display = 'none';
-    loginPlzBackground.style.display = 'none';
+    // loginPlzBackground.style.display = 'none';
 }
-loginPlzBackground.addEventListener("click", e => {
+closeLoginPlzIcon.onclick = function(){
     loginPlzModal.style.display = 'none';
-    loginPlzBackground.style.display = 'none';
-})
+    // loginPlzBackground.style.display = 'none';
+}
+// loginPlzBackground.addEventListener("click", e => {
+//     loginPlzModal.style.display = 'none';
+//     loginPlzBackground.style.display = 'none';
+// })
