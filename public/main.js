@@ -60,26 +60,7 @@ let pomodoroColor;
 pomodoroColor = '#FF6F71';
 let pomodoroGuageColor = 1; // pomodoroGuageColor 가 1이면 빨간색, 2면 초록색 출력
 
-//뽀모도로 게이지 구현부분 draw함수를 호출해서 애니메이션을 시각화
-function draw(classname){
-    
 
-    PomodoroGuage = 100;
-    func1 = setInterval(function(){
-       if(PomodoroGuage >= 0){ //0%일때까지 반복
-            color1(PomodoroGuage ,classname);
-            PomodoroGuage -= 0.1;
-            // console.log(pomodoroDelay)
-        } else {
-            clearInterval(func1);
-        }      
-    },pomodoroDelay);
-}
-function color1(PomodoroGuage, classname){
-    $(classname).css({
-        "background":"conic-gradient("+pomodoroColor+" 0% "+PomodoroGuage+"%, #eef1f590 "+PomodoroGuage+"% 0%)"
-    });
-}
 
 //Pomo  Start버튼
 buttonStart.onclick = function(){ 
@@ -111,6 +92,7 @@ buttonStop.onclick = function(){
         if(buttonStop.className === 'clock__btn active')
             stopRecordList();
     }
+
     // clearInterval(intervalID); 
 }
 
@@ -184,12 +166,22 @@ function startRecodList(){
     animationWorker.postMessage(pomodoroDelay);
     animationWorker.onmessage = function(e){
         console.log(e.data)
+        color1(e.data ,pieChart);
     }
-    draw(pieChart);
 };
-
+function color1(PomodoroGuage, classname){
+    $(classname).css({
+        "background":"conic-gradient("+pomodoroColor+" 0% "+PomodoroGuage+"%, #eef1f590 "+PomodoroGuage+"% 0%)"
+    });
+}
 //포모도로타이머 끝날때(00분00초돌때, 정지버튼 누를때,) 시간기록 및 출력 / 텍스트입력창 출력
 function stopRecordList(){ 
+    animationWorker.postMessage('stop');
+    animationWorker.onmessage = function(e){
+        $(pieChart).css({
+            "background":"#eef1f590"
+        });
+    }
     worker.postMessage('stop');
     worker.onmessage = function(e){
     }
@@ -258,6 +250,8 @@ function stopRecordList(){
         pomodoroGuageColor = 1;
     }
     ajaxPomo();
+   
+    
 };
 
 //기록에 입력시 값 대입해주는 코드

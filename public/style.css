@@ -737,6 +737,7 @@ ol li:hover {
   border-radius: 50%;
   transition: 0.1s;
   background-color: #eef1f590;
+  /* transition-duration: 1s; */
 }
 .copyright {
   position: relative;

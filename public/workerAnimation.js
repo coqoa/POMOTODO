@@ -1,16 +1,22 @@
 
 let timeAnimation;
-let t=0;
+let t=100;
 self.onmessage = function(e){
+    if(typeof(e.data) == 'number'){
         // 애니메이션 관련
         timeAnimation = setInterval(draw, e.data);
         function draw(){
-            if(t<1000){
-                t++;
-                postMessage('t');
-            }else if(t == 1000){
+            if(t>0){
+                t -= 0.1;
+                postMessage(t);
+            }else if(t < 0){
                 clearInterval(timeAnimation)
-                t=0;
+                t=100;
             }
         }
+    }else if(e.data == 'stop'){
+        // console.log('스탑메소드');
+        clearInterval(timeAnimation);
+        postMessage('stop worker-animation method');
+    }
 }
