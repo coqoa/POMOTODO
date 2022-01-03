@@ -1,3 +1,7 @@
+<img width="1440" alt="스크린샷 2021-12-31 오후 6 31 10" src="https://user-images.githubusercontent.com/81023768/147815368-b5ed5144-d747-480b-bb5c-88b7b5c7d4ff.png">
+
+---
+
 <details>
 <summary> 개발정보 🔥 </summary>  
  
@@ -298,8 +302,8 @@ sortable 범위인식 문제
 
 </div>
 </details>
-<img width="1440" alt="스크린샷 2021-12-31 오후 6 31 10" src="https://user-images.githubusercontent.com/81023768/147815368-b5ed5144-d747-480b-bb5c-88b7b5c7d4ff.png">
 
+---
 
 
 
