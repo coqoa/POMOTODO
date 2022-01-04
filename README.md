@@ -229,6 +229,12 @@ https://coqoa.tistory.com/110
 
 </br>
 
+##### 💡 ejs템플릿 include  💡 
+
+https://coqoa.tistory.com/111
+
+</br>
+
 ##### 💡 jquery - sortable 💡 
 
 </br>
@@ -253,9 +259,7 @@ https://coqoa.tistory.com/110
 
 </br>
 
-##### 💡 ejs템플릿 💡 
 
-</br>
 
 ##### 💡 세션 / 쿠키 / 패스포트 / 시리얼라이즈 / 디시리얼라이즈 💡 
 
