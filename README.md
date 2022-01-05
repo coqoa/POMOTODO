@@ -235,6 +235,12 @@ https://coqoa.tistory.com/111
 
 </br>
 
+##### 💡 DB 💡 
+
+https://coqoa.tistory.com/114
+
+</br>
+
 ##### 💡 암호화 💡 
 
 https://coqoa.tistory.com/113
@@ -256,19 +262,6 @@ https://coqoa.tistory.com/112
 
 </br>
 
-##### 💡 DB설계? 로직? 통신 💡 
-
-</br>
-
-##### 💡 DB CRUD (restFul api?) 💡 
-
-</br>
-
-##### 💡 http status
-
-</br>
-
-##### 💡 get / post 💡 
 
 ---
 
