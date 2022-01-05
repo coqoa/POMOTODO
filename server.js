@@ -77,7 +77,7 @@ MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9re
      app.get('/fail', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
         res.redirect('/login')
     })
-
+ 
     
      //new LocalStrategy인증방식
      //LocalStrategy( { 설정 }, function(){ 아이디비번 검사하는 코드 } )
