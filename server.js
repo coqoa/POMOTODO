@@ -12,7 +12,7 @@ let flash = require('connect-flash');
 let bkfd2Password = require('pbkdf2-password')
 let hasher = bkfd2Password();
 
-MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
+MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9rep.mongodb.net/디비이름?retryWrites=true&w=majority', function(err, client){
     
     //db지정하는코드
     db = client.db('pomotodo');
