@@ -10,11 +10,9 @@ let flash = require('connect-flash');
 let pbkfd2Password = require('pbkdf2-password')
 let hasher = pbkfd2Password();
 
-<<<<<<< HEAD
+
 MongoClient.connect('mongodb+srv://POMOTODO:x5pYtvf91GCOg7gb@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
-=======
-MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9rep.mongodb.net/디비이름?retryWrites=true&w=majority', function(err, client){
->>>>>>> 8d508b08a3ddcc486c241002e50400249587b152
+// MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9rep.mongodb.net/디비이름?retryWrites=true&w=majority', function(err, client){
     
     //db지정하는코드
     db = client.db('pomotodo');
@@ -78,11 +76,6 @@ MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9re
      app.get('/fail', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
         res.redirect('/login')
     })
-<<<<<<< HEAD
-=======
- 
->>>>>>> 8d508b08a3ddcc486c241002e50400249587b152
-    
      //new LocalStrategy인증방식
      //LocalStrategy( { 설정 }, function(){ 아이디비번 검사하는 코드 } )
     passport.use(new LocalStrategy({
@@ -516,7 +509,3 @@ let notTodoResult;
     })
 
 })
-
-
-
-
