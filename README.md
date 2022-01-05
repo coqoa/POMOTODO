@@ -235,41 +235,33 @@ https://coqoa.tistory.com/111
 
 </br>
 
-##### 💡 jquery - sortable 💡 
+##### 💡 DB 💡 
 
-</br>
-
-##### 💡 include 💡 
+https://coqoa.tistory.com/114
 
 </br>
 
 ##### 💡 암호화 💡 
 
+https://coqoa.tistory.com/113
+
 </br>
+
+##### 💡 session / passport / serialize / deserialize 💡 
+
+https://coqoa.tistory.com/112
+
+</br>
+
+##### 💡 jquery - sortable 💡 
+
+</br>
+
 
 ##### 💡 jquery - ajax 💡 
 
 </br>
 
-##### 💡 DB설계? 로직? 통신 💡 
-
-</br>
-
-##### 💡 DB CRUD (restFul api?) 💡 
-
-</br>
-
-
-
-##### 💡 세션 / 쿠키 / 패스포트 / 시리얼라이즈 / 디시리얼라이즈 💡 
-
-</br>
-
-##### 💡 http status
-
-</br>
-
-##### 💡 get / post 💡 
 
 ---
 
