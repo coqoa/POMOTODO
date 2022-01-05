@@ -235,6 +235,12 @@ https://coqoa.tistory.com/111
 
 </br>
 
+##### 💡 암호화 💡 
+
+https://coqoa.tistory.com/113
+
+</br>
+
 ##### 💡 session / passport / serialize / deserialize 💡 
 
 https://coqoa.tistory.com/112
@@ -245,9 +251,6 @@ https://coqoa.tistory.com/112
 
 </br>
 
-##### 💡 암호화 💡 
-
-</br>
 
 ##### 💡 jquery - ajax 💡 
 
