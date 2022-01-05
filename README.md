@@ -253,15 +253,11 @@ https://coqoa.tistory.com/112
 
 </br>
 
-##### 💡 jquery - sortable 💡 
+##### 💡 jquery - ajax, sortable 💡 
+
+https://coqoa.tistory.com/115
 
 </br>
-
-
-##### 💡 jquery - ajax 💡 
-
-</br>
-
 
 ---
 
