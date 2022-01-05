@@ -294,8 +294,7 @@ div.record::-webkit-scrollbar-thumb {
   color: black;
 }
 #record-time:active {
-  opacity: 0.3;
-  color: black;
+  opacity: 1;
   box-shadow: inset 0px 0px 0px #ffffff, 0px 0px 0px #ffffff;
 }
 /* 뽀모도로 기록 타입확인용 아이콘 (빨강/초록)*/

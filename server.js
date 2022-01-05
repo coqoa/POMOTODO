@@ -3,16 +3,14 @@ const app = express();
 app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
 let db;
-// let navId;
-// navId = 'log in';
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 app.set('view engine', 'ejs');
 let flash = require('connect-flash');
-let bkfd2Password = require('pbkdf2-password')
-let hasher = bkfd2Password();
+let pbkfd2Password = require('pbkdf2-password')
+let hasher = pbkfd2Password();
 
-MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
+MongoClient.connect('mongodb+srv://POMOTODO:x5pYtvf91GCOg7gb@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
     
     //db지정하는코드
     db = client.db('pomotodo');
@@ -68,16 +66,14 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
          //실패시 /fail페이지로 이동시켜주세요
         }), function(req, res){
             req.session.save(function(){
-                // console.log('세션저장')
-                 res.redirect('/') // 성공시 redirect해서 홈페이지로 보내주기
+                // 성공시 redirect해서 홈페이지로 보내주기
+                res.redirect('/') 
             })
-        }
-    );
+    });
 
      app.get('/fail', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
         res.redirect('/login')
     })
-
     
      //new LocalStrategy인증방식
      //LocalStrategy( { 설정 }, function(){ 아이디비번 검사하는 코드 } )
@@ -88,48 +84,37 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
          passReqToCallback: false, //사용자가 입력한 id,pw외에 다른정보도 검증해보고 싶으면
 
     }, function (inputId, inputPw, done) {
-         // console.log('LocalStrategy', inputId, inputPw)
-         // console.log(입력한아이디, 입력한비번); //-> 사용자가 입력한 id/pw가 콘솔로그로 출력됨
+         // console.log(inputId, inputPw) -> 사용자가 입력한 id/pw가 콘솔로그로 출력됨
         db.collection('users').findOne({ id: inputId }, function (err, user) {
              //입력한 id에 대한 정보를 결과에 담아옴
              if (err) return done(err) //에러처리문법
-            if (!user) {
-                // console.log('아이디가 없습니다')
+            if (!user) { //db에 없는 아이디일때?
                 return done(null, false, { message: 'ID does not exist' })
                  //done은 3개의 파라미터를 가질수 있음, 1: 서버에러, 2: 성공시 사용자db, 3:에러메시지
             }
-            if(user){
-                // console.log('아이디가 존재합니다')
+            if(user){ // db에 아이디가 존재하면?
                 hasher({password:inputPw, salt: user.saltPassword}, function(err, pass, salt, hash){
                      // console.log(err, pass, salt, hash);
                      // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
                      // 입력비밀번호와 유저의 salt를 가져와서 hash로 만들고 그 해쉬값이 서버의 해쉬값과 일치하다면  로그인성공
-                    if (hash == user.hashPassword) {
+                    if (hash == user.hashPassword) { // 인증완료 - 로그인
                         return done(null, user)
-                    } else {
-                        // console.log('비밀번호 틀렸어요');
+                    } else { // 비밀번호가 틀렸을 때
                         return done(null, false, { message: 'password incorrect' })
                     }
                 })
             }
         })
     }));
-     // 유저의 정보를 암호화해서 user.id라는 세션으로 만든다
      //user 파라미터로 아이디/비밀번호 검증 결과가 들어간다
     passport.serializeUser(function (user, done) {
-        // console.log('시리얼라이즈', user)
          done(null, user.id); // 세션데이터안에 passport의 user값으로 사용자의 아이디가 들어간다
-        //  navId = user.id; // navId라는 변수에 입력한 id를 담아서 화면에 출력해주도록 하기위한 코드
     });
      // 세션데이터를 가진 사람을 db에서 찾아주는 코드
      passport.deserializeUser(function(아이디, done) { //로그인하면 페이지에 방문할 때 마다 콜백함수가 호출, 사용자의 실제 데이터를 조회해서 가져옴
-         // console.log('디시리얼라이즈')
-         // console.log(id)
         db.collection('users').findOne({ id: 아이디 }, function (err, result) {
-             // console.log(결과);
             done(null, result);
         })
-         // done(null, 'id')
     });
     app.post('/signupResult',function(req, res){
         db.collection('users').findOne({id: req.body.loginId}, function(err,result){
@@ -139,7 +124,6 @@ MongoClient.connect('mongodb+srv://POMOTODO:Aorqnr30335@cluster0.l9rep.mongodb.n
                 hasher({password: req.body.password}, function(err, pass, salt, hash){
                     // console.log(err, pass, salt, hash);
                     // err = undefined, pass:입력한비밀번호값, salt: 랜덤번호생성, hash: 입력비밀번호+salt값에 대한 해쉬값 을 출력해준다
-        
                     // db의 컬렉션 만들어서 데이터 저장하기
                     db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
                         console.log('db user create')
@@ -306,13 +290,13 @@ let notTodoResult;
         res.status(200).send({ message : idCheck});
         })
     })
-    function yyyymmddYesterday(){
-        let dateObject = new Date();
-        let year = dateObject.getFullYear();
-        let month = dateObject.getMonth()+1;
-        let date = dateObject.getDate()-1;
-        return year +"."+ month+"."+date;
-    }
+    // function yyyymmddYesterday(){
+    //     let dateObject = new Date();
+    //     let year = dateObject.getFullYear();
+    //     let month = dateObject.getMonth()+1;
+    //     let date = dateObject.getDate()-1;
+    //     return year +"."+ month+"."+date;
+    // }
     function recordLoginCheck(req, res, next){
         if(req.user){
             next();
@@ -482,25 +466,27 @@ let notTodoResult;
         }
     }
     setInterval(checkTimeInitialization,55100);
+
     //달력버튼 눌러서 해당 데이터 출력하는 코드
     app.post('/dayButton', function(req, res){
+        // console.log(req.body)
         db.collection('pomodoro-record').findOne({'id':req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, pomodoroRecordResult){
             if(pomodoroRecordResult ==null){
-                console.log('pomodoro-record-error');
+                // console.log('pomodoro-record-error');
                 pomoRecordRes = '';
             }else{
                 pomoRecordRes = pomodoroRecordResult.pomoRecord;
             }
             db.collection('todolist-record').findOne({'id' : req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, todolistRecordResult){
                 if(todolistRecordResult==null){
-                    console.log('todolist-record-error');
+                    // console.log('todolist-record-error');
                     todoRecordRes = '';
                 }else{
                     todoRecordRes = todolistRecordResult.todoRecord;
                 }
                 db.collection('not-todolist-record').findOne({'id' : req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, nottodolistRecordResult){
                     if(nottodolistRecordResult==null){
-                        console.log('not-todolist-record-error');
+                        // console.log('not-todolist-record-error');
                         notTodoRecordRes = '';
                     }else{
                         notTodoRecordRes = nottodolistRecordResult.notTodoRecord;

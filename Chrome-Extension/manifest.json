@@ -3,15 +3,12 @@
    
   "name": "POMOTODO",
   "description": "Pomodoro Timer + To Do List + Not To Do List",
-  "version": "1.1",
+  "version": "1.3",
    
   "browser_action": {
     "default_icon": "/icon.png",
     "default_popup": "CE-popup.html"
   },
-  "permissions": [
-    "activeTab"
-  ],
   "chrome_url_overrides" : {
     "newtab": "CE-content-script.html"
   }

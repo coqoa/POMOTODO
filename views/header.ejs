@@ -19,7 +19,6 @@
     <script defer src="header.js"></script>
 </head>
 <body>
-    <!-- <div class="login-check-background" style="display: block;" ></div> -->
     <header>
         <nav class="top-bar">
             <div class="search-bar">
@@ -31,22 +30,15 @@
                 <div>Icons made by <a href="" title="th studio">th studio</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </div>
             <div class="login-check-modal" style="display: block;" >
-                <div class="loginplz"> login please </div>
                 <div class="loginplz-content"> 
-                    <p class="warning"> Please login,<br> if you want to save your data.</p>
-                    <p> 데이터를 저장하려면 로그인 해주세요.</p>
+                    <p class="warning"> Please login, <br> if you want to save your data.</p>
+                    데이터를 저장하려면 로그인 해주세요.
                 </div>
-                <div class="loginplz-button" >login</div>
-                <div class="loginplz-signup-button" >signup</div>
-                <div class="close-loginplz" >no thanks</div>
                 <div class="close-loginplz-icon" ><i class='fas fa-times'></i></div>
-                <div class="WIP-loginplz" onclick="window.open('https://github.com/coqoa/POMOTODO/blob/main/README.md')" >what is POMOTODO?</div>
             </div>
-
             <div class="POMOTODO__logo" title="Home">
                 <a href="/">
                     <img src="/POMOTODO icon/tomato(0).png" alt="logo Image">
-                    <!-- <i class="fas fa-mountain"></i> -->
                     POMOTODO
                 </a>
             </div>
@@ -57,7 +49,6 @@
                 <span class="modal-close"></span>
                 <span id="modal-window-id-check">
                     <!-- 로그인/로그아웃 버튼 -->
-                    <!-- <span>1</span> -->
                     <span id="hello">Hello!</span>
                     <span id="hello-user">Hello ! <%= posts %></span>
                     <button id="loginButton">Log in </button>
@@ -91,7 +82,6 @@
                     </div>
                 </span>
             </div>
-            
             <ul class="POMOTODO__menu">
                 <li>
                     <button type="button" class="searchBarBtn" title="Google Search : Shift + Enter">
@@ -99,30 +89,23 @@
                     </button>
                 </li>
                 <li>
-                    <!-- <button class="desktop-mode"><i class="fas fa-desktop"></i></button> -->
                     <a href="/" title="Home" class="homeBtn">
-                        <!-- <img src="/POMOTODO icon/home.png" alt="logo Image"> -->
-                        <!-- <i class="fas fa-desktop"></i> -->
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
                 <li>
                     <a href="/record" title="Record" class="calendarBtn">
-                        <!-- <i class="far fa-calendar-alt"></i> -->
                         <i class="fas fa-calendar-alt"></i>
-                        <!-- <img src="/POMOTODO icon/calendar1.png" alt="logo Image"> -->
                         <a>
                 </li>
                 <li>
                     <a href="/크롬익스텐션" title="Chrome-Extension" class="puzzleBtn" >
-                        <!-- <img src="/POMOTODO icon/puzzle.png" alt="logo Image"> -->
                         <i class="fas fa-puzzle-piece"></i>
                         <a>
                 </li>
             </ul>
             <div id="POMOTODO__clock"></div>
         </nav>
-        
     </header>
 </body>
 </html>

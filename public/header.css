@@ -1,13 +1,7 @@
 :root {
-  /* --backgroundColor: #f3f3f3; */
   --backgroundColor: #f0f0f0;
-  /* --backgroundColor: #e9f0fa; */
-  /* --backgroundColor: #eef1f5; */
-  /* --backgroundColor: #eef1f590; */
   --contentColor: #f5f5f5;
-  /* --contentColor: #eef1f5; */
   --blackShadow: #cfcfcf;
-  /* --whiteShadow: #f2f2f2; */
   --whiteShadow: #ffffff8b;
   --lightgrayShadow: #d9d9d9;
   --bluetext: #221974;
@@ -17,7 +11,6 @@
   --beigetext: #f5f5dc;
   --greentext: #76c576;
 }
-
 .top-bar {
   zoom: 80%;
 }
@@ -35,7 +28,6 @@ body {
   justify-content: center;
   height: 670px;
   margin: 0px;
-  /* background-color: #e9f0fa; */
   background-color: var(--backgroundColor);
 }
 header nav {
@@ -48,14 +40,13 @@ header nav {
   left: 0;
   width: 100%;
   height: 10px;
-  /* background-color: #f4f8fb; */
   background-color: #ffffff;
 
   color: #5e5e5e;
   z-index: 999;
 }
+/*네비게이션바의 a태그*/
 a {
-  /*네비게이션바의 a태그*/
   text-decoration: none;
   color: #5e5e5e;
 }
@@ -73,8 +64,8 @@ a {
   background-color: transparent;
   color: black;
 }
+/* 로고 아이콘 */
 .POMOTODO__logo i {
-  /* 로고 아이콘 */
   position: relative;
   bottom: 1px;
   padding-right: 5px;
@@ -321,11 +312,9 @@ a {
   border: 0;
   border-radius: 10px;
   background-color: white;
-  /* border: 1px solid gray; */
   text-align: center;
   color: black;
   box-shadow: 5px 8px 10px #7e7e7e;
-  /* box-shadow: 5px 8px 10px var(--blackShadow); */
 }
 .searchBarBtn {
   position: relative;
@@ -367,97 +356,40 @@ a {
   box-shadow: 5px 8px 10px var(--blackShadow);
   z-index: 999;
 }
+
 .login-check-modal {
   position: absolute;
-  top: 60px;
-  right: 60px;
-  /* left: 50%;
-  transform: translate(-51%, 0px); */
+  top: 40px;
+  right: 80px;
   width: 260px;
-  height: 410px;
+  height: 100px;
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  /* box-shadow: 5px 8px 10px gray; */
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px #7e7e7e;
   text-align: center;
-  display: flex;
-  flex-direction: column;
   font-family: "Ubuntu", "IBM Plex Sans KR";
   font-weight: 500;
+  font-size: 15px;
   color: #5e5e5e;
-  border: 1px solid var(--graytext);
   z-index: 999;
-}
-.login-check-modal > div {
-  height: 30px;
-}
-.loginplz {
-  font-size: 30px;
-  margin: 30px 0px 30px 0px;
-  color: var(--bluetext);
 }
 .warning {
   color: var(--redtext);
-  margin-bottom: 20px;
-}
-.loginplz-content {
-  font-size: 15px;
-  margin-bottom: 40px;
-}
-.loginplz-button,
-.close-loginplz,
-.loginplz-signup-button,
-.WIP-loginplz {
-  position: relative;
-  top: 35px;
-  left: 30px;
-  width: 200px;
-  border-radius: 10px;
-  justify-content: center;
-  padding: 10px 0px 0px 0px;
-  /* border: 1px solid var(--graytext); */
-  box-shadow: 1px 1px 12px lightgray;
-  margin-top: 13px;
 }
 .close-loginplz-icon {
   position: absolute;
-  top: 10px;
+  top: 8px;
   right: 10px;
-}
-.loginplz-button:hover,
-.loginplz-signup-button:hover,
-.close-loginplz:hover,
-.WIP-loginplz:hover,
-.close-loginplz-icon {
   cursor: pointer;
 }
-.loginplz-button:hover {
-  color: var(--greentext);
-}
-.loginplz-signup-button:hover {
-  color: #58b8f4;
-}
-.close-loginplz:hover,
 .close-loginplz-icon:hover {
   color: lightgrey;
 }
-.WIP-loginplz:hover {
-  color: var(--redtext);
-}
-.loginplz-button:active,
-.loginplz-signup-button:active,
-.close-loginplz:active,
-.WIP-loginplz:active {
-  box-shadow: inset 1px 1px 2px var(--blackShadow),
-    -1px -1px 2px var(--whiteShadow);
-}
-.login-check-background {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(76, 76, 76, 0.101);
-  z-index: 99;
+
+@media screen and (max-width: 1023px) {
+  .login-check-modal {
+    top: 80px;
+  }
 }
 @media screen and (max-width: 520px) {
   .POMOTODO__menu {
