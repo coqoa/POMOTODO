@@ -761,4 +761,3 @@ function ajaxNotTodo(){
         }
     })
 }
-

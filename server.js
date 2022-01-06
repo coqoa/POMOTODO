@@ -10,6 +10,9 @@ let flash = require('connect-flash');
 let pbkfd2Password = require('pbkdf2-password')
 let hasher = pbkfd2Password();
 
+// var server = http.createServer(app);
+// server.keepAliveTimeout = 65000;
+// server.headersTimeout = 66000;
 
 MongoClient.connect('mongodb+srv://POMOTODO:x5pYtvf91GCOg7gb@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
 // MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9rep.mongodb.net/디비이름?retryWrites=true&w=majority', function(err, client){
@@ -441,6 +444,7 @@ let notTodoResult;
                     }
                 }
             });
+
             // if(req.user.id !== 'log in'){
             //     db.collection('pomodoro-record').findOne({ id: req.user.id, 'yyyymmdd' : yyyymmdd() }, function (err, pomoRecCheck) {
             //         if(pomoRecCheck==null){
@@ -507,5 +511,7 @@ let notTodoResult;
         }
         })
     })
-
+    app.get('/index.html', function(req, res){ // /fail로 접속시 처리할 코드 (alert창을 띄우고 로그인으로 리다이렉트)
+        res.status(200).send();
+    })
 })
