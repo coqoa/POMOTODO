@@ -2,6 +2,16 @@
 var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
 var date = new Date();//today의 Date를 세어주는 역할
 
+
+function yyyymmdd(){
+  let dateObject = new Date();
+  let year = dateObject.getFullYear();
+  let month = dateObject.getMonth()+1;
+  let date = dateObject.getDate();
+  return year +"."+ month+"."+date;
+}
+
+
 function prevCalendar() {//이전 달
     today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
     buildCalendar();
@@ -139,10 +149,10 @@ function clickButton(clicked_id){
         $(pomoRecordContent).html (data.pomoMessage);
         $(todoRecordContent).html (data.todoMessage);
         $(notTodoRecordContent).html (data.notTodoMessage);
-          // console.log('데이버튼클릭 성공')
+          console.log('데이버튼클릭 성공')
       },
       error : function(xhr, status, error) {
-          // console.log('데이버튼 클릭실패');
+          console.log('데이버튼 클릭실패');
       }
   })
 }

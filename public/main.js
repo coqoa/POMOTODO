@@ -1,6 +1,6 @@
 let worker = new Worker('worker.js');
 let animationWorker = new Worker('workerAnimation.js');
-
+// let initializationWorker = new Worker('workerInitialization.js')
 //뽀모도로타이머
 let redMinutes = 25;
 let greenMinutes = 5;
@@ -33,7 +33,23 @@ let pomodoroColor;
 pomodoroColor = '#FF6F71';
 let pomodoroGuageColor = 1; // pomodoroGuageColor 가 1이면 빨간색, 2면 초록색 출력
 
+// initializationWorker.onmessage = function(e){
+//     console.log('초기화!!')
+// }
 
+function addStringZero(time){
+    if(parseInt(time)<10)
+        return "0"+time;
+    else
+        return time;
+}
+function yyyymmdd(){
+    let dateObject = new Date();
+    let year = dateObject.getFullYear();
+    let month = dateObject.getMonth()+1;
+    let date = dateObject.getDate();
+    return year +"."+ month+"."+date;
+}
 
 //Pomo  Start버튼
 buttonStart.onclick = function(){ 
@@ -126,6 +142,7 @@ function stopRecordList(){
     worker.postMessage('stop');
     worker.onmessage = function(e){
     }
+    
     // 재생, 일시정지, 정지버튼을 원래대로 되돌리는 코드
     buttonStart.style.display = "inline";
     buttonStop.style.display = "none";
@@ -726,7 +743,7 @@ function ajaxPomo(){
     $.ajax({
         method : 'POST',
         url : '/insertPomodoro',
-        data : {id : modalButton.innerHTML, contentHTML : recordList.innerHTML},
+        data : {id : modalButton.innerHTML,yyyymmdd : yyyymmdd(), contentHTML : recordList.innerHTML},
         success : function() {
             console.log('포모도로 ajax 성공')
         },
@@ -739,7 +756,7 @@ function ajaxTodo(){
     $.ajax({ 
         type : 'post',
         url : '/insertTodoList',
-        data : {id : modalButton.innerHTML, todoListHTML : itemList.innerHTML},
+        data : {id : modalButton.innerHTML,yyyymmdd : yyyymmdd() , todoListHTML : itemList.innerHTML},
         success : function() {
             console.log('투두 ajax 성공')
         },
@@ -752,7 +769,7 @@ function ajaxNotTodo(){
     $.ajax({ 
         method : 'POST',
         url : '/insertNotTodoList',
-        data : {id : modalButton.innerHTML, notTodoListHTML : ntdItemList.innerHTML},
+        data : {id : modalButton.innerHTML,yyyymmdd : yyyymmdd() , notTodoListHTML : ntdItemList.innerHTML},
         success : function() {
             console.log('낫투두 ajax 성공')
         },
