@@ -7,8 +7,12 @@ function setClock(){
     let hour = addStringZero(dateObject.getHours());
     let min = addStringZero(dateObject.getMinutes());
     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + " . " + hour+ " : " + min ; 
+    //00시00분 초기화코드
     console.log(min);
-    console.log(min%5==0);
+    if(hour == '00' && min == '00'){
+        window.location.href = 'https://pomotodo.kr/';
+        console.log('recirect!!');
+    }
 }
 function addStringZero(time){
     if(parseInt(time)<10)
@@ -83,14 +87,12 @@ loginModalClose.addEventListener("click", e=>{
     unregisterCheck.style.display = "none"
     copyrightModal.style.display = 'none'
 })
-
 loginButton.addEventListener("click", e=>{
     location.href='/login';
 })
 logoutButton.addEventListener("click", e=>{
     location.href='/logout';
 })
-
 unregister.addEventListener("click", e=>{
     unregisterCheck.style.display = "inline-block"
     emailModal.style.display = "none"
@@ -104,14 +106,11 @@ unregisterNo.addEventListener("click", e=>{
 signupLoginModal.addEventListener("click", e=>{
     location.href='/signup';
 })
-
-
 // 검색창 관련
 let query = document.querySelector('.query')
 let searchBtn = document.querySelector('.searchBtn')
 let searchBarBtn = document.querySelector('.searchBarBtn')
 let bodyClass = document.querySelector('.body')
-
 let isShift, isEnter;
 document.onkeyup = function(e){
     if(e.which == 16) isShift = false;
@@ -126,7 +125,6 @@ document.onkeydown = function(e){
         query.style.display = "inline";
         query.value = "";
         query.focus();
-        // searchBarBtn.style.display = "none";
         return false;
     }
 }
@@ -143,14 +141,11 @@ searchBarBtn.onclick = function(){
     query.style.display = "inline";
     query.value = "";
     query.focus();
-
-    // searchBarBtn.style.display = "none";
     isEnter = false;
     isShift = false;
 }
 query.onblur = function(){
     query.style.display = "none";
-    // searchBarBtn.style.display = "inline";
     isEnter = false;
     isShift = false;
 }
@@ -171,7 +166,6 @@ let loginPlzModal = document.querySelector('.login-check-modal');
 let closeLoginPlzIcon = document.querySelector('.close-loginplz-icon');
 if(modalButton.innerText !== 'log in'){
     loginPlzModal.style.display = 'none';
-    
 } 
 closeLoginPlzIcon.onclick = function(){
     loginPlzModal.style.display = 'none';

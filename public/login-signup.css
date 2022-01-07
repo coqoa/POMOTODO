@@ -224,7 +224,6 @@ label {
   width: 250px;
   height: 20px;
   background-color: white;
-  /* border: 1px solid white; */
   margin: 3px;
   border-radius: 7px;
   border: 0;
@@ -270,7 +269,6 @@ label {
   cursor: pointer;
   color: black;
 }
-
 /* 회원가입 입력값체크*/
 .validate-id {
   display: block;
@@ -280,7 +278,6 @@ label {
   left: 115px;
   color: var(--redtext);
 }
-
 .message {
   display: none;
   font-size: 12px;
@@ -314,7 +311,6 @@ label {
 #password-message-unmatch {
   left: 30%;
 }
-
 #email-check-match,
 #email-check-unmatch {
   top: 250px;

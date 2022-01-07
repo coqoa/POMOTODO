@@ -4,17 +4,6 @@
 /* font-family: 'Ubuntu', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 /* font-family: 'IBM Plex Sans KR', sans-serif; */
-
-/* :root { */
-/* --backgroundColor: rgb(248, 248, 248); */
-/* --bluetext: #221974;
-  --redtext: #ff8585;
-  --hoverredtext: #f75858;
-  --graytext: #c7c8ca;
-  --beigetext: #f5f5dc;
-  --greentext: #76c576; */
-/* } */
-
 /* 본문 */
 body {
   font-family: "Ubuntu", "IBM Plex Sans KR";
@@ -46,16 +35,6 @@ h2.section-title {
   transform: translate(-50%, -53%);
   align-items: center;
 }
-/* .big-layout {
-  position: absolute;
-  top: 30px;
-  left: -40px;
-  width: 980px;
-  height: 690px;
-  border-radius: 25px;
-  background-color: var(--contentColor);
-  box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 5px var(--whiteShadow);
-} */
 section.Pomodoro {
   position: relative;
   right: 20px;
@@ -64,10 +43,7 @@ section.Pomodoro {
   height: 630px;
   padding: 10px;
   border-radius: 20px;
-  /* background: #e9f0fa; */
   background-color: var(--contentColor);
-  /* background-color: #ffffff; */
-  /* box-shadow: 7px 7px 6px var(--blackShadow), -5px -5px 5px var(--whiteShadow); */
   box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 2px var(--whiteShadow);
 }
 section.todonottodo {
@@ -80,10 +56,7 @@ article.todolist,
 article.nottodolist {
   padding: 10px;
   border-radius: 20px;
-  /* background: #e9f0fa; */
   background-color: var(--contentColor);
-  /* background-color: #ffffff; */
-  /* box-shadow: 7px 7px 11px var(--blackShadow), -5px -5px 13px var(--whiteShadow); */
   box-shadow: 7px 7px 10px var(--blackShadow), -4px -4px 2px var(--whiteShadow);
   overflow: auto;
 }
@@ -159,7 +132,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   color: #777777;
   opacity: 0.2;
   border: 0;
-  /* border: 1px solid gray; */
   padding: 2px;
   border-radius: 40%;
   background-color: transparent;
@@ -192,7 +164,6 @@ article.nottodolist::-webkit-scrollbar-thumb {
   font-size: 15px;
   padding: 5px 6px 6px 8px;
   border: none;
-  /* border: 1px solid gray; */
   border-radius: 10px;
   background: transparent;
 }
@@ -220,10 +191,6 @@ button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
-/* button:active {
-  box-shadow: inset 1px 1px 2px var(--blackShadow),
-    -1px -1px 3px var(--whiteShadow);
-} */
 /* record , 스크롤 구현 */
 div.record {
   position: relative;
@@ -261,7 +228,6 @@ div.record::-webkit-scrollbar-thumb {
   width: 300px;
   display: inline;
   border-radius: 10px;
-  /* border: 1px solid gray; */
 }
 #record-time {
   /*시간 자동입력*/
@@ -283,9 +249,7 @@ div.record::-webkit-scrollbar-thumb {
   top: 0px;
   left: 0px;
   width: 200px;
-  /* background-color: #e9f0fa; */
   background-color: var(--contentColor);
-  /* border: 1px solid #e9f0fa; */
   border: 1px solid var(--contentColor);
   border-bottom: 1px solid #dbe2eb;
 }
@@ -314,7 +278,6 @@ div.audio {
   height: 130px;
   width: 442px;
   border-radius: 20px;
-  /* background-color: #ffffff; */
   background-color: var(--contentColor);
   box-shadow: 5px 5px 8px var(--blackShadow), -4px -4px 3px var(--whiteShadow);
 }
@@ -332,7 +295,6 @@ div.audio {
   padding-top: 10px;
   border: 0;
   border-radius: 7px;
-  /* background-color: #ffffff; */
   background-color: var(--contentColor);
   box-shadow: 4px 4px 4px var(--blackShadow), -2px -2px 1px var(--whiteShadow);
 }
@@ -346,7 +308,6 @@ div.audio {
     -1px -1px 2px var(--whiteShadow);
   cursor: pointer;
 }
-
 /* 오디오 선택시 나오는 모달창 */
 #modal-audio {
   flex-direction: column;
@@ -360,7 +321,6 @@ div.audio {
   padding: 5px 5px 10px 5px;
   border-radius: 10px;
   overflow: auto;
-  /* box-shadow: 2px 2px 12px var(--blackShadow), -2px -2px 12px var(--whiteShadow); */
   box-shadow: 4px 4px 6px var(--blackShadow),
     -5px -5px 10px var(--lightgrayShadow);
   z-index: 99;
@@ -388,7 +348,6 @@ div.audio {
   margin: 5px 0px 0px 0px;
   border: 0;
   border-radius: 5px;
-  /* background: #e9f0fa; */
   background-color: rgba(244, 244, 244);
   box-shadow: 1px 1px 1px lavender, -3px -3px 14px var(--whiteShadow);
 }
@@ -438,7 +397,6 @@ div.audio {
   width: 410px;
   border-radius: 8px;
   height: 40px;
-  /* background: #e9f0fa; */
   background-color: var(--contentColor);
   box-shadow: 4px 4px 6px var(--blackShadow), -3px -3px 3px var(--whiteShadow);
 }
@@ -606,7 +564,6 @@ div.audio {
 }
 .color-button {
   top: 140px;
-  /* background-color: #e9f0fa; */
   background-color: var(--contentColor);
 }
 .ntd-color-button {
@@ -624,13 +581,11 @@ div.audio {
   flex-direction: column;
   align-items: center;
   background: rgba(255, 255, 255, 0.8);
-  /* box-shadow: 3px 3px 14px gray, -3px -3px 15px var(--whiteShadow); */
   box-shadow: 5px 5px 6px var(--blackShadow), -1px -1px 3px var(--blackShadow);
   border: 2px solid white;
   border-radius: 10px;
   z-index: 999;
 }
-
 /* 투두리스트, 낫투두 입력시 생겨나는 리스트들 */
 ol {
   margin: 0px;
@@ -649,7 +604,6 @@ ol li {
   margin-bottom: 7px;
   border-radius: 8px;
   border: 2px solid white;
-  /* background-color: var(--backgroundColor); */
   background: rgba(255, 255, 255, 0.753);
   box-shadow: 3px 3px 3px var(--blackShadow), -2px -2px 2px var(--whiteShadow);
   color: lightgray;
@@ -791,9 +745,6 @@ ol li:hover {
     left: 0px;
     width: 100%;
     height: 1400px;
-    /* background-color: black;
-    display: inline;
-    opacity: 0.5; */
   }
 }
 @media screen and (max-width: 551px) {
@@ -827,7 +778,6 @@ ol li:hover {
     font-size: 15px;
   }
   ol li {
-    /* left: -22px; */
     width: 260px;
     height: 30px;
   }
@@ -840,24 +790,6 @@ ol li:hover {
     top: -80px;
     left: 210px;
   }
-  /* ol li {
-    position: relative;
-    left: -10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 401px;
-    height: 35px;
-    list-style: none;
-    padding-left: 5px;
-    margin-bottom: 7px;
-    border-radius: 8px;
-    border: 2px solid white;
-    background: rgba(255, 255, 255, 0.753);
-    box-shadow: 3px 3px 3px var(--blackShadow), -2px -2px 2px var(--whiteShadow);
-    color: lightgray;
-  } */
-
   .color-close {
     position: absolute;
     top: 0px;

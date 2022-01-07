@@ -1,8 +1,6 @@
 // 달력
 var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
 var date = new Date();//today의 Date를 세어주는 역할
-
-
 function yyyymmdd(){
   let dateObject = new Date();
   let year = dateObject.getFullYear();
@@ -10,8 +8,6 @@ function yyyymmdd(){
   let date = dateObject.getDate();
   return year +"."+ month+"."+date;
 }
-
-
 function prevCalendar() {//이전 달
     today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
     buildCalendar();
@@ -20,12 +16,10 @@ function prevCalendar() {//이전 달
  // getMonth() : 월 출력 함수 저번달이므로 -1해준다 getMonth는 0~11월로 표시되지만 빌드캘린더 함수에서 +1해주므로 -1을 넣어줘야 전달값이 나옴
  // getDate() : 일 출력 함수
 }
-
 function nextCalendar() {//다음 달
     today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
     buildCalendar();
 }
-
 function buildCalendar(){//입력받은 값을 기준으로 달력 만들기
     var doMonth = new Date(today.getFullYear(),today.getMonth(),1);
     //이번 달의 첫째 날,

@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -12,7 +11,6 @@
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
     <title>POMOTODO</title>
     <!-- css -->
     <link rel="stylesheet" href="style.css" />
@@ -31,11 +29,6 @@
     <%- include ('header.ejs') %>
     
     <div id="mainLayout">
-      <!-- <span class="search-bar">
-        <input type="text" class="query" value="" placeholder="google search bar">
-        <button type="button" class="searchBtn"><i class="fas fa-search"></i></button>
-      </span> -->
-      
       <span class="big-layout"></span>
       <span class="color-close"></span>
       <section class="Pomodoro">
@@ -50,7 +43,6 @@
             <div class="pie-chart pie-chart1" id="pie-chart1">
               <span class="center"></span>
             </div>
-
             <div class="Pomodoro-timer-container">
               <button class="clock__updown" id="minute1__plus"><i class="fas fa-caret-up"></i></button>
               <button class="clock__updown" id="minute2__plus"><i class="fas fa-caret-up"></i></button>
@@ -65,12 +57,11 @@
               <button class="clock__btn" id="btn__start" style="display: inline" ><i class="fas fa-play"></i></button>
               <button class="clock__btn" id="btn__stop"> <i class="fas fa-stop"></i> </button>
             </div>
-              <!-- 기록 -->
+              <!-- pomodoro 기록 -->
             <div class="record" overflow:auto;>
               <ul class="record-list" id="record-list"> <%- pomodoroRecord %> </ul> 
             </div>
           </div>
-
           <!-- 오디오 -->
           <div class="audio">
             <div name="audio" id="select-audio" size="1"></div>
@@ -89,7 +80,6 @@
           </div>
         </article>
       </section>
-
       <section class="todonottodo">
         <!-- 투두리스트-->
           <!-- 입력부분 -->
@@ -110,7 +100,6 @@
             <span class="todo-modal-content" id="todo-modal-content">ﾠ
               <button type="button" class="color-button" id="close" value="close"> <b> < </b>  </button>
               <button type="button" class="color-button" id="check" value="check"> ✔︎ </button>
-
               <button type="button" class="color-button" id="red" value="red"></button>
               <button type="button" class="color-button" id="light-orange" value="light-orange"></button>
               <button type="button" class="color-button" id="orange" value="orange"></button>
