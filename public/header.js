@@ -8,7 +8,7 @@ function setClock(){
     let min = addStringZero(dateObject.getMinutes());
     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + " . " + hour+ " : " + min ; 
     //00시00분 초기화코드
-    console.log(min);
+    // console.log(min);
     if(hour == '00' && min == '00'){
         window.location.href = 'https://pomotodo.kr/';
         console.log('recirect!!');
