@@ -11,7 +11,6 @@ let pbkfd2Password = require('pbkdf2-password')
 let hasher = pbkfd2Password();
 
 MongoClient.connect('mongodb+srv://POMOTODO:x5pYtvf91GCOg7gb@cluster0.l9rep.mongodb.net/pomotodo?retryWrites=true&w=majority', function(err, client){
-// MongoClient.connect('mongodb+srv://디비계정:디비비밀번호@cluster0.l9rep.mongodb.net/디비이름?retryWrites=true&w=majority', function(err, client){
     //db지정하는코드
     db = client.db('pomotodo');
     if (err) return console.log(err);
@@ -141,6 +140,7 @@ let notTodoResult;
     } 
     // 홈페이지 get요청시 출력해줄 코드
     app.get('/',homeLoginCheck,function(req, res){
+        console.log('왜다르지');
         // pomodoro 기록 출력하는 코드
         db.collection('pomodoro').findOne({id: req.user.id, 'yyyymmdd' : yyyymmdd()}, function(err, pomodoroResult){
             if(pomodoroResult==null){ // 없으면 데이터 생성
