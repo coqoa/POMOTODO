@@ -263,15 +263,15 @@ https://coqoa.tistory.com/115
 
 ### 😱 발생한 이슈 😱
 
-sortable 범위인식 문제
+ 💡 jquery sortable 범위인식 문제 💡 
 
 https://coqoa.tistory.com/116
 
 </br>
 
-터치펀치 적용안되던 문제
+ 💡 jquery ui touch punch 무반응 💡 
 
-
+https://coqoa.tistory.com/117
 
 </br>
 
