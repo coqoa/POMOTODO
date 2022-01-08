@@ -281,7 +281,10 @@ https://coqoa.tistory.com/118
 
 </br>
 
+💡 db조회 및 출력시 발생하는 병목현상 💡 
+https://coqoa.tistory.com/119
 
+</br>
 211211 db에서 자료를 불러올 때 자료형이 달라서 생긴 문제
 
 조건에 따른 데이터 저장/수정/초기화 
