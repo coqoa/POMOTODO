@@ -259,6 +259,12 @@ https://coqoa.tistory.com/115
 
 </br>
 
+##### 💡 ubuntu 포트포워딩, AWS 도메인연결하기 💡 
+
+https://coqoa.tistory.com/120
+
+</br>
+
 ---
 
 ### 😱 발생한 이슈 😱
