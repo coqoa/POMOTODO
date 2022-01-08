@@ -275,13 +275,20 @@ https://coqoa.tistory.com/117
 
 </br>
 
+💡 웹워커사용 💡 
+
+https://coqoa.tistory.com/118
+
+</br>
+
+
 211211 db에서 자료를 불러올 때 자료형이 달라서 생긴 문제
 
 조건에 따른 데이터 저장/수정/초기화 
 
 
 
-웹워커사용문제
+
 
  클라이언트? 서버? http? ip? 도메인? DNS?(ROUTE53) ACM? ELB? 발생한 문제 및 어떻게 해결했는지 ? 
 
