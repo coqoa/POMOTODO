@@ -749,6 +749,7 @@ ol li:hover {
 }
 @media screen and (max-width: 551px) {
   /* 모바일 */
+
   section.Pomodoro {
     top: -60px;
     zoom: 65%;
