@@ -140,7 +140,8 @@ let notTodoResult;
     } 
     // 홈페이지 get요청시 출력해줄 코드
     app.get('/',homeLoginCheck,function(req, res){
-        console.log('왜다르지');
+        console.log(yyyymmdd());
+        console.log(yyyymmdd());
         // pomodoro 기록 출력하는 코드
         db.collection('pomodoro').findOne({id: req.user.id, 'yyyymmdd' : yyyymmdd()}, function(err, pomodoroResult){
             if(pomodoroResult==null){ // 없으면 데이터 생성
