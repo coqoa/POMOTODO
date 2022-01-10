@@ -1,3 +1,20 @@
+let userId = document.querySelector('#modal-button-id-check');
+// console.log(userId.innerHTML);
+function checkData(){
+    $.ajax({ 
+        method : 'post',
+        url : '/',
+        data : {id : userId.innerHTML, yyyymmdd : yyyymmdd()},
+        success : function() {
+            console.log('홈 ajax 성공')
+        },
+        error : function(xhr, status, error) {
+            console.log('홈 ajax 실패');
+        }
+    })
+    console.log('checkData')
+}
+checkData();
 //네비 날짜
 function setClock(){
     let dateObject = new Date();
@@ -8,8 +25,10 @@ function setClock(){
     let min = addStringZero(dateObject.getMinutes());
     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + " . " + hour+ " : " + min ; 
     //00시00분 초기화코드
-    // console.log(min);
     if(hour == '00' && min == '00'){
+        checkData();
+    }
+    if(hour == '00' && min == '01'){
         window.location.href = 'https://pomotodo.kr/';
         console.log('recirect!!');
     }
