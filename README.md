@@ -297,6 +297,11 @@ https://coqoa.tistory.com/121
 
 </br>
 
+💡 502 Bad Gateway💡 
+
+https://coqoa.tistory.com/122
+
+</br>
 ---
 
 ## 개발기간
