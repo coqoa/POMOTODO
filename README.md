@@ -219,10 +219,6 @@
 
 ### ✍️ 개발하면서 공부한 것 
 
-##### 클라이언트? 서버? http? ip? 도메인? DNS?(ROUTE53) ACM? ELB?
-
-</br>
-
 ##### 💡 회원가입 유효성검사 및 예외처리 💡 
 
 https://coqoa.tistory.com/110
@@ -291,17 +287,12 @@ https://coqoa.tistory.com/118
 https://coqoa.tistory.com/119
 
 </br>
-211211 db에서 자료를 불러올 때 자료형이 달라서 생긴 문제
 
-조건에 따른 데이터 저장/수정/초기화 
+💡 로컬에서는 잘 작동하는데 도메인에서 안됨💡 
 
+https://coqoa.tistory.com/121
 
-
-
-
- 클라이언트? 서버? http? ip? 도메인? DNS?(ROUTE53) ACM? ELB? 발생한 문제 및 어떻게 해결했는지 ? 
-
-또 뭐가 있을지 생각해보기 
+</br>
 
 ---
 
