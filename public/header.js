@@ -5,14 +5,17 @@ function checkData(){
         method : 'post',
         url : '/',
         data : {id : userId.innerHTML, yyyymmdd : yyyymmdd()},
-        success : function() {
-            console.log('홈 ajax 성공')
+        success : function(e) {
+            if(e.message == '데이터가없음'){
+                setTimeout(function(){location.reload()},1);
+            }else{
+                console.log(e.message)
+            }
         },
         error : function(xhr, status, error) {
             console.log('홈 ajax 실패');
         }
     })
-    console.log('checkData')
 }
 checkData();
 //네비 날짜
@@ -42,6 +45,7 @@ function addStringZero(time){
 window.onload = function(){
     setClock();
     setInterval(setClock,1000);
+    
 }
 let modalButton = document.getElementById('modal-button-id-check');
 let modalWindow = document.getElementById('modal-window-id-check');

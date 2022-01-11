@@ -24,7 +24,12 @@ const buttonSecond2Minus = document.getElementById("second2__minus");
 let intervalID;
 let func1;
 let pomodoroDelayRed=1500; //25분은 1500초
-let pomodoroDelayGreen=300; 
+let pomodoroDelayGreen=300;
+// console.log('----pomodelay----')
+// let pomodelay;
+// if(pomodelay == undefined){pomodelay = 1500;}
+// console.log(pomodelay)
+// console.log('----pomodelay----') 
 let pomodoroDelay = pomodoroDelayRed;
 let pieChart = document.getElementById("pie-chart1")
 let PomodoroGuage

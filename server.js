@@ -131,7 +131,7 @@ let notTodoResult;
             res.render('POMOTODO.ejs', { posts : 'log in', pomodoroRecord : ' ', todoListRecord : ' ', notTodoListRecord : ' ' });
         } 
     } 
-    // 홈페이지 get요청시 출력해줄 코드
+    // 홈페이지 post요청시 데이터를 생성해줄 코드
     app.post('/',function(req, res){
         // 서버에 날짜에 따른 데이터 생성, post요청은 홈으로 리다이렉트 할 때마다 한다 - 클라이언트의 시간이 00시 00분이면 리다이렉트 시키기 때문에 날짜변경되면 데이터 생성하도록
         console.log(req.body.id) // ajax전달받는 데이터 id 
@@ -140,24 +140,30 @@ let notTodoResult;
             db.collection('pomodoro').findOne({id: req.body.id, 'yyyymmdd' : req.body.yyyymmdd}, function(err, pomodoroResult){
                 if(pomodoroResult==null){ // 없으면 빈값의 데이터 생성
                     db.collection('pomodoro').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'contentHTML' : '' }, function(err, result){
+                        console.log('pomo생성')
                     });
+                    db.collection('todolist').findOne({id: req.body.id, 'yyyymmdd' : req.body.yyyymmdd}, function(err, todolistResult){
+                        if(todolistResult==null){
+                            db.collection('todolist').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'todoListHTML' : '' }, function(err, result){
+                                console.log('todo생성')
+                            });
+                            db.collection('not-todolist').findOne({id: req.body.id, 'yyyymmdd' : req.body.yyyymmdd}, function(err, nottodolistResult){
+                                if(nottodolistResult==null){
+                                    db.collection('not-todolist').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'notTodoListHTML' : '' }, function(err, result){
+                                        console.log('not-todo생성')
+                                    });
+                                    res.status(200).send({ message : '데이터가없음'}); 
+                                }
+                            })
+                        }
+                    })
+                }else{
+                    res.status(200).send({ message : '데이터가있음'}); 
                 }
             })
-            db.collection('todolist').findOne({id: req.body.id, 'yyyymmdd' : req.body.yyyymmdd}, function(err, todolistResult){
-                if(todolistResult==null){
-                    db.collection('todolist').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'todoListHTML' : '' }, function(err, result){
-                    });
-                }
-            })
-            db.collection('not-todolist').findOne({id: req.body.id, 'yyyymmdd' : req.body.yyyymmdd}, function(err, nottodolistResult){
-                if(nottodolistResult==null){
-                    db.collection('not-todolist').insertOne({ 'id' : req.body.id, 'yyyymmdd' : req.body.yyyymmdd ,'notTodoListHTML' : '' }, function(err, result){
-                    });
-                }
-            })
-            res.status(200).send({ message : '리다이렉트-데이터생성??'}); 
         }
     })
+    // 홈페이지 get요청시 출력해줄 코드
     app.get('/',homeLoginCheck,function(req, res){
         //서버에서 단순 검색 및 출력담당
         db.collection('pomodoro').find({id : req.user.id}).toArray(function(err,pomodoroResult){
@@ -174,11 +180,10 @@ let notTodoResult;
                 db.collection('not-todolist').find({id : req.user.id}).toArray(function(err,nottodolistResult){
                     let c = nottodolistResult.length-1;
                     notTodoResult = nottodolistResult[c].notTodoListHTML;
-
                     res.render('POMOTODO.ejs', { posts : req.user.id, pomodoroRecord : pomoResult, todoListRecord : todoResult, notTodoListRecord : notTodoResult}); 
+
                 })
             })
-
         })
     });
     // /signup get요청 하면?
@@ -341,8 +346,4 @@ let notTodoResult;
         }
         })
     })
-    // app.get('/index.html', function(req, res){
-    //     console.log('/index.html')
-    //     res.status(200).send();
-    // })
 })
