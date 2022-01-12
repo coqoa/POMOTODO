@@ -1,7 +1,7 @@
 <img width="1440" alt="스크린샷 2021-12-31 오후 6 31 10" src="https://user-images.githubusercontent.com/81023768/147815368-b5ed5144-d747-480b-bb5c-88b7b5c7d4ff.png">
 
 ---
-### 🔥 개발정보 🔥
+### 🔥 개발정보
 <details>
 <summary> click  </summary>  
 
@@ -421,8 +421,112 @@ https://coqoa.tistory.com/122
 ---
 
 
+### ![tomato(0)](https://user-images.githubusercontent.com/81023768/149079377-6413424b-919b-4dba-bf49-fabf0843150c.png) What is POMOTODO ? (ENG) 
+<details>
+<summary> click  </summary>
 
 # ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)	What is POMOTODO ? ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)
+<b>POMOTODO</b> is a web application that combines various functions specialized in schedule management.
+
+<b>The function of POMOTODO.</b>
+ 1. Google search.
+ 2. Pomodoro timer.
+ 3. TO-DO-list.
+ 4. Not-to-do-list.
+ 5. Visualize past records.
+ 6. Living noise that helps you concentrate.
+ 7. Chrome expansion program.
+
+</br>
+
+### 1. Google search.
+<img width="502" alt="스크린샷 2021-12-31 오후 5 13 18" src="https://user-images.githubusercontent.com/81023768/147815216-09a64e39-d038-4d93-a346-b60eca0e2b07.png">
+
+- You can google search it without having to go to another page.
+- You can go to the browser address bar through <b>shift+tab</b>```shortening key``` while focused on the search box. 
+- If you click outside the search box, the search box closes.  
+  You can open the search box at any time through <b>'shift + center'</b> ```shortening key```
+
+
+</br>
+
+### 2. Pomodoro timer.
+<img width="400" alt="스크린샷 2021-12-31 오후 5 12 23" src="https://user-images.githubusercontent.com/81023768/147815637-0de043d3-ce88-4093-ba38-1644739c0b53.png"><img width="400" alt="스크린샷 2021-12-31 오후 5 55 59" src="https://user-images.githubusercontent.com/81023768/147815665-f45d31b7-578d-40a2-839c-c1bb6bcb5e08.png"><img width="400" alt="스크린샷 2021-12-31 오후 5 59 05" src="https://user-images.githubusercontent.com/81023768/147815660-ee4b9644-5859-42de-8506-518c95559a07.png">
+
+- When the Pomodoro timer is played, it alternately shows the working time/rest time.
+- When the timer ends, the ```time``` and ```Text input space``` are automatically generated.  
+  - You can write simple text through the ```Text input space```
+
+</br> 
+ 
+### 3. TO-DO-list.  
+- Enter TO-DO-list.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 33 02" src="https://user-images.githubusercontent.com/81023768/147815859-98a9d889-516c-4bfa-9528-e766ade97c4c.png">   
+
+- Color change.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 33 34" src="https://user-images.githubusercontent.com/81023768/147815856-89b52b38-0af9-40b8-9537-df9cb641a22c.png">  
+
+
+- Change the location to drag & drop.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 33 53" src="https://user-images.githubusercontent.com/81023768/147815853-d1a5398b-f68d-4402-84bf-2742d63eec05.png">  
+
+
+- Completed mark/aligned.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 34 19" src="https://user-images.githubusercontent.com/81023768/147815849-a05b3533-f6f4-4fc3-997a-b0b9a367f9b7.png">  
+
+- Delete.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 34 41" src="https://user-images.githubusercontent.com/81023768/147815844-01e9c35c-9ea2-43af-80ca-c5f66830f820.png">  
+
+- This is a list where you can write down what You have to do today.
+  - You can move through the ```drag button```    
+  - You can change the color by clicking ```list```  
+  - You can delete the list through the ```delete button```  
+
+</br> 
+ 
+### 4. NOT-To-Do-list.
+<img width="400" alt="스크린샷 2021-12-31 오후 5 36 06" src="https://user-images.githubusercontent.com/81023768/147816158-4cd7d5d1-9798-4e52-97be-bcc128dbe7c2.png"><img width="400" alt="스크린샷 2021-12-31 오후 5 36 18" src="https://user-images.githubusercontent.com/81023768/147816156-df9d04cc-82b5-42e4-b0a3-ae6fee4575ad.png">
+
+- This is a list where you can write what you shouldn't do today.    
+  - It functions like TO-DO-list.  
+
+
+</br> 
+ 
+### 5. Visualize past records.
+<img width="600" alt="스크린샷 2021-12-31 오후 5 37 37" src="https://user-images.githubusercontent.com/81023768/147816202-80b5ecd4-182a-47e3-bb1b-60406ceac159.png">
+
+- Check the completed Pomodoro timer and mark it with color and text on the calendar.
+- It shows the TO-DO-list and NOT-TO-DO-list of the date.
+- look up DB and show you past records.
+
+</br> 
+ 
+### 6. Living noise that helps you concentrate.  
+
+- Playing audio files and pausing.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 32 28" src="https://user-images.githubusercontent.com/81023768/147816227-0380a92b-f577-4591-b9eb-89c697b5e068.png"><img width="400" alt="스크린샷 2021-12-31 오후 5 32 48" src="https://user-images.githubusercontent.com/81023768/147816222-71f2c3be-57db-4dcf-a3f6-e6227bca2900.png">  
+
+- Audio file list.  
+<img width="400" alt="스크린샷 2021-12-31 오후 5 32 41" src="https://user-images.githubusercontent.com/81023768/147816224-3ced3d96-1fbd-4b52-a6e5-448a731c9733.png">
+
+
+- You can play audio that living noise that helps you concentrate. 
+  - You can select one of the 7 audio files and play it.
+
+</br> 
+ 
+### Chrome expansion program.
+--- 아이콘 사진 & 크롬스토어사진 및 링크,  ---  
+
+###### 크롬에서 새탭버튼을 누르면 POMOTODO를 열어주는 확장프로그램입니다
+
+</details>
+
+---
+
+
+# ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)	What is POMOTODO ? 
 #### POMOTODO는 일정 관리에 특화된 여러기능을 한데 묶은 웹애플리케이션입니다
 
 #### POMOTODO의 기능
