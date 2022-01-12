@@ -313,6 +313,12 @@ https://coqoa.tistory.com/122
 
 </br>
 
+💡 조건에 따른 홈페이지 새로고침💡  
+
+https://coqoa.tistory.com/124
+
+</br>
+
 ---
 
 ## 🌈 끝내며.. 
