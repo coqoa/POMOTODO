@@ -461,7 +461,7 @@ function addItem() {
 $(function(){
     $("#sortable").sortable({
         start:function(event, ui){
-            console.log('투두드래그시작');
+            // console.log('투두드래그시작');
         },
         stop:function(event, ui){
             ajaxTodo();
@@ -469,7 +469,7 @@ $(function(){
     });
     $("#ntd-sortable").sortable({
         start:function(event, ui){
-            console.log('낫투두드래그시작');
+            // console.log('낫투두드래그시작');
         },   
         stop:function(event, ui){
             ajaxNotTodo();
@@ -692,10 +692,10 @@ function ajaxTodo(){
         url : '/insertTodoList',
         data : {id : modalButton.innerHTML,yyyymmdd : yyyymmdd() , todoListHTML : itemList.innerHTML},
         success : function() {
-            console.log('투두 ajax 성공')
+            // console.log('투두 ajax 성공')
         },
         error : function(xhr, status, error) {
-            console.log('투두 ajax 실패');
+            // console.log('투두 ajax 실패');
         }
     })
 }

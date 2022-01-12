@@ -1,1 +1,1 @@
-window.open('http://POMOTODO.kr/',"_self");
+window.open('https://POMOTODO.kr/',"_self");

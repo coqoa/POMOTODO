@@ -134,8 +134,8 @@ let notTodoResult;
     // 홈페이지 post요청시 데이터를 생성해줄 코드
     app.post('/',function(req, res){
         // 서버에 날짜에 따른 데이터 생성, post요청은 홈으로 리다이렉트 할 때마다 한다 - 클라이언트의 시간이 00시 00분이면 리다이렉트 시키기 때문에 날짜변경되면 데이터 생성하도록
-        console.log(req.body.id) // ajax전달받는 데이터 id 
-        console.log(req.body.yyyymmdd) // ajax 전달받는 날짜
+        // console.log(req.body.id) // ajax전달받는 데이터 id 
+        // console.log(req.body.yyyymmdd) // ajax 전달받는 날짜
         if(req.body.id !== 'log in'){
             db.collection('pomodoro').findOne({id: req.body.id, 'yyyymmdd' : req.body.yyyymmdd}, function(err, pomodoroResult){
                 if(pomodoroResult==null){ // 없으면 빈값의 데이터 생성
@@ -273,7 +273,7 @@ let notTodoResult;
         }
     }
     app.get('/record',recordLoginCheck,function(req, res){
-        console.log(req.user.id);
+        // console.log(req.user.id);
         let dateObject = new Date();
         let years = dateObject.getFullYear();
         let months = dateObject.getMonth()+1;
@@ -312,7 +312,7 @@ let notTodoResult;
     });
     //달력버튼 눌러서 해당 데이터 출력하는 코드
     app.post('/dayButton', function(req, res){
-        console.log(req.body.clickedButton)
+        // console.log(req.body.clickedButton)
         db.collection('pomodoro').findOne({'id':req.user.id, 'yyyymmdd':req.body.clickedButton}, function(err, pomodoroRecordResult){
             if(pomodoroRecordResult ==null){
                 pomoRecordRes = '';

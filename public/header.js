@@ -143,7 +143,7 @@ document.onkeydown = function(e){
     if(e.which == 16) isShift = true;
     if(e.which == 13) isEnter = true;
 
-    console.log(isShift, isEnter)
+    // console.log(isShift, isEnter)
     if(isShift==true && isEnter == true){
         query.style.display = "inline";
         query.value = "";
@@ -153,7 +153,7 @@ document.onkeydown = function(e){
 }
 function search(){
     if(query.value.length>0){
-        let url = 'http://www.google.com/search?q='+query.value; 
+        let url = 'https://www.google.com/search?q='+query.value; 
         window.open(url)
     }
     query.value = "";

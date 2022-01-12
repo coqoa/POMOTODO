@@ -5,13 +5,14 @@
   "description": "Pomodoro Timer + To Do List + Not To Do List",
   "version": "1.4",
   "browser_action": {
+    "default_title": "POMOTODO",
     "default_icon": "/icon.png",
     "default_popup": "CE-popup.html"
   },
-  "permissions" : [
-    "activeTab"
-  ], 
   "chrome_url_overrides" : {
     "newtab": "CE-content-script.html"
-  }
+  },
+  "permissions" : [
+    "activeTab"
+  ]
 }
