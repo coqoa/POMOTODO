@@ -425,7 +425,7 @@ https://coqoa.tistory.com/122
 <details>
 <summary> click  </summary>
 
-# ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)	What is POMOTODO ? ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)
+# ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)	What is POMOTODO ?
 <b>POMOTODO</b> is a web application that combines various functions specialized in schedule management.
 
 <b>The function of POMOTODO.</b>
