@@ -7,6 +7,7 @@ function checkData(){
         data : {id : userId.innerHTML, yyyymmdd : yyyymmdd()},
         success : function(e) {
             if(e.message == '데이터가없음'){
+                
                 setTimeout(function(){location.reload()},1);
             }else{
                 console.log(e.message)
@@ -28,13 +29,16 @@ function setClock(){
     let min = addStringZero(dateObject.getMinutes());
     document.getElementById("POMOTODO__clock").innerHTML = year + ". " + month + ". " + date + " . " + hour+ " : " + min ; 
     //00시00분 초기화코드
+    console.log(hour);
+    console.log(min);
     if(hour == '00' && min == '00'){
+        
         checkData();
     }
-    if(hour == '00' && min == '01'){
-        window.location.href = 'https://pomotodo.kr/';
-        console.log('recirect!!');
-    }
+    // if(hour == '00' && min == '01'){
+    //     window.location.href = 'https://pomotodo.kr/';
+    //     console.log('recirect!!');
+    // }
 }
 function addStringZero(time){
     if(parseInt(time)<10)
