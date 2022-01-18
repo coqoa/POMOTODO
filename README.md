@@ -130,8 +130,8 @@
 
 - <b>확장프로그램</b>
   - POMOTODO를 기본 화면으로 설정한다  
-    - 왜? 일정관리프로그램은 자주 볼수록 경각심을 불러일으키기 때문에.
-
+    - 왜? 일정관리프로그램은 자주 볼수록 경각심을 불러일으키기 때문에.  
+  
 </br>
 
 #### ✋ 확장 프로그램을 사용함으로 인해 발생하는 문제점을 해결하기 위해 어떻게 했나? 🤚 
@@ -268,6 +268,12 @@ https://coqoa.tistory.com/115
 ##### 💡 ubuntu 포트포워딩, AWS 도메인연결하기 💡 
 
 https://coqoa.tistory.com/120
+
+</br>
+
+##### 💡 POMOTODO : 크롬 확장프로그램 배포 💡 
+
+https://coqoa.tistory.com/125
 
 </br>
 
@@ -522,10 +528,9 @@ https://coqoa.tistory.com/124
 
 </br> 
  
-### Chrome expansion program.
---- 아이콘 사진 & 크롬스토어사진 및 링크,  ---  
+### 7. Chrome expansion program.
 
-###### 크롬에서 새탭버튼을 누르면 POMOTODO를 열어주는 확장프로그램입니다
+https://chrome.google.com/webstore/detail/pomotodo/eiejppffpppelndcmldkpjleiojibopg?hl=ko. 
 
 </details>
 
@@ -623,6 +628,6 @@ https://coqoa.tistory.com/124
 </br> 
  
 ### 7. 크롬 확장 프로그램
---- 아이콘 사진 & 크롬스토어사진 및 링크,  ---  
 
-###### 크롬에서 새탭버튼을 누르면 POMOTODO를 열어주는 확장프로그램입니다
+https://chrome.google.com/webstore/detail/pomotodo/eiejppffpppelndcmldkpjleiojibopg?hl=ko
+
