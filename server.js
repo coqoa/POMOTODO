@@ -180,15 +180,10 @@ let notTodoResult;
         //서버에서 단순 검색 및 출력담당
         db.collection('pomodoro').find({id : req.user.id}).toArray(function(err,pomodoroResult){
             let a = pomodoroResult.length-1;
-            console.log('--')
-            console.log(a) // 마지막 배열 인덱스 == a
-            console.log('--')
-            console.log(pomodoroResult[a]) // 마지막 배열 출력
-            console.log('--')
-            console.log(pomodoroResult[a].contentHTML) // 마지막 배열 출력
-            console.log('--')
-            console.log(pomodoroResult[a].contentHTML.length) // 배열 마지막값 출력
-            console.log('--')
+            // console.log(a) // 마지막 배열 인덱스 == a
+            // console.log(pomodoroResult[a]) // 마지막 배열 출력
+            // console.log(pomodoroResult[a].contentHTML) // 마지막 배열 출력
+            // console.log(pomodoroResult[a].contentHTML.length) // 배열 마지막값 출력
             pomoResult = pomodoroResult[a].contentHTML;
 
             db.collection('todolist').find({id : req.user.id}).toArray(function(err,todolistResult){
