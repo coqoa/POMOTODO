@@ -111,6 +111,18 @@ MongoClient.connect('mongodb+srv://POMOTODO:x5pYtvf91GCOg7gb@cluster0.l9rep.mong
                     db.collection('users').insertOne({ id : req.body.loginId, hashPassword : hash, saltPassword : salt, email : req.body.email, number : req.body.number, gender : req.body.gender,birthday : req.body.birthday, }, function(err, result){
                         console.log('db user create')
                     })
+                    db.collection('pomodoro').insertOne({ 'id' : req.body.loginId, 'yyyymmdd' : '' ,'contentHTML' : '' }, function(err, result){
+                        console.log('pomo생성')
+                    });
+                    db.collection('todolist').insertOne({ 'id' : req.body.loginId, 'yyyymmdd' : '','todoListHTML' : '' }, function(err, result){
+                        console.log('todo생성')
+                    });
+                    db.collection('not-todolist').insertOne({ 'id' : req.body.loginId, 'yyyymmdd' : '' ,'notTodoListHTML' : '' }, function(err, result){
+                        console.log('not-todo생성')
+                    });
+
+
+
                     res.send("<script>alert('WELCOME !');location.href='/login';</script>");
                 })
             }else{
@@ -168,9 +180,15 @@ let notTodoResult;
         //서버에서 단순 검색 및 출력담당
         db.collection('pomodoro').find({id : req.user.id}).toArray(function(err,pomodoroResult){
             let a = pomodoroResult.length-1;
-            // console.log(a) // 마지막 배열 인덱스 == a
-            // console.log(pomodoroResult[a]) // 마지막 배열 출력
-            // console.log(pomodoroResult[a].contentHTML.length) // 배열 마지막값 출력
+            console.log('--')
+            console.log(a) // 마지막 배열 인덱스 == a
+            console.log('--')
+            console.log(pomodoroResult[a]) // 마지막 배열 출력
+            console.log('--')
+            console.log(pomodoroResult[a].contentHTML) // 마지막 배열 출력
+            console.log('--')
+            console.log(pomodoroResult[a].contentHTML.length) // 배열 마지막값 출력
+            console.log('--')
             pomoResult = pomodoroResult[a].contentHTML;
 
             db.collection('todolist').find({id : req.user.id}).toArray(function(err,todolistResult){
