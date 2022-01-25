@@ -307,21 +307,27 @@ https://coqoa.tistory.com/119
 
 </br>
 
-💡 로컬에서는 잘 작동하는데 도메인에서 안됨💡 
+💡 로컬에서는 잘 작동하는데 도메인에서 안됨 💡 
 
 https://coqoa.tistory.com/121
 
 </br>
 
-💡 502 Bad Gateway💡 
+💡 502 Bad Gateway 💡 
 
 https://coqoa.tistory.com/122
 
 </br>
 
-💡 조건에 따른 홈페이지 새로고침💡  
+💡 조건에 따른 홈페이지 새로고침 💡  
 
 https://coqoa.tistory.com/124
+
+</br>
+
+💡 신규가입계정 502 bad gateway issue 💡  
+
+https://coqoa.tistory.com/126
 
 </br>
 
