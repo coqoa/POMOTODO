@@ -544,7 +544,8 @@ https://chrome.google.com/webstore/detail/pomotodo/eiejppffpppelndcmldkpjleiojib
 
 
 # ![tomato(1)](https://user-images.githubusercontent.com/81023768/147905737-86695e69-1b87-4676-a723-8c2fd58ee7a4.png)	What is POMOTODO ? 
-#### POMOTODO는 일정 관리에 특화된 여러기능을 한데 묶은 웹애플리케이션입니다
+[POMOTODO](https://pomotodo.kr/)  
+일정 관리에 특화된 여러기능을 한데 묶은 웹애플리케이션입니다.  
 
 #### POMOTODO의 기능
  ###### 1. 구글 검색
